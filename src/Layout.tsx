@@ -2,6 +2,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, Menu, X, ChevronDown, ExternalLink, MapPin, Clock, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { asset } from '@/lib/utils';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -209,13 +210,13 @@ export default function Layout() {
             <Link to="/" className={`flex-shrink-0 relative transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'}`}>
               {/* Dark logo for transparent hero header */}
               <img
-                src="/images/logo-footer.png"
+                src={asset('images/logo-footer.png')}
                 alt="Москоллектор"
                 className={`w-auto absolute top-0 left-0 transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'} ${isHomeTransparent ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
               />
               {/* Light logo for scrolled/other pages — transparent PNG */}
               <img
-                src="/images/logo.png"
+                src={asset('images/logo.png')}
                 alt="Москоллектор"
                 className={`w-auto transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'} ${isHomeTransparent ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
               />
@@ -370,7 +371,7 @@ export default function Layout() {
             <div className="md:col-span-5">
               <Link to="/" className="flex items-center gap-3 mb-5">
                 <img
-                  src="/images/logo-footer.png"
+                  src={asset('images/logo-footer.png')}
                   alt="Москоллектор"
                   className="h-14 w-auto"
                 />

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Calendar, Newspaper, Video, BookOpen, Tag, FileText, Download, ExternalLink } from 'lucide-react';
+import { asset } from '@/lib/utils';
 
 const news = [
   {
@@ -250,7 +251,7 @@ export default function Press() {
                       className="w-full aspect-video"
                       preload="metadata"
                     >
-                      <source src={video.src} />
+                      <source src={asset(video.src)} />
                       Ваш браузер не поддерживает воспроизведение видео.
                     </video>
                   </div>
@@ -287,7 +288,7 @@ export default function Press() {
               {newspaperIssues.map((issue) => (
                 <a
                   key={issue.number}
-                  href={issue.file}
+                  href={asset(issue.file)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group card-modern rounded-2xl p-6 hover:shadow-lg transition-all duration-200"

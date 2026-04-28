@@ -7,7 +7,7 @@ import {
   AlertOctagon, Info as InfoIcon
 } from 'lucide-react';
 
-const FILE_BASE_URL = '/docs/';
+const FILE_BASE_URL = `${import.meta.env.BASE_URL}docs/`;
 
 // Map URL paths to section IDs
 const pathToSection: Record<string, string> = {

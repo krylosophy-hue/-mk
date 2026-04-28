@@ -97,7 +97,7 @@ const vrezkaForm: Record<string, { form: string; file: string }> = {
 };
 
 // Base URL for files
-const FILE_BASE_URL = '/docs/forms/';
+const FILE_BASE_URL = `${import.meta.env.BASE_URL}docs/forms/`;
 
 // Sidebar items
 const sidebarItems = [
@@ -770,7 +770,7 @@ export default function Consumers() {
             <div className="text-sm text-amber-800">
               <p className="font-semibold mb-1">Важная информация</p>
               <p>В коммуникационные коллекторы допускаются только граждане РФ. С 25.01.2021 приняты новые наименования коллекторов.</p>
-              <a href="/docs/forms/Переименованные-коллекторы_.xlsx" className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
+              <a href={`${FILE_BASE_URL}Переименованные-коллекторы_.xlsx`} className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
                 <Download className="w-4 h-4" /> Скачать список переименованных коллекторов
               </a>
             </div>
@@ -874,7 +874,7 @@ export default function Consumers() {
                       <strong>Уважаемые потребители!</strong> С 25.01.2021 в АО «Москоллектор» приняты новые наименования ряда коллекторов и комплексов.
                     </p>
                     <a
-                      href="/docs/consumers/Список-переименованных-коллекторов.pdf"
+                      href={`${import.meta.env.BASE_URL}docs/consumers/Список-переименованных-коллекторов.pdf`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sky-700 hover:text-sky-900 font-medium"

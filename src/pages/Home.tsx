@@ -8,6 +8,7 @@ import {
   ExternalLink, ArrowUpRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { asset } from '@/lib/utils';
 
 const announcements = [
   {
@@ -81,7 +82,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden -mt-[112px] pt-[112px]">
         <div className="absolute inset-0">
           <video
-            src="/videos/hero.mp4?v=c483d65c"
+            src={asset('videos/hero.mp4?v=c483d65c')}
             autoPlay
             muted
             loop
@@ -172,7 +173,7 @@ export default function Home() {
               <div className="absolute w-[440px] h-[440px] rounded-full bg-sky-500/[0.05] blur-3xl" />
               {/* Main circular image */}
               <div className="relative w-[420px] h-[420px] lg:w-[470px] lg:h-[470px] rounded-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(10,22,40,0.25),0_0_0_1px_rgba(14,165,233,0.08)]">
-                <img src="/images/collector-hero.jpg" alt="Коллектор" className="w-full h-full object-cover" />
+                <img src={asset('images/collector-hero.jpg')} alt="Коллектор" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
               </div>
               {/* Decorative short line under circle */}
