@@ -23,7 +23,3 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Large media files — hosted separately (CDN / GitHub Releases / LFS)
-public/videos/*.mp4
-public/videos/*.mov
-
