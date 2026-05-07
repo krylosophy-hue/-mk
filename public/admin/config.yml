@@ -1,0 +1,125 @@
+backend:
+  name: github
+  repo: krylosophy-hue/-mk
+  branch: main
+  # Sveltia CMS использует GitHub OAuth через свой бесплатный auth-сервис
+  # Альтернатива: указать собственный oauth_proxy_url
+  base_url: https://auth.sveltia.app
+
+# Логотип для UI админки
+logo_url: /-mk/images/logo.png
+
+# Базовый путь для медиа (загрузка из админки)
+media_folder: "public/uploads"
+public_folder: "/-mk/uploads"
+
+# Локализация UI (с осени 2024 Sveltia поддерживает русский интерфейс)
+locale: ru
+
+# Адрес сайта для предпросмотра
+site_url: https://krylosophy-hue.github.io/-mk
+display_url: https://krylosophy-hue.github.io/-mk
+
+# Коллекции — то, что редакторы могут менять
+collections:
+  # ============================================================
+  # 1. НОВОСТИ
+  # ============================================================
+  - name: "news"
+    label: "Новости"
+    label_singular: "Новость"
+    folder: "content/news"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ['date', 'title']
+    view_filters:
+      - label: "Производство"
+        field: category
+        pattern: "Производство"
+      - label: "Пресс-центр"
+        field: category
+        pattern: "Пресс-центр"
+      - label: "Мероприятия"
+        field: category
+        pattern: "Мероприятия"
+    fields:
+      - { name: "title", label: "Заголовок", widget: "string", required: true }
+      - { name: "date", label: "Дата", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { name: "category", label: "Категория", widget: "select", options: ["Производство", "Пресс-центр", "Мероприятия", "Охрана труда", "Социальная ответственность"], default: "Производство", required: true }
+      - { name: "image", label: "Изображение (URL или загрузка)", widget: "image", required: false }
+      - { name: "excerpt", label: "Краткое описание (1–2 предложения)", widget: "text", required: true }
+      - { name: "body", label: "Полный текст", widget: "markdown", required: false }
+
+  # ============================================================
+  # 2. ОБЪЯВЛЕНИЯ НА ГЛАВНОЙ
+  # ============================================================
+  - name: "announcements"
+    label: "Объявления (главная страница)"
+    label_singular: "Объявление"
+    folder: "content/announcements"
+    create: true
+    delete: true
+    slug: "{{order}}-{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: ['order']
+    fields:
+      - { name: "title", label: "Заголовок", widget: "string", required: true }
+      - { name: "content", label: "Текст", widget: "text", required: true }
+      - { name: "link", label: "Ссылка (Подробнее)", widget: "string", required: true, hint: "Например: /consumers#tariffs или /consumer-news" }
+      - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99, required: true }
+      - { name: "active", label: "Показывать на сайте", widget: "boolean", default: true }
+
+  # ============================================================
+  # 3. ВАКАНСИИ
+  # ============================================================
+  - name: "vacancies"
+    label: "Вакансии"
+    files:
+      - file: "content/vacancies.yml"
+        name: "vacancies"
+        label: "Список вакансий"
+        fields:
+          - name: "vacancies"
+            label: "Должности"
+            label_singular: "Вакансия"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.department}}"
+            fields:
+              - { name: "title", label: "Должность", widget: "string", required: true }
+              - { name: "department", label: "Подразделение", widget: "string", required: true }
+
+  # ============================================================
+  # 4. ГАЗЕТА «ПОДЗЕМНЫЙ ЛАБИРИНТ»
+  # ============================================================
+  - name: "newspaper"
+    label: "Газета «Подземный лабиринт»"
+    label_singular: "Выпуск"
+    folder: "content/newspaper"
+    create: true
+    delete: true
+    slug: "{{year}}-{{number}}"
+    summary: "{{label}}"
+    sortable_fields: ['year']
+    fields:
+      - { name: "number", label: "Номер выпуска (например: №04 (65))", widget: "string", required: true }
+      - { name: "year", label: "Год", widget: "string", required: true }
+      - { name: "label", label: "Подпись (например: 2025 — Выпуск №04 (65))", widget: "string", required: true }
+      - { name: "file", label: "Файл PDF", widget: "file", required: true, hint: "Загрузите PDF-файл выпуска. Будет помещён в /docs/newspaper/." }
+
+  # ============================================================
+  # 5. ВИДЕО
+  # ============================================================
+  - name: "videos"
+    label: "Видео (Пресс-центр)"
+    label_singular: "Видео"
+    folder: "content/videos"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Заголовок", widget: "string", required: true }
+      - { name: "description", label: "Описание", widget: "text", required: true }
+      - { name: "src", label: "Файл видео", widget: "file", required: true, hint: "Загрузите MP4-файл (до 100MB) или укажите путь /videos/имя.mp4" }

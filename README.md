@@ -168,13 +168,65 @@ pm2 startup
 src/
   components/   — UI components (shadcn/ui)
   pages/        — Page components (Home, Info, Consumers, Calculator, etc.)
-  lib/          — Utilities
+  lib/          — Utilities (incl. content.ts — CMS content loader)
 public/
   videos/       — Hero video and other media
   images/       — Logos and images
+  admin/        — Sveltia CMS UI + config (see Content management)
+content/
+  news/         — News articles (.md)
+  announcements/— Front-page announcements (.md)
+  newspaper/    — Newspaper issues (.md)
+  videos/       — Press-center videos (.md)
+  vacancies.yml — Vacancy list
+.github/workflows/
+  deploy.yml    — Auto-build and deploy to gh-pages on every push to main
 ```
 
 ## Environment
 
 - **Node.js** >= 18
 - **npm** >= 9
+
+---
+
+## 📝 Content Management (CMS)
+
+The site uses **Sveltia CMS** — a modern fork of Decap CMS — for non-developers
+to edit content directly in the browser, without touching code.
+
+### How to edit content
+
+1. Open `https://krylosophy-hue.github.io/-mk/admin/` in any browser
+2. Click **Sign in with GitHub** and authorize
+3. You'll see collections in the sidebar:
+   - **Новости** — news articles
+   - **Объявления** — front-page announcement carousel
+   - **Вакансии** — open positions list
+   - **Газета «Подземный лабиринт»** — newspaper issues (PDF + metadata)
+   - **Видео** — press-center videos
+4. Edit, add, delete entries — clicking **Publish** commits to GitHub
+5. GitHub Actions automatically rebuilds and deploys the site (~2 minutes)
+6. Refresh the public site to see changes
+
+### Setup (one-time, by admin)
+
+1. Repo owner must add editors as **Collaborators** in repo Settings → Collaborators
+2. Editors need a GitHub account
+3. Sveltia CMS uses GitHub OAuth via `auth.sveltia.app` (free)
+
+### Adding new collections
+
+Edit `public/admin/config.yml` to add new collections. The loader in
+`src/lib/content.ts` parses YAML/Markdown files at build time. Add corresponding
+glob import + TypeScript interface to expose the new collection to components.
+
+### How content reaches the site
+
+```
+Editor in /admin/  →  commit to content/*.md  →  GitHub Actions  →  
+                       npm run build  →  deploy to gh-pages  →  live site
+```
+
+Build time loads all `content/**/*.md` and `content/*.yml` files via Vite's
+`import.meta.glob` and bundles them into the static site. No runtime API calls.

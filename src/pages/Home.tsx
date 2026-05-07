@@ -9,26 +9,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { asset } from '@/lib/utils';
+import { news as cmsNews, announcements as cmsAnnouncements } from '@/lib/content';
 
-const announcements = [
-  {
-    id: 1,
-    title: 'Тарифы на техническую эксплуатацию коллекторов на 2026 год',
-    content: 'АО «Москоллектор» информирует об утверждении тарифов на услуги по технической эксплуатации коммуникационных коллекторов на 2026 год.',
-    link: '/consumers#tariffs',
-  },
-  {
-    id: 2,
-    title: 'Внесены изменения в Технические условия для ОВК',
-    content: 'Внесены изменения в п. 3 Технических условий, предъявляемых к проекту прокладки оптико-волоконного кабеля в коллекторах.',
-    link: '/consumer-news',
-  },
-  {
-    id: 3,
-    title: 'Изменение в составе документации для согласования проектов на демонтаж',
-    content: 'АО «Москоллектор» информирует об изменении состава обязательных приложений к форме 25 о выдаче согласования проекта.',
-    link: '/consumer-news',
-  },
+// CMS-managed announcements (content/announcements/*.md)
+const announcements = cmsAnnouncements.length > 0 ? cmsAnnouncements : [
+  { id: 'fallback', title: 'АО «Москоллектор»', content: 'Подземная инфраструктура столицы', link: '/about', order: 0, active: true },
 ];
 
 const quickAccessLinks = [
@@ -50,11 +35,21 @@ const stats = [
   { icon: User, value: '1 404', unit: '', label: 'специалистов' },
 ];
 
-const news = [
-  { id: 1, date: '14 апреля 2026', title: 'В ходе весенней уборки промоют более 133 км дренажных систем коллекторов', excerpt: 'В рамках весеннего комплекса работ специалисты АО «Москоллектор» проведут промывку более 133 км дренажных систем.', link: '/press', category: 'Производство' },
-  { id: 2, date: '20 марта 2026', title: 'В прошлом году обновлено 39 км коммуникационных коллекторов', excerpt: 'По итогам 2025 года АО «Москоллектор» провело реконструкцию и капитальный ремонт 39 км коллекторов.', link: '/press', category: 'Производство' },
-  { id: 3, date: '22 декабря 2025', title: '«Мой папа — богатырь»: вышел уникальный ролик о работе АО «Москоллектор»', excerpt: 'В День энергетика АО «Москоллектор» представляет необычный ролик о своей деятельности.', link: '/press', category: 'Пресс-центр' },
-];
+// Top 3 latest news from CMS (content/news/*.md)
+const monthNamesHome = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const fmtDateHome = (iso: string): string => {
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return iso;
+  return `${d.getDate()} ${monthNamesHome[d.getMonth()]} ${d.getFullYear()}`;
+};
+const news = cmsNews.slice(0, 3).map((n) => ({
+  id: n.id,
+  date: fmtDateHome(n.date),
+  title: n.title,
+  excerpt: n.excerpt,
+  link: '/press',
+  category: n.category,
+}));
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
