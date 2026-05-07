@@ -1,5 +1,13 @@
-import { Heart, Users, GraduationCap, Gift, Phone, Shield, Briefcase, Coins, Baby, HandCoins, FileText } from 'lucide-react';
+import { Heart, Users, GraduationCap, Gift, Phone, Mail, MapPin, Shield, Briefcase, Coins, Baby, HandCoins, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { asset } from '@/lib/utils';
+
+// #2 ОСП — фотографии и стиль со старого сайта
+const socialPhotos = [
+  { src: 'images/union/union-2.jpg', alt: 'Корпоративные мероприятия' },
+  { src: 'images/union/union-4.jpg', alt: 'Спортивные мероприятия' },
+  { src: 'images/union/union-5.jpg', alt: 'Профсоюзная активность' },
+];
 
 const materialHelp = [
   'вступление в первый брак',
@@ -156,6 +164,20 @@ export default function Social() {
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <div className="accent-bar" />
+                <h2 className="text-2xl font-bold font-heading text-[#0a1628]">Жизнь коллектива</h2>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {socialPhotos.map((p, idx) => (
+                  <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] card-modern">
+                    <img src={asset(p.src)} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="accent-bar" />
                 <h2 className="text-2xl font-bold font-heading text-[#0a1628]">Другие социальные гарантии</h2>
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -191,14 +213,18 @@ export default function Social() {
                 Контакты
               </h3>
               <div className="space-y-3 text-sm">
-                <p className="text-slate-600">
-                  <span className="font-medium text-[#0a1628]">Отдел кадров:</span><br />
-                  <a href="tel:+74992222206" className="text-sky-600 hover:underline">+7 (499) 222-22-06</a>
-                </p>
-                <p className="text-slate-600">
-                  <span className="font-medium text-[#0a1628]">Профком:</span><br />
-                  <a href="tel:+74992222209" className="text-sky-600 hover:underline">+7 (499) 222-22-09</a>
-                </p>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-slate-400" />
+                  <a href="tel:+74992222201" className="text-sky-600 hover:underline">+7 (499) 222-22-01</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-slate-400" />
+                  <a href="mailto:info@moscollector.ru" className="text-sky-600 hover:underline">info@moscollector.ru</a>
+                </div>
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-slate-400 mt-0.5" />
+                  <span className="text-slate-600">129090, г. Москва, 1-й Коптельский пер., д. 16, стр. 4</span>
+                </div>
               </div>
             </div>
           </div>

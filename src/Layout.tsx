@@ -54,7 +54,7 @@ const searchablePages = [
   { title: 'Акционерам', path: '/shareholders', keywords: 'акционерам устав документы собрание дивиденды отчётность раскрытие информации' },
   { title: 'Услуги для потребителей', path: '/consumers', keywords: 'услуги потребители прокладка демонтаж перекладка врезка допуск тарифы кабель коллектор работы охранная зона городской заказ горзаказ' },
   { title: 'Новости для потребителей', path: '/consumer-news', keywords: 'новости потребители изменения технические условия ту' },
-  { title: 'Работа с коммуникациями', path: '/consumers#work', keywords: 'работа коммуникации прокладка врезка демонтаж перекладка горзаказ городской заказ кабель трубопровод теплосеть водопровод оптоволокно связь силовой форма 10.1 10.2 10.3 10.4 11.1 11.2 11.3 11.5 25 58 41 форма 15 форма 14 форма 1 форма 1.1' },
+  { title: 'Работа с коммуникациями', path: '/consumers#work', keywords: 'работа коммуникации прокладка врезка демонтаж перекладка горзаказ городской заказ кабель трубопровод теплосеть водопровод оптоволокно связь силовой форма 10.1 10.2 10.3 10.4 11.1 11.2 11.3 11.5 25 58 41 форма 15 форма 1 форма 1.1' },
   { title: 'Охранная зона коллектора', path: '/consumers#work', keywords: 'охранная зона коллектор согласование договор сохранность физические лица юридические форма 27 27п 27з форма 26 форма 16 форма 17 форма 21 форма 22 ппр' },
   { title: 'Тарифы и цены', path: '/consumers#tariffs', keywords: 'тарифы цены стоимость калькулятор тариф услуги оплата приказ 612 12 2026 трубопровод теплосеть водопровод кабель' },
   { title: 'Допуск в коллектор', path: '/consumers#dopusk', keywords: 'допуск коллектор пропуск оформление ордер бюро пропусков личный кабинет лк укэп мчд форма 40 40.1 32 33 38 34 35 37 37.1 45' },
@@ -138,13 +138,31 @@ export default function Layout() {
     // Normalize: lowercase, remove hyphens/dashes, collapse whitespace.
     // Dots are kept (so "10.1" matches "10.1" in keywords).
     const normalize = (s: string) =>
-      s.toLowerCase().replace(/[-–—_]/g, ' ').replace(/\s+/g, ' ').trim();
+      s.toLowerCase().replace(/[ёЁ]/g, 'е').replace(/[-–—_]/g, ' ').replace(/\s+/g, ' ').trim();
+    // #17 ОЭ — strip common Russian word endings for stemming
+    // e.g. "формы" → "форм", "тарифов" → "тариф", "коммуникации" → "коммуникац"
+    const stem = (t: string): string => {
+      if (t.length <= 3) return t; // keep short tokens (numbers, acronyms)
+      if (/^\d/.test(t)) return t; // keep tokens starting with digit (form numbers)
+      const endings = ['ами', 'ями', 'ого', 'его', 'ому', 'ему', 'ыми', 'ими', 'ах', 'ях', 'ам', 'ям', 'ой', 'ей', 'ом', 'ем', 'ов', 'ев', 'ый', 'ий', 'ая', 'яя', 'ое', 'ее', 'ые', 'ие', 'ть', 'ся', 'сь', 'ы', 'и', 'у', 'ю', 'е', 'а', 'я', 'о'];
+      for (const e of endings) {
+        if (t.length > e.length + 2 && t.endsWith(e)) return t.slice(0, -e.length);
+      }
+      return t;
+    };
     const q = normalize(searchQuery);
-    // Tokenize query — every token must be present somewhere (title or keywords)
     const tokens = q.split(' ').filter(Boolean);
     const results = searchablePages.filter(p => {
       const haystack = normalize(`${p.title} ${p.keywords}`);
-      return tokens.every(t => haystack.includes(t));
+      // Each query token must match the haystack either as substring,
+      // or its stem must be found as substring of any haystack token's stem.
+      return tokens.every(t => {
+        if (haystack.includes(t)) return true;
+        const tStem = stem(t);
+        if (tStem.length < 3) return false;
+        // Find any haystack token that, after stemming, contains the query stem.
+        return haystack.split(' ').some(ht => stem(ht).includes(tStem));
+      });
     });
     setSearchResults(results);
     setShowSearch(true);
@@ -206,19 +224,13 @@ export default function Layout() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center gap-6 transition-all duration-300 ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
-            {/* Logo */}
-            <Link to="/" className={`flex-shrink-0 relative transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'}`}>
-              {/* Dark logo for transparent hero header */}
+            {/* Logo — single image with conditional source, transparent PNG */}
+            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'}`}>
               <img
-                src={asset('images/logo-footer.png')}
+                src={asset(isHomeTransparent ? 'images/logo-footer.png' : 'images/logo.png')}
                 alt="Москоллектор"
-                className={`w-auto absolute top-0 left-0 transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'} ${isHomeTransparent ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-              />
-              {/* Light logo for scrolled/other pages — transparent PNG */}
-              <img
-                src={asset('images/logo.png')}
-                alt="Москоллектор"
-                className={`w-auto transition-all duration-300 ${isScrolled ? 'h-14' : 'h-20'} ${isHomeTransparent ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                className={`h-full w-auto transition-all duration-300`}
+                style={{ background: 'transparent' }}
               />
             </Link>
 

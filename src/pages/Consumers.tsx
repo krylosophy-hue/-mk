@@ -770,7 +770,7 @@ export default function Consumers() {
             <div className="text-sm text-amber-800">
               <p className="font-semibold mb-1">Важная информация</p>
               <p>В коммуникационные коллекторы допускаются только граждане РФ. С 25.01.2021 приняты новые наименования коллекторов.</p>
-              <a href={`${FILE_BASE_URL}Переименованные-коллекторы_.xlsx`} className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
+              <a href={`${FILE_BASE_URL}renamed-collectors.xlsx`} className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
                 <Download className="w-4 h-4" /> Скачать список переименованных коллекторов
               </a>
             </div>
@@ -874,7 +874,7 @@ export default function Consumers() {
                       <strong>Уважаемые потребители!</strong> С 25.01.2021 в АО «Москоллектор» приняты новые наименования ряда коллекторов и комплексов.
                     </p>
                     <a
-                      href={`${import.meta.env.BASE_URL}docs/consumers/Список-переименованных-коллекторов.pdf`}
+                      href={`${FILE_BASE_URL}renamed-collectors.xlsx`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sky-700 hover:text-sky-900 font-medium"
@@ -1852,8 +1852,20 @@ export default function Consumers() {
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-[#0a1628]">Разрешительная документация</h2>
               </div>
-              
+
               <div className="space-y-4">
+                {/* #29 ЦОП — особые сроки на оформление документации для ОВК */}
+                <div className="rounded-xl border border-sky-200 bg-sky-50/40 p-5">
+                  <p className="font-semibold text-[#0a1628] mb-2">Сроки на оформление документации на оптико-волоконный кабель</p>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• ТУ — <strong>5 рабочих дней</strong></li>
+                    <li>• Согласование проекта (СП) — <strong>5 рабочих дней</strong></li>
+                    <li>• Договор на сохранность — <strong>2 рабочих дня</strong></li>
+                    <li>• Ордер на работы — <strong>3 рабочих дня</strong></li>
+                  </ul>
+                  <p className="text-xs text-gray-500 mt-2">Для остальных типов коммуникаций сроки указаны в таблицах ниже.</p>
+                </div>
+
                 <Accordion title="Прокладка (врезка) инженерных коммуникаций в коллекторах">
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">

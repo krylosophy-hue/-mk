@@ -11,7 +11,7 @@ import {
   Users,
   Wrench,
   FileText,
-  MessageSquare,
+  Globe,
   Info,
   Hash,
 } from 'lucide-react';
@@ -396,7 +396,7 @@ export default function Contacts() {
           <div className="rounded-2xl border border-slate-100 bg-white p-6 mb-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
-                <MessageSquare className="w-4 h-4 text-sky-600" />
+                <Globe className="w-4 h-4 text-sky-600" />
               </div>
               <h3 className="font-heading font-semibold text-[#0a1628]">Социальные сети</h3>
             </div>

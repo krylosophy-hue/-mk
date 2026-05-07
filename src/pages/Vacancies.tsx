@@ -1,27 +1,28 @@
 import { Briefcase, CheckCircle2, Phone, Mail, Calendar, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// #15 ОК — список вакансий обновляется еженедельно через helpdesk (без HH)
 const vacancies = [
-  { title: 'Разработчик платформы Docsvision (C#/.Net)', department: 'ИТ-отдел', salary: 'до 350 000 ₽' },
-  { title: 'Специалист по воинскому учету и бронированию 1 категории', department: 'Административный отдел', salary: '121 239 ₽' },
-  { title: 'Специалист по охране труда 1 категории', department: 'Охрана труда', salary: '113 661 ₽' },
-  { title: 'Водитель автомобиля 1 класса 4 разряда', department: 'Транспортный отдел', salary: '112 580 ₽' },
-  { title: 'Специалист 1 категории Отдела учета коммуникаций', department: 'Отдел учета коммуникаций', salary: '110 858 ₽' },
-  { title: 'Электрогазосварщик 5 разряда', department: 'Эксплуатационный отдел', salary: '107 191 ₽' },
-  { title: 'Автоэлектрик 5 разряда', department: 'Транспортный отдел', salary: '107 191 ₽' },
-  { title: 'Водитель автомобиля 2 класса 4 разряда', department: 'Транспортный отдел', salary: '104 818 ₽' },
-  { title: 'Электромонтер по ремонту и обслуживанию электрооборудования 4-5 разряда', department: 'Эксплуатационный отдел', salary: '101 302 – 117 910 ₽' },
-  { title: 'Слесарь-ремонтник 4-5 разряда', department: 'Эксплуатационный отдел', salary: '98 233 – 105 825 ₽' },
-  { title: 'Слесарь строительный по ремонту металлоконструкций 4-5 разряда', department: 'Эксплуатационный отдел', salary: '99 211 – 104 818 ₽' },
-  { title: 'Электромонтер диспетчерского оборудования и телеавтоматики 4 разряда', department: 'Диспетчерская служба', salary: '99 211 ₽' },
-  { title: 'Техник коммуникационного коллектора', department: 'Эксплуатационный отдел', salary: '83 596 – 99 484 ₽' },
-  { title: 'Водитель автомобиля 3 класса 4 разряда', department: 'Транспортный отдел', salary: '96 838 ₽' },
-  { title: 'Слесарь-сантехник 4 разряда АХО', department: 'АХО', salary: '94 466 ₽' },
-  { title: 'Изолировщик 4-5 разряда', department: 'Эксплуатационный отдел', salary: '92 093 – 114 740 ₽' },
-  { title: 'Электрогазосварщик 4 разряда', department: 'Эксплуатационный отдел', salary: '92 093 – 99 211 ₽' },
-  { title: 'Камнетес/гранитчик 4 разряда', department: 'Эксплуатационный отдел', salary: '92 092 – 99 211 ₽' },
-  { title: 'Уборщик офисных помещений', department: 'АХО', salary: '61 683 ₽' },
-  { title: 'Уборщик территории 2 разряда АХО', department: 'АХО', salary: '56 075 ₽' },
+  { title: 'Разработчик платформы Docsvision (C#/.Net)', department: 'ИТ-отдел' },
+  { title: 'Специалист по воинскому учету и бронированию 1 категории', department: 'Административный отдел' },
+  { title: 'Специалист по охране труда 1 категории', department: 'Охрана труда' },
+  { title: 'Водитель автомобиля 1 класса 4 разряда', department: 'Транспортный отдел' },
+  { title: 'Специалист 1 категории Отдела учета коммуникаций', department: 'Отдел учета коммуникаций' },
+  { title: 'Электрогазосварщик 5 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Автоэлектрик 5 разряда', department: 'Транспортный отдел' },
+  { title: 'Водитель автомобиля 2 класса 4 разряда', department: 'Транспортный отдел' },
+  { title: 'Электромонтер по ремонту и обслуживанию электрооборудования 4-5 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Слесарь-ремонтник 4-5 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Слесарь строительный по ремонту металлоконструкций 4-5 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Электромонтер диспетчерского оборудования и телеавтоматики 4 разряда', department: 'Диспетчерская служба' },
+  { title: 'Техник коммуникационного коллектора', department: 'Эксплуатационный отдел' },
+  { title: 'Водитель автомобиля 3 класса 4 разряда', department: 'Транспортный отдел' },
+  { title: 'Слесарь-сантехник 4 разряда АХО', department: 'АХО' },
+  { title: 'Изолировщик 4-5 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Электрогазосварщик 4 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Камнетес/гранитчик 4 разряда', department: 'Эксплуатационный отдел' },
+  { title: 'Уборщик офисных помещений', department: 'АХО' },
+  { title: 'Уборщик территории 2 разряда АХО', department: 'АХО' },
 ];
 
 const benefits = [
@@ -104,16 +105,14 @@ export default function Vacancies() {
                   <thead>
                     <tr className="border-b border-slate-200">
                       <th className="py-3 pr-4 font-heading font-bold text-[#0a1628]">Должность</th>
-                      <th className="py-3 pr-4 font-heading font-bold text-[#0a1628] hidden sm:table-cell">Подразделение</th>
-                      <th className="py-3 font-heading font-bold text-[#0a1628] text-right whitespace-nowrap">Зарплата (руб.)</th>
+                      <th className="py-3 font-heading font-bold text-[#0a1628] hidden sm:table-cell">Подразделение</th>
                     </tr>
                   </thead>
                   <tbody>
                     {vacancies.map((vacancy, idx) => (
                       <tr key={idx} className="border-b border-slate-100 last:border-0 hover:bg-sky-50/50 transition-colors">
                         <td className="py-3.5 pr-4 text-slate-700 font-medium">{vacancy.title}</td>
-                        <td className="py-3.5 pr-4 text-slate-500 hidden sm:table-cell">{vacancy.department}</td>
-                        <td className="py-3.5 text-sky-600 font-semibold text-right whitespace-nowrap">{vacancy.salary}</td>
+                        <td className="py-3.5 text-slate-500 hidden sm:table-cell">{vacancy.department}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -122,7 +121,7 @@ export default function Vacancies() {
 
               <div className="mt-6 pt-5 border-t border-slate-200">
                 <p className="text-sm text-slate-500">
-                  Для отклика на вакансию свяжитесь с отделом кадров по телефону или электронной почте.
+                  Для отклика на вакансию и уточнения условий оплаты свяжитесь с отделом кадров по телефону или электронной почте.
                 </p>
               </div>
             </div>

@@ -1,4 +1,15 @@
 import { Users, Shield, Award, Briefcase, Calendar, Phone, Mail, MapPin, Trophy, HeartHandshake } from 'lucide-react';
+import { asset } from '@/lib/utils';
+
+// #2 ОСП — фотографии со старого сайта moscollector.ru
+const photos = [
+  { src: 'images/union/union-1.jpg', alt: 'Мероприятие профкома' },
+  { src: 'images/union/union-2.jpg', alt: 'Профсоюзная активность' },
+  { src: 'images/union/union-3.jpg', alt: 'День защиты детей' },
+  { src: 'images/union/union-4.jpg', alt: 'Спортивные мероприятия' },
+  { src: 'images/union/union-5.jpg', alt: 'Корпоративные мероприятия' },
+  { src: 'images/union/union-6.jpg', alt: 'Летние мероприятия' },
+];
 
 const activities = [
   {
@@ -97,6 +108,25 @@ export default function Union() {
                     </div>
                     <h3 className="font-bold font-heading text-[#0a1628] mb-2">{activity.title}</h3>
                     <p className="text-sm text-slate-500 leading-relaxed">{activity.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="accent-bar" />
+                <h2 className="text-2xl font-bold font-heading text-[#0a1628]">Жизнь профсоюза в фотографиях</h2>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {photos.map((photo, idx) => (
+                  <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] card-modern">
+                    <img
+                      src={asset(photo.src)}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
                 ))}
               </div>

@@ -89,10 +89,9 @@ function Accordion({ title, children, defaultOpen = false }: { title: string; ch
   );
 }
 
-// Sidebar navigation items
+// Sidebar navigation items (без 'anticorruption' — это отдельный раздел в главном меню, #1 ОЭБ)
 const sidebarItems = [
   { id: 'general', label: 'Общая информация', icon: InfoIcon },
-  { id: 'anticorruption', label: 'Противодействие коррупции', icon: Scale },
   { id: 'antiterror', label: 'Противодействие терроризму', icon: AlertOctagon },
   { id: 'revocation', label: 'Отзыв доверенностей', icon: FileText },
   { id: 'tech', label: 'Техническая информация', icon: Settings },
@@ -318,8 +317,8 @@ export default function Info() {
               </Accordion>
             </section>}
 
-            {/* Section 2: Anti-corruption */}
-            {(!singleSectionId || singleSectionId === 'anticorruption') && <section
+            {/* Section 2: Anti-corruption — only on dedicated /anticorruption page (#1 ОЭБ) */}
+            {singleSectionId === 'anticorruption' && <section
               ref={el => { sectionRefs.current['anticorruption'] = el; }}
               id="anticorruption"
               className="mb-14 scroll-mt-24"
