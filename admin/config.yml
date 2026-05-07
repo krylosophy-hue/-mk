@@ -2,9 +2,8 @@ backend:
   name: github
   repo: krylosophy-hue/-mk
   branch: main
-  # Sveltia CMS использует GitHub OAuth через свой бесплатный auth-сервис
-  # Альтернатива: указать собственный oauth_proxy_url
-  base_url: https://auth.sveltia.app
+  # Cloudflare Worker auth-прокси (sveltia-cms-auth)
+  base_url: https://sveltia-cms-auth.krylosophy.workers.dev
 
 # Логотип для UI админки
 logo_url: /-mk/images/logo.png
