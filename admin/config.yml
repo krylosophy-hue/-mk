@@ -122,3 +122,193 @@ collections:
       - { name: "title", label: "Заголовок", widget: "string", required: true }
       - { name: "description", label: "Описание", widget: "text", required: true }
       - { name: "src", label: "Файл видео", widget: "file", required: true, hint: "Загрузите MP4-файл (до 100MB) или укажите путь /videos/имя.mp4" }
+
+  # ============================================================
+  # 6. НОВОСТИ ДЛЯ ПОТРЕБИТЕЛЕЙ
+  # ============================================================
+  - name: "consumer-news"
+    label: "Новости для потребителей"
+    label_singular: "Новость"
+    folder: "content/consumer-news"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ['date', 'title']
+    fields:
+      - { name: "title", label: "Заголовок", widget: "string", required: true }
+      - { name: "date", label: "Дата", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { name: "category", label: "Категория", widget: "select", options: ["Охрана труда", "Техническая информация", "Допуск в коллектор", "Тарифы и цены", "Прочее"], default: "Прочее", required: true }
+      - { name: "excerpt", label: "Текст", widget: "text", required: true }
+      - { name: "body", label: "Полный текст (опционально)", widget: "markdown", required: false }
+
+  # ============================================================
+  # 7. КОНТАКТЫ (телефоны, адреса, реквизиты, РЭК, спец.службы)
+  # ============================================================
+  - name: "contacts"
+    label: "Контакты"
+    files:
+      - file: "content/contacts.yml"
+        name: "contacts"
+        label: "Контакты сайта"
+        fields:
+          - { name: "mainAddress", label: "Юридический адрес / Главный офис", widget: "string" }
+          - name: "receptionHours"
+            label: "Дни и часы приёма"
+            widget: "list"
+            field: { name: "line", label: "Строка расписания", widget: "string" }
+          - { name: "mainPhone", label: "Единый номер", widget: "string" }
+          - { name: "chancelleryEmail", label: "E-mail канцелярии", widget: "string" }
+          - name: "tsop"
+            label: "Центр обслуживания потребителей (ЦОП)"
+            widget: "object"
+            fields:
+              - { name: "address", label: "Адрес", widget: "string" }
+              - { name: "phone", label: "Телефон", widget: "string" }
+              - { name: "email", label: "E-mail", widget: "string" }
+          - name: "passOffice"
+            label: "Бюро пропусков"
+            widget: "object"
+            fields:
+              - { name: "address", label: "Адрес", widget: "string" }
+              - { name: "phone", label: "Телефон", widget: "string" }
+          - name: "socialLinks"
+            label: "Социальные сети"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { name: "name", label: "Название", widget: "string" }
+              - { name: "url", label: "Ссылка", widget: "string" }
+          - name: "requisites"
+            label: "Реквизиты"
+            widget: "object"
+            fields:
+              - { name: "inn", label: "ИНН", widget: "string" }
+              - { name: "kpp", label: "КПП", widget: "string" }
+              - { name: "okpo", label: "ОКПО", widget: "string" }
+              - { name: "ogrn", label: "ОГРН", widget: "string" }
+              - { name: "legalAddress", label: "Юридический адрес", widget: "string" }
+          - name: "productionUnits"
+            label: "Производственные подразделения (РЭК-1...6, СУЭКК)"
+            widget: "list"
+            label_singular: "Подразделение"
+            summary: "{{fields.name}} — {{fields.head}}"
+            fields:
+              - { name: "name", label: "Название", widget: "string" }
+              - { name: "address", label: "Адрес", widget: "string" }
+              - { name: "phones", label: "Телефоны", widget: "list", field: { name: "phone", label: "Телефон", widget: "string" }, required: false }
+              - { name: "head", label: "Руководитель", widget: "string", required: false }
+              - { name: "ext", label: "Доб. номер", widget: "string", required: false }
+          - name: "specializedServices"
+            label: "Специализированные службы (ОДС, ЦОП, УЭиТР…)"
+            widget: "list"
+            label_singular: "Служба"
+            summary: "{{fields.name}} — {{fields.head}}"
+            fields:
+              - { name: "name", label: "Название", widget: "string" }
+              - { name: "address", label: "Адрес", widget: "string" }
+              - { name: "phone", label: "Телефон", widget: "string", required: false }
+              - { name: "head", label: "Руководитель", widget: "string", required: false }
+              - { name: "headTitle", label: "Должность руководителя", widget: "string", required: false }
+              - { name: "ext", label: "Доб. номер", widget: "string", required: false }
+              - { name: "headExt", label: "Доб. руководителя", widget: "string", required: false }
+
+  # ============================================================
+  # 8. ДОКУМЕНТЫ: антикоррупция
+  # ============================================================
+  - name: "doc-anticorruption"
+    label: "Документы: Противодействие коррупции"
+    label_singular: "Документ"
+    folder: "content/documents/anticorruption"
+    create: true
+    delete: true
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string", required: true }
+      - { name: "file", label: "PDF-файл", widget: "file", required: true, hint: "Например: /docs/anticorruption/файл.pdf" }
+      - { name: "section", label: "Раздел", widget: "select", options: ["regulatory", "local"], default: "local", hint: "regulatory = нормативные акты, local = локальные акты" }
+      - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
+
+  # ============================================================
+  # 9. ДОКУМЕНТЫ: антитеррор
+  # ============================================================
+  - name: "doc-antiterror"
+    label: "Документы: Противодействие терроризму"
+    label_singular: "Документ"
+    folder: "content/documents/antiterror"
+    create: true
+    delete: true
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string", required: true }
+      - { name: "file", label: "PDF-файл", widget: "file", required: true }
+      - { name: "section", label: "Раздел", widget: "select", options: ["regulatory", "protection"], default: "regulatory", hint: "regulatory = нормативные документы, protection = антитеррористическая защищенность" }
+      - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
+
+  # ============================================================
+  # 10. ДОКУМЕНТЫ: техническая информация
+  # ============================================================
+  - name: "doc-tech"
+    label: "Документы: Техническая информация"
+    label_singular: "Документ"
+    folder: "content/documents/tech"
+    create: true
+    delete: true
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string", required: true }
+      - { name: "file", label: "Файл", widget: "file", required: true }
+      - { name: "section", label: "Раздел", widget: "select", options: ["tu", "collectors", "jubilee", "transfer"], default: "tu", hint: "tu = ТУ, collectors = коллекторы, jubilee = юбилейная книга, transfer = передача" }
+      - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
+
+  # ============================================================
+  # 11. ДОКУМЕНТЫ: акционеры (устав, ЕГРЮЛ и т.п.)
+  # ============================================================
+  - name: "doc-shareholders"
+    label: "Документы для акционеров"
+    label_singular: "Документ"
+    folder: "content/documents/shareholders"
+    create: true
+    delete: true
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string", required: true }
+      - { name: "file", label: "PDF-файл", widget: "file", required: true }
+      - { name: "date", label: "Дата (DD.MM.YYYY)", widget: "string", required: false }
+      - { name: "size", label: "Размер (например: 2.4 MB)", widget: "string", required: false }
+      - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
+
+  # ============================================================
+  # 12. СОБРАНИЯ АКЦИОНЕРОВ
+  # ============================================================
+  - name: "shareholder-meetings"
+    label: "Собрания акционеров"
+    files:
+      - file: "content/shareholders-meetings.yml"
+        name: "meetings"
+        label: "Список собраний"
+        fields:
+          - name: "meetings"
+            label: "Собрания"
+            label_singular: "Собрание"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.type}}"
+            fields:
+              - { name: "date", label: "Дата", widget: "string" }
+              - { name: "type", label: "Тип собрания", widget: "string" }
+              - { name: "status", label: "Статус", widget: "select", options: ["Проведено", "Запланировано", "Отменено"], default: "Проведено" }
+
+  # ============================================================
+  # 13. ДОКУМЕНТЫ: закупки
+  # ============================================================
+  - name: "doc-procurement"
+    label: "Документы по закупкам"
+    label_singular: "Документ"
+    folder: "content/documents/procurement"
+    create: true
+    delete: true
+    summary: "{{title}}"
+    fields:
+      - { name: "title", label: "Название", widget: "string", required: true }
+      - { name: "file", label: "Файл", widget: "file", required: true }
+      - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
