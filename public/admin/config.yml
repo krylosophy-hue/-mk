@@ -27,6 +27,7 @@ collections:
   - name: "news"
     label: "Новости"
     label_singular: "Новость"
+    description: "Новости пресс-центра. «+ Новость» — добавить, выберите статью и нажмите 🗑 — удалить."
     folder: "content/news"
     create: true
     delete: true
@@ -75,6 +76,7 @@ collections:
   # ============================================================
   - name: "vacancies"
     label: "Вакансии"
+    description: "Список открытых вакансий. Кнопкой «+ Вакансия» добавляйте, иконкой 🗑 удаляйте, перетаскивайте ⠿ для смены порядка."
     files:
       - file: "content/vacancies.yml"
         name: "vacancies"
@@ -84,10 +86,13 @@ collections:
             label: "Должности"
             label_singular: "Вакансия"
             widget: "list"
+            allow_add: true
+            collapsed: false
             summary: "{{fields.title}} — {{fields.department}}"
+            hint: "Перетащите за иконку ⠿ для изменения порядка. Кнопка «+ Вакансия» — добавить. Корзина — удалить."
             fields:
-              - { name: "title", label: "Должность", widget: "string", required: true }
-              - { name: "department", label: "Подразделение", widget: "string", required: true }
+              - { name: "title", label: "Должность", widget: "string", required: true, hint: "Например: Электрогазосварщик 5 разряда" }
+              - { name: "department", label: "Подразделение", widget: "string", required: true, hint: "Например: Эксплуатационный отдел" }
 
   # ============================================================
   # 4. ГАЗЕТА «ПОДЗЕМНЫЙ ЛАБИРИНТ»
