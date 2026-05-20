@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, Newspaper, Video, BookOpen, Tag, FileText, Download, ExternalLink } from 'lucide-react';
+import { Calendar, Newspaper, Video, BookOpen, Tag, FileText, Download, ExternalLink, X } from 'lucide-react';
 import { asset } from '@/lib/utils';
 import { news as cmsNews, videos as cmsVideos, newspaper as cmsNewspaper } from '@/lib/content';
 
@@ -19,6 +19,7 @@ const news = cmsNews.map((n) => ({
   excerpt: n.excerpt,
   category: n.category,
   image: n.image || 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+  body: n.body || n.excerpt,
 }));
 
 const videos = cmsVideos.map((v, i) => ({ ...v, id: i + 1 }));
@@ -36,6 +37,10 @@ const years = ['2026', '2025', '2024', '2023', '2022', 'Архив'];
 export default function Press() {
   const [selectedCategory, setSelectedCategory] = useState('Все');
   const [activeTab, setActiveTab] = useState('Новости');
+  const [openNewsId, setOpenNewsId] = useState<string | null>(null);
+
+  // Найти открытую новость по id
+  const openNews = openNewsId ? news.find((n) => n.id === openNewsId) ?? null : null;
 
   const filteredNews = selectedCategory === 'Все'
     ? news
@@ -102,7 +107,14 @@ export default function Press() {
             {/* News Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {filteredNews.map((item) => (
-                <article key={item.id} className="group card-modern overflow-hidden rounded-2xl">
+                <article
+                  key={item.id}
+                  onClick={() => setOpenNewsId(item.id)}
+                  className="group card-modern overflow-hidden rounded-2xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  tabIndex={0}
+                  role="button"
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpenNewsId(item.id); } }}
+                >
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={item.image}
@@ -128,6 +140,7 @@ export default function Press() {
                     <p className="text-sm text-gray-500 line-clamp-3 leading-relaxed">
                       {item.excerpt}
                     </p>
+                    <p className="text-sm text-sky-600 font-medium mt-3 group-hover:underline">Читать полностью →</p>
                   </div>
                 </article>
               ))}
@@ -312,6 +325,46 @@ export default function Press() {
           </div>
         </div>
       </div>
+
+      {/* News detail modal */}
+      {openNews && (
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center p-4 md:p-8 bg-black/60 backdrop-blur-sm overflow-y-auto"
+          onClick={() => setOpenNewsId(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-3xl w-full my-8 overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative h-64 md:h-80 overflow-hidden">
+              <img src={openNews.image} alt={openNews.title} className="w-full h-full object-cover" />
+              <button
+                type="button"
+                onClick={() => setOpenNewsId(null)}
+                aria-label="Закрыть"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/95 hover:bg-white shadow flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5 text-[#0a1628]" />
+              </button>
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#0a1628]">
+                  {openNews.category}
+                </span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8">
+              <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                <Calendar className="w-4 h-4" />
+                {openNews.date}
+              </div>
+              <h2 className="font-heading font-bold text-2xl md:text-3xl text-[#0a1628] mb-5">{openNews.title}</h2>
+              <div className="prose prose-sm md:prose-base max-w-none text-gray-700 whitespace-pre-line leading-relaxed">
+                {openNews.body}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

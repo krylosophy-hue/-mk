@@ -15,259 +15,74 @@ import {
   Info,
   Hash,
 } from 'lucide-react';
+import { contacts } from '@/lib/content';
 
 /* ------------------------------------------------------------------ */
-/*  Section 1 data                                                     */
+/*  Section 1 data — берётся из content/contacts.yml (CMS)             */
 /* ------------------------------------------------------------------ */
 
 const mainContacts = [
   {
     icon: MapPin,
     title: 'Юридический адрес / Главный офис',
-    content: '129090, Москва, 1-й Коптельский пер., д. 16, стр. 4',
+    content: contacts.mainAddress,
   },
   {
     icon: Clock,
     title: 'Дни и часы приёма',
-    lines: [
-      'Понедельник — четверг: с 8:00 до 17:00',
-      'Пятница: с 8:00 до 15:45',
-      'Обед: с 12:00 до 12:45',
-    ],
+    lines: contacts.receptionHours,
   },
   {
     icon: Phone,
     title: 'Единый номер',
-    content: '+7 (499) 222-22-01',
-    link: 'tel:+74992222201',
+    content: contacts.mainPhone,
+    link: 'tel:' + contacts.mainPhone.replace(/[^+\d]/g, ''),
     linkText: 'Позвонить',
   },
   {
     icon: Mail,
     title: 'Канцелярия',
-    content: '+7 (499) 222-22-01',
-    subContent: 'kancler@moscollector.ru',
-    link: 'mailto:kancler@moscollector.ru',
+    content: contacts.mainPhone,
+    subContent: contacts.chancelleryEmail,
+    link: 'mailto:' + contacts.chancelleryEmail,
     linkText: 'Написать',
   },
   {
     icon: Users,
     title: 'Центр обслуживания потребителей',
-    lines: [
-      '117140, г. Москва, ул. Лобачика, д. 4',
-      '+7 (499) 222-22-01',
-      'tsop@moscollector.ru',
-    ],
-    link: 'mailto:tsop@moscollector.ru',
+    lines: [contacts.tsop.address, contacts.tsop.phone, contacts.tsop.email],
+    link: 'mailto:' + contacts.tsop.email,
     linkText: 'Написать',
   },
   {
     icon: Building2,
     title: 'Бюро пропусков',
-    lines: [
-      'г. Москва, ул. Большая Никитская улица, 31',
-      '+7 (499) 222-22-01 (доб.: 1510)',
-    ],
+    lines: [contacts.passOffice.address, contacts.passOffice.phone],
   },
 ];
 
-const socialLinks = [
-  { name: 'Вконтакте', url: 'https://vk.com/aomoscollector' },
-  { name: 'Telegram', url: 'https://t.me/aomoskollektor' },
-];
+const socialLinks = contacts.socialLinks;
 
 const requisites = [
-  { label: 'ИНН', value: '7708389595' },
-  { label: 'КПП', value: '770801001' },
-  { label: 'ОКПО', value: '46013249' },
-  { label: 'ОГРН', value: '1207700380909' },
-  { label: 'Адрес', value: '129090, Москва, 1-й Коптельский пер., 16, стр. 4' },
+  { label: 'ИНН', value: contacts.requisites.inn },
+  { label: 'КПП', value: contacts.requisites.kpp },
+  { label: 'ОКПО', value: contacts.requisites.okpo },
+  { label: 'ОГРН', value: contacts.requisites.ogrn },
+  { label: 'Адрес', value: contacts.requisites.legalAddress },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Section 2 data                                                     */
+/*  Section 2 — РЭК и СУЭКК (из CMS)                                   */
 /* ------------------------------------------------------------------ */
 
-const productionUnits = [
-  {
-    name: 'РЭК-1',
-    address: 'г. Москва, ул. Лобачика, д. 4',
-    phones: ['+7 (495) 608-47-76', '+7 (499) 795-62-30'],
-    head: 'Ирклиенко Андрей Андреевич',
-    ext: '5100',
-  },
-  {
-    name: 'РЭК-2',
-    address: 'г. Москва, 1-й Красногвардейский проезд, д. 9а',
-    phones: ['+7 (964) 767-83-29', '+7 (495) 653-82-10'],
-    head: 'Янин Сергей Александрович',
-    ext: '5200',
-  },
-  {
-    name: 'РЭК-3',
-    address: 'г. Москва, ул. Обручева д. 33а',
-    phones: ['+7 (499) 743-02-42', '+7 (495) 698-91-44'],
-    head: 'Сулименко Владимир Викторович',
-    ext: '5300',
-  },
-  {
-    name: 'РЭК-4',
-    address: 'г. Москва, проспект Вернадского, д. 12а',
-    phones: ['+7 (499) 133-53-11'],
-    head: 'Улинкин Виталий Владимирович',
-    ext: '5400',
-  },
-  {
-    name: 'РЭК-5',
-    address: 'г. Москва, Варшавское шоссе, д. 95Ж',
-    phones: ['+7 (499) 794-19-72'],
-    head: 'Кочкуров Вадим Николаевич',
-    ext: '5500',
-  },
-  {
-    name: 'РЭК-6',
-    address: 'г. Москва, ул. Поморская, д. 17',
-    phones: ['+7 (499) 903-68-02'],
-    head: 'Исмаилов Фарид Айдынович',
-    ext: '5600',
-  },
-  {
-    name: 'СУЭКК г. Зеленограда',
-    address: 'г. Зеленоград, корп. 1820',
-    phones: [],
-    head: 'Рукавишников Владимир Валерьевич',
-    ext: '5700',
-  },
-];
+const productionUnits = contacts.productionUnits;
+
 
 /* ------------------------------------------------------------------ */
 /*  Section 3 data                                                     */
 /* ------------------------------------------------------------------ */
 
-const specializedServices = [
-  {
-    name: 'ОДС',
-    address: 'г. Москва, 1-й Коптельский пер., д. 16, стр. 4',
-    phone: '+7 (499) 795-62-00',
-    ext: '1011',
-  },
-  {
-    name: 'УЭиТР',
-    address: 'г. Москва, ул. Лобачика, д. 4',
-    head: 'Гордюшина Татьяна Николаевна',
-    ext: '3401',
-  },
-  {
-    name: 'Отдел эксплуатации',
-    address: 'ул. Лобачика д. 4',
-    head: 'Воронин Александр Михайлович',
-    ext: '1703',
-  },
-  {
-    name: 'ОТРК (группа согласования)',
-    address: 'ул. Лобачика д. 4',
-    head: 'Присэкару Светлана Викторовна',
-    ext: '3430',
-  },
-  {
-    name: 'ПТО',
-    address: 'ул. Обручева д. 33а',
-    head: 'Овсянников Алексей Геннадьевич',
-    ext: '3500',
-  },
-  {
-    name: 'Отдел метрологии',
-    address: 'ул. Обручева д. 33а',
-    head: 'Капран Игорь Николаевич',
-    ext: '4300',
-  },
-  {
-    name: 'УРсП',
-    address: 'ул. Лобачика д. 4',
-    head: 'Хватов Кирилл Борисович',
-    ext: '2400',
-  },
-  {
-    name: 'ЦОП',
-    address: 'ул. Лобачика д. 4',
-    headTitle: 'Ведущий специалист',
-    head: 'Пономаренко Виктория Викторовна',
-    ext: '2403',
-  },
-  {
-    name: 'ОРУ',
-    address: 'ул. Лобачика д. 4',
-    phone: '+7 (499) 222-22-01 доб. 6641',
-    head: 'Плотникова Наталия Александровна',
-    ext: '2417',
-  },
-  {
-    name: 'ОУКиСКПУ',
-    address: 'ул. Лобачика д. 4',
-    ext: '6622',
-    head: 'Рогачёва Юлия Николаевна',
-    headExt: '2401',
-  },
-  {
-    name: 'ЦБ',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-    headTitle: 'Главный бухгалтер',
-    head: 'Манькова Людмила Юрьевна',
-    ext: '6691',
-  },
-  {
-    name: 'УКС',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-    head: 'Кондратьев Антон Геннадьевич',
-    ext: '3601',
-  },
-  {
-    name: 'УП',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-    head: 'Лесконог Андрей Александрович',
-    ext: '2000',
-  },
-  {
-    name: 'ОКПИР',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-  },
-  {
-    name: 'ОСиМК',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-    head: 'Лаврентьев Никита Александрович',
-    ext: '2031',
-  },
-  {
-    name: 'СО',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-    head: 'Тихонова Ирина Петровна',
-    ext: '3801',
-  },
-  {
-    name: 'ОТН',
-    address: '1-й Коптельский пер., д. 16, стр. 4',
-    head: 'Серый Никита Петрович',
-    ext: '3415',
-  },
-  {
-    name: 'ООТ',
-    address: 'Ковров пер., д. 26, стр. 1',
-    head: 'Железнова Екатерина Владиславовна',
-    ext: '3010',
-  },
-  {
-    name: 'УАиМ',
-    address: 'ул. Поморская д. 17',
-    head: 'Кочетов Александр Анатольевич',
-    ext: '3200',
-  },
-  {
-    name: 'АРУ',
-    address: 'ул. Дорожная д. 3 к. 5',
-    head: 'Горбунов Андрей Михайлович',
-    ext: '3701',
-  },
-];
+const specializedServices = contacts.specializedServices;
 
 /* ------------------------------------------------------------------ */
 /*  Collapsible section wrapper                                        */
@@ -463,7 +278,7 @@ export default function Contacts() {
                     <MapPin className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                     {unit.address}
                   </p>
-                  {unit.phones.length > 0 && (
+                  {unit.phones && unit.phones.length > 0 && (
                     <p className="flex items-start gap-2 text-slate-600">
                       <Phone className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                       {unit.phones.join(', ')}

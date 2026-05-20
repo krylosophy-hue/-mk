@@ -59,6 +59,40 @@ const vacanciesRaw = import.meta.glob('/content/vacancies.yml', {
   import: 'default',
 }) as Record<string, string>
 
+// Consumer news (отдельная коллекция).
+const consumerNewsRaw = import.meta.glob('/content/consumer-news/*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+}) as Record<string, string>
+
+// Документы (по 3 категориям + акционеры + закупки)
+const docsAnticorruptionRaw = import.meta.glob('/content/documents/anticorruption/*.md', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+const docsAntiterrorRaw = import.meta.glob('/content/documents/antiterror/*.md', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+const docsTechRaw = import.meta.glob('/content/documents/tech/*.md', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+const docsShareholdersRaw = import.meta.glob('/content/documents/shareholders/*.md', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+const docsProcurementRaw = import.meta.glob('/content/documents/procurement/*.md', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+
+// Контакты — единый YAML
+const contactsRaw = import.meta.glob('/content/contacts.yml', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+
+// Собрания акционеров
+const shareholdersMeetingsRaw = import.meta.glob('/content/shareholders-meetings.yml', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+
 /* ------------------------------------------------------------------ */
 /*  Typed collections                                                  */
 /* ------------------------------------------------------------------ */
@@ -101,6 +135,59 @@ export interface VideoItem {
 export interface Vacancy {
   title: string
   department: string
+}
+
+// Документ (общий формат для всех типов документов)
+export interface DocumentItem {
+  id: string
+  title: string
+  file: string
+  date?: string
+  size?: string
+  section?: string // регуляторные/локальные/защищённость и т.д.
+  order: number
+}
+
+// Собрание акционеров
+export interface ShareholderMeeting {
+  date: string
+  type: string
+  status: string
+}
+
+// Производственное подразделение (РЭК)
+export interface ProductionUnit {
+  name: string
+  address: string
+  phones?: string[]
+  head?: string
+  ext?: string
+}
+
+// Специализированная служба
+export interface SpecializedService {
+  name: string
+  address: string
+  phone?: string
+  phones?: string[]
+  head?: string
+  headTitle?: string
+  ext?: string
+  headExt?: string
+}
+
+// Полные контакты сайта
+export interface ContactsData {
+  mainAddress: string
+  receptionHours: string[]
+  mainPhone: string
+  chancelleryEmail: string
+  tsop: { address: string; phone: string; email: string }
+  passOffice: { address: string; phone: string }
+  socialLinks: { name: string; url: string }[]
+  requisites: { inn: string; kpp: string; okpo: string; ogrn: string; legalAddress: string }
+  productionUnits: ProductionUnit[]
+  specializedServices: SpecializedService[]
 }
 
 /* ------------------------------------------------------------------ */
@@ -175,6 +262,89 @@ export const vacancies: Vacancy[] = (() => {
     return parsed?.vacancies || []
   } catch (e) {
     console.error('Vacancies YAML parse error:', e)
+    return []
+  }
+})()
+
+/* ------------------------------------------------------------------ */
+/*  Дополнительные коллекции                                           */
+/* ------------------------------------------------------------------ */
+
+// Новости для потребителей
+export const consumerNews: NewsItem[] = Object.entries(consumerNewsRaw)
+  .map(([path, raw]) => {
+    const { data, content } = parseFrontmatter(raw)
+    return {
+      id: slugFromPath(path),
+      title: String(data.title || ''),
+      date: String(data.date || ''),
+      category: String(data.category || ''),
+      excerpt: String(data.excerpt || ''),
+      image: data.image ? String(data.image) : undefined,
+      body: content.trim() || undefined,
+      link: data.link ? String(data.link) : undefined,
+    } as NewsItem
+  })
+  .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+
+// Универсальный загрузчик документов
+function loadDocuments(raw: Record<string, string>): DocumentItem[] {
+  return Object.entries(raw)
+    .map(([path, fileRaw]) => {
+      const { data } = parseFrontmatter(fileRaw)
+      return {
+        id: slugFromPath(path),
+        title: String(data.title || ''),
+        file: String(data.file || ''),
+        date: data.date ? String(data.date) : undefined,
+        size: data.size ? String(data.size) : undefined,
+        section: data.section ? String(data.section) : undefined,
+        order: Number(data.order || 99),
+      } as DocumentItem
+    })
+    .sort((a, b) => a.order - b.order)
+}
+
+export const documentsAnticorruption = loadDocuments(docsAnticorruptionRaw)
+export const documentsAntiterror = loadDocuments(docsAntiterrorRaw)
+export const documentsTech = loadDocuments(docsTechRaw)
+export const documentsShareholders = loadDocuments(docsShareholdersRaw)
+export const documentsProcurement = loadDocuments(docsProcurementRaw)
+
+// Контакты — целиком из YAML
+export const contacts: ContactsData = (() => {
+  const entries = Object.values(contactsRaw)
+  if (entries.length === 0) {
+    return {
+      mainAddress: '',
+      receptionHours: [],
+      mainPhone: '',
+      chancelleryEmail: '',
+      tsop: { address: '', phone: '', email: '' },
+      passOffice: { address: '', phone: '' },
+      socialLinks: [],
+      requisites: { inn: '', kpp: '', okpo: '', ogrn: '', legalAddress: '' },
+      productionUnits: [],
+      specializedServices: [],
+    }
+  }
+  try {
+    return yaml.load(entries[0]) as ContactsData
+  } catch (e) {
+    console.error('Contacts YAML parse error:', e)
+    throw e
+  }
+})()
+
+// Собрания акционеров
+export const shareholderMeetings: ShareholderMeeting[] = (() => {
+  const entries = Object.values(shareholdersMeetingsRaw)
+  if (entries.length === 0) return []
+  try {
+    const parsed = yaml.load(entries[0]) as { meetings?: ShareholderMeeting[] }
+    return parsed?.meetings || []
+  } catch (e) {
+    console.error('Shareholder meetings YAML parse error:', e)
     return []
   }
 })()

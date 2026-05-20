@@ -302,7 +302,29 @@ export default function Layout() {
                           if (r.path.startsWith('http')) {
                             window.open(r.path, '_blank');
                           } else {
-                            navigate(r.path);
+                            // Разбираем путь на pathname + hash
+                            const hashIdx = r.path.indexOf('#');
+                            const targetPath = hashIdx === -1 ? r.path : r.path.slice(0, hashIdx);
+                            const targetHash = hashIdx === -1 ? '' : r.path.slice(hashIdx + 1);
+
+                            // Если уже на той же странице — навигация не сработает,
+                            // нужно явно скроллить к якорю
+                            const sameRoute = location.pathname === targetPath;
+                            if (sameRoute && targetHash) {
+                              const el = document.getElementById(targetHash);
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              }
+                            } else {
+                              navigate(r.path);
+                              // После перехода скроллим к hash (нужна задержка для рендера)
+                              if (targetHash) {
+                                setTimeout(() => {
+                                  const el = document.getElementById(targetHash);
+                                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }, 300);
+                              }
+                            }
                           }
                           setSearchQuery('');
                           setShowSearch(false);

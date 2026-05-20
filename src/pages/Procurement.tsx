@@ -4,6 +4,7 @@ import {
   ChevronRight, ExternalLink, FileText, Download,
   CheckCircle, Phone, User, ShieldCheck
 } from 'lucide-react';
+import { documentsProcurement } from '@/lib/content';
 
 // Animation variants
 const fadeInUp = {
@@ -24,10 +25,8 @@ const principles = [
   'отсутствие ограничения допуска к участию в закупке путем установления неизмеримых требований к участникам закупки',
 ];
 
-const documents = [
-  { title: 'Положение о закупках товаров работ услуг АО «Москоллектор» утв. Советом директоров № 84 от 18.12.2025', file: '/docs/polozhenie-o-zakupkah.docx' },
-  { title: 'Перечень товаров, работ, услуг, закупки которых осуществляются у субъектов малого и среднего предпринимательства', file: '/docs/perechen-zakupok-smsp.xlsx' },
-];
+// CMS-managed: /admin/ → коллекция «Документы по закупкам»
+const documents = documentsProcurement.map((d) => ({ title: d.title, file: d.file }));
 
 export default function Procurement() {
   return (

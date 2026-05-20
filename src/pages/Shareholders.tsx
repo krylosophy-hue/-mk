@@ -1,21 +1,18 @@
 import { FileText, TrendingUp, Users, Calendar, Download, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { documentsShareholders, shareholderMeetings } from '@/lib/content';
 
-const documents = [
-  { title: 'Устав АО «Москоллектор»', date: '15.03.2023', size: '2.4 MB', file: '/docs/shareholders/Устав-АО-Москоллектор.pdf' },
-  { title: 'Свидетельство о постановке на учет АО «Москоллектор» в налоговом органе по месту нахождения', date: '28.02.2025', size: '5.8 MB', file: '/docs/shareholders/Свидетельство-ИНН-КПП.pdf' },
-  { title: 'Лист записи Единого государственного реестра юридических лиц в отношении юридического лица АО «Москоллектор»', date: '28.02.2025', size: '3.2 MB', file: '/docs/shareholders/Лист-записи-ИНН-КПП.pdf' },
-  { title: 'Лист записи ЕГРЮЛ о создании АО «Москоллектор» путем реорганизации в форме преобразования', date: '10.06.2022', size: '1.1 MB', file: '/docs/shareholders/Лист-записи-регистрация-АО.pdf' },
-  { title: 'Лист записи ЕГРЮЛ о прекращении ГУП «Москоллектор» путем реорганизации в форме преобразования', date: '10.06.2022', size: '0.9 MB', file: '/docs/shareholders/Лист-записи-прекращение-ГУП.pdf' },
-  { title: 'Распоряжение Департамента городского имущества города Москвы «Об условиях приватизации ГУП «Москоллектор»', date: '10.06.2022', size: '0.8 MB', file: '/docs/shareholders/РД-об-условиях-приватизации-ГУП-Москоллектор.pdf' },
-];
+// CMS-managed: документы — /admin/ коллекция «Документы для акционеров»
+// собрания — /admin/ коллекция «Собрания акционеров»
+const documents = documentsShareholders.map((d) => ({
+  title: d.title,
+  date: d.date || '',
+  size: d.size || '',
+  file: d.file,
+}));
 
-const meetings = [
-  { date: '28 июня 2024', type: 'Годовое общее собрание акционеров', status: 'Проведено' },
-  { date: '15 декабря 2023', type: 'Внеочередное общее собрание акционеров', status: 'Проведено' },
-  { date: '29 июня 2023', type: 'Годовое общее собрание акционеров', status: 'Проведено' },
-];
+const meetings = shareholderMeetings;
 
 export default function Shareholders() {
   return (
