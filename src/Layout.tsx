@@ -1,6 +1,6 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { Phone, Mail, Menu, X, ChevronDown, ExternalLink, MapPin, Clock, Search } from 'lucide-react';
+import { Phone, Mail, Menu, X, ChevronDown, ExternalLink, MapPin, Clock, Search, FileText, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { asset } from '@/lib/utils';
 import {
@@ -49,17 +49,114 @@ const navItems = [
   { label: 'Контакты', href: '/contacts' },
 ];
 
-const searchablePages = [
+// --------------------------------------------------------------------
+// Каталог форм документов. Каждая форма — отдельный пункт поиска.
+// При клике из поиска: открывается прямая загрузка файла в новой вкладке.
+// Если файла нет на диске — браузер покажет 404 (загрузить через CMS).
+// --------------------------------------------------------------------
+type SearchItem = {
+  title: string;
+  path: string;
+  keywords: string;
+  file?: string;    // путь к файлу — если есть, клик скачивает файл
+  isForm?: boolean; // показывать иконку файла
+};
+
+const FORMS_BASE = '/docs/forms/';
+
+const formCatalog: SearchItem[] = [
+  // ===== Заявки на ордер / техэксплуатацию =====
+  { title: 'Форма 1 — заявка на ордер', file: FORMS_BASE + 'ФОРМА-1.doc', path: '/consumers#work', keywords: 'форма 1 заявка ордер техэксплуатация договор', isForm: true },
+  { title: 'Форма 1.1 — заявка на техэксплуатацию', file: FORMS_BASE + 'ФОРМА-1.1.doc', path: '/consumers#work', keywords: 'форма 1.1 1 1 заявка техэксплуатация договор', isForm: true },
+  { title: 'Форма 2 — анкета потребителя', file: FORMS_BASE + 'ФОРМА-2.doc', path: '/consumers#work', keywords: 'форма 2 анкета потребитель', isForm: true },
+  { title: 'Форма 3 — справка о коммуникациях', file: FORMS_BASE + 'форма-3.doc', path: '/consumers#work', keywords: 'форма 3 справка коммуникации', isForm: true },
+  { title: 'Форма 4 — справка о подрядчике', file: FORMS_BASE + 'форма-4.doc', path: '/consumers#work', keywords: 'форма 4 справка подрядчик', isForm: true },
+  { title: 'Форма 5 — заявка на ордер демонтаж', file: FORMS_BASE + 'ФОРМА-5.doc', path: '/consumers#work', keywords: 'форма 5 ордер демонтаж', isForm: true },
+  { title: 'Форма 5.3 — заявка на перекладку / горзаказ', file: FORMS_BASE + 'ФОРМА-5.3.doc', path: '/consumers#work', keywords: 'форма 5.3 5 3 перекладка горзаказ городской заказ ордер', isForm: true },
+  // ===== Кабели (10.1-10.4) =====
+  { title: 'Форма 10.1 — прокладка кабеля', file: FORMS_BASE + 'форма-10.1.xlsx', path: '/consumers#work', keywords: 'форма 10.1 10 1 прокладка кабель связь силовой оптоволокно заявка', isForm: true },
+  { title: 'Форма 10.2 — демонтаж кабеля', file: FORMS_BASE + 'форма-10.2.xlsx', path: '/consumers#work', keywords: 'форма 10.2 10 2 демонтаж кабель связь силовой оптоволокно', isForm: true },
+  { title: 'Форма 10.3 — городской заказ (кабели)', file: FORMS_BASE + 'форма-10.3.xlsx', path: '/consumers#work', keywords: 'форма 10.3 10 3 городской заказ горзаказ кабель', isForm: true },
+  { title: 'Форма 10.4 — перекладка кабеля', file: FORMS_BASE + 'форма-10.4.xlsx', path: '/consumers#work', keywords: 'форма 10.4 10 4 перекладка кабель оптоволокно связь', isForm: true },
+  // ===== Трубопроводы (11.1-11.5) =====
+  { title: 'Форма 11.1 — прокладка трубопровода', file: FORMS_BASE + 'форма-11.1.xlsx', path: '/consumers#work', keywords: 'форма 11.1 11 1 прокладка трубопровод теплосеть водопровод', isForm: true },
+  { title: 'Форма 11.2 — демонтаж трубопровода', file: FORMS_BASE + 'форма-11.2.xlsx', path: '/consumers#work', keywords: 'форма 11.2 11 2 демонтаж трубопровод теплосеть водопровод', isForm: true },
+  { title: 'Форма 11.3 — врезка трубопровода', file: FORMS_BASE + 'форма-11.3.xlsx', path: '/consumers#work', keywords: 'форма 11.3 11 3 врезка трубопровод теплосеть водопровод', isForm: true },
+  { title: 'Форма 11.4 — врезка/изменение трубопровода', file: FORMS_BASE + 'форма-11.4.xlsx', path: '/consumers#work', keywords: 'форма 11.4 11 4 врезка изменение трубопровод', isForm: true },
+  { title: 'Форма 11.5 — перекладка трубопровода', file: FORMS_BASE + 'форма-11.5.xlsx', path: '/consumers#work', keywords: 'форма 11.5 11 5 перекладка трубопровод теплосеть водопровод', isForm: true },
+  // ===== Коммерческие и продление =====
+  { title: 'Форма 12 — продление ТУ', file: FORMS_BASE + 'ФОРМА-12.doc', path: '/consumers#commercial', keywords: 'форма 12 продление ту согласование проект', isForm: true },
+  { title: 'Форма 15 — договор на сохранность', file: FORMS_BASE + 'Форма-15.docx', path: '/consumers#contracts', keywords: 'форма 15 договор сохранность конструкции коллектор', isForm: true },
+  { title: 'Форма 16 — заявка на охранную зону', file: FORMS_BASE + 'ФОРМА-16.doc', path: '/consumers#work', keywords: 'форма 16 охранная зона заявка', isForm: true },
+  { title: 'Форма 17 — договор сохранности (охранная зона)', file: FORMS_BASE + 'ФОРМА-17.doc', path: '/consumers#work', keywords: 'форма 17 договор сохранность охранная зона коллектор', isForm: true },
+  { title: 'Форма 21 — работа в охранной зоне (юрлица)', file: FORMS_BASE + 'ФОРМА-21.doc', path: '/consumers#work', keywords: 'форма 21 охранная зона юрлица', isForm: true },
+  { title: 'Форма 22 — работа в охранной зоне (физлица)', file: FORMS_BASE + 'ФОРМА-22.doc', path: '/consumers#work', keywords: 'форма 22 охранная зона физлица', isForm: true },
+  { title: 'Форма 25 — согласование проекта', file: FORMS_BASE + 'ФОРМА-25.doc', path: '/consumers#work', keywords: 'форма 25 согласование проект', isForm: true },
+  { title: 'Форма 26 — согласование ППР', file: FORMS_BASE + 'ФОРМА-26.doc', path: '/consumers#work', keywords: 'форма 26 ппр проект производства работ водопровод охранная зона', isForm: true },
+  { title: 'Форма 27(П) — заказчик/проектная (охранная зона)', file: FORMS_BASE + 'ФОРМА-27-П.doc', path: '/consumers#work', keywords: 'форма 27 27п охранная зона проектная заказчик инвестор', isForm: true },
+  { title: 'Форма 27(З) — заявка на работы в ОЗ', file: FORMS_BASE + 'ФОРМА-27-3.doc', path: '/consumers#work', keywords: 'форма 27 27з охранная зона заявка', isForm: true },
+  // ===== Допуск (30-серия) =====
+  { title: 'Форма 32 — заявка на пропуск', file: FORMS_BASE + 'ФОРМА-32.doc', path: '/consumers#dopusk', keywords: 'форма 32 пропуск допуск бюро', isForm: true },
+  { title: 'Форма 33 — заявка на допуск', file: FORMS_BASE + 'ФОРМА-33.doc', path: '/consumers#dopusk', keywords: 'форма 33 допуск заявка', isForm: true },
+  { title: 'Форма 34 — заявка на пропуск (визиты)', file: FORMS_BASE + 'ФОРМА-34.doc', path: '/consumers#dopusk', keywords: 'форма 34 пропуск визит', isForm: true },
+  { title: 'Форма 35 — заявка на разовый допуск', file: FORMS_BASE + 'ФОРМА-35.doc', path: '/consumers#dopusk', keywords: 'форма 35 разовый допуск', isForm: true },
+  { title: 'Форма 37 — заявка на инвентаризацию', file: FORMS_BASE + 'ФОРМА-37.doc', path: '/consumers#dopusk', keywords: 'форма 37 инвентаризация обследование', isForm: true },
+  { title: 'Форма 37.1 — инвентаризация (расширенная)', file: FORMS_BASE + 'ФОРМА-37.1.doc', path: '/consumers#dopusk', keywords: 'форма 37.1 37 1 инвентаризация обследование', isForm: true },
+  { title: 'Форма 38 — список работников для допуска', file: FORMS_BASE + 'ФОРМА-38.docx', path: '/consumers#dopusk', keywords: 'форма 38 список работников допуск', isForm: true },
+  // ===== Формы 40-49 =====
+  { title: 'Форма 40 — анкета сотрудника для допуска', file: FORMS_BASE + 'Форма-40.xlsx', path: '/consumers#dopusk', keywords: 'форма 40 анкета сотрудник допуск', isForm: true },
+  { title: 'Форма 40.1 — анкета сотрудника (расширенная)', file: FORMS_BASE + 'Форма-40.1.xlsx', path: '/consumers#dopusk', keywords: 'форма 40.1 40 1 анкета сотрудник допуск', isForm: true },
+  { title: 'Форма 41 — заявка на цифровой пропуск', file: FORMS_BASE + 'ФОРМА-41.doc', path: '/consumers#dopusk', keywords: 'форма 41 цифровой пропуск', isForm: true },
+  { title: 'Форма 42 — дубликат ТУ', file: FORMS_BASE + 'ФОРМА-42.doc', path: '/consumers#commercial', keywords: 'форма 42 дубликат ту согласование', isForm: true },
+  { title: 'Форма 43 — дубликат договора/ордера', file: FORMS_BASE + 'ФОРМА-43.doc', path: '/consumers#commercial', keywords: 'форма 43 дубликат договор ордер акт счёт', isForm: true },
+  { title: 'Форма 45 — инвентаризация коммуникаций', file: FORMS_BASE + 'Форма-45.doc', path: '/consumers#other', keywords: 'форма 45 инвентаризация коммуникации', isForm: true },
+  { title: 'Форма 46 — консультационные услуги', file: FORMS_BASE + 'ФОРМА-46.doc', path: '/consumers#other', keywords: 'форма 46 консультация консультационные услуги', isForm: true },
+  { title: 'Форма 47 — копирование исп. документации', file: FORMS_BASE + 'ФОРМА-47.doc', path: '/consumers#commercial', keywords: 'форма 47 копирование исполнительная документация план профиль', isForm: true },
+  { title: 'Форма 49 — обследование коллекторов', file: FORMS_BASE + 'ФОРМА-49.doc', path: '/consumers#other', keywords: 'форма 49 обследование коллектор', isForm: true },
+  // ===== Формы 50-61 =====
+  { title: 'Форма 50 — разработка ПСД', file: FORMS_BASE + 'ФОРМА-50.doc', path: '/consumers#commercial', keywords: 'форма 50 проектно сметная документация псд разработка', isForm: true },
+  { title: 'Форма 51 — согласование ПСД', file: FORMS_BASE + 'ФОРМА-51.doc', path: '/consumers#commercial', keywords: 'форма 51 проектно сметная документация псд согласование', isForm: true },
+  { title: 'Форма 52 — заявка на СМР', file: FORMS_BASE + 'ФОРМА-52.doc', path: '/consumers#commercial', keywords: 'форма 52 строительно монтажные работы смр заявка', isForm: true },
+  { title: 'Форма 53 — сопровождение демонтажа', file: FORMS_BASE + 'ФОРМА-53.doc', path: '/consumers#commercial', keywords: 'форма 53 сопровождение демонтаж кабель связь коммерческое предложение', isForm: true },
+  { title: 'Форма 58 — заявка на ОВК (демонтаж/перекладка)', file: FORMS_BASE + 'ФОРМА-58.doc', path: '/consumers#work', keywords: 'форма 58 овк оптоволокно демонтаж перекладка горзаказ', isForm: true },
+  { title: 'Форма 59 — обращение в ЦОП', file: FORMS_BASE + 'Форма-59.doc', path: '/consumers#other', keywords: 'форма 59 обращение цоп заявка', isForm: true },
+  { title: 'Форма 60 — аннулирование ТУ', file: FORMS_BASE + 'ФОРМА-60.doc', path: '/consumers#other', keywords: 'форма 60 аннулирование ту', isForm: true },
+  { title: 'Форма 61 — аннулирование согласования проекта', file: FORMS_BASE + 'ФОРМА-61.doc', path: '/consumers#other', keywords: 'форма 61 аннулирование согласование проект', isForm: true },
+  // ===== Доверенности и инструкции =====
+  { title: 'Доверенность — типовая форма', file: FORMS_BASE + 'Доверенность.docx', path: '/consumers#work', keywords: 'доверенность типовая получение оригиналов', isForm: true },
+  { title: 'Регламент согласования ПСД', file: FORMS_BASE + 'Регламент-согласования-ПСД.docx', path: '/consumers#commercial', keywords: 'регламент согласование псд проектно сметная', isForm: true },
+  { title: 'Инструкция ЛК — регистрация', file: FORMS_BASE + 'Инструкция_ЛК_регистрация-1.pdf', path: '/consumers#dopusk', keywords: 'инструкция лк личный кабинет регистрация', isForm: true },
+  { title: 'Инструкция ЛК — версия 1.1', file: FORMS_BASE + 'Инструкция_ЛК_ver_1.1_21.09.pdf', path: '/consumers#dopusk', keywords: 'инструкция лк личный кабинет руководство', isForm: true },
+  { title: 'Инструкция по установке ЭЦП', file: FORMS_BASE + 'Инструкция-по-установке-ЭЦП.pdf', path: '/consumers#dopusk', keywords: 'инструкция установка эцп электронная цифровая подпись укэп', isForm: true },
+  { title: 'Памятка по оформлению допуска', file: FORMS_BASE + 'Памятка-по-оформлению-допуска-в-коллекторы-1.pdf', path: '/consumers#dopusk', keywords: 'памятка оформление допуск коллектор', isForm: true },
+  // ===== Типовые договоры =====
+  { title: 'Договор на сохранность — юрлица', file: '/docs/consumers/Договор-на-сохранность-юрлица.docx', path: '/consumers#contracts', keywords: 'договор сохранность юрлица типовой', isForm: true },
+  { title: 'Договор на сохранность — физлица', file: '/docs/consumers/Договор-на-сохранность-физлица.docx', path: '/consumers#contracts', keywords: 'договор сохранность физлица типовой', isForm: true },
+  { title: 'Договор на сохранность — ОПС', file: '/docs/consumers/Договор-на-сохранность-ОПС.docx', path: '/consumers#contracts', keywords: 'договор сохранность опс ппс типовой', isForm: true },
+  { title: 'Договор на техэксплуатацию (типовой)', file: '/docs/consumers/1.-Договор-на-услуги-по-технической-эксплуатации-коллекторов.pdf', path: '/consumers#contracts', keywords: 'договор техэксплуатация типовой коллектор услуги', isForm: true },
+  { title: 'Договор на техэксплуатацию с ЭДО', file: '/docs/consumers/2.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-с-ЭДО.pdf', path: '/consumers#contracts', keywords: 'договор техэксплуатация эдо электронный документооборот', isForm: true },
+  { title: 'Государственный контракт по 44-ФЗ', file: '/docs/consumers/3.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ.pdf', path: '/consumers#contracts', keywords: 'государственный контракт 44 фз гос закупка', isForm: true },
+  { title: 'Государственный контракт по 44-ФЗ с ЭДО', file: '/docs/consumers/4.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ-с-ЭДО.pdf', path: '/consumers#contracts', keywords: 'государственный контракт 44 фз эдо', isForm: true },
+  { title: 'Договор по 223-ФЗ', file: '/docs/consumers/5.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ.pdf', path: '/consumers#contracts', keywords: 'договор 223 фз закупка', isForm: true },
+  { title: 'Договор по 223-ФЗ с ЭДО', file: '/docs/consumers/6.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ-с-ЭДО.pdf', path: '/consumers#contracts', keywords: 'договор 223 фз эдо', isForm: true },
+  // ===== Прочие документы =====
+  { title: 'Регламент допуска (АИС ARM Контроль)', file: '/docs/consumers/Регламент-взаимодействия-подразделений-АО-Москоллектор-по-осуществлению-допуска-в-коллекторы-с-использованием-АИС-ARM-Контроль.pdf', path: '/consumers#regulations', keywords: 'регламент допуск аис арм контроль взаимодействие', isForm: true },
+  { title: 'Регламентная таблица (Приложение 2)', file: '/docs/consumers/Регламентная-таблица-АО-Москоллектор-Приложение-2-.pdf', path: '/consumers#regulations', keywords: 'регламентная таблица приложение 2', isForm: true },
+  { title: 'Список переименованных коллекторов', file: '/docs/forms/renamed-collectors.xlsx', path: '/consumers#work', keywords: 'переименованные коллекторы список новые наименования', isForm: true },
+];
+
+const searchablePages: SearchItem[] = [
+  // === Разделы сайта ===
   { title: 'О компании', path: '/about', keywords: 'о компании история реквизиты инн огрн москоллектор ао акционерное общество руководство устав' },
   { title: 'Акционерам', path: '/shareholders', keywords: 'акционерам устав документы собрание дивиденды отчётность раскрытие информации' },
   { title: 'Услуги для потребителей', path: '/consumers', keywords: 'услуги потребители прокладка демонтаж перекладка врезка допуск тарифы кабель коллектор работы охранная зона городской заказ горзаказ' },
   { title: 'Новости для потребителей', path: '/consumer-news', keywords: 'новости потребители изменения технические условия ту' },
-  { title: 'Работа с коммуникациями', path: '/consumers#work', keywords: 'работа коммуникации прокладка врезка демонтаж перекладка горзаказ городской заказ кабель трубопровод теплосеть водопровод оптоволокно связь силовой форма 10.1 10.2 10.3 10.4 11.1 11.2 11.3 11.5 25 58 41 форма 15 форма 1 форма 1.1' },
-  { title: 'Охранная зона коллектора', path: '/consumers#work', keywords: 'охранная зона коллектор согласование договор сохранность физические лица юридические форма 27 27п 27з форма 26 форма 16 форма 17 форма 21 форма 22 ппр' },
+  { title: 'Работа с коммуникациями', path: '/consumers#work', keywords: 'работа коммуникации прокладка врезка демонтаж перекладка горзаказ городской заказ кабель трубопровод теплосеть водопровод оптоволокно связь силовой' },
+  { title: 'Охранная зона коллектора', path: '/consumers#work', keywords: 'охранная зона коллектор согласование договор сохранность физические лица юридические ппр' },
   { title: 'Тарифы и цены', path: '/consumers#tariffs', keywords: 'тарифы цены стоимость калькулятор тариф услуги оплата приказ 612 12 2026 трубопровод теплосеть водопровод кабель' },
-  { title: 'Допуск в коллектор', path: '/consumers#dopusk', keywords: 'допуск коллектор пропуск оформление ордер бюро пропусков личный кабинет лк укэп мчд форма 40 40.1 32 33 38 34 35 37 37.1 45' },
-  { title: 'Коммерческие услуги', path: '/consumers#commercial', keywords: 'коммерческие дубликаты продление ту согласование исполнительная документация псд смр копирование проектно сметная строительно монтажные работы форма 42 43 47 53 форма 12' },
-  { title: 'Прочие услуги', path: '/consumers#other', keywords: 'прочие услуги консультация аннулирование переоформление приёмка передача обследование инвентаризация форма 46 форма 48 форма 49 форма 60 форма 61 форма 50 51 52 59' },
+  { title: 'Допуск в коллектор', path: '/consumers#dopusk', keywords: 'допуск коллектор пропуск оформление ордер бюро пропусков личный кабинет лк укэп мчд' },
+  { title: 'Коммерческие услуги', path: '/consumers#commercial', keywords: 'коммерческие дубликаты продление ту согласование исполнительная документация псд смр копирование проектно сметная строительно монтажные работы' },
+  { title: 'Прочие услуги', path: '/consumers#other', keywords: 'прочие услуги консультация аннулирование переоформление приёмка передача обследование инвентаризация' },
   { title: 'Разрешительная документация', path: '/consumers#docs', keywords: 'разрешительная документация порядок оформления сроки ту сп договор ордер оптоволокно' },
   { title: 'Регламентные документы', path: '/consumers#regulations', keywords: 'регламент документы регламентная таблица арм контроль' },
   { title: 'Типовые формы договоров', path: '/consumers#contracts', keywords: 'договор форма типовой сохранность техэксплуатация контракт 44-фз 223-фз эдо' },
@@ -76,32 +173,8 @@ const searchablePages = [
   { title: 'Калькулятор', path: '/calculator', keywords: 'калькулятор расчёт стоимость тариф тарифный' },
   { title: 'Личный кабинет', path: 'https://dopusk.moscollector.ru/', keywords: 'личный кабинет лк ais арм контроль вход авторизация допуск заявка dopusk' },
   { title: 'Статус обращения', path: '/status', keywords: 'статус обращение заявка номер проверить печать цоп' },
-  // Формы документов — прямые ссылки на нужные разделы
-  { title: 'Форма 10.1 — заявка на прокладку кабеля', path: '/consumers#work', keywords: 'форма 10.1 10 1 прокладка кабель связь силовой оптоволокно заявка' },
-  { title: 'Форма 10.2 — заявка на демонтаж кабеля', path: '/consumers#work', keywords: 'форма 10.2 10 2 демонтаж кабель связь силовой оптоволокно заявка' },
-  { title: 'Форма 10.3 — заявка по городскому заказу (кабели)', path: '/consumers#work', keywords: 'форма 10.3 10 3 городской заказ горзаказ кабель' },
-  { title: 'Форма 10.4 — заявка на перекладку кабеля', path: '/consumers#work', keywords: 'форма 10.4 10 4 перекладка кабель оптоволокно связь' },
-  { title: 'Форма 11.1 — заявка на прокладку трубопровода', path: '/consumers#work', keywords: 'форма 11.1 11 1 прокладка трубопровод теплосеть водопровод' },
-  { title: 'Форма 11.2 — заявка на демонтаж трубопровода', path: '/consumers#work', keywords: 'форма 11.2 11 2 демонтаж трубопровод теплосеть водопровод' },
-  { title: 'Форма 11.3 — заявка на врезку трубопровода', path: '/consumers#work', keywords: 'форма 11.3 11 3 врезка трубопровод теплосеть водопровод' },
-  { title: 'Форма 11.5 — заявка на перекладку трубопровода', path: '/consumers#work', keywords: 'форма 11.5 11 5 перекладка трубопровод теплосеть водопровод' },
-  { title: 'Форма 25 — согласование проекта', path: '/consumers#work', keywords: 'форма 25 согласование проект' },
-  { title: 'Форма 26 — согласование ППР', path: '/consumers#work', keywords: 'форма 26 ппр проект производства работ водопровод охранная зона' },
-  { title: 'Форма 27(П) / 27(З) — работы в охранной зоне', path: '/consumers#work', keywords: 'форма 27 27п 27з охранная зона проектная заказчик инвестор' },
-  { title: 'Форма 15 — договор на сохранность', path: '/consumers#contracts', keywords: 'форма 15 договор сохранность конструкции коллектор' },
-  { title: 'Форма 17 — договор на сохранность (охранная зона)', path: '/consumers#work', keywords: 'форма 17 договор сохранность охранная зона коллектор' },
-  { title: 'Форма 1, 1.1 — заявка на ордер и техэксплуатацию', path: '/consumers#work', keywords: 'форма 1 1.1 заявка ордер техэксплуатация договор' },
-  { title: 'Форма 2 — анкета потребителя', path: '/consumers#work', keywords: 'форма 2 анкета потребитель' },
-  { title: 'Форма 5, 5.3 — заявка на ордер демонтаж/перекладка', path: '/consumers#work', keywords: 'форма 5 5.3 ордер демонтаж перекладка горзаказ' },
-  { title: 'Формы 40, 40.1, 32, 33, 38 — допуск в коллектор', path: '/consumers#dopusk', keywords: 'форма 40 40.1 32 33 38 допуск список работников' },
-  { title: 'Форма 37, 37.1 — инвентаризация', path: '/consumers#dopusk', keywords: 'форма 37 37.1 инвентаризация обследование' },
-  { title: 'Форма 45 — инвентаризация коммуникаций', path: '/consumers#other', keywords: 'форма 45 инвентаризация коммуникации' },
-  { title: 'Форма 42, 43 — дубликаты документов', path: '/consumers#commercial', keywords: 'форма 42 43 дубликат ту договор ордер акт счёт' },
-  { title: 'Форма 47 — копирование исполнительной документации', path: '/consumers#commercial', keywords: 'форма 47 копирование исполнительная документация план профиль' },
-  { title: 'Форма 53 — сопровождение демонтажа', path: '/consumers#commercial', keywords: 'форма 53 сопровождение демонтаж кабель связь коммерческое предложение' },
-  { title: 'Формы 60, 61 — аннулирование ТУ и СП', path: '/consumers#other', keywords: 'форма 60 61 аннулирование ту согласование проект' },
-  { title: 'Форма 12 — продление ТУ и согласований', path: '/consumers#commercial', keywords: 'форма 12 продление ту согласование проект' },
-  { title: 'Форма 46 — консультационные услуги', path: '/consumers#other', keywords: 'форма 46 консультация консультационные услуги' },
+  // === Формы документов с прямой загрузкой ===
+  ...formCatalog,
 ];
 
 export default function Layout() {
@@ -295,43 +368,52 @@ export default function Layout() {
                 <Search className={`absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 ${isHomeTransparent ? 'text-white/60' : 'text-gray-400'}`} />
                 {showSearch && searchResults.length > 0 && (
                   <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-[0_10px_40px_-12px_rgba(10,22,40,0.18),0_4px_10px_-2px_rgba(10,22,40,0.06)] border border-gray-100/80 z-50 py-1.5 max-h-80 overflow-y-auto scrollbar-thin">
-                    {searchResults.map((r) => (
+                    {searchResults.map((r, idx) => (
                       <button
-                        key={r.path}
+                        key={r.path + '-' + idx}
                         onClick={() => {
+                          // 1. Если форма / файл — открыть его прямой загрузкой
+                          if (r.file) {
+                            window.open(asset(r.file), '_blank', 'noopener');
+                            setSearchQuery('');
+                            setShowSearch(false);
+                            return;
+                          }
+                          // 2. Внешняя ссылка
                           if (r.path.startsWith('http')) {
-                            window.open(r.path, '_blank');
+                            window.open(r.path, '_blank', 'noopener');
+                            setSearchQuery('');
+                            setShowSearch(false);
+                            return;
+                          }
+                          // 3. Внутренний путь с возможным #hash
+                          const hashIdx = r.path.indexOf('#');
+                          const targetPath = hashIdx === -1 ? r.path : r.path.slice(0, hashIdx);
+                          const targetHash = hashIdx === -1 ? '' : r.path.slice(hashIdx + 1);
+                          const sameRoute = location.pathname === targetPath;
+                          if (sameRoute && targetHash) {
+                            const el = document.getElementById(targetHash);
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                           } else {
-                            // Разбираем путь на pathname + hash
-                            const hashIdx = r.path.indexOf('#');
-                            const targetPath = hashIdx === -1 ? r.path : r.path.slice(0, hashIdx);
-                            const targetHash = hashIdx === -1 ? '' : r.path.slice(hashIdx + 1);
-
-                            // Если уже на той же странице — навигация не сработает,
-                            // нужно явно скроллить к якорю
-                            const sameRoute = location.pathname === targetPath;
-                            if (sameRoute && targetHash) {
-                              const el = document.getElementById(targetHash);
-                              if (el) {
-                                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                              }
-                            } else {
-                              navigate(r.path);
-                              // После перехода скроллим к hash (нужна задержка для рендера)
-                              if (targetHash) {
-                                setTimeout(() => {
-                                  const el = document.getElementById(targetHash);
-                                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                }, 300);
-                              }
+                            navigate(r.path);
+                            if (targetHash) {
+                              setTimeout(() => {
+                                const el = document.getElementById(targetHash);
+                                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              }, 350);
                             }
                           }
                           setSearchQuery('');
                           setShowSearch(false);
                         }}
-                        className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-700 transition-colors rounded-lg mx-1"
+                        className="w-full flex items-start gap-2.5 text-left px-3 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-700 transition-colors rounded-lg mx-1 group"
                       >
-                        {r.title}
+                        {r.isForm ? (
+                          <FileText className="w-4 h-4 mt-0.5 flex-shrink-0 text-sky-500" />
+                        ) : (
+                          <ArrowRight className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-300 group-hover:text-sky-500 transition-colors" />
+                        )}
+                        <span className="flex-1">{r.title}</span>
                       </button>
                     ))}
                   </div>
