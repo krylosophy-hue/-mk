@@ -135,6 +135,13 @@ export interface VideoItem {
 export interface Vacancy {
   title: string
   department: string
+  salary?: string
+  address?: string
+}
+
+export interface VacanciesData {
+  conditions: string[]
+  vacancies: Vacancy[]
 }
 
 // Документ (общий формат для всех типов документов)
@@ -254,17 +261,24 @@ export const videos: VideoItem[] = Object.entries(videosRaw)
   })
   .sort((a, b) => a.id.localeCompare(b.id))
 
-export const vacancies: Vacancy[] = (() => {
+// Парсим один раз: достаём conditions + vacancies из одного YAML
+const vacanciesData: VacanciesData = (() => {
   const entries = Object.values(vacanciesRaw)
-  if (entries.length === 0) return []
+  if (entries.length === 0) return { conditions: [], vacancies: [] }
   try {
-    const parsed = yaml.load(entries[0]) as { vacancies?: Vacancy[] }
-    return parsed?.vacancies || []
+    const parsed = yaml.load(entries[0]) as Partial<VacanciesData>
+    return {
+      conditions: parsed?.conditions || [],
+      vacancies: parsed?.vacancies || [],
+    }
   } catch (e) {
     console.error('Vacancies YAML parse error:', e)
-    return []
+    return { conditions: [], vacancies: [] }
   }
 })()
+
+export const vacancies: Vacancy[] = vacanciesData.vacancies
+export const vacancyConditions: string[] = vacanciesData.conditions
 
 /* ------------------------------------------------------------------ */
 /*  Дополнительные коллекции                                           */

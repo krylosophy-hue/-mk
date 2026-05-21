@@ -76,23 +76,34 @@ collections:
   # ============================================================
   - name: "vacancies"
     label: "Вакансии"
-    description: "Список открытых вакансий. Кнопкой «+ Вакансия» добавляйте, иконкой 🗑 удаляйте, перетаскивайте ⠿ для смены порядка."
+    description: "Список открытых вакансий + условия работы. Кнопкой «+ Вакансия» добавляйте, иконкой 🗑 удаляйте, перетаскивайте ⠿ для смены порядка."
     files:
       - file: "content/vacancies.yml"
         name: "vacancies"
-        label: "Список вакансий"
+        label: "Список вакансий и условия работы"
         fields:
+          - name: "conditions"
+            label: "Условия и социальные гарантии"
+            label_singular: "Пункт"
+            widget: "list"
+            allow_add: true
+            collapsed: false
+            hint: "Каждый пункт — отдельная строка в блоке «Условия и социальные гарантии» на странице вакансий."
+            field: { name: "condition", label: "Текст пункта", widget: "string" }
+
           - name: "vacancies"
             label: "Должности"
             label_singular: "Вакансия"
             widget: "list"
             allow_add: true
             collapsed: false
-            summary: "{{fields.title}} — {{fields.department}}"
-            hint: "Перетащите за иконку ⠿ для изменения порядка. Кнопка «+ Вакансия» — добавить. Корзина — удалить."
+            summary: "{{fields.title}} — {{fields.salary}} ({{fields.department}})"
+            hint: "Перетащите ⠿ для сортировки. Вакансии группируются по «Подразделению» — указывайте одинаковое название и адрес для одного РЭК."
             fields:
-              - { name: "title", label: "Должность", widget: "string", required: true, hint: "Например: Электрогазосварщик 5 разряда" }
-              - { name: "department", label: "Подразделение", widget: "string", required: true, hint: "Например: Эксплуатационный отдел" }
+              - { name: "title", label: "Должность", widget: "string", required: true, hint: "Например: Электромонтер по ремонту и обслуживанию электрооборудования 5 разряда" }
+              - { name: "department", label: "Подразделение", widget: "string", required: true, hint: "Например: Район по эксплуатации коммуникационных коллекторов № 1" }
+              - { name: "salary", label: "Должностной оклад", widget: "string", required: false, hint: "Например: от 77 016" }
+              - { name: "address", label: "Адрес места работы", widget: "string", required: false, hint: "Например: г. Москва, ул. Лобачика, д. 4 — указывайте одинаковый для всех вакансий одного подразделения" }
 
   # ============================================================
   # 4. ГАЗЕТА «ПОДЗЕМНЫЙ ЛАБИРИНТ»

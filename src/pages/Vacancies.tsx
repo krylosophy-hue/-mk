@@ -1,27 +1,41 @@
-import { Briefcase, CheckCircle2, Phone, Mail, Calendar, ShieldCheck } from 'lucide-react';
+import { Briefcase, CheckCircle2, Phone, Mail, Calendar, ShieldCheck, MapPin, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { vacancies } from '@/lib/content';
+import { vacancies, vacancyConditions } from '@/lib/content';
+import type { Vacancy } from '@/lib/content';
 
-// #15 ОК — список вакансий обновляется через CMS (/admin/), хранится в content/vacancies.yml
+// Список вакансий и условия — редактируются через CMS (/admin/), содержатся
+// в content/vacancies.yml. Источник: «Информация по вакансиям 15.05.2026.xlsx»
 
-// #15 — содержимое преимуществ/условий очищено от hh-копии и сведено
-// к нейтральным формулировкам. По всем вопросам — обращайтесь в helpdesk.
+// Короткие подсказки в правом блоке "Мы предлагаем"
 const benefits = [
   'Официальное трудоустройство по ТК РФ',
-  'Социальный пакет согласно Коллективному договору',
-  'Соблюдение норм охраны труда',
-  'Возможности профессионального и карьерного роста',
+  'Конкурентная заработная плата + ежемесячная премия',
+  'Полный социальный пакет',
+  'Льготные путёвки и материальная помощь',
+  'Профессиональный и карьерный рост',
 ];
 
-const conditions = [
-  'Официальное трудоустройство по ТК РФ',
-  'Пятидневная рабочая неделя: пн-чт с 08:00 до 17:00, пт с 08:00 до 15:45',
-  'Соблюдение норм охраны труда и промышленной безопасности',
-  'Обеспечение спецодеждой',
-  'Подробные условия по конкретной вакансии — у специалистов отдела кадров (помощь в обращении: personal@moscollector.ru)',
-];
+// Группировка вакансий по подразделениям с сохранением исходного порядка
+function groupByDepartment(items: Vacancy[]): { department: string; address: string; rows: Vacancy[] }[] {
+  const result: { department: string; address: string; rows: Vacancy[] }[] = [];
+  for (const v of items) {
+    const last = result[result.length - 1];
+    if (last && last.department === v.department) {
+      last.rows.push(v);
+    } else {
+      result.push({
+        department: v.department,
+        address: v.address || '',
+        rows: [v],
+      });
+    }
+  }
+  return result;
+}
 
 export default function Vacancies() {
+  const groups = groupByDepartment(vacancies);
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Page Header */}
@@ -53,7 +67,7 @@ export default function Vacancies() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10">
-          {/* Left Column - Vacancies */}
+          {/* Left Column - Vacancies grouped by РЭК */}
           <div className="lg:col-span-2">
             <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
               <h2 className="text-2xl font-heading font-bold text-[#0a1628] flex items-center gap-3">
@@ -64,32 +78,62 @@ export default function Vacancies() {
               </h2>
             </div>
 
-            <div className="card-modern rounded-2xl p-7">
-              <div className="accent-bar mb-5" />
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm text-left">
-                  <thead>
-                    <tr className="border-b border-slate-200">
-                      <th className="py-3 pr-4 font-heading font-bold text-[#0a1628]">Должность</th>
-                      <th className="py-3 font-heading font-bold text-[#0a1628] hidden sm:table-cell">Подразделение</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {vacancies.map((vacancy, idx) => (
-                      <tr key={idx} className="border-b border-slate-100 last:border-0 hover:bg-sky-50/50 transition-colors">
-                        <td className="py-3.5 pr-4 text-slate-700 font-medium">{vacancy.title}</td>
-                        <td className="py-3.5 text-slate-500 hidden sm:table-cell">{vacancy.department}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+            <div className="space-y-8">
+              {groups.map((group) => (
+                <div key={group.department} className="card-modern rounded-2xl p-6 lg:p-7">
+                  {/* Department header */}
+                  <div className="mb-5">
+                    <div className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Building2 className="w-4.5 h-4.5 text-sky-600" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-heading font-bold text-[#0a1628] text-base lg:text-lg leading-tight">
+                          {group.department}
+                        </h3>
+                        {group.address && (
+                          <p className="flex items-center gap-1.5 text-xs text-slate-500 mt-1.5">
+                            <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                            {group.address}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="accent-bar mt-4" />
+                  </div>
 
-              <div className="mt-6 pt-5 border-t border-slate-200">
-                <p className="text-sm text-slate-500">
-                  Для отклика на вакансию и уточнения условий оплаты свяжитесь с отделом кадров по телефону или электронной почте.
-                </p>
-              </div>
+                  {/* Vacancies table */}
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm text-left">
+                      <thead>
+                        <tr className="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+                          <th className="py-2.5 pr-4 font-semibold">Должность</th>
+                          <th className="py-2.5 pl-4 font-semibold text-right whitespace-nowrap">Оклад, руб.</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {group.rows.map((vac, idx) => (
+                          <tr
+                            key={idx}
+                            className="border-b border-slate-100 last:border-0 hover:bg-sky-50/50 transition-colors"
+                          >
+                            <td className="py-3 pr-4 text-slate-700 font-medium">{vac.title}</td>
+                            <td className="py-3 pl-4 text-right font-semibold text-sky-700 whitespace-nowrap">
+                              {vac.salary || '—'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="card-modern rounded-2xl p-6 mt-6">
+              <p className="text-sm text-slate-500">
+                Для отклика на вакансию свяжитесь с отделом кадров по телефону или e-mail. Уточняйте актуальные сведения о вакансии и условиях.
+              </p>
             </div>
           </div>
 
@@ -136,7 +180,7 @@ export default function Vacancies() {
             <div className="card-modern rounded-2xl p-7">
               <h3 className="font-heading font-bold text-[#0a1628] mb-3 text-lg">Не нашли подходящую вакансию?</h3>
               <p className="text-sm text-slate-500 mb-5 leading-relaxed">
-                Отправьте нам свое резюме, и мы рассмотрим его на предмет наличия подходящих позиций.
+                Отправьте нам своё резюме, и мы рассмотрим его на предмет наличия подходящих позиций.
               </p>
               <a href="mailto:personal@Moscollector.ru" className="block w-full">
                 <Button variant="outline" className="w-full border-[#0a1628] text-[#0a1628] hover:bg-[#0a1628] hover:text-white rounded-xl transition-colors gap-2">
@@ -148,26 +192,28 @@ export default function Vacancies() {
           </div>
         </div>
 
-        {/* Условия и социальные гарантии */}
-        <div className="mt-14">
-          <h2 className="text-2xl font-heading font-bold text-[#0a1628] mb-8 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
-              <ShieldCheck className="w-5 h-5 text-sky-600" />
+        {/* Условия и социальные гарантии (из CMS) */}
+        {vacancyConditions.length > 0 && (
+          <div className="mt-14">
+            <h2 className="text-2xl font-heading font-bold text-[#0a1628] mb-8 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-sky-600" />
+              </div>
+              Условия и социальные гарантии
+            </h2>
+            <div className="card-modern rounded-2xl p-7">
+              <div className="accent-bar mb-5" />
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
+                {vacancyConditions.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            Условия и социальные гарантии
-          </h2>
-          <div className="card-modern rounded-2xl p-7">
-            <div className="accent-bar mb-5" />
-            <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
-              {conditions.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                  <CheckCircle2 className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
