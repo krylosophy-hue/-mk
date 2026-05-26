@@ -106,6 +106,11 @@ export interface NewsItem {
   image?: string
   body?: string
   link?: string
+  // Дополнительная галерея изображений (несколько фото в статье)
+  gallery?: string[]
+  // Видео (YouTube/VK Embed URL или путь к локальному mp4)
+  video?: string
+  videoEmbed?: string  // полный embed-iframe URL (YouTube, VK, Rutube)
 }
 
 export interface Announcement {
@@ -217,6 +222,11 @@ export const news: NewsItem[] = Object.entries(newsRaw)
       image: data.image ? String(data.image) : undefined,
       body: content.trim() || undefined,
       link: data.link ? String(data.link) : undefined,
+      gallery: Array.isArray(data.gallery)
+        ? (data.gallery as unknown[]).map((g) => String(g)).filter(Boolean)
+        : undefined,
+      video: data.video ? String(data.video) : undefined,
+      videoEmbed: data.videoEmbed ? String(data.videoEmbed) : undefined,
     } as NewsItem
   })
   .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
@@ -297,6 +307,11 @@ export const consumerNews: NewsItem[] = Object.entries(consumerNewsRaw)
       image: data.image ? String(data.image) : undefined,
       body: content.trim() || undefined,
       link: data.link ? String(data.link) : undefined,
+      gallery: Array.isArray(data.gallery)
+        ? (data.gallery as unknown[]).map((g) => String(g)).filter(Boolean)
+        : undefined,
+      video: data.video ? String(data.video) : undefined,
+      videoEmbed: data.videoEmbed ? String(data.videoEmbed) : undefined,
     } as NewsItem
   })
   .sort((a, b) => (b.date || '').localeCompare(a.date || ''))

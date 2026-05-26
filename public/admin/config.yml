@@ -12,6 +12,11 @@ logo_url: /-mk/images/logo.png
 media_folder: "public/uploads"
 public_folder: "/-mk/uploads"
 
+# Лимиты на загружаемые файлы:
+# - Один файл — до 25 МБ (лимит GitHub Contents API)
+# - Изображения рекомендуется сжимать до 5 МБ
+# - Большое видео — лить в YouTube/VK, ссылку вставлять в поле "Видео — embed URL"
+
 # Локализация UI (с осени 2024 Sveltia поддерживает русский интерфейс)
 locale: ru
 
@@ -48,9 +53,18 @@ collections:
       - { name: "title", label: "Заголовок", widget: "string", required: true }
       - { name: "date", label: "Дата", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true }
       - { name: "category", label: "Категория", widget: "select", options: ["Производство", "Пресс-центр", "Мероприятия", "Охрана труда", "Социальная ответственность"], default: "Производство", required: true }
-      - { name: "image", label: "Изображение (URL или загрузка)", widget: "image", required: false }
+      - { name: "image", label: "Главное изображение (обложка карточки)", widget: "image", required: false, hint: "⚠️ ДО 5 МБ. Если больше — сожмите на squoosh.app перед загрузкой. Лимит GitHub API: 25 МБ за коммит." }
       - { name: "excerpt", label: "Краткое описание (1–2 предложения)", widget: "text", required: true }
-      - { name: "body", label: "Полный текст", widget: "markdown", required: false }
+      - { name: "body", label: "Полный текст", widget: "markdown", required: false, hint: "Можно вставлять картинки кнопкой 🖼 — они появятся прямо в тексте. Каждая до 5 МБ." }
+      - name: "gallery"
+        label: "Галерея (доп. фото)"
+        widget: "list"
+        required: false
+        summary: "Фото"
+        hint: "Несколько фото, появятся сеткой под текстом. Каждое до 5 МБ. Используйте сжатие squoosh.app."
+        field: { name: "image", label: "Фото", widget: "image" }
+      - { name: "videoEmbed", label: "Видео — YouTube/VK/Rutube embed URL", widget: "string", required: false, hint: "Пример: https://www.youtube.com/embed/dQw4w9WgXcQ или https://vk.com/video_ext.php?oid=...&id=...&hash=... Получить ссылку: на YouTube — Поделиться → Embed → копировать src из iframe." }
+      - { name: "video", label: "Или видео-файл (MP4) — для коротких роликов", widget: "file", required: false, hint: "⚠️ Не более 25 МБ! Для бóльших — загружайте в YouTube/VK и используйте поле выше." }
 
   # ============================================================
   # 2. ОБЪЯВЛЕНИЯ НА ГЛАВНОЙ
@@ -155,8 +169,16 @@ collections:
       - { name: "title", label: "Заголовок", widget: "string", required: true }
       - { name: "date", label: "Дата", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true }
       - { name: "category", label: "Категория", widget: "select", options: ["Охрана труда", "Техническая информация", "Допуск в коллектор", "Тарифы и цены", "Прочее"], default: "Прочее", required: true }
-      - { name: "excerpt", label: "Текст", widget: "text", required: true }
-      - { name: "body", label: "Полный текст (опционально)", widget: "markdown", required: false }
+      - { name: "excerpt", label: "Краткое описание", widget: "text", required: true }
+      - { name: "body", label: "Полный текст", widget: "markdown", required: false, hint: "Картинки вставляйте через кнопку 🖼 в редакторе. Каждая до 5 МБ." }
+      - name: "gallery"
+        label: "Галерея (доп. фото)"
+        widget: "list"
+        required: false
+        summary: "Фото"
+        field: { name: "image", label: "Фото", widget: "image" }
+      - { name: "videoEmbed", label: "Видео — embed URL (YouTube/VK/Rutube)", widget: "string", required: false }
+      - { name: "video", label: "Или видео-файл MP4 (до 25 МБ)", widget: "file", required: false }
 
   # ============================================================
   # 7. КОНТАКТЫ (телефоны, адреса, реквизиты, РЭК, спец.службы)

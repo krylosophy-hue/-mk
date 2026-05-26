@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Calendar, Newspaper, Video, BookOpen, Tag, FileText, Download, ExternalLink, X } from 'lucide-react';
+import { marked } from 'marked';
 import { asset } from '@/lib/utils';
 import { news as cmsNews, videos as cmsVideos, newspaper as cmsNewspaper } from '@/lib/content';
 
@@ -12,14 +13,33 @@ const formatDate = (iso: string): string => {
   return `${d.getDate()} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
 };
 
+// Конфиг marked: разрешаем переносы строк как <br>, GFM
+marked.setOptions({ gfm: true, breaks: true });
+
+// Рендер markdown в HTML. Sveltia сохраняет картинки как `![](path)` —
+// marked превратит это в <img>. asset() гарантирует правильный путь /-mk/.
+function renderMarkdown(md: string): string {
+  // Префиксуем относительные пути картинок BASE_URL'ом
+  const fixed = md.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_m, alt, src) => {
+    const finalSrc = src.startsWith('http') || src.startsWith('/-mk') ? src : asset(src);
+    return `![${alt}](${finalSrc})`;
+  });
+  return marked.parse(fixed, { async: false }) as string;
+}
+
 const news = cmsNews.map((n) => ({
   id: n.id,
   date: formatDate(n.date),
   title: n.title,
   excerpt: n.excerpt,
   category: n.category,
-  image: n.image || 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+  image: n.image
+    ? (n.image.startsWith('http') || n.image.startsWith('/-mk') ? n.image : asset(n.image))
+    : 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
   body: n.body || n.excerpt,
+  gallery: (n.gallery || []).map((g) => (g.startsWith('http') || g.startsWith('/-mk') ? g : asset(g))),
+  video: n.video ? (n.video.startsWith('http') || n.video.startsWith('/-mk') ? n.video : asset(n.video)) : undefined,
+  videoEmbed: n.videoEmbed || undefined,
 }));
 
 const videos = cmsVideos.map((v, i) => ({ ...v, id: i + 1 }));
@@ -358,9 +378,50 @@ export default function Press() {
                 {openNews.date}
               </div>
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-[#0a1628] mb-5">{openNews.title}</h2>
-              <div className="prose prose-sm md:prose-base max-w-none text-gray-700 whitespace-pre-line leading-relaxed">
-                {openNews.body}
-              </div>
+
+              {/* Markdown body — рендерит **жирный**, картинки ![](url), списки, ссылки */}
+              <div
+                className="prose prose-sm md:prose-base max-w-none text-gray-700 leading-relaxed
+                           prose-img:rounded-xl prose-img:my-4 prose-a:text-sky-600 prose-headings:text-[#0a1628]"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(openNews.body) }}
+              />
+
+              {/* Видео внутри новости */}
+              {openNews.videoEmbed && (
+                <div className="mt-6 aspect-video rounded-xl overflow-hidden bg-black">
+                  <iframe
+                    src={openNews.videoEmbed}
+                    title={openNews.title}
+                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+              )}
+              {openNews.video && !openNews.videoEmbed && (
+                <video
+                  src={openNews.video}
+                  controls
+                  preload="metadata"
+                  className="mt-6 w-full rounded-xl bg-black"
+                />
+              )}
+
+              {/* Галерея дополнительных фото */}
+              {openNews.gallery && openNews.gallery.length > 0 && (
+                <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {openNews.gallery.map((g, i) => (
+                    <a key={i} href={g} target="_blank" rel="noopener noreferrer" className="block group">
+                      <img
+                        src={g}
+                        alt={`${openNews.title} — фото ${i + 1}`}
+                        className="w-full aspect-square object-cover rounded-xl group-hover:opacity-90 transition-opacity"
+                        loading="lazy"
+                      />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
