@@ -21,6 +21,7 @@ const Union = lazy(() => import('./pages/Union'));
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Status = lazy(() => import('./pages/Status'));
 const ReceptionHours = lazy(() => import('./pages/ReceptionHours'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
   return (
@@ -59,6 +60,8 @@ function App() {
             {/* Consumer pages */}
             <Route path="contract-forms" element={<Consumers />} />
             <Route path="reception-hours" element={<ReceptionHours />} />
+            {/* Catch-all 404 — должен быть последним в Routes */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Suspense>
