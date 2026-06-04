@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ИБ-заголовки безопасности (через meta http-equiv, т.к. GitHub Pages не позволяет настраивать заголовки) -->
-    <!-- Content Security Policy: ограничивает источники скриптов, стилей, фреймов и т.п. -->
+    <!-- Content Security Policy — упрощённая, не мешает встроенному PDF-вьюверу браузера -->
     <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self';
+      default-src 'self' data: blob:;
       script-src 'self' 'unsafe-inline';
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com data:;
@@ -15,11 +15,10 @@
       media-src 'self' https: blob:;
       frame-src https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com https://vk.com https://rutube.ru https://play.kinescope.io https://kinescope.io https://dzen.ru https://plvideo.ru https://yandex.ru https://yandex.com;
       connect-src 'self' https://api.github.com https://*.githubusercontent.com;
-      object-src 'none';
+      object-src 'self';
       base-uri 'self';
       form-action 'self';
       frame-ancestors 'none';
-      upgrade-insecure-requests;
     " />
     <!-- Запрещаем встраивать сайт в чужие iframe (clickjacking) -->
     <meta http-equiv="X-Frame-Options" content="DENY" />
