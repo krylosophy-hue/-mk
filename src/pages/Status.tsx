@@ -37,11 +37,35 @@ export default function Status() {
   const [searchId, setSearchId] = useState('');
   const [found, setFound] = useState<typeof mockApplications[0] | null>(null);
   const [searched, setSearched] = useState(false);
+  // notRegistered = true означает: либо номер не найден, либо БД вернула {result: "error"}
+  const [notRegistered, setNotRegistered] = useState(false);
 
   const handleSearch = () => {
-    const result = mockApplications.find(app => app.id === searchId);
-    setFound(result || null);
+    const trimmed = searchId.trim();
     setSearched(true);
+
+    if (!trimmed) {
+      setFound(null);
+      setNotRegistered(true);
+      return;
+    }
+
+    // TODO: заменить на реальный запрос к DocsVision (POST /api/status?id=...)
+    // Ожидаемый ответ:
+    //   { result: "ok",    data: {...} } — заявка найдена
+    //   { result: "error", message?: "..." } — не зарегистрирована / ошибка БД
+    const dbResponse: { result: 'ok' | 'error'; data?: typeof mockApplications[0] } = (() => {
+      const match = mockApplications.find((app) => app.id === trimmed);
+      return match ? { result: 'ok', data: match } : { result: 'error' };
+    })();
+
+    if (dbResponse.result === 'error' || !dbResponse.data) {
+      setFound(null);
+      setNotRegistered(true);
+    } else {
+      setFound(dbResponse.data);
+      setNotRegistered(false);
+    }
   };
 
   return (
@@ -93,7 +117,7 @@ export default function Status() {
 
             {searched && (
               <div className="border-t border-slate-100 pt-6">
-                {found ? (
+                {found && !notRegistered ? (
                   <div className="bg-slate-50 rounded-2xl p-6">
                     <div className="flex items-start gap-4">
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${statusColors[found.status as keyof typeof statusColors]}`}>
@@ -119,10 +143,13 @@ export default function Status() {
                     <div className="flex items-start gap-3">
                       <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                       <div>
-                        <h3 className="font-semibold text-red-800 mb-1">Заявка не найдена</h3>
-                        <p className="text-red-700 text-sm">
-                          Проверьте правильность введённого номера. Номер заявки указан на печати ЦОП в формате 04-01-08-……/2026. Если номер указан верно,
-                          обратитесь в Центр обслуживания потребителей.
+                        <h3 className="font-semibold text-red-800 mb-1">
+                          Заявка с запрашиваемым номером в системе не зарегистрирована
+                        </h3>
+                        <p className="text-red-700 text-sm leading-relaxed">
+                          Проверьте номер заявки и повторите поиск. Номер указан на печати ЦОП АО «Москоллектор» в формате <span className="font-mono whitespace-nowrap">04-01-08-……/2026</span>.
+                          Если номер введён корректно — обратитесь в Центр обслуживания потребителей по телефону{' '}
+                          <a href="tel:+74992222201" className="font-semibold underline">+7 (499) 222-22-01</a>.
                         </p>
                       </div>
                     </div>
