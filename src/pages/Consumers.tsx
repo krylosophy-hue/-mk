@@ -9,6 +9,7 @@ import {
   ClipboardList, BookOpen, Gavel
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { asset } from '@/lib/utils';
 
 // Animation variants
 const fadeInUp = {
@@ -2211,52 +2212,29 @@ export default function Consumers() {
                 <h2 className="text-2xl md:text-3xl font-bold text-[#0a1628]">Типовые формы договоров</h2>
               </div>
               
+              {/* Список форм — 1:1 с moscollector.ru/услуги-для-потребителей/#tipovye-formy-dogovorov */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { name: 'Договор на техэксплуатацию коллекторов', file: '/docs/consumers/1.-Договор-на-услуги-по-технической-эксплуатации-коллекторов.pdf', color: 'bg-[#0a1628]' },
-                  { name: 'Договор на техэксплуатацию с ЭДО', file: '/docs/consumers/2.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-с-ЭДО.pdf', color: 'bg-[#142138]' },
-                  { name: 'Госконтракт 44-ФЗ', file: '/docs/consumers/3.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ.pdf', color: 'bg-[#004d80]' },
-                  { name: 'Госконтракт 44-ФЗ с ЭДО', file: '/docs/consumers/4.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ-с-ЭДО.pdf', color: 'bg-[#005c99]' },
-                  { name: 'Договор 223-ФЗ', file: '/docs/consumers/5.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ.pdf', color: 'bg-[#006bb3]' },
-                  { name: 'Договор 223-ФЗ с ЭДО', file: '/docs/consumers/6.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ-с-ЭДО.pdf', color: 'bg-[#007acc]' },
-                ].map((contract, i) => (
-                  <a 
-                    key={i} 
-                    href={contract.file}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-[#0ea5e9]/30 transition-all"
-                  >
-                    <div className={`w-12 h-12 rounded-lg ${contract.color} flex items-center justify-center flex-shrink-0`}>
-                      <Download className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-[#0a1628]">{contract.name}</p>
-                      <p className="text-sm text-gray-500">PDF</p>
-                    </div>
-                    <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                  </a>
-                ))}
-                
-                {[
-                  { name: 'Договор на сохранность (Форма 15)', file: '/docs/consumers/Форма-15.docx', ext: 'DOCX' },
-                  { name: 'Договор на сохранность для юридических лиц', file: '/docs/consumers/Договор-на-сохранность-юрлица.docx', ext: 'DOCX' },
-                  { name: 'Договор на сохранность для физических лиц', file: '/docs/consumers/Договор-на-сохранность-физлица.docx', ext: 'DOCX' },
-                  { name: 'Договор на сохранность (ОПС — охранная зона)', file: '/docs/consumers/Договор-на-сохранность-ОПС.docx', ext: 'DOCX' },
+                  { name: 'Договор на услуги по технической эксплуатации коллекторов', file: '/docs/consumers/1.-Договор-на-услуги-по-технической-эксплуатации-коллекторов.pdf' },
+                  { name: 'Договор на услуги по технической эксплуатации коллекторов с ЭДО', file: '/docs/consumers/2.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-с-ЭДО.pdf' },
+                  { name: 'Государственный контракт на услуги по технической эксплуатации коллекторов по 44-ФЗ', file: '/docs/consumers/3.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ.pdf' },
+                  { name: 'Государственный контракт на услуги по технической эксплуатации коллекторов по 44-ФЗ с ЭДО', file: '/docs/consumers/4.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ-с-ЭДО.pdf' },
+                  { name: 'Договор на услуги по технической эксплуатации коллекторов по 223-ФЗ', file: '/docs/consumers/5.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ.pdf' },
+                  { name: 'Договор на услуги по технической эксплуатации коллекторов по 223-ФЗ с ЭДО', file: '/docs/consumers/6.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ-с-ЭДО.pdf' },
                 ].map((contract, i) => (
                   <a
                     key={i}
-                    href={contract.file}
+                    href={asset(contract.file)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-[#0ea5e9]/30 transition-all"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-[#0088e6] flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-sky-600 flex items-center justify-center flex-shrink-0">
                       <Download className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-[#0a1628]">{contract.name}</p>
-                      <p className="text-sm text-gray-500">{contract.ext}</p>
+                      <p className="font-semibold text-[#0a1628] text-sm leading-snug">{contract.name}</p>
+                      <p className="text-xs text-gray-500 mt-1">PDF</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
                   </a>
@@ -2277,37 +2255,43 @@ export default function Consumers() {
                 <h2 className="text-2xl md:text-3xl font-bold text-[#0a1628]">Регламентные документы</h2>
               </div>
               
+              {/* Список — 1:1 с moscollector.ru/услуги-для-потребителей/#reglamentnye-dokumenty */}
               <div className="space-y-4">
                 {[
                   {
                     name: 'Регламентная таблица АО «Москоллектор» (Приложение 2)',
                     file: '/docs/consumers/Регламентная-таблица-АО-Москоллектор-Приложение-2-.pdf',
-                    desc: 'Порядок взаимодействия с потребителями'
+                    ext: 'PDF',
                   },
                   {
-                    name: 'Регламентная таблица (Приложение 3 с грифом СЕКРЕТНО)',
+                    name: 'Регламентная таблица АО «Москоллектор» (Приложение 3)',
                     file: '/docs/consumers/Регламентная-таблица-АО-Москоллектор-с-грифом-СЕКРЕТНО-Приложение-3.pdf',
-                    desc: 'Регламент для работы с конфиденциальной информацией'
+                    ext: 'PDF',
                   },
                   {
-                    name: 'Регламент допуска с использованием АИС АРМ-Контроль',
+                    name: 'Регламент взаимодействия подразделений АО «Москоллектор», организаций — собственников коммуникаций, проложенных в коллекторах, по осуществлению допуска в коллекторы с использованием АИС «АРМ-Контроль»',
                     file: '/docs/consumers/Регламент-взаимодействия-подразделений-АО-Москоллектор-по-осуществлению-допуска-в-коллекторы-с-использованием-АИС-ARM-Контроль.pdf',
-                    desc: 'Порядок оформления допуска через цифровой сервис'
+                    ext: 'PDF',
+                  },
+                  {
+                    name: 'Регламент согласования структурными подразделениями АО «Москоллектор» проектной документации',
+                    file: '/docs/consumers/Регламент-согласования-ПСД.docx',
+                    ext: 'DOCX',
                   },
                 ].map((doc, i) => (
-                  <a 
+                  <a
                     key={i}
-                    href={doc.file}
+                    href={asset(doc.file)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-5 p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-[#0ea5e9]/30 transition-all"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0a1628] to-[#142138] flex items-center justify-center flex-shrink-0">
+                    <div className="w-14 h-14 rounded-xl bg-sky-600 flex items-center justify-center flex-shrink-0">
                       <Gavel className="w-7 h-7 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-[#0a1628] text-lg mb-1">{doc.name}</p>
-                      <p className="text-sm text-gray-500">{doc.desc}</p>
+                      <p className="font-semibold text-[#0a1628] text-base leading-snug">{doc.name}</p>
+                      <p className="text-xs text-gray-500 mt-1">{doc.ext}</p>
                     </div>
                     <ChevronRight className="w-6 h-6 text-gray-400 flex-shrink-0" />
                   </a>
