@@ -33,18 +33,45 @@ const statusColors = {
   'completed': 'text-green-600 bg-green-50',
 };
 
+// Префикс номера заявки — фиксированный (нередактируемая часть).
+// Пользователь вводит только NNNNNN/YYYY.
+const APPLICATION_PREFIX = '04-01-08-';
+
 export default function Status() {
-  const [searchId, setSearchId] = useState('');
+  // Пользовательский ввод: только цифровая часть и год (например: 000123/2026)
+  const [userPart, setUserPart] = useState('');
   const [found, setFound] = useState<typeof mockApplications[0] | null>(null);
   const [searched, setSearched] = useState(false);
   // notRegistered = true означает: либо номер не найден, либо БД вернула {result: "error"}
   const [notRegistered, setNotRegistered] = useState(false);
 
+  // Полный номер заявки для запроса в БД
+  const fullId = APPLICATION_PREFIX + userPart.trim();
+
+  // Маска ввода: разрешаем только цифры, слеш и максимум 6 цифр + / + 4 цифры
+  const handleUserPartChange = (raw: string) => {
+    // Оставляем только цифры и слеш
+    let cleaned = raw.replace(/[^0-9/]/g, '');
+    // Не более одного слеша
+    const slashIdx = cleaned.indexOf('/');
+    if (slashIdx !== -1) {
+      cleaned = cleaned.slice(0, slashIdx + 1) + cleaned.slice(slashIdx + 1).replace(/\//g, '');
+    }
+    // До слеша — не более 6 цифр; после — не более 4
+    if (slashIdx === -1) {
+      cleaned = cleaned.slice(0, 6);
+    } else {
+      const before = cleaned.slice(0, slashIdx).slice(0, 6);
+      const after = cleaned.slice(slashIdx + 1).slice(0, 4);
+      cleaned = before + '/' + after;
+    }
+    setUserPart(cleaned);
+  };
+
   const handleSearch = () => {
-    const trimmed = searchId.trim();
     setSearched(true);
 
-    if (!trimmed) {
+    if (!userPart.trim()) {
       setFound(null);
       setNotRegistered(true);
       return;
@@ -55,7 +82,7 @@ export default function Status() {
     //   { result: "ok",    data: {...} } — заявка найдена
     //   { result: "error", message?: "..." } — не зарегистрирована / ошибка БД
     const dbResponse: { result: 'ok' | 'error'; data?: typeof mockApplications[0] } = (() => {
-      const match = mockApplications.find((app) => app.id === trimmed);
+      const match = mockApplications.find((app) => app.id === fullId);
       return match ? { result: 'ok', data: match } : { result: 'error' };
     })();
 
@@ -97,21 +124,33 @@ export default function Status() {
             <div className="space-y-2">
               <Label htmlFor="applicationId">Номер заявки</Label>
               <div className="flex gap-3">
-                <Input
-                  id="applicationId"
-                  placeholder="Например: 04-01-08-000123/2026"
-                  value={searchId}
-                  onChange={(e) => setSearchId(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                  className="rounded-xl"
-                />
-                <Button onClick={handleSearch} disabled={!searchId} className="bg-[#0a1628] hover:bg-[#0a1628]/90 rounded-xl">
+                {/* Префикс «04-01-08-» вшит и не редактируется. Пользователь вводит только NNNNNN/YYYY. */}
+                <div className="flex flex-1 items-stretch rounded-xl border border-slate-200 bg-white overflow-hidden focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-500/20 transition-colors">
+                  <span
+                    className="flex items-center px-3 bg-slate-50 border-r border-slate-200 text-slate-500 font-mono text-sm select-none"
+                    aria-hidden="true"
+                  >
+                    {APPLICATION_PREFIX}
+                  </span>
+                  <Input
+                    id="applicationId"
+                    inputMode="numeric"
+                    placeholder="000123/2026"
+                    value={userPart}
+                    onChange={(e) => handleUserPartChange(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                    className="flex-1 border-0 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none font-mono"
+                    aria-label="Номер заявки (без префикса)"
+                  />
+                </div>
+                <Button onClick={handleSearch} disabled={!userPart} className="bg-sky-600 hover:bg-sky-700 rounded-xl">
                   <Search className="w-4 h-4 mr-2" />
                   Проверить
                 </Button>
               </div>
               <p className="text-xs text-slate-500 mt-2">
-                Номер заявки указан на печати ЦОП АО «Москоллектор». Формат: 04-01-08-……/2026
+                Введите номер из печати ЦОП АО «Москоллектор». Префикс <span className="font-mono">04-01-08-</span> заполнен автоматически.
+                Полный формат: <span className="font-mono">04-01-08-000123/2026</span>.
               </p>
             </div>
 

@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react';
 import { Calendar, Newspaper, ChevronRight, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { marked } from 'marked';
 import { asset } from '@/lib/utils';
+import { renderMarkdownSafe } from '@/lib/safe-html';
+import { safeEmbedUrl } from '@/lib/safe-embed';
 import { consumerNews as cmsConsumerNews } from '@/lib/content';
 
 // CMS-managed: правится через /admin/, коллекция «Новости для потребителей»
@@ -16,15 +17,7 @@ const formatDate = (iso: string): string => {
   return `${d.getDate()} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
 };
 
-marked.setOptions({ gfm: true, breaks: true });
-
-function renderMarkdown(md: string): string {
-  const fixed = md.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_m, alt, src) => {
-    const finalSrc = src.startsWith('http') || src.startsWith('/-mk') ? src : asset(src);
-    return `![${alt}](${finalSrc})`;
-  });
-  return marked.parse(fixed, { async: false }) as string;
-}
+// renderMarkdown — теперь через @/lib/safe-html (с XSS-санитизацией DOMPurify)
 
 interface NewsCard {
   id: string;
@@ -225,20 +218,26 @@ export default function ConsumerNews() {
               <div
                 className="prose prose-sm md:prose-base max-w-none text-gray-700 leading-relaxed
                            prose-img:rounded-xl prose-img:my-4 prose-a:text-sky-600 prose-headings:text-[#0a1628]"
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(openNews.body) }}
+                dangerouslySetInnerHTML={{ __html: renderMarkdownSafe(openNews.body) }}
               />
 
-              {openNews.videoEmbed && (
-                <div className="mt-6 aspect-video rounded-xl overflow-hidden bg-black">
-                  <iframe
-                    src={openNews.videoEmbed}
-                    title={openNews.title}
-                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-              )}
+              {(() => {
+                const safe = safeEmbedUrl(openNews.videoEmbed);
+                if (!safe) return null;
+                return (
+                  <div className="mt-6 aspect-video rounded-xl overflow-hidden bg-black">
+                    <iframe
+                      src={safe}
+                      title={openNews.title}
+                      allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                      allowFullScreen
+                      sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      className="w-full h-full"
+                    />
+                  </div>
+                );
+              })()}
               {openNews.video && !openNews.videoEmbed && (
                 <video src={openNews.video} controls preload="metadata" className="mt-6 w-full rounded-xl bg-black" />
               )}

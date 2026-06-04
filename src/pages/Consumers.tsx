@@ -1653,189 +1653,176 @@ export default function Consumers() {
                 <h2 className="text-2xl md:text-3xl font-bold text-[#0a1628]">Тарифы и цены</h2>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-8">
+                {/* ===== БЛОК 1: Тарифы на услуги ===== */}
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
-                  <h3 className="text-xl font-bold text-[#0a1628] mb-2">
-                    Тарифы на услуги по технической эксплуатации коммуникационных коллекторов на 2026 год
+                  <h3 className="text-xl font-bold text-[#0ea5e9] mb-1">
+                    Тарифы на услуги АО «Москоллектор» по технической эксплуатации
+                    коммуникационных коллекторов на 2026 год
                   </h3>
-                  <p className="text-gray-500 text-sm mb-1">
-                    Действуют с 01.01.2026. Утверждены приказом АО «Москоллектор» от 17.12.2025 № 612.
-                  </p>
                   <p className="text-gray-500 text-sm mb-6">
-                    Цены на дополнительные услуги введены с 22.01.2026 приказом АО «Москоллектор» от 22.01.2026 № 12.
+                    вводятся в действие с 1 января 2026 года
                   </p>
 
-                  <Accordion title="Трубопроводы теплосети (по диаметру)" defaultOpen={true}>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="bg-[#0a1628] text-white">
-                            <th className="text-left px-4 py-3 font-semibold rounded-tl-lg">Диаметр трубопровода</th>
-                            <th className="text-right px-4 py-3 font-semibold rounded-tr-lg">Тариф, руб./п.м./мес. (без НДС)</th>
+                  <div className="overflow-x-auto rounded-lg border border-gray-200">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-[#0a1628] text-white">
+                          <th className="px-4 py-3 font-semibold text-center w-16">№ п/п</th>
+                          <th className="px-4 py-3 font-semibold text-center">Наименование инженерной коммуникации</th>
+                          <th className="px-4 py-3 font-semibold text-center whitespace-nowrap">Тариф в руб./км в год (без учета НДС)</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {/* Section 1 — Теплосеть */}
+                        <tr className="bg-sky-50">
+                          <td className="px-4 py-3 text-center font-semibold text-[#0a1628]">1</td>
+                          <td colSpan={2} className="px-4 py-3 font-semibold text-[#0a1628]">
+                            Теплосеть, в т.ч. паропроводы и конденсатопроводы* по размеру диаметра** мм
+                          </td>
+                        </tr>
+                        {[
+                          ['1.1', '300', '2 086 569'],
+                          ['1.2', '400', '3 338 511'],
+                          ['1.3', '500', '4 799 108'],
+                          ['1.4', '600', '5 007 762'],
+                          ['1.5', '700', '6 955 229'],
+                          ['1.6', '800', '7 372 536'],
+                          ['1.7', '900', '9 407 682'],
+                          ['1.8', '1000', '11 823 889'],
+                          ['1.9', '1200', '13 214 932'],
+                        ].map(([n, d, p]) => (
+                          <tr key={n} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-center text-gray-700">{n}</td>
+                            <td className="px-4 py-3 text-center text-gray-700">{d}</td>
+                            <td className="px-4 py-3 text-center font-semibold text-[#0a1628]">{p}</td>
                           </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          {[
-                            ['до 100 мм', '58,47'],
-                            ['от 100 до 200 мм', '87,71'],
-                            ['от 200 до 400 мм', '116,95'],
-                            ['от 400 до 600 мм', '175,42'],
-                            ['от 600 до 800 мм', '233,89'],
-                            ['от 800 до 1000 мм', '292,37'],
-                            ['свыше 1000 мм', '350,84'],
-                          ].map(([diameter, price]) => (
-                            <tr key={diameter} className="hover:bg-gray-50">
-                              <td className="px-4 py-3 text-gray-700">{diameter}</td>
-                              <td className="px-4 py-3 text-right font-semibold text-[#0a1628]">{price}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </Accordion>
+                        ))}
 
-                  <Accordion title="Трубопроводы водопровода (по диаметру)">
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="bg-[#0a1628] text-white">
-                            <th className="text-left px-4 py-3 font-semibold rounded-tl-lg">Диаметр трубопровода</th>
-                            <th className="text-right px-4 py-3 font-semibold rounded-tr-lg">Тариф, руб./п.м./мес. (без НДС)</th>
+                        {/* Section 2 — Водопровод */}
+                        <tr className="bg-sky-50">
+                          <td className="px-4 py-3 text-center font-semibold text-[#0a1628]">2</td>
+                          <td colSpan={2} className="px-4 py-3 font-semibold text-[#0a1628]">
+                            Водопровод***, по размеру диаметра** мм
+                          </td>
+                        </tr>
+                        {[
+                          ['2.1', '200', '1 031 410'],
+                          ['2.2', '300', '1 194 264'],
+                          ['2.3', '400', '1 357 116'],
+                          ['2.4', '500', '1 533 548'],
+                          ['2.5', '600', '1 764 256'],
+                          ['2.6', '700', '1 940 680'],
+                          ['2.7', '800', '2 103 530'],
+                          ['2.8', '900', '2 497 095'],
+                          ['2.9', '1000', '2 687 089'],
+                          ['2.10', '1200', '2 877 083'],
+                        ].map(([n, d, p]) => (
+                          <tr key={n} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-center text-gray-700">{n}</td>
+                            <td className="px-4 py-3 text-center text-gray-700">{d}</td>
+                            <td className="px-4 py-3 text-center font-semibold text-[#0a1628]">{p}</td>
                           </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          {[
-                            ['до 100 мм', '29,24'],
-                            ['от 100 до 200 мм', '43,85'],
-                            ['от 200 до 400 мм', '58,47'],
-                            ['от 400 до 600 мм', '87,71'],
-                            ['от 600 до 800 мм', '116,95'],
-                            ['от 800 до 1000 мм', '146,18'],
-                            ['свыше 1000 мм', '175,42'],
-                          ].map(([diameter, price]) => (
-                            <tr key={diameter} className="hover:bg-gray-50">
-                              <td className="px-4 py-3 text-gray-700">{diameter}</td>
-                              <td className="px-4 py-3 text-right font-semibold text-[#0a1628]">{price}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </Accordion>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
 
-                  <Accordion title="Кабельные линии (по типу)">
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="bg-[#0a1628] text-white">
-                            <th className="text-left px-4 py-3 font-semibold rounded-tl-lg">Тип кабеля</th>
-                            <th className="text-right px-4 py-3 font-semibold rounded-tr-lg">Тариф, руб./п.м./мес. (без НДС)</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          {[
-                            ['Оптико-волоконный кабель', '4,68'],
-                            ['Кабель связи', '4,68'],
-                            ['Силовой кабель до 10 кВ', '7,02'],
-                            ['Силовой кабель от 10 до 35 кВ', '9,35'],
-                            ['Силовой кабель от 35 до 110 кВ', '14,03'],
-                            ['Силовой кабель свыше 110 кВ', '18,71'],
-                          ].map(([type, price]) => (
-                            <tr key={type} className="hover:bg-gray-50">
-                              <td className="px-4 py-3 text-gray-700">{type}</td>
-                              <td className="px-4 py-3 text-right font-semibold text-[#0a1628]">{price}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </Accordion>
+                  {/* Призыв пользователю — нет данных по разделу 3+ (кабели, прочее) */}
+                  <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                    <p className="text-amber-900 text-sm">
+                      <strong>Внимание:</strong> в таблице отражены только разделы, переданные пресс-службой
+                      (теплосеть, водопровод). Полная таблица с разделами «Силовой кабель», «Кабель связи»,
+                      «Внутриквартальные коллекторы» и др. — будет добавлена после получения подтверждённых данных
+                      от АО «Москоллектор».
+                    </p>
+                  </div>
 
-                  <Accordion title="Внутриквартальные коллекторы">
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="bg-[#0a1628] text-white">
-                            <th className="text-left px-4 py-3 font-semibold rounded-tl-lg">Вид коммуникации</th>
-                            <th className="text-right px-4 py-3 font-semibold rounded-tr-lg">Тариф, руб./п.м./мес. (без НДС)</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          {[
-                            ['Трубопровод теплосети (любой диаметр)', '43,85'],
-                            ['Трубопровод водопровода (любой диаметр)', '21,93'],
-                            ['Кабельная линия (любой тип)', '3,51'],
-                          ].map(([type, price]) => (
-                            <tr key={type} className="hover:bg-gray-50">
-                              <td className="px-4 py-3 text-gray-700">{type}</td>
-                              <td className="px-4 py-3 text-right font-semibold text-[#0a1628]">{price}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </Accordion>
+                  {/* Примечания */}
+                  <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                    <p className="text-blue-900 text-sm font-semibold mb-3">Примечание:</p>
+                    <ul className="text-blue-900 text-sm space-y-2 leading-relaxed">
+                      <li><strong>*</strong> Тариф принят для трассы в две нитки. При прокладках трассы в одну нитку к принятому тарифу применяется коэффициент 0,5.</li>
+                      <li><strong>**</strong> При отклонении диаметров трубопроводов от указанных в таблице применяется тариф для ближайшего трубопровода большего диаметра.</li>
+                      <li><strong>***</strong> Тариф на водопровод применяется для труб канализации соответствующего диаметра.</li>
+                      <li><strong>****</strong> Тариф принят для кабелей в три нитки.</li>
+                      <li><strong>*****</strong> Тариф измеряется в руб./шт. в год.</li>
+                      <li><strong>******</strong> Тариф на прочие кабели применяется, в том числе для шлангов высокого давления и трубопроводов под кабель.</li>
+                      <li><strong>*******</strong> Тариф на трубопроводы холодного водоснабжения применяется, в том числе для трубопроводов мусоропровода.</li>
+                    </ul>
+                  </div>
 
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link to="/calculator">
-                      <Button className="bg-[#0ea5e9] hover:bg-[#3a8eef] text-white px-6 py-3">
+                      <Button className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3">
                         <Calculator className="w-5 h-5 mr-2" />
                         Тарифный калькулятор
                       </Button>
                     </Link>
                   </div>
-
-                  <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-                    <p className="text-blue-800 text-sm mb-2">
-                      <strong>Примечания:</strong>
-                    </p>
-                    <ul className="text-blue-800 text-sm space-y-1.5">
-                      <li>* Тариф принят для трассы в две нитки. При прокладках трассы в одну нитку к принятому тарифу применяется коэффициент 0,5.</li>
-                      <li>** При отклонении диаметров трубопроводов от указанных в таблице применяется тариф для ближайшего трубопровода большего диаметра.</li>
-                      <li>*** Тариф на водопровод применяется для труб канализации соответствующего диаметра.</li>
-                      <li>**** Тариф принят для кабелей в три нитки.</li>
-                      <li>***** Тариф измеряется в руб./шт. в год.</li>
-                      <li>****** Тариф на прочие кабели применяется, в том числе для шлангов высокого давления и трубопроводов под кабель.</li>
-                      <li>******* Тариф на трубопроводы холодного водоснабжения применяется, в том числе для трубопроводов мусоропровода.</li>
-                    </ul>
-                  </div>
                 </div>
 
-                {/* #42 ОРУ — Дополнительные услуги вынесены в отдельный блок */}
+                {/* ===== БЛОК 2: Цены на дополнительные услуги ===== */}
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
-                  <h3 className="text-xl font-bold text-[#0a1628] mb-2">
-                    Дополнительные услуги
+                  <h3 className="text-xl font-bold text-[#0ea5e9] mb-1">
+                    Цены на дополнительные услуги АО «Москоллектор» с 25 марта 2026 года
                   </h3>
                   <p className="text-gray-500 text-sm mb-6">
-                    Цены на дополнительные услуги установлены приказом АО «Москоллектор» от 22.01.2026 № 12. Действуют с 22.01.2026.
+                    Утверждены приказом АО «Москоллектор» от 22.01.2026 № 12
                   </p>
-                  <div className="overflow-x-auto">
+
+                  <div className="overflow-x-auto rounded-lg border border-gray-200">
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
-                          <th className="text-left px-4 py-3 font-semibold rounded-tl-lg">Услуга</th>
-                          <th className="text-right px-4 py-3 font-semibold rounded-tr-lg">Стоимость</th>
+                          <th rowSpan={2} className="px-4 py-3 font-semibold text-center w-16 align-middle">№ п/п</th>
+                          <th rowSpan={2} className="px-4 py-3 font-semibold text-center align-middle">Вид услуги</th>
+                          <th rowSpan={2} className="px-4 py-3 font-semibold text-center w-24 align-middle">Ед. изм.</th>
+                          <th colSpan={2} className="px-4 py-2 font-semibold text-center border-b border-white/10">Стоимость, руб.</th>
+                        </tr>
+                        <tr className="bg-[#0a1628] text-white">
+                          <th className="px-4 py-2 font-semibold text-center w-32">без НДС</th>
+                          <th className="px-4 py-2 font-semibold text-center w-32">с НДС</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-gray-700">Оформление ордера на работы</td>
-                          <td className="px-4 py-3 text-right font-semibold text-emerald-700">Бесплатно</td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-gray-700">Аннулирование ордера</td>
-                          <td className="px-4 py-3 text-right font-semibold text-emerald-700">Бесплатно</td>
-                        </tr>
-                        <tr className="hover:bg-gray-50">
-                          <td className="px-4 py-3 text-gray-700">Прочие дополнительные услуги</td>
-                          <td className="px-4 py-3 text-right text-gray-600">по приказу №12 от 22.01.2026</td>
-                        </tr>
+                        {/* Услуги, подтверждённые из скриншота старого сайта */}
+                        {[
+                          ['1', 'Проектирование прокладки/демонтажа силового кабеля, протяженностью от 0 до 100 м.', '1 шт.', '69 734,87', '85 076,54'],
+                          ['2', 'Проектирование прокладки/демонтажа силового кабеля, протяженностью от 100 до 500 м.', '1 шт.', '120 905,00', '147 504,10'],
+                          ['3', 'Проектирование прокладки/демонтажа силового кабеля, протяженностью от 500 до 1000 м.', '1 шт.', '153 510,21', '187 282,46'],
+                          ['4', 'Проектирование прокладки/демонтажа силового кабеля, протяженностью от 1000 до 2000 м.', '1 шт.', '197 139,89', '240 510,67'],
+                          ['5', 'Проектирование прокладки/демонтажа силового кабеля, протяженностью от 2000 до 3000 м.', '1 шт.', '286 310,09', '349 298,31'],
+                        ].map(([n, name, unit, p1, p2]) => (
+                          <tr key={n} className="hover:bg-gray-50">
+                            <td className="px-4 py-3 text-center text-gray-700">{n}</td>
+                            <td className="px-4 py-3 text-gray-700">{name}</td>
+                            <td className="px-4 py-3 text-center text-gray-700">{unit}</td>
+                            <td className="px-4 py-3 text-center text-gray-700 tabular-nums">{p1}</td>
+                            <td className="px-4 py-3 text-center font-semibold text-[#0a1628] tabular-nums">{p2}</td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
-                  <p className="text-gray-500 text-xs mt-4">
-                    Для уточнения актуальной стоимости воспользуйтесь тарифным калькулятором или обратитесь в Центр обслуживания потребителей.
-                  </p>
+
+                  {/* Бесплатные услуги — оставляем в отдельном блоке */}
+                  <div className="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+                    <p className="text-emerald-900 text-sm font-semibold mb-2">Бесплатные услуги:</p>
+                    <ul className="text-emerald-900 text-sm space-y-1">
+                      <li>• Оформление ордера на работы</li>
+                      <li>• Аннулирование ордера</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                    <p className="text-amber-900 text-sm">
+                      <strong>Внимание:</strong> отображены только 5 строк, видимые на полученном фрагменте.
+                      Полный прейскурант доп. услуг будет добавлен после получения подтверждённой таблицы.
+                      Для уточнения стоимости — Центр обслуживания потребителей{' '}
+                      <a href="tel:+74992222201" className="font-semibold underline">+7 (499) 222-22-01</a>.
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
