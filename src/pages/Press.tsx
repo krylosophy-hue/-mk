@@ -135,11 +135,11 @@ export default function Press() {
                   role="button"
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpenNewsId(item.id); } }}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden bg-slate-100">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4">
@@ -356,8 +356,9 @@ export default function Press() {
             className="bg-white rounded-2xl max-w-3xl w-full my-8 overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-64 md:h-80 overflow-hidden">
-              <img src={openNews.image} alt={openNews.title} className="w-full h-full object-cover" />
+            {/* #6 — В модалке показываем картинку целиком (без обрезки) */}
+            <div className="relative h-72 md:h-96 overflow-hidden bg-slate-100">
+              <img src={openNews.image} alt={openNews.title} className="w-full h-full object-contain" />
               <button
                 type="button"
                 onClick={() => setOpenNewsId(null)}

@@ -156,6 +156,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== QUICK ACCESS ===== */}
+      <section className="py-24 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14">
+            <motion.div variants={fadeIn} className="accent-bar mx-auto mb-6" />
+            <motion.p variants={fadeIn} className="text-sky-600 text-[13px] font-semibold tracking-widest uppercase mb-3">Быстрый доступ</motion.p>
+            <motion.h2 variants={fadeIn} className="font-heading text-3xl lg:text-4xl font-bold text-[#0a1628]">
+              Все необходимые сервисы
+            </motion.h2>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {quickAccessLinks.map((link) => {
+              const CardContent = (
+                <div className="group relative h-full card-modern p-6 rounded-2xl overflow-hidden">
+                  {/* Decorative gradient corner */}
+                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br from-sky-100/0 to-sky-200/0 group-hover:from-sky-100/40 group-hover:to-sky-200/20 rounded-full blur-2xl transition-all duration-500" />
+                  <div className="relative w-11 h-11 rounded-xl icon-tile mb-4 group-hover:scale-105 transition-transform duration-300">
+                    <link.icon className="w-5 h-5 text-sky-600" />
+                  </div>
+                  <h3 className="relative font-heading text-[15px] font-semibold text-[#0a1628] mb-1 group-hover:text-sky-700 transition-colors">
+                    {link.title}
+                  </h3>
+                  <p className="relative text-gray-400 text-sm mb-3">{link.description}</p>
+                  <div className="relative flex items-center text-sky-600 text-sm font-medium">
+                    Перейти
+                    {link.external
+                      ? <ExternalLink className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+                      : <ArrowUpRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    }
+                  </div>
+                </div>
+              );
+
+              return (
+                <motion.div key={link.title} variants={fadeIn}>
+                  {link.external ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="block h-full">{CardContent}</a>
+                  ) : (
+                    <Link to={link.href} className="block h-full">{CardContent}</Link>
+                  )}
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
       {/* ===== ABOUT ===== */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -204,54 +252,6 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ===== QUICK ACCESS ===== */}
-      <section className="py-24 bg-[#f8fafc]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14">
-            <motion.div variants={fadeIn} className="accent-bar mx-auto mb-6" />
-            <motion.p variants={fadeIn} className="text-sky-600 text-[13px] font-semibold tracking-widest uppercase mb-3">Быстрый доступ</motion.p>
-            <motion.h2 variants={fadeIn} className="font-heading text-3xl lg:text-4xl font-bold text-[#0a1628]">
-              Все необходимые сервисы
-            </motion.h2>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {quickAccessLinks.map((link) => {
-              const CardContent = (
-                <div className="group relative h-full card-modern p-6 rounded-2xl overflow-hidden">
-                  {/* Decorative gradient corner */}
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br from-sky-100/0 to-sky-200/0 group-hover:from-sky-100/40 group-hover:to-sky-200/20 rounded-full blur-2xl transition-all duration-500" />
-                  <div className="relative w-11 h-11 rounded-xl icon-tile mb-4 group-hover:scale-105 transition-transform duration-300">
-                    <link.icon className="w-5 h-5 text-sky-600" />
-                  </div>
-                  <h3 className="relative font-heading text-[15px] font-semibold text-[#0a1628] mb-1 group-hover:text-sky-700 transition-colors">
-                    {link.title}
-                  </h3>
-                  <p className="relative text-gray-400 text-sm mb-3">{link.description}</p>
-                  <div className="relative flex items-center text-sky-600 text-sm font-medium">
-                    Перейти
-                    {link.external
-                      ? <ExternalLink className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
-                      : <ArrowUpRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    }
-                  </div>
-                </div>
-              );
-
-              return (
-                <motion.div key={link.title} variants={fadeIn}>
-                  {link.external ? (
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="block h-full">{CardContent}</a>
-                  ) : (
-                    <Link to={link.href} className="block h-full">{CardContent}</Link>
-                  )}
-                </motion.div>
-              );
-            })}
-          </motion.div>
         </div>
       </section>
 

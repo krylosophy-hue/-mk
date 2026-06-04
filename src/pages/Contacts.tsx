@@ -236,7 +236,7 @@ export default function Contacts() {
             <div className="flex gap-3">
               <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <p className="text-sm text-amber-900 leading-relaxed">
-                Документация, поступившая в Канцелярию и ЦОП АО «Москоллектор» в понедельник-четверг
+                Документация, поступившая в Канцелярию и ЦОП АО «Москоллектор» в понедельник — четверг
                 после 16:00, в пятницу после 15:00, регистрируется с указанием даты следующего
                 рабочего дня.
               </p>
@@ -407,7 +407,7 @@ export default function Contacts() {
           <div className="relative h-96 rounded-3xl overflow-hidden bg-slate-100 shadow-lg ring-1 ring-black/5">
             <iframe
               title="Карта: АО «Москоллектор»"
-              src="https://yandex.ru/map-widget/v1/?ll=37.643500%2C55.780480&z=17&mode=search&text=Москва%2C%201-й%20Коптельский%20пер.%2C%2016%20стр.%204&pt=37.643500%2C55.780480%2Cpm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=37.638253%2C55.778167&z=17&mode=search&text=Москва%2C%201-й%20Коптельский%20переулок%2C%2016%20стр.%204&pt=37.638253%2C55.778167%2Cpm2rdm"
               width="100%"
               height="100%"
               frameBorder="0"

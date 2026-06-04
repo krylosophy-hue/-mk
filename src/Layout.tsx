@@ -199,8 +199,13 @@ export default function Layout() {
     setIsMobileMenuOpen(false);
     setSearchQuery('');
     setShowSearch(false);
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    // #5 — Скроллим в начало при ЛЮБОЙ навигации (включая клик по «Потребителям»
+    // в футере, когда уже на /consumers). Если есть hash (например /consumers#work) —
+    // оставляем браузеру/нашему обработчику поиска прокрутить к якорю.
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [location.pathname, location.key, location.hash]);
 
   useEffect(() => {
     if (searchQuery.trim().length < 2) {

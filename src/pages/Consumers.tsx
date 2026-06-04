@@ -748,8 +748,8 @@ export default function Consumers() {
         </div>
       </div>
       
-      {/* Hero */}
-      <div className="bg-gradient-to-r from-[#0a1628] to-[#142138] text-white py-12 md:py-16">
+      {/* Hero — единый стиль page-header как в Press, Vacancies, About */}
+      <div className="page-header">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
             <motion.h1 variants={fadeInUp} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">

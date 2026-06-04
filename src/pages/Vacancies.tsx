@@ -66,6 +66,29 @@ export default function Vacancies() {
           ))}
         </div>
 
+        {/* #3 — «Условия и социальные гарантии» теперь СВЕРХУ */}
+        {vacancyConditions.length > 0 && (
+          <div className="mb-14">
+            <h2 className="text-2xl font-heading font-bold text-[#0a1628] mb-8 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-sky-600" />
+              </div>
+              Условия и социальные гарантии
+            </h2>
+            <div className="card-modern rounded-2xl p-7">
+              <div className="accent-bar mb-5" />
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
+                {vacancyConditions.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
         <div className="grid lg:grid-cols-3 gap-10">
           {/* Left Column - Vacancies grouped by РЭК */}
           <div className="lg:col-span-2">
@@ -192,28 +215,6 @@ export default function Vacancies() {
           </div>
         </div>
 
-        {/* Условия и социальные гарантии (из CMS) */}
-        {vacancyConditions.length > 0 && (
-          <div className="mt-14">
-            <h2 className="text-2xl font-heading font-bold text-[#0a1628] mb-8 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-sky-600" />
-              </div>
-              Условия и социальные гарантии
-            </h2>
-            <div className="card-modern rounded-2xl p-7">
-              <div className="accent-bar mb-5" />
-              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
-                {vacancyConditions.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

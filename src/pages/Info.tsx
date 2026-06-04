@@ -303,16 +303,29 @@ export default function Info() {
               </Accordion>
 
               <Accordion title="Руководство">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200">
-                    <div className="w-12 h-12 rounded-2xl bg-[#0a1628] flex items-center justify-center text-white font-heading font-bold">
-                      ГД
+                <div className="space-y-3">
+                  {[
+                    { initials: 'БПА', position: 'Генеральный директор', name: 'Бондаренко Павел Александрович' },
+                    { initials: 'ГЛВ', position: 'Главный инженер — заместитель генерального директора', name: 'Глуходедов Леонид Владимирович' },
+                    { initials: 'ШТА', position: 'Заместитель генерального директора по корпоративной защите', name: 'Штефан Татьяна Александровна' },
+                    { initials: 'ИАМ', position: 'Заместитель генерального директора по правовым и общим вопросам', name: 'Ильин Алексей Михайлович' },
+                    { initials: 'КОВ', position: 'Заместитель генерального директора по экономике и финансам', name: 'Качаев Олег Викторович' },
+                    { initials: 'ДВА', position: 'Заместитель генерального директора по эксплуатации', name: 'Дорошенко Виктор Андреевич' },
+                  ].map((p) => (
+                    <div key={p.initials} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200">
+                      <div className="w-12 h-12 rounded-2xl bg-[#0a1628] flex items-center justify-center text-white font-heading font-bold text-sm shrink-0">
+                        {p.initials}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[#0a1628]">{p.position}</p>
+                        <p className="text-slate-600">{p.name}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-[#0a1628]">Генеральный директор</p>
-                      <p className="text-slate-600">Должность руководителя организации</p>
-                    </div>
-                  </div>
+                  ))}
+                  <p className="text-xs text-slate-400 mt-4">
+                    Сведения о составе руководства актуальны на момент публикации. По вопросам приёма — Канцелярия:
+                    <a href="tel:+74992222201" className="text-sky-600 hover:underline ml-1">+7 (499) 222-22-01</a>.
+                  </p>
                 </div>
               </Accordion>
             </section>}
@@ -546,36 +559,48 @@ export default function Info() {
               <div className="card-modern rounded-2xl p-7 mb-6">
                 <div className="accent-bar mb-5" />
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  В соответствии с требованиями Федерального закона от 06.12.2021 № 406-ФЗ
-                  «О порядке учета доверенностей, выданных юридическими лицами» АО «Москоллектор»
-                  публикует сведения об отозванных доверенностях.
+                  В соответствии с требованиями законодательства Российской Федерации АО «Москоллектор»
+                  публикует сведения об отозванных доверенностях. Полная информация о каждом отзыве
+                  содержится в&nbsp;соответствующем PDF-документе.
                 </p>
 
-                <div className="overflow-x-auto rounded-xl border border-slate-200">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-[#0a1628] text-white">
-                        <th className="text-left px-5 py-3.5 font-semibold">№ доверенности</th>
-                        <th className="text-left px-5 py-3.5 font-semibold">Дата выдачи</th>
-                        <th className="text-left px-5 py-3.5 font-semibold">Дата отзыва</th>
-                        <th className="text-left px-5 py-3.5 font-semibold">Кому выдана</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-200">
-                      <tr className="hover:bg-slate-50 transition-colors">
-                        <td className="px-5 py-3.5 text-slate-600">№ 45 от 15.01.2024</td>
-                        <td className="px-5 py-3.5 text-slate-600">15.01.2024</td>
-                        <td className="px-5 py-3.5 text-slate-600">20.03.2024</td>
-                        <td className="px-5 py-3.5 text-slate-600">Иванов И.И.</td>
-                      </tr>
-                      <tr className="hover:bg-slate-50 transition-colors">
-                        <td className="px-5 py-3.5 text-slate-600">№ 67 от 10.02.2024</td>
-                        <td className="px-5 py-3.5 text-slate-600">10.02.2024</td>
-                        <td className="px-5 py-3.5 text-slate-600">15.03.2024</td>
-                        <td className="px-5 py-3.5 text-slate-600">Петров П.П.</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                {/* #4 — Список приказов об отзыве доверенностей (со старого сайта) */}
+                <div className="space-y-3">
+                  {[
+                    { date: '01.12.2025', label: 'Отзыв доверенности — Крылосов А.А.', file: 'revocation/2025-12-01-krylosov.pdf' },
+                    { date: '13.05.2025', label: 'Отзыв доверенности — Каральская', file: 'revocation/2025-05-13-karalskaya.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Шатиришвили', file: 'revocation/2025-05-12-shatirishvili.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Татаринцев', file: 'revocation/2025-05-12-tatarinzev.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Такташов', file: 'revocation/2025-05-12-taktashov.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Сенчуров', file: 'revocation/2025-05-12-senchurov.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Кощеев', file: 'revocation/2025-05-12-koshcheev.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Глущенко', file: 'revocation/2025-05-12-glushchenko.pdf' },
+                    { date: '12.05.2025', label: 'Отзыв доверенности — Бормотов', file: 'revocation/2025-05-12-bormotov.pdf' },
+                    { date: '07.05.2025', label: 'Отзыв доверенности — Бобылев', file: 'revocation/2025-05-07-bobylev.pdf' },
+                    { date: '07.05.2025', label: 'Отзыв доверенности — Бобровский', file: 'revocation/2025-05-07-bobrovskii.pdf' },
+                    { date: '07.05.2025', label: 'Отзыв доверенности — Асташкин', file: 'revocation/2025-05-07-astashkin.pdf' },
+                    { date: '24.12.2024', label: 'Сводный список отозванных доверенностей', file: 'revocation/2024-12-24-obshchii.pdf' },
+                    { date: '25.04.2022', label: 'Сводный список отозванных доверенностей', file: 'revocation/2022-04-25-obshchii.pdf' },
+                    { date: '10.12.2020', label: 'Сводный список отозванных доверенностей', file: 'revocation/2020-12-10-obshchii.pdf' },
+                    { date: '25.11.2020', label: 'Сводный список отозванных доверенностей', file: 'revocation/2020-11-25-obshchii.pdf' },
+                    { date: '18.11.2020', label: 'Сводный список отозванных доверенностей', file: 'revocation/2020-11-18-obshchii.pdf' },
+                  ].map((doc) => (
+                    <a
+                      key={doc.file}
+                      href={`${FILE_BASE_URL}${doc.file}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md hover:border-sky-300 transition-all group"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0 group-hover:bg-sky-100 transition-colors">
+                        <Download className="w-5 h-5 text-sky-600" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-[#0a1628] truncate">{doc.label}</p>
+                        <p className="text-sm text-slate-400 mt-0.5">Дата отзыва: {doc.date} · PDF</p>
+                      </div>
+                    </a>
+                  ))}
                 </div>
               </div>
 
@@ -612,7 +637,7 @@ export default function Info() {
                     инженерных коммуникаций в коллекторах.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href={`${FILE_BASE_URL}tech-info/TU_vok.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0a1628] text-white rounded-xl hover:bg-[#0a1628]/90 transition-colors">
+                    <a href={`${FILE_BASE_URL}tech-info/TU_vok.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                       <Download className="w-4 h-4" />
                       ТУ для ВОК
                     </a>
@@ -636,7 +661,7 @@ export default function Info() {
                     С 25.01.2021 приняты новые наименования коллекторов. Полный перечень
                     обслуживаемых коллекторов с указанием протяженности и расположения.
                   </p>
-                  <a href={`${FILE_BASE_URL}tech-info/collectors_new_names.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0a1628] text-white rounded-xl hover:bg-[#0a1628]/90 transition-colors">
+                  <a href={`${FILE_BASE_URL}tech-info/collectors_new_names.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                     <Download className="w-4 h-4" />
                     Скачать перечень коллекторов
                   </a>

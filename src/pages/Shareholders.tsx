@@ -1,15 +1,12 @@
-import { FileText, TrendingUp, Users, Calendar, Download, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { FileText, TrendingUp, Users, Calendar, Download } from 'lucide-react';
 import { documentsShareholders, shareholderMeetings } from '@/lib/content';
+import { asset } from '@/lib/utils';
 
 // CMS-managed: документы — /admin/ коллекция «Документы для акционеров»
 // собрания — /admin/ коллекция «Собрания акционеров»
 const documents = documentsShareholders.map((d) => ({
   title: d.title,
-  date: d.date || '',
-  size: d.size || '',
-  file: d.file,
+  file: d.file.startsWith('http') || d.file.startsWith('/-mk') ? d.file : asset(d.file),
 }));
 
 const meetings = shareholderMeetings;
@@ -69,42 +66,36 @@ export default function Shareholders() {
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <FileText className="w-5 h-5 text-sky-400" />
                       </div>
-                      <div>
-                        <h4 className="font-medium text-[#0a1628]">{doc.title}</h4>
-                        <p className="text-sm text-gray-400 mt-0.5">{doc.date} &middot; {doc.size}</p>
-                      </div>
+                      {/* #15 — убрана подпись с датой и размером под названием документа */}
+                      <h4 className="font-medium text-[#0a1628]">{doc.title}</h4>
                     </div>
-                    <a href={doc.file} target="_blank" rel="noopener noreferrer" download>
-                      <Button variant="ghost" size="sm" className="text-sky-600 hover:text-sky-500 hover:bg-sky-50 rounded-xl">
-                        <Download className="w-4 h-4" />
-                      </Button>
+                    {/* #16 — единый стиль кнопки «Скачать» */}
+                    <a href={doc.file} target="_blank" rel="noopener noreferrer" download
+                       className="inline-flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium rounded-xl transition-colors flex-shrink-0">
+                      <Download className="w-4 h-4" />
+                      Скачать
                     </a>
                   </div>
                 ))}
               </div>
             </section>
 
+            {/* #10 — Раздел «Раскрытие информации» с пометкой «в разработке».
+                  Не показываем неработающие кнопки. */}
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <div className="accent-bar" />
                 <h2 className="text-2xl font-bold font-heading text-[#0a1628]">Раскрытие информации</h2>
               </div>
-              <div className="space-y-5">
-                <div className="card-modern rounded-2xl p-7">
-                  <h3 className="font-semibold font-heading text-[#0a1628] mb-2">Существенные факты</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                    Информация о существенных фактах, подлежащих раскрытию в соответствии с требованиями
-                    законодательства Российской Федерации.
-                  </p>
-                  <Button variant="outline" size="sm" className="border-sky-600 text-sky-600 hover:bg-sky-50 rounded-xl">Перейти к списку</Button>
-                </div>
-                <div className="card-modern rounded-2xl p-7">
-                  <h3 className="font-semibold font-heading text-[#0a1628] mb-2">Инсайдерская информация</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                    Список лиц, имеющих доступ к инсайдерской информации, и порядок ее раскрытия.
-                  </p>
-                  <Button variant="outline" size="sm" className="border-sky-600 text-sky-600 hover:bg-sky-50 rounded-xl">Подробнее</Button>
-                </div>
+              <div className="card-modern rounded-2xl p-7">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Раздел в разработке. Информация о существенных фактах и инсайдерская информация,
+                  подлежащие раскрытию в соответствии с законодательством РФ, будут опубликованы в&nbsp;ближайшее время.
+                </p>
+                <p className="text-sm text-gray-500 mt-3">
+                  По срочным запросам — корпоративная служба:{' '}
+                  <a href="mailto:shareholders@moscollector.ru" className="text-sky-600 hover:underline">shareholders@moscollector.ru</a>
+                </p>
               </div>
             </section>
           </div>
@@ -148,19 +139,11 @@ export default function Shareholders() {
 
             <div className="card-modern rounded-2xl p-7">
               <h3 className="font-bold font-heading text-[#0a1628] mb-2">Дивидендная политика</h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+              <p className="text-sm text-gray-500 leading-relaxed">
                 АО «Москоллектор» придерживается прозрачной дивидендной политики,
                 направленной на обеспечение баланса интересов акционеров и развития компании.
               </p>
-              <Button variant="outline" size="sm" className="border-sky-600 text-sky-600 hover:bg-sky-50 rounded-xl">Подробнее</Button>
             </div>
-
-            <Link to="/info" className="card-modern rounded-2xl p-5 flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0 group-hover:bg-sky-100 transition-colors">
-                <ChevronRight className="w-4 h-4 text-sky-600" />
-              </div>
-              <span className="font-medium text-[#0a1628] group-hover:text-sky-600 transition-colors">Раскрытие информации</span>
-            </Link>
           </div>
         </div>
       </div>
