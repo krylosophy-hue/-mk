@@ -303,28 +303,14 @@ export default function Info() {
               </Accordion>
 
               <Accordion title="Руководство">
-                <div className="space-y-3">
-                  {[
-                    { initials: 'БПА', position: 'Генеральный директор', name: 'Бондаренко Павел Александрович' },
-                    { initials: 'ГЛВ', position: 'Главный инженер — заместитель генерального директора', name: 'Глуходедов Леонид Владимирович' },
-                    { initials: 'ШТА', position: 'Заместитель генерального директора по корпоративной защите', name: 'Штефан Татьяна Александровна' },
-                    { initials: 'ИАМ', position: 'Заместитель генерального директора по правовым и общим вопросам', name: 'Ильин Алексей Михайлович' },
-                    { initials: 'КОВ', position: 'Заместитель генерального директора по экономике и финансам', name: 'Качаев Олег Викторович' },
-                    { initials: 'ДВА', position: 'Заместитель генерального директора по эксплуатации', name: 'Дорошенко Виктор Андреевич' },
-                  ].map((p) => (
-                    <div key={p.initials} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200">
-                      <div className="w-12 h-12 rounded-2xl bg-[#0a1628] flex items-center justify-center text-white font-heading font-bold text-sm shrink-0">
-                        {p.initials}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#0a1628]">{p.position}</p>
-                        <p className="text-slate-600">{p.name}</p>
-                      </div>
-                    </div>
-                  ))}
-                  <p className="text-xs text-slate-400 mt-4">
-                    Сведения о составе руководства актуальны на момент публикации. По вопросам приёма — Канцелярия:
-                    <a href="tel:+74992222201" className="text-sky-600 hover:underline ml-1">+7 (499) 222-22-01</a>.
+                <div className="p-5 bg-amber-50 border border-amber-200 rounded-xl">
+                  <p className="text-amber-900 text-sm leading-relaxed">
+                    <strong>Сведения о составе руководства уточняются.</strong>{' '}
+                    Перечень должностных лиц и контактные данные будут опубликованы после согласования с пресс-службой АО «Москоллектор».
+                  </p>
+                  <p className="text-xs text-amber-800 mt-3">
+                    По срочным вопросам — Канцелярия:{' '}
+                    <a href="tel:+74992222201" className="underline hover:no-underline">+7 (499) 222-22-01</a>.
                   </p>
                 </div>
               </Accordion>
