@@ -162,27 +162,6 @@ function Accordion({ title, children, defaultOpen = false }: { title: string; ch
 
 // Download button component
 function DownloadButton({ file, label }: { file: string; label: string }) {
-  // Список форм, отсутствующих на старом сайте.
-  // Для них показываем подсказку «Запросить в ЦОП» вместо битой ссылки.
-  const MISSING_FILES = new Set([
-    'ФОРМА-49.doc',
-    'ФОРМА-50.doc',
-    'ФОРМА-51.doc',
-    'ФОРМА-53.doc',
-  ]);
-
-  if (MISSING_FILES.has(file)) {
-    return (
-      <span
-        title="Форма не размещена на сайте — обратитесь в ЦОП по телефону +7 (499) 222-22-01"
-        className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm rounded-lg cursor-help"
-      >
-        <Download className="w-4 h-4 opacity-60" />
-        {label} <span className="text-xs">(запросить в ЦОП)</span>
-      </span>
-    );
-  }
-
   return (
     <a
       href={fileUrl(FILE_BASE_URL, file)}
@@ -1639,7 +1618,7 @@ export default function Consumers() {
                 <Accordion title="Аннулирование ордера">
                   <p className="text-gray-600 mb-3">Подать: ул. Лобачика, д. 4, каб. 303</p>
                   <p className="inline-flex items-center px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-semibold mb-3">Бесплатная услуга</p>
-                  <div><DownloadButton file="ФОРМА-49.doc" label="Форма 49" /></div>
+                  <div><DownloadButton file="ФОРМА-49.xlsx" label="Форма 49" /></div>
                 </Accordion>
                 
                 <Accordion title="Приёмка-передача коммуникаций">

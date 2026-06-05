@@ -112,7 +112,7 @@ const formCatalog: SearchItem[] = [
   { title: 'Форма 45 — инвентаризация коммуникаций', file: FORMS_BASE + 'Форма-45.doc', path: '/consumers#other', keywords: 'форма 45 инвентаризация коммуникации', isForm: true },
   { title: 'Форма 46 — консультационные услуги', file: FORMS_BASE + 'ФОРМА-46.doc', path: '/consumers#other', keywords: 'форма 46 консультация консультационные услуги', isForm: true },
   { title: 'Форма 47 — копирование исп. документации', file: FORMS_BASE + 'ФОРМА-47.doc', path: '/consumers#commercial', keywords: 'форма 47 копирование исполнительная документация план профиль', isForm: true },
-  { title: 'Форма 49 — обследование коллекторов', file: FORMS_BASE + 'ФОРМА-49.doc', path: '/consumers#other', keywords: 'форма 49 обследование коллектор', isForm: true },
+  { title: 'Форма 49 — обследование коллекторов', file: FORMS_BASE + 'ФОРМА-49.xlsx', path: '/consumers#other', keywords: 'форма 49 обследование коллектор', isForm: true },
   // ===== Формы 50-61 =====
   { title: 'Форма 50 — разработка ПСД', file: FORMS_BASE + 'ФОРМА-50.doc', path: '/consumers#commercial', keywords: 'форма 50 проектно сметная документация псд разработка', isForm: true },
   { title: 'Форма 51 — согласование ПСД', file: FORMS_BASE + 'ФОРМА-51.doc', path: '/consumers#commercial', keywords: 'форма 51 проектно сметная документация псд согласование', isForm: true },
