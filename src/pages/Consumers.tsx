@@ -9,7 +9,7 @@ import {
   ClipboardList, BookOpen, Gavel
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { asset } from '@/lib/utils';
+import { asset, fileUrl } from '@/lib/utils';
 
 // Animation variants
 const fadeInUp = {
@@ -164,7 +164,7 @@ function Accordion({ title, children, defaultOpen = false }: { title: string; ch
 function DownloadButton({ file, label }: { file: string; label: string }) {
   return (
     <a
-      href={`${FILE_BASE_URL}${file}`}
+      href={fileUrl(FILE_BASE_URL, file)}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0a1628] text-white text-sm rounded-lg hover:bg-[#142138] transition-colors"
@@ -771,7 +771,7 @@ export default function Consumers() {
             <div className="text-sm text-amber-800">
               <p className="font-semibold mb-1">Важная информация</p>
               <p>В коммуникационные коллекторы допускаются только граждане РФ. С 25.01.2021 приняты новые наименования коллекторов.</p>
-              <a href={`${FILE_BASE_URL}renamed-collectors.xlsx`} className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
+              <a href={fileUrl(FILE_BASE_URL, 'renamed-collectors.xlsx')} className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
                 <Download className="w-4 h-4" /> Скачать список переименованных коллекторов
               </a>
             </div>
@@ -875,7 +875,7 @@ export default function Consumers() {
                       <strong>Уважаемые потребители!</strong> С 25.01.2021 в АО «Москоллектор» приняты новые наименования ряда коллекторов и комплексов.
                     </p>
                     <a
-                      href={`${FILE_BASE_URL}renamed-collectors.xlsx`}
+                      href={fileUrl(FILE_BASE_URL, 'renamed-collectors.xlsx')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sky-700 hover:text-sky-900 font-medium"

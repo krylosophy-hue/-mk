@@ -6,6 +6,7 @@ import {
   Scale, Settings, Download, ExternalLink, Menu, X,
   AlertOctagon, Info as InfoIcon
 } from 'lucide-react';
+import { fileUrl } from '@/lib/utils';
 
 const FILE_BASE_URL = `${import.meta.env.BASE_URL}docs/`;
 
@@ -346,7 +347,7 @@ export default function Info() {
               <div className="space-y-4">
                 <Accordion title="Нормативные правовые акты">
                   <div className="space-y-3">
-                    <a href={`${FILE_BASE_URL}anticorruption/fz-172-antikorr-ekspertiza.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/fz-172-antikorr-ekspertiza.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -355,7 +356,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}anticorruption/pp-rf-96-antikorr-ekspertiza.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/pp-rf-96-antikorr-ekspertiza.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -369,7 +370,7 @@ export default function Info() {
 
                 <Accordion title="Локальные нормативные акты">
                   <div className="space-y-3">
-                    <a href={`${FILE_BASE_URL}anticorruption/prikaz-249-antikorr-politika.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/prikaz-249-antikorr-politika.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -378,7 +379,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}anticorruption/plan-pk-ao-2022-2024.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/plan-pk-ao-2022-2024.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -387,7 +388,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}anticorruption/prikaz-264-kodeks-etiki.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/prikaz-264-kodeks-etiki.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -449,7 +450,7 @@ export default function Info() {
               <div className="space-y-4">
                 <Accordion title="Нормативные документы">
                   <div className="space-y-3">
-                    <a href={`${FILE_BASE_URL}antiterror/antiterror-doc-1.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'antiterror/antiterror-doc-1.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -458,7 +459,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}antiterror/antiterror-doc-2.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'antiterror/antiterror-doc-2.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -467,7 +468,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}antiterror/antiterror-doc-3.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'antiterror/antiterror-doc-3.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -485,7 +486,7 @@ export default function Info() {
                     защищенности объектов инфраструктуры транспортной системы.
                   </p>
                   <div className="space-y-3">
-                    <a href={`${FILE_BASE_URL}antiterror/antiterror-doc-4.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'antiterror/antiterror-doc-4.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -494,7 +495,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}antiterror/antiterror-doc-5.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'antiterror/antiterror-doc-5.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -573,7 +574,7 @@ export default function Info() {
                   ].map((doc) => (
                     <a
                       key={doc.file}
-                      href={`${FILE_BASE_URL}${doc.file}`}
+                      href={fileUrl(FILE_BASE_URL, '${doc.file}')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md hover:border-sky-300 transition-all group"
@@ -623,19 +624,19 @@ export default function Info() {
                     инженерных коммуникаций в коллекторах.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href={`${FILE_BASE_URL}tech-info/TU_vok.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_vok.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                       <Download className="w-4 h-4" />
                       ТУ для ВОК
                     </a>
-                    <a href={`${FILE_BASE_URL}tech-info/TU_skl.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_skl.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                       <Download className="w-4 h-4" />
                       ТУ для силовых кабелей
                     </a>
-                    <a href={`${FILE_BASE_URL}tech-info/TU_ks.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_ks.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                       <Download className="w-4 h-4" />
                       ТУ для кабелей связи
                     </a>
-                    <a href={`${FILE_BASE_URL}tech-info/TU_tr.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_tr.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                       <Download className="w-4 h-4" />
                       ТУ для трубопроводов
                     </a>
@@ -647,7 +648,7 @@ export default function Info() {
                     С 25.01.2021 приняты новые наименования коллекторов. Полный перечень
                     обслуживаемых коллекторов с указанием протяженности и расположения.
                   </p>
-                  <a href={`${FILE_BASE_URL}tech-info/collectors_new_names.pdf`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
+                  <a href={fileUrl(FILE_BASE_URL, 'tech-info/collectors_new_names.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                     <Download className="w-4 h-4" />
                     Скачать перечень коллекторов
                   </a>
@@ -668,7 +669,7 @@ export default function Info() {
 
                 <Accordion title="Нормативная документация">
                   <div className="space-y-3">
-                    <a href={`${FILE_BASE_URL}tech-info/Part1.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/Part1.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -677,7 +678,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}tech-info/Part2.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/Part2.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
@@ -686,7 +687,7 @@ export default function Info() {
                         <p className="text-sm text-slate-500 mt-0.5">PDF</p>
                       </div>
                     </a>
-                    <a href={`${FILE_BASE_URL}tech-info/peredacha_kollektorov.pdf`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/peredacha_kollektorov.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                       <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
                         <Download className="w-5 h-5 text-sky-500" />
                       </div>
