@@ -1,0 +1,3063 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <title>Страница не найдена &#8212; АО &quot;Москоллектор&quot;</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="АО &quot;Москоллектор&quot; &raquo; Лента" href="https://moscollector.ru/feed/" />
+<link rel="alternate" type="application/rss+xml" title="АО &quot;Москоллектор&quot; &raquo; Лента комментариев" href="https://moscollector.ru/comments/feed/" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='extend-builder-css-css' href='https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/css/theme.css?ver=1.0.406-pro' media='all' />
+<style id="extend-builder-css-inline-css">
+/* page css */
+/* part css : theme-shapes */
+.colibri-shape-circles {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/circles.png')
+}
+.colibri-shape-10degree-stripes {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/10degree-stripes.png')
+}
+.colibri-shape-rounded-squares-blue {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/rounded-squares-blue.png')
+}
+.colibri-shape-many-rounded-squares-blue {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/many-rounded-squares-blue.png')
+}
+.colibri-shape-two-circles {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/two-circles.png')
+}
+.colibri-shape-circles-2 {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/circles-2.png')
+}
+.colibri-shape-circles-3 {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/circles-3.png')
+}
+.colibri-shape-circles-gradient {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/circles-gradient.png')
+}
+.colibri-shape-circles-white-gradient {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/circles-white-gradient.png')
+}
+.colibri-shape-waves {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/waves.png')
+}
+.colibri-shape-waves-inverted {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/waves-inverted.png')
+}
+.colibri-shape-dots {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/dots.png')
+}
+.colibri-shape-left-tilted-lines {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/left-tilted-lines.png')
+}
+.colibri-shape-right-tilted-lines {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/right-tilted-lines.png')
+}
+.colibri-shape-right-tilted-strips {
+background-image:url('https://moscollector.ru/wp-content/themes/colibri-wp/resources/images/header-shapes/right-tilted-strips.png')
+}
+/* part css : theme */
+
+.h-y-container > *:not(:last-child), .h-x-container-inner > * {
+  margin-bottom: 20px;
+}
+.h-x-container-inner, .h-column__content > .h-x-container > *:last-child {
+  margin-bottom: -20px;
+}
+.h-x-container-inner > * {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.h-x-container-inner {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+[class*=style-], [class*=local-style-], .h-global-transition, .h-global-transition-all, .h-global-transition-all * {
+  transition-duration: 0.5s;
+}
+.wp-block-button .wp-block-button__link:not(.has-background),.wp-block-file .wp-block-file__button {
+  background-color: #03a9f4;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link:not(.has-background):hover,.wp-block-button .wp-block-button__link:not(.has-background):focus,.wp-block-button .wp-block-button__link:not(.has-background):active,.wp-block-file .wp-block-file__button:hover,.wp-block-file .wp-block-file__button:focus,.wp-block-file .wp-block-file__button:active {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link:not(.has-background) {
+  color: #03a9f4;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #03a9f4;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #03a9f4;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #03a9f4;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #03a9f4;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link:not(.has-background):hover,.wp-block-button.is-style-outline .wp-block-button__link:not(.has-background):focus,.wp-block-button.is-style-outline .wp-block-button__link:not(.has-background):active {
+  color: #fff;
+  background-color: #03a9f4;
+  background-image: none;
+}
+.has-background-color,*[class^="wp-block-"].is-style-solid-color {
+  background-color: #03a9f4;
+  background-image: none;
+}
+.has-colibri-color-1-background-color {
+  background-color: #03a9f4;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-1-background-color {
+  background-color: #03a9f4;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-1-background-color:hover,.wp-block-button .wp-block-button__link.has-colibri-color-1-background-color:focus,.wp-block-button .wp-block-button__link.has-colibri-color-1-background-color:active {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-1-background-color {
+  color: #03a9f4;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #03a9f4;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #03a9f4;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #03a9f4;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #03a9f4;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-1-background-color:hover,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-1-background-color:focus,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-1-background-color:active {
+  color: #fff;
+  background-color: #03a9f4;
+  background-image: none;
+}
+*[class^="wp-block-"].has-colibri-color-1-background-color,*[class^="wp-block-"] .has-colibri-color-1-background-color,*[class^="wp-block-"].is-style-solid-color.has-colibri-color-1-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-1-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-1-color p {
+  background-color: #03a9f4;
+  background-image: none;
+}
+.has-colibri-color-1-color {
+  color: #03a9f4;
+}
+.has-colibri-color-2-background-color {
+  background-color: #f79007;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-2-background-color {
+  background-color: #f79007;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-2-background-color:hover,.wp-block-button .wp-block-button__link.has-colibri-color-2-background-color:focus,.wp-block-button .wp-block-button__link.has-colibri-color-2-background-color:active {
+  background-color: rgb(162, 94, 5);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-2-background-color {
+  color: #f79007;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #f79007;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #f79007;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #f79007;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #f79007;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-2-background-color:hover,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-2-background-color:focus,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-2-background-color:active {
+  color: #fff;
+  background-color: #f79007;
+  background-image: none;
+}
+*[class^="wp-block-"].has-colibri-color-2-background-color,*[class^="wp-block-"] .has-colibri-color-2-background-color,*[class^="wp-block-"].is-style-solid-color.has-colibri-color-2-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-2-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-2-color p {
+  background-color: #f79007;
+  background-image: none;
+}
+.has-colibri-color-2-color {
+  color: #f79007;
+}
+.has-colibri-color-3-background-color {
+  background-color: #00bf87;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-3-background-color {
+  background-color: #00bf87;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-3-background-color:hover,.wp-block-button .wp-block-button__link.has-colibri-color-3-background-color:focus,.wp-block-button .wp-block-button__link.has-colibri-color-3-background-color:active {
+  background-color: rgb(0, 106, 75);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-3-background-color {
+  color: #00bf87;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #00bf87;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #00bf87;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #00bf87;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #00bf87;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-3-background-color:hover,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-3-background-color:focus,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-3-background-color:active {
+  color: #fff;
+  background-color: #00bf87;
+  background-image: none;
+}
+*[class^="wp-block-"].has-colibri-color-3-background-color,*[class^="wp-block-"] .has-colibri-color-3-background-color,*[class^="wp-block-"].is-style-solid-color.has-colibri-color-3-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-3-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-3-color p {
+  background-color: #00bf87;
+  background-image: none;
+}
+.has-colibri-color-3-color {
+  color: #00bf87;
+}
+.has-colibri-color-4-background-color {
+  background-color: #6632ff;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-4-background-color {
+  background-color: #6632ff;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-4-background-color:hover,.wp-block-button .wp-block-button__link.has-colibri-color-4-background-color:focus,.wp-block-button .wp-block-button__link.has-colibri-color-4-background-color:active {
+  background-color: rgb(68, 33, 170);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-4-background-color {
+  color: #6632ff;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #6632ff;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #6632ff;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #6632ff;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #6632ff;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-4-background-color:hover,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-4-background-color:focus,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-4-background-color:active {
+  color: #fff;
+  background-color: #6632ff;
+  background-image: none;
+}
+*[class^="wp-block-"].has-colibri-color-4-background-color,*[class^="wp-block-"] .has-colibri-color-4-background-color,*[class^="wp-block-"].is-style-solid-color.has-colibri-color-4-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-4-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-4-color p {
+  background-color: #6632ff;
+  background-image: none;
+}
+.has-colibri-color-4-color {
+  color: #6632ff;
+}
+.has-colibri-color-5-background-color {
+  background-color: #FFFFFF;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-5-background-color {
+  background-color: #FFFFFF;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-5-background-color:hover,.wp-block-button .wp-block-button__link.has-colibri-color-5-background-color:focus,.wp-block-button .wp-block-button__link.has-colibri-color-5-background-color:active {
+  background-color: rgb(102, 102, 102);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-5-background-color {
+  color: #FFFFFF;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #FFFFFF;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #FFFFFF;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #FFFFFF;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-5-background-color:hover,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-5-background-color:focus,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-5-background-color:active {
+  color: #fff;
+  background-color: #FFFFFF;
+  background-image: none;
+}
+*[class^="wp-block-"].has-colibri-color-5-background-color,*[class^="wp-block-"] .has-colibri-color-5-background-color,*[class^="wp-block-"].is-style-solid-color.has-colibri-color-5-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-5-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-5-color p {
+  background-color: #FFFFFF;
+  background-image: none;
+}
+.has-colibri-color-5-color {
+  color: #FFFFFF;
+}
+.has-colibri-color-6-background-color {
+  background-color: #17252a;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-6-background-color {
+  background-color: #17252a;
+  background-image: none;
+}
+.wp-block-button .wp-block-button__link.has-colibri-color-6-background-color:hover,.wp-block-button .wp-block-button__link.has-colibri-color-6-background-color:focus,.wp-block-button .wp-block-button__link.has-colibri-color-6-background-color:active {
+  background-color: rgb(23, 37, 42);
+  background-image: none;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-6-background-color {
+  color: #17252a;
+  background-color: transparent;
+  background-image: none;
+  border-top-width: 2px;
+  border-top-color: #17252a;
+  border-top-style: solid;
+  border-right-width: 2px;
+  border-right-color: #17252a;
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #17252a;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #17252a;
+  border-left-style: solid;
+}
+.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-6-background-color:hover,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-6-background-color:focus,.wp-block-button.is-style-outline .wp-block-button__link.has-colibri-color-6-background-color:active {
+  color: #fff;
+  background-color: #17252a;
+  background-image: none;
+}
+*[class^="wp-block-"].has-colibri-color-6-background-color,*[class^="wp-block-"] .has-colibri-color-6-background-color,*[class^="wp-block-"].is-style-solid-color.has-colibri-color-6-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-6-color,*[class^="wp-block-"].is-style-solid-color blockquote.has-colibri-color-6-color p {
+  background-color: #17252a;
+  background-image: none;
+}
+.has-colibri-color-6-color {
+  color: #17252a;
+}
+#colibri .woocommerce-store-notice,#colibri.woocommerce .content .h-section input[type=submit],#colibri.woocommerce-page  .content .h-section  input[type=button],#colibri.woocommerce .content .h-section  input[type=button],#colibri.woocommerce-page  .content .h-section .button,#colibri.woocommerce .content .h-section .button,#colibri.woocommerce-page  .content .h-section  a.button,#colibri.woocommerce .content .h-section  a.button,#colibri.woocommerce-page  .content .h-section button.button,#colibri.woocommerce .content .h-section button.button,#colibri.woocommerce-page  .content .h-section input.button,#colibri.woocommerce .content .h-section input.button,#colibri.woocommerce-page  .content .h-section input#submit,#colibri.woocommerce .content .h-section input#submit,#colibri.woocommerce-page  .content .h-section a.added_to_cart,#colibri.woocommerce .content .h-section a.added_to_cart,#colibri.woocommerce-page  .content .h-section .ui-slider-range,#colibri.woocommerce .content .h-section .ui-slider-range,#colibri.woocommerce-page  .content .h-section .ui-slider-handle,#colibri.woocommerce .content .h-section .ui-slider-handle,#colibri.woocommerce-page  .content .h-section .wc-block-cart__submit-button,#colibri.woocommerce .content .h-section .wc-block-cart__submit-button,#colibri.woocommerce-page  .content .h-section .wc-block-components-checkout-place-order-button,#colibri.woocommerce .content .h-section .wc-block-components-checkout-place-order-button {
+  background-color: #03a9f4;
+  background-image: none;
+  border-top-width: 0px;
+  border-top-color: #03a9f4;
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: #03a9f4;
+  border-right-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #03a9f4;
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-color: #03a9f4;
+  border-left-style: solid;
+}
+#colibri .woocommerce-store-notice:hover,#colibri .woocommerce-store-notice:focus,#colibri .woocommerce-store-notice:active,#colibri.woocommerce .content .h-section input[type=submit]:hover,#colibri.woocommerce .content .h-section input[type=submit]:focus,#colibri.woocommerce .content .h-section input[type=submit]:active,#colibri.woocommerce-page  .content .h-section  input[type=button]:hover,#colibri.woocommerce-page  .content .h-section  input[type=button]:focus,#colibri.woocommerce-page  .content .h-section  input[type=button]:active,#colibri.woocommerce .content .h-section  input[type=button]:hover,#colibri.woocommerce .content .h-section  input[type=button]:focus,#colibri.woocommerce .content .h-section  input[type=button]:active,#colibri.woocommerce-page  .content .h-section .button:hover,#colibri.woocommerce-page  .content .h-section .button:focus,#colibri.woocommerce-page  .content .h-section .button:active,#colibri.woocommerce .content .h-section .button:hover,#colibri.woocommerce .content .h-section .button:focus,#colibri.woocommerce .content .h-section .button:active,#colibri.woocommerce-page  .content .h-section  a.button:hover,#colibri.woocommerce-page  .content .h-section  a.button:focus,#colibri.woocommerce-page  .content .h-section  a.button:active,#colibri.woocommerce .content .h-section  a.button:hover,#colibri.woocommerce .content .h-section  a.button:focus,#colibri.woocommerce .content .h-section  a.button:active,#colibri.woocommerce-page  .content .h-section button.button:hover,#colibri.woocommerce-page  .content .h-section button.button:focus,#colibri.woocommerce-page  .content .h-section button.button:active,#colibri.woocommerce .content .h-section button.button:hover,#colibri.woocommerce .content .h-section button.button:focus,#colibri.woocommerce .content .h-section button.button:active,#colibri.woocommerce-page  .content .h-section input.button:hover,#colibri.woocommerce-page  .content .h-section input.button:focus,#colibri.woocommerce-page  .content .h-section input.button:active,#colibri.woocommerce .content .h-section input.button:hover,#colibri.woocommerce .content .h-section input.button:focus,#colibri.woocommerce .content .h-section input.button:active,#colibri.woocommerce-page  .content .h-section input#submit:hover,#colibri.woocommerce-page  .content .h-section input#submit:focus,#colibri.woocommerce-page  .content .h-section input#submit:active,#colibri.woocommerce .content .h-section input#submit:hover,#colibri.woocommerce .content .h-section input#submit:focus,#colibri.woocommerce .content .h-section input#submit:active,#colibri.woocommerce-page  .content .h-section a.added_to_cart:hover,#colibri.woocommerce-page  .content .h-section a.added_to_cart:focus,#colibri.woocommerce-page  .content .h-section a.added_to_cart:active,#colibri.woocommerce .content .h-section a.added_to_cart:hover,#colibri.woocommerce .content .h-section a.added_to_cart:focus,#colibri.woocommerce .content .h-section a.added_to_cart:active,#colibri.woocommerce-page  .content .h-section .ui-slider-range:hover,#colibri.woocommerce-page  .content .h-section .ui-slider-range:focus,#colibri.woocommerce-page  .content .h-section .ui-slider-range:active,#colibri.woocommerce .content .h-section .ui-slider-range:hover,#colibri.woocommerce .content .h-section .ui-slider-range:focus,#colibri.woocommerce .content .h-section .ui-slider-range:active,#colibri.woocommerce-page  .content .h-section .ui-slider-handle:hover,#colibri.woocommerce-page  .content .h-section .ui-slider-handle:focus,#colibri.woocommerce-page  .content .h-section .ui-slider-handle:active,#colibri.woocommerce .content .h-section .ui-slider-handle:hover,#colibri.woocommerce .content .h-section .ui-slider-handle:focus,#colibri.woocommerce .content .h-section .ui-slider-handle:active,#colibri.woocommerce-page  .content .h-section .wc-block-cart__submit-button:hover,#colibri.woocommerce-page  .content .h-section .wc-block-cart__submit-button:focus,#colibri.woocommerce-page  .content .h-section .wc-block-cart__submit-button:active,#colibri.woocommerce .content .h-section .wc-block-cart__submit-button:hover,#colibri.woocommerce .content .h-section .wc-block-cart__submit-button:focus,#colibri.woocommerce .content .h-section .wc-block-cart__submit-button:active,#colibri.woocommerce-page  .content .h-section .wc-block-components-checkout-place-order-button:hover,#colibri.woocommerce-page  .content .h-section .wc-block-components-checkout-place-order-button:focus,#colibri.woocommerce-page  .content .h-section .wc-block-components-checkout-place-order-button:active,#colibri.woocommerce .content .h-section .wc-block-components-checkout-place-order-button:hover,#colibri.woocommerce .content .h-section .wc-block-components-checkout-place-order-button:focus,#colibri.woocommerce .content .h-section .wc-block-components-checkout-place-order-button:active {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  border-top-width: 0px;
+  border-top-color: rgb(2, 110, 159);
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: rgb(2, 110, 159);
+  border-right-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: rgb(2, 110, 159);
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-color: rgb(2, 110, 159);
+  border-left-style: solid;
+}
+#colibri.woocommerce-page  .content .h-section .star-rating::before,#colibri.woocommerce .content .h-section .star-rating::before,#colibri.woocommerce-page  .content .h-section .star-rating span::before,#colibri.woocommerce .content .h-section .star-rating span::before {
+  color: #03a9f4;
+}
+#colibri.woocommerce-page  .content .h-section .price,#colibri.woocommerce .content .h-section .price {
+  color: #03a9f4;
+}
+#colibri.woocommerce-page  .content .h-section .price del,#colibri.woocommerce .content .h-section .price del {
+  color: rgb(84, 194, 244);
+}
+#colibri.woocommerce-page  .content .h-section .onsale,#colibri.woocommerce .content .h-section .onsale {
+  background-color: #03a9f4;
+  background-image: none;
+}
+#colibri.woocommerce-page  .content .h-section .onsale:hover,#colibri.woocommerce-page  .content .h-section .onsale:focus,#colibri.woocommerce-page  .content .h-section .onsale:active,#colibri.woocommerce .content .h-section .onsale:hover,#colibri.woocommerce .content .h-section .onsale:focus,#colibri.woocommerce .content .h-section .onsale:active {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+}
+#colibri.woocommerce ul.products li.product h2:hover {
+  color: #03a9f4;
+}
+#colibri.woocommerce-page  .content .h-section .woocommerce-pagination .page-numbers.current,#colibri.woocommerce .content .h-section .woocommerce-pagination .page-numbers.current,#colibri.woocommerce-page  .content .h-section .woocommerce-pagination a.page-numbers:hover,#colibri.woocommerce .content .h-section .woocommerce-pagination a.page-numbers:hover {
+  background-color: #03a9f4;
+  background-image: none;
+}
+#colibri.woocommerce-page  .content .h-section .comment-form-rating .stars a,#colibri.woocommerce .content .h-section .comment-form-rating .stars a {
+  color: #03a9f4;
+}
+.h-section-global-spacing {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+#colibri .colibri-language-switcher {
+  background-color: white;
+  background-image: none;
+  top: 80px;
+  border-top-width: 0px;
+  border-top-style: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+  border-left-width: 0px;
+  border-left-style: none;
+}
+#colibri .colibri-language-switcher .lang-item {
+  padding-top: 14px;
+  padding-right: 18px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+}
+body {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgb(70, 112, 127);
+}
+body a {
+  font-family: Montserrat;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1.5;
+  color: rgb(2, 110, 159);
+}
+body p {
+  margin-bottom: 16px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgb(70, 112, 127);
+}
+body .h-lead p {
+  margin-bottom: 16px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 1.25em;
+  line-height: 1.5;
+  color: rgb(1, 51, 74);
+}
+body blockquote p {
+  margin-bottom: 16px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgb(70, 112, 127);
+}
+body h1 {
+  margin-bottom: 16px;
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 3.375em;
+  line-height: 1.26;
+  color: rgb(1, 51, 74);
+}
+body h2 {
+  margin-bottom: 16px;
+  font-family: Open Sans;
+  font-weight: 300;
+  font-size: 2.625em;
+  line-height: 1.143;
+  color: rgb(23, 37, 42);
+}
+body h3 {
+  margin-bottom: 16px;
+  font-family: Open Sans;
+  font-weight: 300;
+  font-size: 2.25em;
+  line-height: 1.25;
+  color: rgb(23, 37, 42);
+}
+body h4 {
+  margin-bottom: 16px;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 1.25em;
+  line-height: 1.6;
+  color: rgb(23, 37, 42);
+}
+body h5 {
+  margin-bottom: 16px;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 1.125em;
+  line-height: 1.55;
+  color: rgb(23, 37, 42);
+}
+body h6 {
+  margin-bottom: 16px;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.6;
+  color: rgb(23, 37, 42);
+}
+ .content.colibri-main-content-single .main-section,.content.colibri-main-content-archive .main-section {
+  background-position: top center;
+  background-size: cover;
+  background-image: url("https://moscollector.ru/wp-content/uploads/2021/11/bg2.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+ .content.colibri-main-content-single .main-section .main-row,.content.colibri-main-content-archive .main-section .main-row {
+  background-color: unset;
+  background-image: none;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px){
+.h-section-global-spacing {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+}
+
+@media (max-width: 767px){
+.h-section-global-spacing {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+}
+/* part css : page */
+.style-4 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+#colibri .style-4 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .h-navigation_sticky .style-4,#colibri .h-navigation_sticky.style-4 {
+  height: auto;
+  min-height: unset;
+  text-align: center;
+}
+#colibri .style-5-image {
+  max-height: 70px;
+}
+#colibri .style-5 a,#colibri .style-5  .logo-text {
+  color: #ffffff;
+  text-decoration: none;
+}
+#colibri .h-navigation_sticky .style-5-image,#colibri .h-navigation_sticky.style-5-image {
+  max-height: 70px;
+}
+#colibri .h-navigation_sticky .style-5 a,#colibri .h-navigation_sticky .style-5  .logo-text,#colibri .h-navigation_sticky.style-5 a,#colibri .h-navigation_sticky.style-5  .logo-text {
+  color: #000000;
+  text-decoration: none;
+}
+.style-6 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-6 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+  border-top-width: 0px;
+  border-top-color: #FFFFFF;
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  border-right-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-style: solid;
+  border-left-width: 2px;
+  border-left-color: #FFFFFF;
+  border-left-style: solid;
+}
+.style-8 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+#colibri .style-8 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu {
+  justify-content: center;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li {
+  margin-top: 0px;
+  margin-right: 15px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover {
+  margin-top: 0px;
+  margin-right: 15px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > a {
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.hover  > a {
+  color: rgb(36, 81, 158);
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li:hover > a,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.hover  > a {
+  color: rgb(36, 81, 158);
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover {
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul {
+  background-color: #ffffff;
+  background-image: none;
+  margin-right: 5px;
+  margin-left: 5px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.04) ;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(128,128,128,.2);
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-style: none;
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.hover {
+  background-color: rgb(2, 110, 159);
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li:hover,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.hover {
+  background-color: rgb(2, 110, 159);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(128,128,128,.2);
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-style: none;
+  background-color: rgba(2, 110, 159, 0);
+  background-image: none;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li > a {
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.hover  > a {
+  color: rgb(255, 255, 255);
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li:hover > a,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.hover  > a {
+  color: rgb(255, 255, 255);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item > a,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item > a:hover {
+  font-size: 14px;
+  color: rgb(36, 81, 158);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,#colibri .style-9 
+      ul.colibri-menu.bordered-active-item > li::before {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  height: 3px;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu.solid-active-item > li::after,#colibri .style-9 
+      ul.colibri-menu.solid-active-item > li::before {
+  background-color: white;
+  background-image: none;
+  border-top-width: 0px;
+  border-top-style: none;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border-left-width: 0px;
+  border-left-style: none;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > ul {
+  margin-top: 0px;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > ul::before {
+  height: 0px;
+  width: 100% ;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu  li > a > svg,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu  li > a >  .arrow-wrapper {
+  padding-right: 5px;
+  padding-left: 5px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li.current_page_item > a > svg,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover > a > svg,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li.current_page_item > a > .arrow-wrapper,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover > a > .arrow-wrapper {
+  padding-right: 5px;
+  padding-left: 5px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li > a > svg,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li > a >  .arrow-wrapper {
+  color: rgb(255, 255, 255);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item > a > svg,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover > a > svg,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item > a > .arrow-wrapper,#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover > a > .arrow-wrapper {
+  color: rgb(255, 255, 255);
+}
+#colibri .h-navigation_sticky .style-9 >  div > .colibri-menu-container > ul.colibri-menu,#colibri .h-navigation_sticky.style-9 >  div > .colibri-menu-container > ul.colibri-menu {
+  justify-content: center;
+}
+#colibri .h-navigation_sticky .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > a,#colibri .h-navigation_sticky.style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > a {
+  color: rgb(2, 110, 159);
+}
+#colibri .h-navigation_sticky .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.hover  > a,#colibri .h-navigation_sticky.style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.hover  > a {
+  color: rgb(36, 81, 158);
+}
+#colibri .h-navigation_sticky .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li:hover > a,#colibri .h-navigation_sticky .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.hover  > a,#colibri .h-navigation_sticky.style-9  >  div > .colibri-menu-container > ul.colibri-menu > li:hover > a,#colibri .h-navigation_sticky.style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.hover  > a {
+  color: rgb(36, 81, 158);
+}
+#colibri .h-navigation_sticky .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a,#colibri .h-navigation_sticky .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover,#colibri .h-navigation_sticky.style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a,#colibri .h-navigation_sticky.style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover {
+  color: rgb(2, 110, 159);
+}
+#colibri .h-navigation_sticky .style-9 >  div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,#colibri .h-navigation_sticky .style-9 
+      ul.colibri-menu.bordered-active-item > li::before,#colibri .h-navigation_sticky.style-9 >  div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,#colibri .h-navigation_sticky.style-9 
+      ul.colibri-menu.bordered-active-item > li::before {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+}
+#colibri .style-10-offscreen {
+  background-color: #222B34;
+  background-image: none;
+  width: 300px !important;
+}
+#colibri .style-10-offscreenOverlay {
+  background-color: rgba(0,0,0,0.5);
+  background-image: none;
+}
+#colibri .style-10  .h-hamburger-icon {
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: none;
+  border-top-width: 0px;
+  border-top-color: black;
+  border-top-style: solid;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-right-width: 0px;
+  border-right-color: black;
+  border-right-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-left-width: 0px;
+  border-left-color: black;
+  border-left-style: solid;
+  fill: white;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  width: 24px;
+  height: 24px;
+}
+#colibri .style-13 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-14-image {
+  max-height: 70px;
+}
+#colibri .style-14 a,#colibri .style-14  .logo-text {
+  color: #ffffff;
+  text-decoration: none;
+}
+#colibri .h-navigation_sticky .style-14-image,#colibri .h-navigation_sticky.style-14-image {
+  max-height: 70px;
+}
+#colibri .h-navigation_sticky .style-14 a,#colibri .h-navigation_sticky .style-14  .logo-text,#colibri .h-navigation_sticky.style-14 a,#colibri .h-navigation_sticky.style-14  .logo-text {
+  color: #000000;
+  text-decoration: none;
+}
+#colibri .style-16 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu > li > a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px;
+  border-top-width: 0px;
+  border-top-color: #808080;
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: #808080;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #808080;
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-color: #808080;
+  border-left-style: solid;
+  font-size: 14px;
+  color: white;
+}
+#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a,#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px;
+  border-top-width: 0px;
+  border-top-color: #808080;
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: #808080;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #808080;
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-color: #808080;
+  border-left-style: solid;
+  font-size: 14px;
+  color: white;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li > a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px;
+  border-top-width: 0px;
+  border-top-color: #808080;
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: #808080;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #808080;
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-color: #808080;
+  border-left-style: solid;
+  font-size: 14px;
+  color: white;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item > a,#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item > a:hover {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px;
+  border-top-width: 0px;
+  border-top-color: #808080;
+  border-top-style: solid;
+  border-right-width: 0px;
+  border-right-color: #808080;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #808080;
+  border-bottom-style: solid;
+  border-left-width: 0px;
+  border-left-color: #808080;
+  border-left-style: solid;
+  font-size: 14px;
+  color: white;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu  li > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu  li > a >  .arrow-wrapper {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: black;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li.current_page_item > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li.current_page_item > a > .arrow-wrapper,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover > a > .arrow-wrapper {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: black;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li > a >  .arrow-wrapper {
+  color: white;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item > a > .arrow-wrapper,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover > a > .arrow-wrapper {
+  color: white;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.style-56 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-56 {
+  text-align: left;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-336 {
+  text-align: left;
+}
+#colibri .style-337-icon {
+  width: 18px ;
+  height: 18px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+#colibri .style-337-icon:visited {
+  width: 18px ;
+  height: 18px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+#colibri .style-337 {
+  font-size: 10px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-337:visited {
+  font-size: 10px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-337:hover {
+  color: rgb(204, 204, 204);
+}
+#colibri .h-navigation_sticky .style-337,#colibri .h-navigation_sticky.style-337 {
+  font-size: 10px;
+  color: rgb(2, 110, 159);
+}
+#colibri .h-navigation_sticky .style-337:hover,#colibri .h-navigation_sticky.style-337:hover {
+  color: rgb(204, 204, 204);
+}
+#colibri .style-338 {
+  text-align: left;
+}
+#colibri .style-340 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+  color: rgb(1, 51, 74);
+}
+#colibri .style-340 a {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-340 p {
+  color: rgb(1, 51, 74);
+}
+#colibri .style-340 h1 {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-340 h2 {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-340 h3 {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-340 h4 {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-340 h5 {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-340 h6 {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-345 {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  background-color: rgba(0,0,0,0);
+  background-image: none;
+}
+#colibri .style-345 .colibri_search_button {
+  width: 60px ;
+  color: #ffffff;
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  border-top-width: 1px;
+  border-top-color: rgb(2, 110, 159);
+  border-top-style: solid;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-right-width: 1px;
+  border-right-color: rgb(2, 110, 159);
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(2, 110, 159);
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-left-width: 1px;
+  border-left-color: rgb(2, 110, 159);
+  border-left-style: solid;
+}
+#colibri .style-345 .colibri_search_button:hover {
+  background-color: #FFFFFF;
+}
+#colibri .style-345 .colibri_search_button:hover {
+  background-color: #FFFFFF;
+}
+#colibri .style-345 .colibri_search_button svg {
+  width: 18px ;
+  fill: #FFFFFF;
+}
+#colibri .style-345 .colibri_search_button svg:hover {
+  fill: rgb(2, 110, 159);
+}
+#colibri .style-345 .colibri_search_button svg:hover {
+  fill: rgb(2, 110, 159);
+}
+#colibri .style-345 .colibri_search_input {
+  border-top-width: 1px;
+  border-top-color: rgb(2, 110, 159);
+  border-top-style: solid;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-right-width: 1px;
+  border-right-color: rgb(2, 110, 159);
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(2, 110, 159);
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-left-width: 1px;
+  border-left-color: rgb(2, 110, 159);
+  border-left-style: solid;
+  padding-top: 6px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  font-style: italic;
+  font-size: 16px;
+  color: rgb(2, 110, 159);
+  background-color: rgba(0,0,0,0);
+  background-image: none;
+}
+#colibri .style-345 .fancybox-slide .colibri_search_input {
+  height: 50px;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_button,#colibri .h-navigation_sticky.style-345 .colibri_search_button {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  border-top-width: 1px;
+  border-top-color: rgb(2, 110, 159);
+  border-top-style: solid;
+  border-right-width: 1px;
+  border-right-color: rgb(2, 110, 159);
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(2, 110, 159);
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-color: rgb(2, 110, 159);
+  border-left-style: solid;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_button:hover,#colibri .h-navigation_sticky.style-345 .colibri_search_button:hover {
+  background-color: #FFFFFF;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_button:hover,#colibri .h-navigation_sticky.style-345 .colibri_search_button:hover {
+  background-color: #FFFFFF;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_button svg,#colibri .h-navigation_sticky.style-345 .colibri_search_button svg {
+  fill: #FFFFFF;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_button svg:hover,#colibri .h-navigation_sticky.style-345 .colibri_search_button svg:hover {
+  fill: rgb(2, 110, 159);
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_button svg:hover,#colibri .h-navigation_sticky.style-345 .colibri_search_button svg:hover {
+  fill: rgb(2, 110, 159);
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_input,#colibri .h-navigation_sticky.style-345 .colibri_search_input {
+  color: rgb(2, 110, 159);
+  background-color: #FFFFFF;
+  background-image: none;
+  border-top-width: 1px;
+  border-top-color: rgb(2, 110, 159);
+  border-top-style: solid;
+  border-right-width: 1px;
+  border-right-color: rgb(2, 110, 159);
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(2, 110, 159);
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-color: rgb(2, 110, 159);
+  border-left-style: solid;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_input:focus,#colibri .h-navigation_sticky.style-345 .colibri_search_input:focus {
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-style: none;
+}
+#colibri .h-navigation_sticky .style-345 .colibri_search_input:focus,#colibri .h-navigation_sticky.style-345 .colibri_search_input:focus {
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-style: none;
+}
+#colibri .style-665 {
+  animation-duration: 0.5s;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #FFFFFF;
+  background-image: none;
+}
+#colibri .h-navigation_sticky .style-665,#colibri .h-navigation_sticky.style-665 {
+  background-color: #FFFFFF;
+  background-image: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5) ;
+}
+#colibri .style-1160 {
+  min-height: 150px;
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("https://moscollector.ru/wp-content/uploads/2021/11/bg2.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#colibri .style-1160 h1 {
+  color: #FFFFFF;
+}
+#colibri .style-1160 h2 {
+  color: #FFFFFF;
+}
+#colibri .style-1160 h3 {
+  color: #FFFFFF;
+}
+#colibri .style-1160 h4 {
+  color: #FFFFFF;
+}
+#colibri .style-1160 h5 {
+  color: #FFFFFF;
+}
+#colibri .style-1160 h6 {
+  color: #FFFFFF;
+}
+#colibri .style-1160 p {
+  color: #FFFFFF;
+}
+#colibri .style-local-7-h4-outer {
+  width: 8% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .h-navigation_sticky .style-local-7-h4-outer,#colibri .h-navigation_sticky.style-local-7-h4-outer {
+  width: 8% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-7-h6-outer {
+  width: 8% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .h-navigation_sticky .style-local-7-h6-outer,#colibri .h-navigation_sticky.style-local-7-h6-outer {
+  width: 8% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-7-h11-outer {
+  width: 75% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .h-navigation_sticky .style-local-7-h11-outer,#colibri .h-navigation_sticky.style-local-7-h11-outer {
+  width: 75% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-7-h31-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-7-h21-outer {
+  width: 8% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .h-navigation_sticky .style-local-7-h21-outer,#colibri .h-navigation_sticky.style-local-7-h21-outer {
+  width: 8% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-380 {
+  height: auto;
+  min-height: unset;
+  background-color: #FFFFFF;
+  background-image: none;
+  color: rgb(153, 153, 153);
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#colibri .style-380 h1 {
+  color: #FFFFFF;
+}
+#colibri .style-380 h2 {
+  color: #FFFFFF;
+}
+#colibri .style-380 h3 {
+  color: #FFFFFF;
+}
+#colibri .style-380 h4 {
+  color: #FFFFFF;
+}
+#colibri .style-380 h5 {
+  color: #FFFFFF;
+}
+#colibri .style-380 h6 {
+  color: #FFFFFF;
+}
+#colibri .style-380 p {
+  color: rgb(153, 153, 153);
+}
+.style-382 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-382 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+.style-388 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+#colibri .style-388 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-389 .social-icon-container {
+  margin-right: 20px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+#colibri .style-389 .icon-container {
+  fill: rgb(2, 110, 159);
+  width: 28px ;
+  height: 28px;
+}
+#colibri .style-389 .icon-container:hover {
+  fill: rgb(1, 51, 74);
+}
+#colibri .style-389 .icon-container:hover {
+  fill: rgb(1, 51, 74);
+}
+.style-391 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-391 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-401 {
+  height: auto;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#colibri .style-401  > .h-section-grid-container {
+  margin-top: -35px;
+}
+#colibri .style-403 {
+  text-align: center;
+  min-height: 35px;
+}
+#colibri .style-404-icon {
+  fill: rgb(2, 110, 159);
+  width: 20px ;
+  height: 20px;
+  border-top-width: 1px;
+  border-top-color: rgb(125, 79, 79);
+  border-top-style: none;
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+  border-right-width: 1px;
+  border-right-color: rgb(125, 79, 79);
+  border-right-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(125, 79, 79);
+  border-bottom-style: none;
+  border-left-width: 1px;
+  border-left-color: rgb(125, 79, 79);
+  border-left-style: none;
+  background-color: rgba(0,0,0,0);
+  background-image: none;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+}
+#colibri .style-409 {
+  height: auto;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #FFFFFF;
+  background-image: none;
+  color: rgb(153, 153, 153);
+}
+#colibri .style-409 p {
+  color: rgb(153, 153, 153);
+}
+.style-411 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-411 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-412 {
+  color: rgb(2, 110, 159);
+}
+.style-416 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+#colibri .style-416 {
+  text-align: right;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-418 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-419 {
+  text-align: left;
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-419 p {
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-419 ol {
+  list-style-type: decimal;
+}
+#colibri .style-419 ul {
+  list-style-type: disc;
+}
+.style-420 > .h-x-container-inner > * {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#colibri .style-420 {
+  text-align: left;
+}
+#colibri .style-421-icon {
+  width: 18px ;
+  height: 18px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+#colibri .style-421-icon:visited {
+  width: 18px ;
+  height: 18px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+#colibri .style-421 {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-421:visited {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-421:hover {
+  color: rgb(204, 204, 204);
+}
+#colibri .style-422-image {
+  opacity: 1;
+}
+#colibri .style-422-caption {
+  margin-top: 10px;
+}
+#colibri .style-422-frameImage {
+  z-index: -1;
+  transform: translateX(10%) translateY(10%);
+  transform-origin: center center 0px;
+  background-color: rgb(0,0,0);
+  height: 100%;
+  width: 100% ;
+  border-top-width: 10px;
+  border-top-color: rgb(0,0,0);
+  border-top-style: none;
+  border-right-width: 10px;
+  border-right-color: rgb(0,0,0);
+  border-right-style: none;
+  border-bottom-width: 10px;
+  border-bottom-color: rgb(0,0,0);
+  border-bottom-style: none;
+  border-left-width: 10px;
+  border-left-color: rgb(0,0,0);
+  border-left-style: none;
+}
+#colibri .style-423-image {
+  opacity: 1;
+}
+#colibri .style-423-caption {
+  margin-top: 10px;
+}
+#colibri .style-423-frameImage {
+  z-index: -1;
+  transform: translateX(10%) translateY(10%);
+  transform-origin: center center 0px;
+  background-color: rgb(0,0,0);
+  height: 100%;
+  width: 100% ;
+  border-top-width: 10px;
+  border-top-color: rgb(0,0,0);
+  border-top-style: none;
+  border-right-width: 10px;
+  border-right-color: rgb(0,0,0);
+  border-right-style: none;
+  border-bottom-width: 10px;
+  border-bottom-color: rgb(0,0,0);
+  border-bottom-style: none;
+  border-left-width: 10px;
+  border-left-color: rgb(0,0,0);
+  border-left-style: none;
+}
+#colibri .style-600 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+.style-601 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-601 {
+  text-align: right;
+  height: auto;
+  min-height: unset;
+  background-color: rgba(2, 110, 159, 0);
+  background-image: none;
+}
+#colibri .style-604 {
+  text-align: left;
+}
+#colibri .style-606 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-1294 {
+  text-align: left;
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-1294 p {
+  font-size: 14px;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-1294 ol {
+  list-style-type: decimal;
+}
+#colibri .style-1294 ul {
+  list-style-type: disc;
+}
+#colibri .style-local-10-f4-outer {
+  width: 10% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f20-outer {
+  width: 15% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f6-outer {
+  width: 10% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f29-outer {
+  width: 15% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f37-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f9-outer {
+  width: 25% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f18-outer {
+  width: 20% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+.site .style-dynamic-10-f12-group {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+#colibri .style-local-10-f5-image {
+  max-height: 40px;
+}
+#colibri .style-local-10-f7-image {
+  max-height: 60px;
+}
+#colibri .style-local-10-f11-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f14-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-10-f8-outer {
+  width: 15% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-159 {
+  height: auto;
+  min-height: unset;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#colibri .style-165 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+  color: #FFFFFF;
+}
+#colibri .style-165 p {
+  color: #FFFFFF;
+}
+#colibri .style-165 a {
+  color: rgb(204, 204, 204);
+}
+#colibri .style-165 h1 {
+  color: #FFFFFF;
+}
+#colibri .style-165 h2 {
+  color: #FFFFFF;
+}
+#colibri .style-165 h3 {
+  color: #FFFFFF;
+}
+#colibri .style-165 h4 {
+  color: #FFFFFF;
+}
+#colibri .style-165 h5 {
+  color: #FFFFFF;
+}
+#colibri .style-165 h6 {
+  color: #FFFFFF;
+}
+#colibri .style-166 {
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-style: none;
+}
+#colibri .style-166 .widget {
+  text-align: left;
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-style: none;
+  margin-bottom: 40px;
+}
+#colibri .style-166 .widget h1,#colibri .style-166 .widget h2,#colibri .style-166 .widget h3,#colibri .style-166 .widget h4,#colibri .style-166 .widget h5,#colibri .style-166 .widget h6 {
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-style: none;
+  margin-bottom: 10px;
+}
+#colibri .style-166 .widget .colibri-widget-content-container {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container p {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container h1 {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container h2 {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container h3 {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container h4 {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container h5 {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container h6 {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container a {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget .colibri-widget-content-container a:hover {
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget ul,#colibri .style-166 .widget ol {
+  list-style-type: none;
+  color: #FFFFFF;
+}
+#colibri .style-166 .widget ul li,#colibri .style-166 .widget ol li,#colibri .style-166 .widget  .textwidget p,#colibri .style-166 .widget  .calendar_wrap td ,#colibri .style-166  .widget  .calendar_wrap th ,#colibri .style-166  .widget  .calendar_wrap caption {
+  font-family: Open Sans;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+#colibri .style-166 .widget ul li:hover,#colibri .style-166 .widget ol li:hover,#colibri .style-166 .widget  .textwidget p:hover,#colibri .style-166 .widget  .calendar_wrap td :hover,#colibri .style-166  .widget  .calendar_wrap th :hover,#colibri .style-166  .widget  .calendar_wrap caption:hover {
+  color: rgb(37, 41, 42);
+}
+#colibri .style-166 .widget ul li:hover,#colibri .style-166 .widget ol li:hover,#colibri .style-166 .widget  .textwidget p:hover,#colibri .style-166 .widget  .calendar_wrap td :hover,#colibri .style-166  .widget  .calendar_wrap th :hover,#colibri .style-166  .widget  .calendar_wrap caption:hover {
+  color: rgb(37, 41, 42);
+}
+#colibri .style-166 .widget ul li a:not(.wp-block-button__link) {
+  font-family: Open Sans;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(102, 102, 102);
+}
+#colibri .style-166 .widget ul li a:not(.wp-block-button__link):hover {
+  color: rgb(0, 0, 0);
+}
+#colibri .style-166 .widget ul li a:not(.wp-block-button__link):hover {
+  color: rgb(0, 0, 0);
+}
+#colibri .style-166 .widget input:not([type="submit"]) {
+  font-family: Open Sans;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(1, 51, 74);
+  border-top-width: 0px;
+  border-top-color: black;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-color: black;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-color: black;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-color: black;
+  border-left-style: none;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: none;
+}
+#colibri .style-166 .widget.widget_search {
+  background-color: unset;
+  background-image: none;
+  border-top-width: 1px;
+  border-top-color: rgb(238, 238, 238);
+  border-top-style: solid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-right-width: 1px;
+  border-right-color: rgb(238, 238, 238);
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(238, 238, 238);
+  border-bottom-style: solid;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left-width: 1px;
+  border-left-color: rgb(238, 238, 238);
+  border-left-style: solid;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  margin-bottom: 15px;
+}
+#colibri .style-166 .widget.widget_search h1,#colibri .style-166 .widget.widget_search h2,#colibri .style-166 .widget.widget_search h3,#colibri .style-166 .widget.widget_search h4,#colibri .style-166 .widget.widget_search h5,#colibri .style-166 .widget.widget_search h6 {
+  border-top-width: 0px;
+  border-top-style: none;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-left-width: 0px;
+  border-left-style: none;
+  font-size: 16px;
+  color: #17252a;
+}
+#colibri .style-166 .widget.widget_search input:not([type="submit"]) {
+  padding-top: 10px;
+  padding-right: 12px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  font-size: 16px;
+  color: rgb(37, 41, 42);
+  background-color: rgb(249, 250, 251);
+  background-image: none;
+  border-top-width: 0px;
+  border-top-color: rgba(222, 222, 222, 0);
+  border-top-style: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-right-width: 0px;
+  border-right-color: rgba(222, 222, 222, 0);
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-color: rgba(222, 222, 222, 0);
+  border-bottom-style: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-left-width: 0px;
+  border-left-color: rgba(222, 222, 222, 0);
+  border-left-style: none;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+#colibri .style-166 .widget.widget_search input:not([type="submit"])::placeholder {
+  color: rgb(37, 41, 42);
+}
+#colibri .style-166 .widget.widget_search input[type="submit"],#colibri .style-166 .widget.widget_search button[type="submit"] {
+  background-color: rgb(249, 250, 251);
+  background-image: none;
+  font-size: 16px;
+  line-height: 1;
+  color: rgb(1, 51, 74);
+  border-top-width: 0px;
+  border-top-style: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 5px;
+  border-right-width: 0px;
+  border-right-style: none;
+  border-bottom-width: 0px;
+  border-bottom-style: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 5px;
+  border-left-width: 0px;
+  border-left-style: none;
+  width: auto;
+  padding-top: 10px;
+  padding-right: 12px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  transition-duration: 0.5s;
+  display: inline-block;
+}
+#colibri .style-166 .widget.widget_search input[type="submit"]:hover,#colibri .style-166 .widget.widget_search button[type="submit"]:hover {
+  color: rgb(51, 51, 51);
+}
+#colibri .style-166 .widget.widget_search input[type="submit"]:hover,#colibri .style-166 .widget.widget_search button[type="submit"]:hover {
+  color: rgb(51, 51, 51);
+}
+#colibri .style-166 .widget.widget_search input[type="submit"] {
+  display: none;
+}
+#colibri .style-166 .widget.widget_search button[type="submit"] {
+  display: inline-block;
+}
+#colibri .style-166 .widget.widget_archive h1,#colibri .style-166 .widget.widget_archive h2,#colibri .style-166 .widget.widget_archive h3,#colibri .style-166 .widget.widget_archive h4,#colibri .style-166 .widget.widget_archive h5,#colibri .style-166 .widget.widget_archive h6 {
+  font-size: 8px;
+}
+#colibri .style-local-25-s4-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-130 {
+  background-color: unset;
+  background-image: none;
+}
+#colibri .style-131 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-369 {
+  height: auto;
+  min-height: unset;
+  background-position: center right;
+  background-size: cover;
+  background-image: url("https://moscollector.ru/wp-content/uploads/2021/09/collector_anim_1.0650.png");
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+#colibri .style-371 {
+  text-align: right;
+  height: auto;
+  min-height: unset;
+  border-top-width: 1px;
+  border-top-color: #17252a;
+  border-top-style: solid;
+  border-right-width: 1px;
+  border-right-color: #17252a;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #17252a;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-color: #17252a;
+  border-left-style: solid;
+  padding-top: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-image: none;
+}
+#colibri .style-372 p,#colibri .style-372  h1,#colibri .style-372  h2,#colibri .style-372  h3,#colibri .style-372  h4,#colibri .style-372  h5,#colibri .style-372  h6 {
+  text-transform: uppercase;
+}
+#colibri .style-372 .text-wrapper-fancy svg path {
+  stroke: #000000;
+  stroke-linejoin: initial;
+  stroke-linecap: initial;
+  stroke-width: 8px;
+}
+#colibri .style-373 p,#colibri .style-373  h1,#colibri .style-373  h2,#colibri .style-373  h3,#colibri .style-373  h4,#colibri .style-373  h5,#colibri .style-373  h6 {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+#colibri .style-373 .text-wrapper-fancy svg path {
+  stroke: #000000;
+  stroke-linejoin: initial;
+  stroke-linecap: initial;
+  stroke-width: 8px;
+}
+#colibri .style-375-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+#colibri .style-375 {
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1em;
+  letter-spacing: 1px;
+  color: #fff;
+  border-top-width: 2px;
+  border-top-color: rgb(37, 41, 42);
+  border-top-style: solid;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-right-width: 2px;
+  border-right-color: rgb(37, 41, 42);
+  border-right-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: rgb(37, 41, 42);
+  border-bottom-style: solid;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-left-width: 2px;
+  border-left-color: rgb(37, 41, 42);
+  border-left-style: solid;
+  text-align: center;
+  background-color: #17252a;
+  background-image: none;
+}
+#colibri .style-375:hover,#colibri .style-375:focus {
+  border-top-color: rgb(2, 110, 159);
+  border-right-color: rgb(2, 110, 159);
+  border-bottom-color: rgb(2, 110, 159);
+  border-left-color: rgb(2, 110, 159);
+  background-color: rgb(2, 110, 159);
+}
+#colibri .style-375:active .style-375-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+#colibri .style-377 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-378 {
+  text-align: center;
+  height: auto;
+  min-height: unset;
+}
+#colibri .style-local-19-m3-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-19-m6-outer {
+  width: 70% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-19-m12-outer {
+  width: 50% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-19-m13-outer {
+  width: 50% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+@media (max-width: 767px){
+#colibri .style-8 {
+  text-align: right;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul {
+  box-shadow: none;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li {
+  border-bottom-color: rgba(128, 128, 128, 0);
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover {
+  border-bottom-color: rgba(128, 128, 128, 0);
+}
+#colibri .style-10-offscreen {
+  background-color: #FFFFFF;
+}
+#colibri .style-10-offscreenOverlay {
+  background-color: rgba(255, 255, 255, 0);
+}
+#colibri .style-10  .h-hamburger-icon {
+  background-color: rgba(0, 0, 0, 0);
+  border-top-color: rgba(0, 0, 0, 0);
+  border-right-color: rgba(0, 0, 0, 0);
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  fill: rgb(2, 110, 159);
+  width: 30px;
+  height: 30px;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu > li > a {
+  border-bottom-color: rgb(2, 110, 159);
+  font-size: 0.8em;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a,#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover {
+  border-bottom-color: rgb(2, 110, 159);
+  font-size: 0.8em;
+  color: rgb(2, 110, 159);
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li > a {
+  border-bottom-color: rgb(2, 110, 159);
+  color: rgb(2, 110, 159);
+}
+#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.hover  > a {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  color: #FFFFFF;
+}
+#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li:hover > a,#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.hover  > a {
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  color: #FFFFFF;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item > a,#colibri .style-17  >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item > a:hover {
+  border-bottom-color: rgb(2, 110, 159);
+  background-color: rgb(2, 110, 159);
+  background-image: none;
+  color: #FFFFFF;
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu  li > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu  li > a >  .arrow-wrapper {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li.current_page_item > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li.current_page_item > a > .arrow-wrapper,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item:hover > a > .arrow-wrapper {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul  li > a >  .arrow-wrapper {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover > a > svg,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul li.current_page_item > a > .arrow-wrapper,#colibri .style-17 >  div > .colibri-menu-container > ul.colibri-menu li > ul > li.current_page_item:hover > a > .arrow-wrapper {
+  color: rgb(2, 110, 159);
+}
+#colibri .style-665 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#colibri .h-navigation_sticky .style-665,#colibri .h-navigation_sticky.style-665 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#colibri .style-local-7-h4-outer {
+  flex: 1 1 0;
+  -ms-flex: 1 1 0%;
+  max-width: 100%;
+}
+#colibri .h-navigation_sticky .style-local-7-h4-outer,#colibri .h-navigation_sticky.style-local-7-h4-outer {
+  flex: 1 1 0;
+  -ms-flex: 1 1 0%;
+  max-width: 100%;
+}
+#colibri .style-local-7-h6-outer {
+  flex: 1 1 0;
+  -ms-flex: 1 1 0%;
+  max-width: 100%;
+}
+#colibri .style-local-7-h11-outer {
+  width: auto;
+  max-width: 100%;
+}
+#colibri .h-navigation_sticky .style-local-7-h11-outer,#colibri .h-navigation_sticky.style-local-7-h11-outer {
+  width: auto;
+  max-width: 100%;
+}
+#colibri .style-local-7-h17-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-7-h20-outer {
+  width: 100% ;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+#colibri .style-local-7-h21-outer {
+  width: 100% ;
+}
+.style-388 > .h-y-container > *:not(:last-child) {
+  margin-bottom: 0px;
+}
+#colibri .style-389 .icon-container {
+  width: 20px ;
+  height: 20px;
+}
+#colibri .style-416 {
+  text-align: left;
+}
+#colibri .style-421 {
+  font-size: 10px;
+}
+#colibri .style-421:visited {
+  font-size: 10px;
+}
+.style-601 > .h-y-container > *:not(:last-child) {
+  margin-bottom: -5px;
+}
+.style-604 > .h-x-container-inner > * {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#colibri .style-1294 {
+  text-align: center;
+  font-size: 10px;
+}
+#colibri .style-1294 p {
+  font-size: 10px;
+}
+#colibri .style-local-10-f4-outer {
+  width: 33% ;
+  order: 1;
+}
+#colibri .style-local-10-f20-outer {
+  width: 33% ;
+  order: 3;
+}
+#colibri .style-local-10-f6-outer {
+  width: 33% ;
+  order: 2;
+}
+#colibri .style-local-10-f29-outer {
+  width: 100% ;
+}
+#colibri .style-local-10-f9-outer {
+  width: 90% ;
+  order: 5;
+}
+#colibri .style-local-10-f18-outer {
+  width: 100% ;
+  order: 6;
+}
+#colibri .style-local-10-f11-outer {
+  width: 50% ;
+}
+#colibri .style-local-10-f14-outer {
+  width: 50% ;
+}
+.site .style-dynamic-10-f15-group {
+  margin-left: -0px;
+  margin-right: -0px;
+}
+#colibri .style-local-10-f8-outer {
+  width: 100% ;
+  order: 4;
+}
+#colibri .style-166 .widget {
+  text-align: center;
+}
+#colibri .style-369 {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+#colibri .style-371 {
+  text-align: center;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  transform: translateY(0px);
+  transform-origin: center center 0px;
+}
+#colibri .style-373 p,#colibri .style-373  h1,#colibri .style-373  h2,#colibri .style-373  h3,#colibri .style-373  h4,#colibri .style-373  h5,#colibri .style-373  h6 {
+  font-size: 2.2rem;
+  line-height: 2.5rem;
+}
+#colibri .style-local-19-m6-outer {
+  width: 100% ;
+}
+#colibri .style-local-19-m12-outer {
+  width: 100% ;
+}
+#colibri .style-local-19-m13-outer {
+  width: 100% ;
+}}
+@media (min-width: 768px) and (max-width: 1023px){
+#colibri .style-8 {
+  text-align: right;
+}
+#colibri .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > a {
+  font-size: 10px;
+}
+#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a,#colibri .style-9  >  div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover {
+  font-size: 10px;
+}
+#colibri .h-navigation_sticky .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li,#colibri .h-navigation_sticky.style-9 >  div > .colibri-menu-container > ul.colibri-menu > li {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+#colibri .h-navigation_sticky .style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > a,#colibri .h-navigation_sticky.style-9 >  div > .colibri-menu-container > ul.colibri-menu > li > a {
+  font-size: 10px;
+}
+#colibri .style-10-offscreen {
+  background-color: rgb(2, 110, 159);
+}
+#colibri .style-10-offscreenOverlay {
+  background-color: rgba(0,0,0,0);
+}
+#colibri .style-local-7-h6-outer {
+  width: 25% ;
+}
+#colibri .style-local-7-h11-outer {
+  width: 59% ;
+}
+#colibri .style-389 .social-icon-container {
+  margin-right: 5px;
+}
+#colibri .style-389 .icon-container {
+  width: 20px ;
+  height: 20px;
+}
+#colibri .style-416 {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+#colibri .style-419 {
+  font-size: 8px;
+}
+#colibri .style-419 p {
+  font-size: 8px;
+}
+#colibri .style-421 {
+  font-size: 8px;
+}
+#colibri .style-421:visited {
+  font-size: 8px;
+}
+#colibri .style-1294 {
+  text-align: center;
+  font-size: 8px;
+}
+#colibri .style-1294 p {
+  font-size: 8px;
+}
+#colibri .style-local-10-f6-outer {
+  width: 15% ;
+}
+#colibri .style-local-10-f29-outer {
+  width: 100% ;
+}
+#colibri .style-local-10-f9-outer {
+  width: 21.99% ;
+}
+#colibri .style-local-10-f18-outer {
+  width: 25% ;
+}
+#colibri .style-local-10-f8-outer {
+  width: 4.33% ;
+}
+#colibri .style-371 {
+  padding-top: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 4rem;
+}
+#colibri .style-local-19-m6-outer {
+  width: 80% ;
+}}
+
+/*# sourceURL=extend-builder-css-inline-css */
+</style>
+<link rel='stylesheet' id='fancybox-css' href='https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/fancybox/jquery.fancybox.min.css?ver=1.0.406-pro' media='all' />
+<link rel='stylesheet' id='swiper-css' href='https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/swiper/css/swiper.css?ver=1.0.406-pro' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<link rel='stylesheet' id='metaslider-blocks-editor-css-css' href='https://moscollector.ru/wp-content/plugins/ml-slider/admin/assets/dist/css/editor-block.css?ver=3.109.0' media='all' property='stylesheet' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--colibri-color-1: #03a9f4;--wp--preset--color--colibri-color-2: #f79007;--wp--preset--color--colibri-color-3: #00bf87;--wp--preset--color--colibri-color-4: #6632ff;--wp--preset--color--colibri-color-5: #FFFFFF;--wp--preset--color--colibri-color-6: #17252a;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-colibri-color-1-color{color: var(--wp--preset--color--colibri-color-1) !important;}.has-colibri-color-2-color{color: var(--wp--preset--color--colibri-color-2) !important;}.has-colibri-color-3-color{color: var(--wp--preset--color--colibri-color-3) !important;}.has-colibri-color-4-color{color: var(--wp--preset--color--colibri-color-4) !important;}.has-colibri-color-5-color{color: var(--wp--preset--color--colibri-color-5) !important;}.has-colibri-color-6-color{color: var(--wp--preset--color--colibri-color-6) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-colibri-color-1-background-color{background-color: var(--wp--preset--color--colibri-color-1) !important;}.has-colibri-color-2-background-color{background-color: var(--wp--preset--color--colibri-color-2) !important;}.has-colibri-color-3-background-color{background-color: var(--wp--preset--color--colibri-color-3) !important;}.has-colibri-color-4-background-color{background-color: var(--wp--preset--color--colibri-color-4) !important;}.has-colibri-color-5-background-color{background-color: var(--wp--preset--color--colibri-color-5) !important;}.has-colibri-color-6-background-color{background-color: var(--wp--preset--color--colibri-color-6) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-colibri-color-1-border-color{border-color: var(--wp--preset--color--colibri-color-1) !important;}.has-colibri-color-2-border-color{border-color: var(--wp--preset--color--colibri-color-2) !important;}.has-colibri-color-3-border-color{border-color: var(--wp--preset--color--colibri-color-3) !important;}.has-colibri-color-4-border-color{border-color: var(--wp--preset--color--colibri-color-4) !important;}.has-colibri-color-5-border-color{border-color: var(--wp--preset--color--colibri-color-5) !important;}.has-colibri-color-6-border-color{border-color: var(--wp--preset--color--colibri-color-6) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='extend_builder_-fonts-css' href='https://fonts.googleapis.com/css?family=Muli%3A200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COpen+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7CPlayfair+Display%3A400%2C400italic%2C700%2C700italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext&#038;display=swap' media='all' />
+<link rel='stylesheet' id='lwpcng-main-css' href='https://moscollector.ru/wp-content/plugins/luckywp-cookie-notice-gdpr/front/assets/main.min.css?ver=1.2.1' media='all' />
+<script id="jquery-core-js" src="https://moscollector.ru/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://moscollector.ru/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="imagesloaded-js" src="https://moscollector.ru/wp-includes/js/imagesloaded.min.js?ver=5.0.0"></script>
+<script id="masonry-js" src="https://moscollector.ru/wp-includes/js/masonry.min.js?ver=4.2.2"></script>
+<script id="colibri-js-extra">
+var colibriData = {"7-h2":{"data":{"sticky":{"className":"h-navigation_sticky animated","topSpacing":0,"top":0,"stickyOnMobile":true,"stickyOnTablet":true,"startAfterNode":{"enabled":false,"selector":".header, .page-header"},"animations":{"enabled":false,"currentInAnimationClass":"slideInDown","currentOutAnimationClass":"slideOutDownNavigation","allInAnimationsClasses":"slideInDown fadeIn h-global-transition-disable","allOutAnimationsClasses":"slideOutDownNavigation fadeOut h-global-transition-disable","duration":500}},"overlap":true}},"7-h12":{"data":{"type":"horizontal"}},"7-h15":{"data":[]},"25-s5":{"data":{"componentsWithEffects":[]}}};
+//# sourceURL=colibri-js-extra
+</script>
+<script id="colibri-js" src="https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/colibri.js?ver=1.0.406-pro"></script>
+<script id="typed-js" src="https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/typed.js?ver=1.0.406-pro"></script>
+<script id="fancybox-js" src="https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/fancybox/jquery.fancybox.min.js?ver=1.0.406-pro"></script>
+<script id="extend-builder-js-js" src="https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/js/theme.js?ver=1.0.406-pro"></script>
+<script id="swiper-js" src="https://moscollector.ru/wp-content/plugins/colibri-page-builder-pro/extend-builder/assets/static/swiper/js/swiper.js?ver=1.0.406-pro"></script>
+<script id="lwpcng-main-js" src="https://moscollector.ru/wp-content/plugins/luckywp-cookie-notice-gdpr/front/assets/main.min.js?ver=1.2.1"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://moscollector.ru/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0" />
+				<style>
+					#wpadminbar ul li#wp-admin-bar-colibri_top_bar_menu {
+						background-color: rgba(3, 169, 244, 0.3);
+						padding-left: 8px;
+						padding-right: 8px;
+						margin: 0px 16px;
+					}
+
+					#wpadminbar ul li#wp-admin-bar-colibri_top_bar_menu>a {
+						background-color: transparent;
+						color: #fff;
+					}
+
+
+					#wpadminbar ul li#wp-admin-bar-colibri_top_bar_menu>a img {
+						max-height: 24px;
+						margin-top: -4px;
+						margin-right: 6px;
+					}
+
+					#wpadminbar ul li#wp-admin-bar-colibri_top_bar_menu>.ab-sub-wrapper {
+						margin-left: -8px;
+					}
+
+									</style>
+		            <style type="text/css">
+                body {
+                --colibri-color-1: #03a9f4;--colibri-color-1--variant-1: #a6dcf4;--colibri-color-1--variant-2: #54c2f4;--colibri-color-1--variant-3: #03a9f4;--colibri-color-1--variant-4: #026e9f;--colibri-color-1--variant-5: #01334a;--colibri-color-2: #f79007;--colibri-color-2--variant-1: #f7d7ac;--colibri-color-2--variant-2: #f7b359;--colibri-color-2--variant-3: #f79007;--colibri-color-2--variant-4: #a25e05;--colibri-color-2--variant-5: #4d2d02;--colibri-color-3: #00bf87;--colibri-color-3--variant-1: #7fbfac;--colibri-color-3--variant-2: #40bf9a;--colibri-color-3--variant-3: #00bf87;--colibri-color-3--variant-4: #006a4b;--colibri-color-3--variant-5: #00150f;--colibri-color-4: #6632ff;--colibri-color-4--variant-1: #e5dcff;--colibri-color-4--variant-2: #a587ff;--colibri-color-4--variant-3: #6632ff;--colibri-color-4--variant-4: #4421aa;--colibri-color-4--variant-5: #221155;--colibri-color-5: #FFFFFF;--colibri-color-5--variant-1: #ffffff;--colibri-color-5--variant-2: #cccccc;--colibri-color-5--variant-3: #999999;--colibri-color-5--variant-4: #666666;--colibri-color-5--variant-5: #333333;--colibri-color-6: #17252a;--colibri-color-6--variant-1: #74bbd4;--colibri-color-6--variant-2: #46707f;--colibri-color-6--variant-3: #25292a;--colibri-color-6--variant-4: #17252a;--colibri-color-6--variant-5: #09212a;                }
+                </style>
+        <link rel="icon" href="https://moscollector.ru/wp-content/uploads/2021/09/mk.png" sizes="32x32" />
+<link rel="icon" href="https://moscollector.ru/wp-content/uploads/2021/09/mk.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://moscollector.ru/wp-content/uploads/2021/09/mk.png" />
+<meta name="msapplication-TileImage" content="https://moscollector.ru/wp-content/uploads/2021/09/mk.png" />
+    </head>
+
+<body id="colibri" class="error404 wp-custom-logo wp-theme-colibri-wp metaslider-plugin">
+<div class="site" id="page-top">
+            <script>
+            /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function () {
+                var t, e = location.hash.substring(1);
+                /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t.tagName) || (t.tabIndex = -1), t.focus())
+            }, !1);
+        </script>
+        <a class="skip-link screen-reader-text" href="#content">
+            Перейти к содержимому        </a>
+        <!-- dynamic header start --><div data-colibri-id="7-h1" class="page-header style-31 style-local-7-h1 position-relative">
+  <!---->
+  <div data-colibri-navigation-overlap="true" role="banner" class="h-navigation_outer h-navigation_overlap style-665-outer style-local-7-h2-outer">
+    <!---->
+    <div id="navigation" data-colibri-component="navigation" data-colibri-id="7-h2" class="h-section h-navigation h-navigation d-flex style-665 style-local-7-h2">
+      <!---->
+      <div class="h-section-grid-container h-section-fluid-container">
+        <div data-nav-normal="">
+          <div data-colibri-id="7-h3" class="h-row-container gutters-row-lg-0 gutters-row-md-0 gutters-row-2 gutters-row-v-lg-0 gutters-row-v-md-0 gutters-row-v-2 style-666 style-local-7-h3 position-relative">
+            <!---->
+            <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-0 gutters-col-md-0 gutters-col-2 gutters-col-v-lg-0 gutters-col-v-md-0 gutters-col-v-2">
+              <!---->
+              <div class="h-column h-column-container d-flex h-col-none style-4-outer style-local-7-h4-outer">
+                <div data-colibri-id="7-h4" data-placeholder-provider="navigation-logo" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-4 style-local-7-h4 position-relative">
+                  <!---->
+                  <!---->
+                  <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                    <!---->
+                    <div data-colibri-id="7-h5" class="d-flex align-items-center text-lg-left text-md-left text-left justify-content-lg-start justify-content-md-start justify-content-start style-5 style-local-7-h5 position-relative h-element">
+                      <!---->
+                      <a rel="home" href="https://moscollector.ru/" h-use-smooth-scroll="true" class="d-flex align-items-center">
+                        <img src="https://moscollector.ru/wp-content/uploads/2021/11/mk2.png" class="h-logo__image h-logo__image_h logo-image style-5-image style-local-7-h5-image" alt="" />
+                        <img src="https://moscollector.ru/wp-content/uploads/2021/11/mk2.png" class="h-logo__alt-image h-logo__alt-image_h logo-alt-image style-5-image style-local-7-h5-image" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="h-column h-column-container d-flex h-col-none style-6-outer style-local-7-h6-outer h-hide-sm">
+                <div data-colibri-id="7-h6" data-placeholder-provider="navigation-spacing" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-1 h-px-2 v-inner-lg-2 v-inner-md-1 v-inner-2 style-6 style-local-7-h6 h-hide-sm position-relative">
+                  <!---->
+                  <!---->
+                  <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                    <!---->
+                    <div data-colibri-id="7-h7" class="h-x-container style-336 style-local-7-h7 position-relative h-element">
+                      <!---->
+                      <div class="h-x-container-inner style-dynamic-7-h7-group style-336-spacing style-local-7-h7-spacing"><span class="h-link__outer style-337-outer style-local-7-h8-outer d-inline-flex h-element"><a h-use-smooth-scroll="true" href="tel:+7 (499) 222-22-01"  data-colibri-id="7-h8" class="d-flex w-100 align-items-center h-link style-337 style-local-7-h8 position-relative"><!----><!----> <span>+7 (499) 222-22-01</span></a>
+                        </span>
+                      </div>
+                    </div>
+                    <div data-colibri-id="7-h9" class="h-x-container style-338 style-local-7-h9 position-relative h-element">
+                      <!---->
+                      <div class="h-x-container-inner style-dynamic-7-h9-group style-338-spacing style-local-7-h9-spacing"><span class="h-link__outer style-337-outer style-local-7-h10-outer d-inline-flex h-element"><a h-use-smooth-scroll="true" href="nfo@moscollector.ru"  data-colibri-id="7-h10" class="d-flex w-100 align-items-center h-link style-337 style-local-7-h10 position-relative"><!----><!----> <span>info@moscollector.ru</span></a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="h-column h-column-container d-flex h-col-none style-8-outer style-local-7-h11-outer">
+                <div data-colibri-id="7-h11" data-placeholder-provider="navigation-menu" class="d-flex h-flex-basis h-column__inner h-px-lg-0 h-px-md-0 h-px-2 v-inner-lg-0 v-inner-md-0 v-inner-2 style-8 style-local-7-h11 position-relative">
+                  <!---->
+                  <!---->
+                  <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                    <!---->
+                    <div data-colibri-component="dropdown-menu" role="navigation" h-use-smooth-scroll-all="true" data-colibri-id="7-h12" class="h-menu h-global-transition-all h-ignore-global-body-typography has-offcanvas-tablet h-menu-horizontal h-dropdown-menu style-9 style-local-7-h12 position-relative h-element">
+                      <!---->
+                      <div class="h-global-transition-all h-main-menu"><div class="colibri-menu-container"><ul id="menu-front-page-main" class="colibri-menu bordered-active-item bordered-active-item--top-and-bottom effect-borders-grow grow-from-left"><li id="menu-item-3915" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3915"><a href="#">О компании<svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a>
+<ul class="sub-menu">
+	<li id="menu-item-4400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4400"><a href="https://moscollector.ru/%d0%be-%d0%ba%d0%be%d0%bc%d0%bf%d0%b0%d0%bd%d0%b8%d0%b8/">О компании</a></li>
+	<li id="menu-item-10034" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10034"><a href="https://moscollector.ru/%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0-%d0%b2-%d0%be%d1%82%d0%bd%d0%be%d1%88%d0%b5%d0%bd%d0%b8%d0%b8-%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8-%d0%b8-%d0%b7%d0%b0%d1%89%d0%b8/">Политика в отношении обработки и защиты персональных данных</a></li>
+	<li id="menu-item-10064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10064"><a href="https://moscollector.ru/%d1%81%d0%be%d1%86%d0%b8%d0%b0%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0/">Социальная политика</a></li>
+	<li id="menu-item-10125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10125"><a href="https://moscollector.ru/%d0%bf%d1%80%d0%be%d1%84%d0%ba%d0%be%d0%bc/">Профком</a></li>
+</ul>
+</li>
+<li id="menu-item-8254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8254"><a href="https://moscollector.ru/%d0%b0%d0%ba%d1%86%d0%b8%d0%be%d0%bd%d0%b5%d1%80%d0%b0%d0%bc/">Акционерам</a></li>
+<li id="menu-item-3917" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3917"><a href="#">Потребителям<svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a>
+<ul class="sub-menu">
+	<li id="menu-item-6810" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6810"><a href="https://moscollector.ru/%d0%bd%d0%be%d0%b2%d0%be%d1%81%d1%82%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%bf%d0%be%d1%82%d1%80%d0%b5%d0%b1%d0%b8%d1%82%d0%b5%d0%bb%d0%b5%d0%b9/">Новости для потребителей</a></li>
+	<li id="menu-item-19323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19323"><a href="https://moscollector.ru/%d1%83%d1%81%d0%bb%d1%83%d0%b3%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%bf%d0%be%d1%82%d1%80%d0%b5%d0%b1%d0%b8%d1%82%d0%b5%d0%bb%d0%b5%d0%b9/">Услуги для потребителей</a></li>
+	<li id="menu-item-14254" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14254"><a href="https://moscollector.ru/услуги-для-потребителей/#tipovye-formy-dogovorov">Типовые формы договоров</a></li>
+	<li id="menu-item-5388" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5388"><a href="https://moscollector.ru/%d0%b4%d0%bd%d0%b8-%d0%b8-%d1%87%d0%b0%d1%81%d1%8b-%d0%bf%d1%80%d0%b8%d0%b5%d0%bc%d0%b0/">Дни и часы приема</a></li>
+</ul>
+</li>
+<li id="menu-item-3920" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3920"><a href="#">Информация<svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a>
+<ul class="sub-menu">
+	<li id="menu-item-6873" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6873"><a href="https://moscollector.ru/%d0%bf%d1%80%d0%be%d1%82%d0%b8%d0%b2%d0%ba%d0%be%d1%80%d1%80%d1%83%d0%bf%d1%86%d0%b8%d0%b8/">Противодействие коррупции</a></li>
+	<li id="menu-item-8497" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8497"><a href="https://moscollector.ru/%d0%bf%d1%80%d0%be%d1%82%d0%b8%d0%b2%d0%be%d0%b4%d0%b5%d0%b9%d1%81%d1%82%d0%b2%d0%b8%d0%b5-%d1%82%d0%b5%d1%80%d1%80%d0%be%d1%80%d0%b8%d0%b7%d0%bc%d1%83-%d0%b8-%d1%8d%d0%ba%d1%81%d1%82%d1%80%d0%b5/">Противодействие терроризму и экстремизму</a></li>
+	<li id="menu-item-10237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10237"><a href="https://moscollector.ru/%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f-%d0%be%d0%b1-%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d0%b5-%d0%b4%d0%be%d0%b2%d0%b5%d1%80%d0%b5%d0%bd%d0%bd%d0%be%d1%81%d1%82%d0%b5%d0%b9/">Информация об отзыве доверенностей</a></li>
+	<li id="menu-item-9218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9218"><a href="https://moscollector.ru/%d1%82%d0%b5%d1%85%d0%bd%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b0%d1%8f-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f/">Техническая информация</a></li>
+</ul>
+</li>
+<li id="menu-item-3919" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3919"><a href="/blog">Пресс-центр</a></li>
+<li id="menu-item-6989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6989"><a href="https://moscollector.ru/%d0%b7%d0%b0%d0%ba%d1%83%d0%bf%d0%ba%d0%b8/">Закупки</a></li>
+<li id="menu-item-11167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11167"><a href="https://moscollector.ru/%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f-%d0%bf%d0%be-%d0%b2%d0%b0%d0%ba%d0%b0%d0%bd%d1%81%d0%b8%d1%8f%d0%bc/">Вакансии</a></li>
+<li id="menu-item-3921" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3921"><a href="/контакты">Контакты</a></li>
+</ul></div></div>
+                      <div data-colibri-id="7-h13" class="h-mobile-menu h-global-transition-disable style-10 style-local-7-h13 position-relative h-element">
+                        <!---->
+                        <a data-click-outside="true" data-target="#offcanvas-wrapper-7-h13" data-target-id="offcanvas-wrapper-7-h13" data-offcanvas-overlay-id="offcanvas-overlay-7-h13" href="#" data-colibri-component="offcanvas" data-direction="right"
+                          data-push="false" title="Menu" class="h-hamburger-button">
+                          <div class="icon-container h-hamburger-icon">
+                            <div class="h-icon-svg" style="width: 100%; height: 100%;">
+                              <!--Icon by Font Awesome (https://fontawesome.com)-->
+                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="bars" viewBox="0 0 1536 1896.0833">
+                                <path d="M1536 1344v128q0 26-19 45t-45 19H64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19H64q-26 0-45-19T0 960V832q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19H64q-26 0-45-19T0 448V320q0-26 19-45t45-19h1408q26 0 45 19t19 45z"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </a>
+                        <div id="offcanvas-wrapper-7-h13" class="h-offcanvas-panel offcanvas offcanvas-right hide force-hide style-10-offscreen style-local-7-h13-offscreen">
+                          <div data-colibri-id="7-h14" class="d-flex flex-column h-offscreen-panel style-11 style-local-7-h14 position-relative h-element">
+                            <!---->
+                            <div class="offscreen-header h-ui-empty-state-container">
+                              <div data-colibri-id="7-h16" class="h-row-container gutters-row-lg-2 gutters-row-md-2 gutters-row-3 gutters-row-v-lg-2 gutters-row-v-md-2 gutters-row-v-3 style-12 style-local-7-h16 position-relative">
+                                <!---->
+                                <div class="h-row justify-content-lg-center justify-content-md-center justify-content-end align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-2 gutters-col-md-2 gutters-col-3 gutters-col-v-lg-2 gutters-col-v-md-2 gutters-col-v-3">
+                                  <!---->
+                                  <div class="h-column h-column-container d-flex h-col-none style-13-outer style-local-7-h17-outer">
+                                    <div data-colibri-id="7-h17" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-13 style-local-7-h17 position-relative">
+                                      <!---->
+                                      <!---->
+                                      <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-center">
+                                        <!---->
+                                        <div data-colibri-id="7-h18" class="d-flex align-items-center text-lg-center text-md-center text-center justify-content-lg-center justify-content-md-center justify-content-center style-14 style-local-7-h18 position-relative h-element">
+                                          <!---->
+                                          <a rel="home" href="https://moscollector.ru/" h-use-smooth-scroll="true" class="d-flex align-items-center">
+                                            <img src="https://moscollector.ru/wp-content/uploads/2021/11/mk2.png" class="h-logo__image h-logo__image_h logo-image style-14-image style-local-7-h18-image" alt="" />
+                                            <img src="https://moscollector.ru/wp-content/uploads/2021/11/mk2.png" class="h-logo__alt-image h-logo__alt-image_h logo-alt-image style-14-image style-local-7-h18-image" alt="" />
+                                          </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="offscreen-content">
+                              <!---->
+                              <div data-colibri-component="accordion-menu" role="navigation" h-use-smooth-scroll-all="true" data-colibri-id="7-h15" class="h-menu h-global-transition-all h-ignore-global-body-typography h-mobile-menu h-menu-accordion style-17 style-local-7-h15 position-relative h-element">
+                                <!---->
+                                <div class="h-global-transition-all h-mobile-menu"><div class="colibri-menu-container"><ul id="menu-front-page-main-1" class="colibri-menu none "><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3915"><a href="#">О компании<svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4400"><a href="https://moscollector.ru/%d0%be-%d0%ba%d0%be%d0%bc%d0%bf%d0%b0%d0%bd%d0%b8%d0%b8/">О компании</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10034"><a href="https://moscollector.ru/%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0-%d0%b2-%d0%be%d1%82%d0%bd%d0%be%d1%88%d0%b5%d0%bd%d0%b8%d0%b8-%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8-%d0%b8-%d0%b7%d0%b0%d1%89%d0%b8/">Политика в отношении обработки и защиты персональных данных</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10064"><a href="https://moscollector.ru/%d1%81%d0%be%d1%86%d0%b8%d0%b0%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0/">Социальная политика</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10125"><a href="https://moscollector.ru/%d0%bf%d1%80%d0%be%d1%84%d0%ba%d0%be%d0%bc/">Профком</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8254"><a href="https://moscollector.ru/%d0%b0%d0%ba%d1%86%d0%b8%d0%be%d0%bd%d0%b5%d1%80%d0%b0%d0%bc/">Акционерам</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3917"><a href="#">Потребителям<svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6810"><a href="https://moscollector.ru/%d0%bd%d0%be%d0%b2%d0%be%d1%81%d1%82%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%bf%d0%be%d1%82%d1%80%d0%b5%d0%b1%d0%b8%d1%82%d0%b5%d0%bb%d0%b5%d0%b9/">Новости для потребителей</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19323"><a href="https://moscollector.ru/%d1%83%d1%81%d0%bb%d1%83%d0%b3%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%bf%d0%be%d1%82%d1%80%d0%b5%d0%b1%d0%b8%d1%82%d0%b5%d0%bb%d0%b5%d0%b9/">Услуги для потребителей</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14254"><a href="https://moscollector.ru/услуги-для-потребителей/#tipovye-formy-dogovorov">Типовые формы договоров</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5388"><a href="https://moscollector.ru/%d0%b4%d0%bd%d0%b8-%d0%b8-%d1%87%d0%b0%d1%81%d1%8b-%d0%bf%d1%80%d0%b8%d0%b5%d0%bc%d0%b0/">Дни и часы приема</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3920"><a href="#">Информация<svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg><svg aria-hidden="true" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6873"><a href="https://moscollector.ru/%d0%bf%d1%80%d0%be%d1%82%d0%b8%d0%b2%d0%ba%d0%be%d1%80%d1%80%d1%83%d0%bf%d1%86%d0%b8%d0%b8/">Противодействие коррупции</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8497"><a href="https://moscollector.ru/%d0%bf%d1%80%d0%be%d1%82%d0%b8%d0%b2%d0%be%d0%b4%d0%b5%d0%b9%d1%81%d1%82%d0%b2%d0%b8%d0%b5-%d1%82%d0%b5%d1%80%d1%80%d0%be%d1%80%d0%b8%d0%b7%d0%bc%d1%83-%d0%b8-%d1%8d%d0%ba%d1%81%d1%82%d1%80%d0%b5/">Противодействие терроризму и экстремизму</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10237"><a href="https://moscollector.ru/%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f-%d0%be%d0%b1-%d0%be%d1%82%d0%b7%d1%8b%d0%b2%d0%b5-%d0%b4%d0%be%d0%b2%d0%b5%d1%80%d0%b5%d0%bd%d0%bd%d0%be%d1%81%d1%82%d0%b5%d0%b9/">Информация об отзыве доверенностей</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9218"><a href="https://moscollector.ru/%d1%82%d0%b5%d1%85%d0%bd%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b0%d1%8f-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f/">Техническая информация</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3919"><a href="/blog">Пресс-центр</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6989"><a href="https://moscollector.ru/%d0%b7%d0%b0%d0%ba%d1%83%d0%bf%d0%ba%d0%b8/">Закупки</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11167"><a href="https://moscollector.ru/%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f-%d0%bf%d0%be-%d0%b2%d0%b0%d0%ba%d0%b0%d0%bd%d1%81%d0%b8%d1%8f%d0%bc/">Вакансии</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3921"><a href="/контакты">Контакты</a></li>
+</ul></div></div>
+                              </div>
+                            </div>
+                            <div class="offscreen-footer h-ui-empty-state-container">
+                              <div data-colibri-id="7-h19" class="h-row-container gutters-row-lg-2 gutters-row-md-2 gutters-row-0 gutters-row-v-lg-2 gutters-row-v-md-2 gutters-row-v-2 style-15 style-local-7-h19 position-relative">
+                                <!---->
+                                <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-2 gutters-col-md-2 gutters-col-0 gutters-col-v-lg-2 gutters-col-v-md-2 gutters-col-v-2">
+                                  <!---->
+                                  <div class="h-column h-column-container d-flex h-col-lg-6 h-col-md-6 h-col-12 style-16-outer style-local-7-h20-outer">
+                                    <div data-colibri-id="7-h20" class="d-flex h-flex-basis h-column__inner h-ui-empty-state-container h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-16 style-local-7-h20 position-relative">
+                                      <!---->
+                                      <!---->
+                                      <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100">
+                                        <!---->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="offcanvas-overlay-7-h13" class="offscreen-overlay style-10-offscreenOverlay style-local-7-h13-offscreenOverlay"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="h-column h-column-container d-flex h-col-none style-340-outer style-local-7-h21-outer h-hide-sm">
+                <div data-colibri-id="7-h21" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-340 style-local-7-h21 h-hide-sm position-relative">
+                  <!---->
+                  <!---->
+                  <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                    <!---->
+                    <div light-box="hideLightBox" data-style-class="style-345" data-colibri-component="search" data-colibri-id="7-h22" class="colibri_search_container style-345 style-local-7-h22 h-hide-sm position-relative h-element">
+                      <!---->
+                      <div class="h-global-transition-all"><form role="search"  method="get" class="search-form colibri_search_form" action="https://moscollector.ru/">
+                        <div class="d-flex">
+                          <input class="colibri_search_input search-field" placeholder="Поиск..." name="s">
+                          <button type="submit" class="colibri_search_button search-submit">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="search" viewbox="0 0 1672.2646 1896.0833">
+                              <path d="M1152 832q0-185-131.5-316.5T704 384 387.5 515.5 256 832t131.5 316.5T704 1280t316.5-131.5T1152 832zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225T0 832t55.5-273.5 150-225 225-150T704 128t273.5 55.5 225 150 150 225T1408 832q0 220-124 399l343 343q37 37 37 90z"></path>
+                            </svg>
+                          </button>
+                        </div></form></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-nav-sticky="" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+  <div data-colibri-id="7-h29" id="hero" class="h-section h-hero d-flex align-items-lg-center align-items-md-center align-items-center style-1160 style-local-7-h29 position-relative">
+    <!---->
+    <!---->
+    <div class="h-section-grid-container h-navigation-padding h-section-boxed-container">
+      <!---->
+      <div data-colibri-id="7-h30" class="h-row-container gutters-row-lg-0 gutters-row-md-0 gutters-row-0 gutters-row-v-lg-0 gutters-row-v-md-0 gutters-row-v-0 style-55 style-local-7-h30 position-relative">
+        <!---->
+        <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-0 gutters-col-md-0 gutters-col-0 gutters-col-v-lg-0 gutters-col-v-md-0 gutters-col-v-0">
+          <!---->
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-56-outer style-local-7-h31-outer">
+            <div data-colibri-id="7-h31" class="d-flex h-flex-basis h-column__inner h-ui-empty-state-container h-px-lg-0 h-px-md-0 h-px-0 v-inner-lg-0 v-inner-md-0 v-inner-0 style-56 style-local-7-h31 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100">
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>		<script type='text/javascript'>
+          (function () {
+            function setHeaderTopSpacing() {
+
+                // forEach polyfill
+                if(!NodeList.prototype.forEach){
+                    NodeList.prototype.forEach = function (callback) {
+                        for(var i=0;i<this.length;i++){
+                            callback.call(this,this.item(i));
+                        }
+                    }
+                }
+
+              // '[data-colibri-component="navigation"][data-overlap="true"]' selector is backward compatibility
+              var navigation = document.querySelector('[data-colibri-navigation-overlap="true"], [data-colibri-component="navigation"][data-overlap="true"]')
+              if (navigation) {
+                var els = document
+                .querySelectorAll('.h-navigation-padding');
+                if (els.length) {
+                  els.forEach(function (item) {
+                    item.style.paddingTop = navigation.offsetHeight + "px";
+                  });
+                }
+              }
+            }
+            setHeaderTopSpacing();
+          })();
+		</script>
+		<!-- dynamic header end -->
+<!-- Content:start -->
+<div class='content  position-relative page-404' id='content'><!-- Section:start -->
+<div class='d-flex h-section h-section-global-spacing position-relative'><div class='h-section-grid-container h-section-boxed-container'><!-- Row:start -->
+<div class='h-row-container'><div class='h-row blog-content gutters-col-0'><!-- Column:start -->
+<div class='h-col'><!-- dynamic main start --><div data-colibri-id="19-m1" class="style-129 style-local-19-m1 position-relative">
+  <!---->
+  <div data-colibri-id="19-m2" id="nothing-found" class="h-row-container gutters-row-lg-0 gutters-row-md-0 gutters-row-0 gutters-row-v-lg-0 gutters-row-v-md-0 gutters-row-v-0 style-130 style-local-19-m2 position-relative">
+    <!---->
+    <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-0 gutters-col-md-0 gutters-col-0 gutters-col-v-lg-0 gutters-col-v-md-0 gutters-col-v-0">
+      <!---->
+      <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-131-outer style-local-19-m3-outer">
+        <div data-colibri-id="19-m3" class="d-flex h-flex-basis h-column__inner h-ui-empty-state-container h-px-lg-0 h-px-md-0 h-px-0 v-inner-lg-0 v-inner-md-0 v-inner-0 style-131 style-local-19-m3 position-relative">
+          <!---->
+          <!---->
+          <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100">
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-colibri-component="section" data-colibri-id="19-m4" id="about" class="h-section h-section-global-spacing d-flex align-items-lg-center align-items-md-center align-items-center style-369 style-local-19-m4 position-relative">
+    <div class="background-wrapper">
+      <div class="background-layer background-layer-media-container-lg">
+        <!---->
+        <div class="overlay-layer">
+          <div class="overlay-image-layer" style="background-image: linear-gradient(-90deg, rgb(255, 255, 255) 40%, rgba(69, 58, 148, 0) 40%);"></div>
+        </div>
+      </div>
+      <div class="background-layer background-layer-media-container-md">
+        <!---->
+        <div class="overlay-layer">
+          <div class="overlay-image-layer" style="background-image: linear-gradient(-90deg, rgb(255, 255, 255) 40%, rgba(69, 58, 148, 0) 40%);"></div>
+        </div>
+      </div>
+      <div class="background-layer background-layer-media-container">
+        <!---->
+        <div class="overlay-layer">
+          <div class="overlay-image-layer" style="background-image: linear-gradient(-90deg, rgb(255, 255, 255) 40%, rgba(69, 58, 148, 0) 40%);"></div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <div class="h-section-grid-container h-section-boxed-container">
+      <!---->
+      <div data-colibri-id="19-m5" class="h-row-container gutters-row-lg-2 gutters-row-md-2 gutters-row-2 gutters-row-v-lg-2 gutters-row-v-md-2 gutters-row-v-2 style-370 style-local-19-m5 position-relative">
+        <!---->
+        <div class="h-row justify-content-lg-end justify-content-md-end justify-content-end align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-2 gutters-col-md-2 gutters-col-2 gutters-col-v-lg-2 gutters-col-v-md-2 gutters-col-v-2">
+          <!---->
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-371-outer style-local-19-m6-outer">
+            <div data-colibri-id="19-m6" class="d-flex h-flex-basis h-column__inner h-px-lg-0 h-px-md-0 h-px-0 v-inner-lg-0 v-inner-md-0 v-inner-0 style-371 style-local-19-m6 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                <!---->
+                <div data-colibri-id="19-m7" class="h-global-transition-all h-heading style-372 style-local-19-m7 position-relative h-element">
+                  <!---->
+                  <div class="h-heading__outer style-372 style-local-19-m7">
+                    <!---->
+                    <!---->
+                    <h6 class="">Похоже вы заблудились в коллекторе</h6>
+                  </div>
+                </div>
+                <div data-colibri-id="19-m8" class="h-global-transition-all h-heading style-373 style-local-19-m8 position-relative h-element">
+                  <!---->
+                  <div class="h-heading__outer style-373 style-local-19-m8">
+                    <!---->
+                    <!---->
+                    <h2 class="">тоннель 404</h2>
+                  </div>
+                </div>
+                <div data-colibri-id="19-m9" class="h-x-container style-374 style-local-19-m9 position-relative h-element">
+                  <!---->
+                  <div class="h-x-container-inner style-dynamic-19-m9-group style-374-spacing style-local-19-m9-spacing"><span class="h-button__outer style-375-outer style-local-19-m10-outer d-inline-flex h-element"><a h-use-smooth-scroll="true" href="https://moscollector.ru/"  data-colibri-id="19-m10" class="d-flex w-100 align-items-center h-button justify-content-lg-center justify-content-md-center justify-content-center style-375 style-local-19-m10 position-relative"><!----><!----> <span>Найти выход</span></a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-colibri-id="19-m11" class="h-row-container gutters-row-lg-2 gutters-row-md-2 gutters-row-0 gutters-row-v-lg-2 gutters-row-v-md-2 gutters-row-v-2 style-376 style-local-19-m11 position-relative">
+    <!---->
+    <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-2 gutters-col-md-2 gutters-col-0 gutters-col-v-lg-2 gutters-col-v-md-2 gutters-col-v-2">
+      <!---->
+      <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-377-outer style-local-19-m12-outer">
+        <div data-colibri-id="19-m12" class="d-flex h-flex-basis h-column__inner h-ui-empty-state-container h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-377 style-local-19-m12 position-relative">
+          <!---->
+          <!---->
+          <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100">
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-378-outer style-local-19-m13-outer">
+        <div data-colibri-id="19-m13" class="d-flex h-flex-basis h-column__inner h-ui-empty-state-container h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-378 style-local-19-m13 position-relative">
+          <!---->
+          <!---->
+          <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100">
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- dynamic main end --></div>
+<!-- Column:end --></div></div>
+<!-- Row:end --></div></div>
+<!-- Section:end --></div>
+<!-- Content:end --><!-- dynamic footer start --><div data-enabled="false" data-colibri-component="" data-colibri-id="10-f1" class="page-footer style-379 style-local-10-f1 position-relative">
+  <!---->
+  <div data-colibri-component="section" data-colibri-id="10-f2" id="info-footer" class="h-section h-section-global-spacing d-flex align-items-lg-center align-items-md-center align-items-center style-380 style-local-10-f2 position-relative">
+    <!---->
+    <!---->
+    <div class="h-section-grid-container h-section-fluid-container">
+      <!---->
+      <div data-colibri-id="10-f3" class="h-row-container gutters-row-lg-0 gutters-row-md-0 gutters-row-0 gutters-row-v-lg-0 gutters-row-v-md-0 gutters-row-v-0 style-381 style-local-10-f3 position-relative">
+        <!---->
+        <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-0 gutters-col-md-0 gutters-col-0 gutters-col-v-lg-0 gutters-col-v-md-0 gutters-col-v-0">
+          <!---->
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-382-outer style-local-10-f4-outer">
+            <div data-colibri-id="10-f4" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-382 style-local-10-f4 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                <!---->
+                <div data-colibri-id="10-f5" class="d-block style-422 style-local-10-f5 position-relative h-element">
+                  <!---->
+                  <div class="h-image__frame-container-outer">
+                    <div class="h-image__frame-container">
+                      <!---->
+                      <!---->
+                      <img src="https://moscollector.ru/wp-content/uploads/2021/11/mk2.png" class="wp-image-6031 style-422-image style-local-10-f5-image" alt="" />
+                      <div class="h-image__frame h-hide-lg h-hide-md h-hide-sm style-422-frameImage style-local-10-f5-frameImage"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-391-outer style-local-10-f6-outer">
+            <div data-colibri-id="10-f6" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-391 style-local-10-f6 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                <!---->
+                <div data-colibri-id="10-f7" class="d-block style-423 style-local-10-f7 position-relative h-element">
+                  <!---->
+                  <div class="h-image__frame-container-outer">
+                    <div class="h-image__frame-container">
+                      <!---->
+                      <!---->
+                      <img src="https://moscollector.ru/wp-content/uploads/2022/04/Logo_DJKH_PREV2.png" class="wp-image-9392 style-423-image style-local-10-f7-image" alt="" />
+                      <div class="h-image__frame h-hide-lg h-hide-md h-hide-sm style-423-frameImage style-local-10-f7-frameImage"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-606-outer style-local-10-f8-outer h-hide-sm">
+            <div data-colibri-id="10-f8" class="d-flex h-flex-basis h-column__inner h-ui-empty-state-container h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-606 style-local-10-f8 h-hide-sm position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100">
+                <!---->
+              </div>
+            </div>
+          </div>
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-416-outer style-local-10-f9-outer">
+            <div data-colibri-id="10-f9" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-416 style-local-10-f9 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-center align-self-md-center align-self-center">
+                <!---->
+                <div data-colibri-id="10-f10" class="h-row-container gutters-row-lg-0 gutters-row-md-0 gutters-row-0 gutters-row-v-lg-0 gutters-row-v-md-0 gutters-row-v-0 style-598 style-local-10-f10 position-relative">
+                  <!---->
+                  <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-0 gutters-col-md-0 gutters-col-0 gutters-col-v-lg-0 gutters-col-v-md-0 gutters-col-v-0">
+                    <!---->
+                    <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-600-outer style-local-10-f11-outer">
+                      <div data-colibri-id="10-f11" class="d-flex h-flex-basis h-column__inner h-px-lg-0 h-px-md-0 h-px-0 v-inner-lg-0 v-inner-md-0 v-inner-0 style-600 style-local-10-f11 position-relative">
+                        <!---->
+                        <!---->
+                        <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-start">
+                          <!---->
+                          <div data-colibri-id="10-f12" class="h-x-container style-420 style-local-10-f12 position-relative h-element">
+                            <!---->
+                            <div class="h-x-container-inner style-dynamic-10-f12-group style-420-spacing style-local-10-f12-spacing"><span class="h-link__outer style-421-outer style-local-10-f13-outer d-inline-flex h-element"><a h-use-smooth-scroll="true" href="https://yandex.ru/maps/213/moscow/house/1_y_koptelskiy_pereulok_16s4/Z04YcARpSUEFQFtvfXt2cnVrZQ==?ll=37.639042%2C55.773980&amp;source=wizgeo&amp;utm_medium=maps-desktop&amp;utm_source=serp&amp;z=16" target="_blank" rel="nofollow"  data-colibri-id="10-f13" class="d-flex w-100 align-items-center h-link style-421 style-local-10-f13 position-relative"><!----><!----> <span>129090, г. Москва, 1-й Коптельский пер., д. 16, стр. 4</span></a>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-601-outer style-local-10-f14-outer">
+                      <div data-colibri-id="10-f14" class="d-flex h-flex-basis h-column__inner h-px-lg-0 h-px-md-0 h-px-0 v-inner-lg-0 v-inner-md-0 v-inner-0 style-601 style-local-10-f14 position-relative">
+                        <!---->
+                        <!---->
+                        <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-start">
+                          <!---->
+                          <div data-colibri-id="10-f15" class="h-x-container style-604 style-local-10-f15 h-hide-md position-relative h-element">
+                            <!---->
+                            <div class="h-x-container-inner style-dynamic-10-f15-group style-604-spacing style-local-10-f15-spacing"><span class="h-link__outer style-421-outer style-local-10-f16-outer d-inline-flex h-element"><a h-use-smooth-scroll="true" href="tel:+7 (499) 222-22-01"  data-colibri-id="10-f16" class="d-flex w-100 align-items-center h-link style-421 style-local-10-f16 position-relative"><!----><!----> <span>+7 (499) 222-22-01</span></a>
+                              </span><span class="h-link__outer style-421-outer style-local-10-f17-outer d-inline-flex h-element"><a h-use-smooth-scroll="true" href="mailto:info@moscollector.ru"  data-colibri-id="10-f17" class="d-flex w-100 align-items-center h-link style-421 style-local-10-f17 position-relative"><!----><!----> <span>info@moscollector.ru</span></a>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-418-outer style-local-10-f18-outer h-hide-sm">
+            <div data-colibri-id="10-f18" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-418 style-local-10-f18 h-hide-sm position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-start">
+                <!---->
+                <div data-colibri-id="10-f19" class="h-text h-text-component style-419 style-local-10-f19 h-hide-sm position-relative h-element">
+                  <!---->
+                  <!---->
+                  <div class="">
+                    <p>Понедельник - четверг: 8:00 - 17:00
+                      <br>Пятница: 8:00 - 15:45
+                      <br>Обед с 12:00 до 12:45
+                      <br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-388-outer style-local-10-f20-outer">
+            <div data-colibri-id="10-f20" class="d-flex h-flex-basis h-column__inner h-px-lg-2 h-px-md-2 h-px-2 v-inner-lg-2 v-inner-md-2 v-inner-2 style-388 style-local-10-f20 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-start">
+                <!---->
+                <div data-colibri-id="10-f21" class="h-text h-text-component style-1294 style-local-10-f21 position-relative h-element">
+                  <!---->
+                  <!---->
+                  <div class="">
+                    <p>Социальные сети</p>
+                  </div>
+                </div>
+                <div data-colibri-id="10-f22" class="style-389 style-local-10-f22 position-relative h-element">
+                  <!---->
+                  <div class="d-flex flex-wrap h-social-icons justify-content-lg-start justify-content-md-center justify-content-center">
+                    <div class="social-icon-container d-inline-flex">
+                      <a href="https://www.vk.com/aomoscollector" target="_blank" rel="nofollow" h-use-smooth-scroll="true">
+                        <div class="icon-container h-social-icon h-global-transition">
+                          <div class="h-icon-svg" style="width: 100%; height: 100%;">
+                            <!--Icon by Font Awesome (https://fontawesome.com)-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="vk" viewBox="0 0 1921 1896.0833">
+                              <path d="M1918 520q23 64-150 294-24 32-65 85-40 51-55 72t-30.5 49.5-12 42 13 34.5 32.5 43 57 53q4 2 5 4 141 131 191 221 3 5 6.5 12.5t7 26.5-.5 34-25 27.5-59 12.5l-256 4q-24 5-56-5t-52-22l-20-12q-30-21-70-64t-68.5-77.5-61-58-56.5-15.5q-3 1-8 3.5t-17 14.5-21.5 29.5-17 52-6.5 77.5q0 15-3.5 27.5t-7.5 18.5l-4 5q-18 19-53 22H940q-71 4-146-16.5t-131.5-53-103-66T489 1338l-25-24q-10-10-27.5-30t-71.5-91-106-151-122.5-211T6 559q-6-16-6-27t3-16l4-6q15-19 57-19l274-2q12 2 23 6.5t16 8.5l5 3q16 11 24 32 20 50 46 103.5t41 81.5l16 29q29 60 56 104t48.5 68.5T655 964t34 14 27-5q2-1 5-5t12-22 13.5-47 9.5-81 0-125q-2-40-9-73t-14-46l-6-12q-25-34-85-43-13-2 5-24 16-19 38-30 53-26 239-24 82 1 135 13 20 5 33.5 13.5t20.5 24 10.5 32 3.5 45.5-1 55-2.5 70.5-1.5 82.5q0 11-1 42t-.5 48 3.5 40.5 11.5 39T1158 971q8 2 17 4t26-11 38-34.5 52-67 68-107.5q60-104 107-225 4-10 10-17.5t11-10.5l4-3 5-2.5 13-3 20-.5 288-2q39-5 64 2.5t31 16.5z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="social-icon-container d-inline-flex">
+                      <a href="https://t.me/aomoskollektor" target="_blank" rel="nofollow" h-use-smooth-scroll="true">
+                        <div class="icon-container h-social-icon h-global-transition">
+                          <div class="h-icon-svg" style="width: 100%; height: 100%;">
+                            <!--Icon by Socicon (http://www.socicon.com)-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1500">
+
+                              <path d="M1391.602 117.188l-1333.008 521.484c0 0-64.453 20.508-58.594 61.523s55.664 58.594 55.664 58.594l331.055 111.328c26.367 84.961 105.469 357.422 120.117 410.156 17.578 58.594 29.297 70.313 38.086 73.242 2.93 0 5.859 0 5.859 0 23.438 2.93 41.016-11.719 41.016-11.719l210.938-208.008 333.984 254.883c90.82 38.086 125.977-43.945 125.977-43.945l237.305-1195.313c0-79.102-108.398-32.227-108.398-32.227zM1224.609 389.648c-23.438 20.508-577.148 527.344-632.813 580.078l-32.227 275.391c-2.93 26.367-26.367 26.367-38.086 5.859-23.438-76.172-79.102-278.32-108.398-369.141l785.156-521.484c0 0 43.945-29.297 43.945 0 0 0 0 11.719-17.578 29.297z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-colibri-component="section" data-colibri-id="10-f27" id="up-button" class="h-section h-section-global-spacing d-flex align-items-lg-center align-items-md-center align-items-center style-401 style-local-10-f27 position-relative">
+    <!---->
+    <!---->
+    <div class="h-section-grid-container h-section-boxed-container">
+      <!---->
+      <div data-colibri-id="10-f28" class="h-row-container gutters-row-lg-0 gutters-row-md-0 gutters-row-0 gutters-row-v-lg-0 gutters-row-v-md-0 gutters-row-v-0 style-402 style-local-10-f28 position-relative">
+        <!---->
+        <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-center align-items-md-center align-items-center gutters-col-lg-0 gutters-col-md-0 gutters-col-0 gutters-col-v-lg-0 gutters-col-v-md-0 gutters-col-v-0">
+          <!---->
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto align-self-lg-center align-self-md-center align-self-center style-403-outer style-local-10-f29-outer">
+            <div data-colibri-id="10-f29" class="d-flex h-flex-basis h-column__inner h-px-lg-0 h-px-md-0 h-px-0 v-inner-lg-0 v-inner-md-0 v-inner-0 style-403 style-local-10-f29 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-start">
+                <!---->
+                <div data-colibri-id="10-f30" class="h-icon style-404 style-local-10-f30 h-hide-md h-hide-sm position-relative h-element">
+                  <!---->
+                  <a href="#page-top" h-use-smooth-scroll="true"><span class="h-svg-icon h-icon__icon style-404-icon style-local-10-f30-icon"><!--Icon by Icons8 Line Awesome (https://icons8.com/line-awesome)--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="chevron-up" viewBox="0 0 512 545.5"><path d="M256 123l11.5 11.5 208 208 11 11-11 11.5-62.5 62.5-11.5 11-11-11L256 293 121.5 427.5l-11 11-11.5-11L36.5 365l-11-11.5 11-11 208-208zm0 45.5L71 354l39 39 134.5-134 11.5-11 11.5 11L402 393l39-39z"></path></svg></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-colibri-component="section" data-colibri-id="10-f35" id="footer" class="h-section h-section-global-spacing d-flex align-items-lg-center align-items-md-center align-items-center style-409 style-local-10-f35 position-relative">
+    <!---->
+    <!---->
+    <div class="h-section-grid-container h-section-boxed-container">
+      <!---->
+      <div data-colibri-id="10-f36" class="h-row-container gutters-row-lg-1 gutters-row-md-1 gutters-row-2 gutters-row-v-lg-1 gutters-row-v-md-1 gutters-row-v-2 style-410 style-local-10-f36 h-hide-sm position-relative">
+        <!---->
+        <div class="h-row justify-content-lg-center justify-content-md-center justify-content-center align-items-lg-stretch align-items-md-stretch align-items-stretch gutters-col-lg-1 gutters-col-md-1 gutters-col-2 gutters-col-v-lg-1 gutters-col-v-md-1 gutters-col-v-2">
+          <!---->
+          <div class="h-column h-column-container d-flex h-col-lg-auto h-col-md-auto h-col-auto style-411-outer style-local-10-f37-outer">
+            <div data-colibri-id="10-f37" class="d-flex h-flex-basis h-column__inner h-px-lg-1 h-px-md-1 h-px-2 v-inner-lg-1 v-inner-md-1 v-inner-2 style-411 style-local-10-f37 position-relative">
+              <!---->
+              <!---->
+              <div class="w-100 h-y-container h-column__content h-column__v-align flex-basis-100 align-self-lg-start align-self-md-start align-self-start">
+                <!---->
+                <div data-colibri-id="10-f38" class="style-412 style-local-10-f38 h-hide-md h-hide-sm position-relative h-element">
+                  <!---->
+                  <div class="h-global-transition-all">© 2026 АО &quot;Москоллектор&quot;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- dynamic footer end --></div><!-- #page -->
+        <script data-name="colibri-frontend-data">window.colibriFrontendData = [];</script>
+        <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/colibri-wp/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="jquery-form-js" src="https://moscollector.ru/wp-includes/js/jquery/jquery.form.min.js?ver=4.3.0"></script>
+<script id="calc_form-js-extra">
+var calc_form_object = {"url":"https://moscollector.ru/wp-content/plugins/mk-tarif-calc/calc_ajax.php","nonce":"f4393eb24f"};
+//# sourceURL=calc_form-js-extra
+</script>
+<script id="calc_form-js" src="https://moscollector.ru/wp-content/plugins/mk-tarif-calc/calc_form.js?ver=1"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://moscollector.ru/wp-includes/js/wp-emoji-release.min.js?ver=7.0"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://moscollector.ru/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<div class="js-lwpcngNotice lwpcngNotice lwpcngNotice-float lwpcngNoticeBar lwpcngNoticeBar-bottom lwpcngNotice-light lwpcngHide" data-cookie-expire="31536000000" data-status-accepted="1" data-status-rejected="2" data-reload-after-accept="" data-reload-after-reject="" data-use-show-again="" style="left:15px;right:15px;bottom:15px"><div class="lwpcngNotice_message">
+    На сайте осуществляется обработка файлов cookie с использование LuckyWP Cookie Notice (GDPR). Нажимая на кнопку «Да, согласен» вы даете согласие на их обработку».</div>
+<div class="lwpcngNotice_buttons">
+    <div class="lwpcngNotice_accept js-lwpcngAccept">
+        Принять    </div>
+            <div class="lwpcngNotice_reject js-lwpcngReject">
+            Отказаться        </div>
+        </div>
+</div></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Получено 4118 объектов (5 МБ) от Redis через PhpRedis (v6.3.0).
+-->

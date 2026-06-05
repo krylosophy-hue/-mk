@@ -1,16 +1,28 @@
 import { useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
 import { asset } from '@/lib/utils';
 
 export default function NotFound() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.warn('404: маршрут не найден →', location.pathname);
   }, [location.pathname]);
+
+  // Кнопка «Назад»: если есть история — назад, иначе на главную.
+  // window.history.length=1 значит пользователь пришёл прямо на /404,
+  // и back() не имеет смысла (вернёт «about:blank» или закроет вкладку).
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#060e1a] flex items-center justify-center px-4 py-12">
@@ -184,7 +196,7 @@ export default function NotFound() {
           </Link>
           <button
             type="button"
-            onClick={() => window.history.back()}
+            onClick={handleBack}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
                        text-white/90 border border-white/15 bg-white/[0.04]
                        hover:bg-white/[0.10] backdrop-blur-md transition-colors"

@@ -263,8 +263,8 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
-      {/* Top Bar */}
-      <div className={location.pathname === '/' ? 'bg-transparent' : 'gradient-hero'}>
+      {/* Top Bar — всегда видимая полоса с переходом на старый сайт и ЛК */}
+      <div className="bg-[#0a1628] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
           <div className="flex items-center gap-6 text-[13px] text-white/70">
             <a href="tel:+74992222201" className="flex items-center gap-1.5 hover:text-white transition-colors">

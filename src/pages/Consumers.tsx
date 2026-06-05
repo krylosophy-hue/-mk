@@ -162,6 +162,27 @@ function Accordion({ title, children, defaultOpen = false }: { title: string; ch
 
 // Download button component
 function DownloadButton({ file, label }: { file: string; label: string }) {
+  // Список форм, отсутствующих на старом сайте.
+  // Для них показываем подсказку «Запросить в ЦОП» вместо битой ссылки.
+  const MISSING_FILES = new Set([
+    'ФОРМА-49.doc',
+    'ФОРМА-50.doc',
+    'ФОРМА-51.doc',
+    'ФОРМА-53.doc',
+  ]);
+
+  if (MISSING_FILES.has(file)) {
+    return (
+      <span
+        title="Форма не размещена на сайте — обратитесь в ЦОП по телефону +7 (499) 222-22-01"
+        className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-100 text-slate-500 text-sm rounded-lg cursor-help"
+      >
+        <Download className="w-4 h-4 opacity-60" />
+        {label} <span className="text-xs">(запросить в ЦОП)</span>
+      </span>
+    );
+  }
+
   return (
     <a
       href={fileUrl(FILE_BASE_URL, file)}
@@ -946,7 +967,7 @@ export default function Consumers() {
                             Заявка на выдачу согласования на проведение работ в охранной зоне коллекторов для проектной организации.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-27-П.doc" label="Форма 27(П)" />
+                            <DownloadButton file="форма-27П.doc" label="Форма 27(П)" />
                           </div>
                         </div>
                         <div>
@@ -955,7 +976,7 @@ export default function Consumers() {
                             Заявка на выдачу согласования на проведение работ в охранной зоне коллекторов для Заказчика/Инвестора.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-27-3.doc" label="Форма 27(З)" />
+                            <DownloadButton file="форма-27З.doc" label="Форма 27(З)" />
                           </div>
                         </div>
                         <div>
@@ -964,7 +985,7 @@ export default function Consumers() {
                             О согласовании проекта производства работ (ППР) в охранной зоне коллекторов.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-26.doc" label="Форма 26" />
+                            <DownloadButton file="форма-26.doc" label="Форма 26" />
                           </div>
                         </div>
                         <div>
@@ -973,7 +994,7 @@ export default function Consumers() {
                             Сопроводительное письмо на заключение договора на сохранность строительных конструкций в охранной зоне коллекторов.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-16.doc" label="Форма 16" />
+                            <DownloadButton file="форма-16.doc" label="Форма 16" />
                           </div>
                         </div>
                         <div>
@@ -982,7 +1003,7 @@ export default function Consumers() {
                             Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в охранной зоне коллекторов.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-17.doc" label="Форма 17" />
+                            <DownloadButton file="форма-17.doc" label="Форма 17" />
                           </div>
                         </div>
                         <div>
@@ -991,7 +1012,7 @@ export default function Consumers() {
                             О выдаче согласования на размещение объектов в охранной зоне коллекторов (не является формой для физических лиц).
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-21.doc" label="Форма 21" />
+                            <DownloadButton file="форма-21.doc" label="Форма 21" />
                           </div>
                         </div>
                         <div>
@@ -1020,7 +1041,7 @@ export default function Consumers() {
                             Физические лица подают заявку на согласование работ в охранной зоне по Форме 27(З) с указанием вида работ и сроков их выполнения.
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-27-3.doc" label="Форма 27(З)" />
+                            <DownloadButton file="форма-27З.doc" label="Форма 27(З)" />
                           </div>
                         </div>
                         <div>
@@ -1029,8 +1050,8 @@ export default function Consumers() {
                             После получения согласования физическое лицо заключает договор на сохранность строительных конструкций коллектора (формы 16 и 17).
                           </p>
                           <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-16.doc" label="Форма 16" />
-                            <DownloadButton file="ФОРМА-17.doc" label="Форма 17" />
+                            <DownloadButton file="форма-16.doc" label="Форма 16" />
+                            <DownloadButton file="форма-17.doc" label="Форма 17" />
                           </div>
                         </div>
                       </div>
@@ -1211,15 +1232,15 @@ export default function Consumers() {
                       <div className="p-4 bg-white rounded-xl border border-gray-200">
                         <p className="font-semibold text-[#0a1628] mb-2">Проектные работы</p>
                         <div className="flex gap-2">
-                          <DownloadButton file="ФОРМА-34.doc" label="Форма 34" />
-                          <DownloadButton file="ФОРМА-35.doc" label="Форма 35" />
+                          <DownloadButton file="форма-34.doc" label="Форма 34" />
+                          <DownloadButton file="форма-35.doc" label="Форма 35" />
                         </div>
                       </div>
                       <div className="p-4 bg-white rounded-xl border border-gray-200">
                         <p className="font-semibold text-[#0a1628] mb-2">Инвентаризация / Обследование</p>
                         <div className="flex gap-2">
-                          <DownloadButton file="ФОРМА-37.doc" label="Форма 37" />
-                          <DownloadButton file="ФОРМА-37.1.doc" label="Форма 37.1" />
+                          <DownloadButton file="Форма-37.doc" label="Форма 37" />
+                          <DownloadButton file="Форма-37.1.doc" label="Форма 37.1" />
                         </div>
                       </div>
                     </div>
@@ -1251,7 +1272,7 @@ export default function Consumers() {
                   <div className="p-4 bg-white rounded-xl border border-gray-200">
                     <p className="font-semibold text-[#0a1628] mb-2">Заявка на инвентаризацию</p>
                     <p className="text-gray-600 text-sm mb-3">Допуск оформляется по Форме 45</p>
-                    <DownloadButton file="Форма-45.doc" label="Форма 45" />
+                    <DownloadButton file="ФОРМА-45.doc" label="Форма 45" />
                   </div>
                 </Accordion>
               </div>
@@ -1343,7 +1364,7 @@ export default function Consumers() {
                         <p><strong>Что получает потребитель:</strong> продление технических условий проектной документации сроком на 1 год.</p>
                         <p>Для получения продления технических условий необходимо заполнить письмо-заявку по форме 12. Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, кабинет 303.</p>
                       </div>
-                      <DownloadButton file="ФОРМА-12.doc" label="Форма 12" />
+                      <DownloadButton file="ФОРМА-12.xlsx" label="Форма 12" />
                     </div>
                   </div>
                 </Accordion>
@@ -1362,7 +1383,7 @@ export default function Consumers() {
                         <p><strong>Что получает потребитель:</strong> продление технических условий и согласований проектной документации сроком на 1 год.</p>
                         <p>Для получения продления необходимо заполнить письмо-заявку по форме 12. Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, кабинет 303.</p>
                       </div>
-                      <DownloadButton file="ФОРМА-12.doc" label="Форма 12" />
+                      <DownloadButton file="ФОРМА-12.xlsx" label="Форма 12" />
                     </div>
                   </div>
                 </Accordion>
@@ -1422,7 +1443,7 @@ export default function Consumers() {
                       </p>
                     </div>
                     <div className="pt-1">
-                      <DownloadButton file="ФОРМА-52.doc" label="Форма 52 — заявка на СМР" />
+                      <DownloadButton file="форма-52.doc" label="Форма 52 — заявка на СМР" />
                     </div>
                   </div>
                 </Accordion>
@@ -1595,7 +1616,7 @@ export default function Consumers() {
                 <Accordion title="Инвентаризация коммуникаций">
                   <p className="text-gray-600 mb-3">Допуск оформляется по Форме 45</p>
                   <div className="flex flex-wrap gap-2">
-                    <DownloadButton file="Форма-45.doc" label="Форма 45" />
+                    <DownloadButton file="ФОРМА-45.doc" label="Форма 45" />
                   </div>
                 </Accordion>
                 
@@ -1604,7 +1625,7 @@ export default function Consumers() {
                     Форма 60 — на аннулирование технических условий на прокладку / врезку / демонтаж коммуникаций.
                   </p>
                   <p className="text-gray-600 mb-3">Подать нарочно: ул. Лобачика, д. 4, каб. 303</p>
-                  <DownloadButton file="ФОРМА-60.doc" label="Форма 60" />
+                  <DownloadButton file="Форма-60.doc" label="Форма 60" />
                 </Accordion>
 
                 <Accordion title="Аннулирование ТУ и согласования проекта">
@@ -1612,7 +1633,7 @@ export default function Consumers() {
                     Форма 61 — об аннулировании ТУ и согласования проекта на прокладку / врезку / демонтаж коммуникаций.
                   </p>
                   <p className="text-gray-600 mb-3">Подать нарочно: ул. Лобачика, д. 4, каб. 303</p>
-                  <DownloadButton file="ФОРМА-61.doc" label="Форма 61" />
+                  <DownloadButton file="Форма-61.doc" label="Форма 61" />
                 </Accordion>
 
                 <Accordion title="Аннулирование ордера">
@@ -1635,7 +1656,7 @@ export default function Consumers() {
                 </Accordion>
                 
                 <Accordion title="Продление / переоформление ордера">
-                  <DownloadButton file="ФОРМА-52.doc" label="Форма 52" />
+                  <DownloadButton file="форма-52.doc" label="Форма 52" />
                 </Accordion>
                 
               </div>
