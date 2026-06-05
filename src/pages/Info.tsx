@@ -573,7 +573,7 @@ export default function Info() {
                     { date: '10.12.2020', label: 'Информация об отзыве доверенностей от 10.12.20', file: 'revocation/2020-12-10-obshchii.pdf' },
                     { date: '25.11.2020', label: 'Информация об отзыве доверенностей от 25.11.20', file: 'revocation/2020-11-25-obshchii.pdf' },
                     { date: '18.11.2020', label: 'Информация об отзыве доверенностей от 18.11.20', file: 'revocation/2020-11-18-obshchii.pdf' },
-                  ].map((doc, i) => (
+                  ].map((doc) => (
                     <a
                       key={doc.file}
                       href={fileUrl(FILE_BASE_URL, '${doc.file}')}
