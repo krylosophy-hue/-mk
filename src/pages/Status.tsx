@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Search, FileCheck, Clock, CheckCircle2, AlertCircle, Loader } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 const statusIcons = {
   'in-progress': Clock,
@@ -40,21 +39,28 @@ const formatDate = (dateString: string): string => {
 };
 
 export default function Status() {
-  const [searchId, setSearchId] = useState('');
+  // Пользователь вводит ТОЛЬКО короткий номер (например 2828/26).
+  // Префикс «№ 04-01-08-» — только визуально, в API не передаётся
+  // (как на оригинальном сайте moscollector.ru/статус-обращения/).
+  const [docNumber, setDocNumber] = useState('');
   const [found, setFound] = useState<ApplicationStatus | null>(null);
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchApplicationStatus = async (docNum: string) => {
+  const fetchStatus = async () => {
+    const trimmed = docNumber.trim();
+    if (!trimmed) return;
+
+    setSearched(true);
     setLoading(true);
     setError(null);
     setFound(null);
 
     try {
-      // API DocSEDO АО «Москоллектор»
+      // 1:1 как в оригинальном jQuery.ajax со старого сайта
       const response = await fetch(
-        `https://dopusk.moscollector.ru/docSedoStatus2024.php?docNum=${encodeURIComponent(docNum)}`,
+        `https://dopusk.moscollector.ru/docSedoStatus2024.php?docNum=${encodeURIComponent(trimmed)}`,
         { method: 'GET' }
       );
 
@@ -62,65 +68,37 @@ export default function Status() {
         throw new Error(`Ошибка сервера: ${response.status}`);
       }
 
-      // Контракт API:
-      //   { WorkType, Status, Comment, PlannedDateOfCompletion, ActualDateOfCompletion }
-      //   либо ошибка / пусто, если номер не найден
       const data = await response.json();
 
+      // API возвращает либо данные, либо пустой WorkType — значит не найдено
       if (!data || !data.WorkType) {
         setFound(null);
-        setError(null); // покажем «Заявка не найдена» в UI ниже
         return;
       }
 
       const isCompleted = data.Status === 'Исполнено' || data.Status === 'Выполнено';
-      const application: ApplicationStatus = {
-        id: docNum,
-        workType: data.WorkType || 'Не указан тип работы',
+      setFound({
+        id: trimmed,
+        workType: data.WorkType,
         plannedDate: data.PlannedDateOfCompletion ? formatDate(data.PlannedDateOfCompletion) : 'Не указана',
         actualDate: data.ActualDateOfCompletion ? formatDate(data.ActualDateOfCompletion) : '-',
         status: isCompleted ? 'completed' : 'in-progress',
         statusText: data.Status || (isCompleted ? 'Выполнено' : 'В работе'),
         comment: data.Comment && data.Comment !== '-' ? data.Comment : undefined,
-      };
-
-      setFound(application);
+      });
     } catch (err) {
       setError(
         err instanceof Error
           ? err.message
-          : 'Не удалось получить статус. Проверьте номер заявки и попробуйте снова.'
+          : 'Не удалось получить статус. Попробуйте ещё раз.'
       );
-      setFound(null);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSearch = () => {
-    const trimmed = searchId.trim();
-    if (!trimmed) return;
-
-    // Допустимые форматы:
-    //   1111/24                 — короткий (как на печати ЦОП)
-    //   04-01-08-000123/2026    — полный (старый формат)
-    const isValidFormat = /^(\d{2}-\d{2}-\d{2}-\d{6}\/\d{4}|\d+\/\d{2,4})$/.test(trimmed);
-
-    if (!isValidFormat) {
-      setError('Проверьте формат номера заявки (например: 1111/24)');
-      setFound(null);
-      setSearched(true);
-      return;
-    }
-
-    setSearched(true);
-    fetchApplicationStatus(trimmed);
-  };
-
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !loading) {
-      handleSearch();
-    }
+    if (e.key === 'Enter' && !loading) fetchStatus();
   };
 
   return (
@@ -148,38 +126,45 @@ export default function Status() {
             </div>
           </div>
 
+          {/* Форма как на старом сайте: «№ 04-01-08-» статичный префикс + поле + кнопка снизу */}
           <div className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="applicationId">Номер заявки</Label>
-              <div className="flex gap-3">
+            <div>
+              <p className="block text-center text-base font-medium text-slate-700 mb-4">
+                Введите регистрационный номер обращения
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-lg font-semibold text-sky-700 whitespace-nowrap select-none">
+                  № 04-01-08-
+                </span>
                 <Input
-                  id="applicationId"
-                  placeholder="Например: 1111/24"
-                  value={searchId}
-                  onChange={(e) => setSearchId(e.target.value)}
+                  id="docNumber"
+                  placeholder="2828/26"
+                  value={docNumber}
+                  onChange={(e) => setDocNumber(e.target.value)}
                   onKeyDown={handleKeyPress}
                   disabled={loading}
-                  className="rounded-xl font-mono"
+                  className="rounded-xl font-mono max-w-[200px] text-center text-sky-700 font-semibold"
                 />
-                <Button
-                  onClick={handleSearch}
-                  disabled={!searchId.trim() || loading}
-                  className="bg-sky-600 hover:bg-sky-700 text-white rounded-xl"
-                >
-                  {loading ? (
-                    <Loader className="w-4 h-4 mr-2 animate-spin" />
-                  ) : (
-                    <Search className="w-4 h-4 mr-2" />
-                  )}
-                  {loading ? 'Поиск...' : 'Проверить'}
-                </Button>
               </div>
-              <p className="text-xs text-slate-500 mt-2">
-                Номер заявки указан на печати ЦОП АО «Москоллектор». Принимаются форматы{' '}
-                <span className="font-mono">1111/24</span> и{' '}
-                <span className="font-mono">04-01-08-000123/2026</span>.
-              </p>
             </div>
+
+            <Button
+              onClick={fetchStatus}
+              disabled={!docNumber.trim() || loading}
+              className="w-full bg-sky-600 hover:bg-sky-700 text-white rounded-xl h-12 text-base font-semibold"
+            >
+              {loading ? (
+                <>
+                  <Loader className="w-5 h-5 mr-2 animate-spin" />
+                  Запрашиваем…
+                </>
+              ) : (
+                <>
+                  <Search className="w-5 h-5 mr-2" />
+                  Запросить статус
+                </>
+              )}
+            </Button>
 
             {searched && (
               <div className="border-t border-slate-100 pt-6">
@@ -196,7 +181,7 @@ export default function Status() {
                         <h3 className="font-semibold text-red-800 mb-1">Ошибка</h3>
                         <p className="text-red-700 text-sm">{error}</p>
                         <p className="text-red-700 text-sm mt-2">
-                          Если проблема повторяется, обратитесь в Центр обслуживания потребителей по&nbsp;телефону{' '}
+                          Если проблема повторяется, обратитесь в Центр обслуживания потребителей{' '}
                           <a href="tel:+74992222201" className="font-semibold underline">+7 (499) 222-22-01</a>.
                         </p>
                       </div>
@@ -217,7 +202,7 @@ export default function Status() {
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2 gap-2">
                           <h3 className="font-bold font-heading text-[#0a1628]">
-                            Заявка № <span className="font-mono">{found.id}</span>
+                            Заявка № <span className="font-mono">04-01-08-{found.id}</span>
                           </h3>
                           <span
                             className={`px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap ${statusColors[found.status]}`}
