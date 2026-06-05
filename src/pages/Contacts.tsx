@@ -407,7 +407,7 @@ export default function Contacts() {
           <div className="relative h-96 rounded-3xl overflow-hidden bg-slate-100 shadow-lg ring-1 ring-black/5">
             <iframe
               title="Карта: АО «Москоллектор»"
-              src="https://yandex.ru/map-widget/v1/?ll=37.638253%2C55.778167&z=17&mode=search&text=Москва%2C%201-й%20Коптельский%20переулок%2C%2016%20стр.%204&pt=37.638253%2C55.778167%2Cpm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=37.638737%2C55.774087&z=17&mode=search&text=Москва%2C%201-й%20Коптельский%20переулок%2C%2016%20стр.%204&pt=37.638737%2C55.774087%2Cpm2rdm"
               width="100%"
               height="100%"
               frameBorder="0"

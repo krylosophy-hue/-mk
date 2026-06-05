@@ -623,23 +623,33 @@ export default function Info() {
                     и содержат требования к прокладке, эксплуатации и техническому обслуживанию
                     инженерных коммуникаций в коллекторах.
                   </p>
+                  {/* ТУ файлы — недоступны на старом сайте, нужно запросить в ЦОП.
+                       Когда файлы появятся, замените span'ы на <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_*.pdf')}>. */}
+                  <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl mb-4">
+                    <p className="text-amber-900 text-sm">
+                      <strong>Формы ТУ временно недоступны на сайте.</strong> Для получения
+                      технических условий обратитесь в Центр обслуживания потребителей
+                      по телефону <a href="tel:+74992222201" className="font-semibold underline">+7 (499) 222-22-01</a>
+                      {' '}или e-mail <a href="mailto:tsop@moscollector.ru" className="font-semibold underline">tsop@moscollector.ru</a>.
+                    </p>
+                  </div>
                   <div className="flex flex-wrap gap-3">
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_vok.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
-                      <Download className="w-4 h-4" />
-                      ТУ для ВОК
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_skl.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
-                      <Download className="w-4 h-4" />
-                      ТУ для силовых кабелей
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_ks.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
-                      <Download className="w-4 h-4" />
-                      ТУ для кабелей связи
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_tr.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
-                      <Download className="w-4 h-4" />
-                      ТУ для трубопроводов
-                    </a>
+                    {[
+                      'ТУ для оптико-волоконных кабелей (ВОК)',
+                      'ТУ для силовых кабельных линий',
+                      'ТУ для кабелей связи',
+                      'ТУ для трубопроводов',
+                    ].map((label) => (
+                      <span
+                        key={label}
+                        title="Запросите файл в ЦОП по телефону +7 (499) 222-22-01"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-100 text-slate-500 rounded-xl cursor-help text-sm"
+                      >
+                        <Download className="w-4 h-4 opacity-60" />
+                        {label}
+                        <span className="text-xs">(запросить в ЦОП)</span>
+                      </span>
+                    ))}
                   </div>
                 </Accordion>
 

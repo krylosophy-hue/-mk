@@ -23,6 +23,21 @@ function parseFrontmatter(raw: string): ParsedFrontmatter {
   return { data, content: m[2] || '' }
 }
 
+/** Безопасно нормализует дату из frontmatter в ISO строку YYYY-MM-DD.
+ *  js-yaml парсит дату "2026-04-02" как JS Date object, и String(date) даёт
+ *  локализованный текст ("Wed Apr 02..."), который ломает сортировку. */
+function normalizeDate(value: unknown): string {
+  if (!value) return ''
+  if (value instanceof Date) {
+    if (isNaN(value.getTime())) return ''
+    const yyyy = value.getUTCFullYear()
+    const mm = String(value.getUTCMonth() + 1).padStart(2, '0')
+    const dd = String(value.getUTCDate()).padStart(2, '0')
+    return `${yyyy}-${mm}-${dd}`
+  }
+  return String(value)
+}
+
 /* ------------------------------------------------------------------ */
 /*  Vite glob imports — eagerly load all files at build time           */
 /* ------------------------------------------------------------------ */
@@ -216,7 +231,7 @@ export const news: NewsItem[] = Object.entries(newsRaw)
     return {
       id: slugFromPath(path),
       title: String(data.title || ''),
-      date: String(data.date || ''),
+      date: normalizeDate(data.date),
       category: String(data.category || ''),
       excerpt: String(data.excerpt || ''),
       image: data.image ? String(data.image) : undefined,
@@ -301,7 +316,7 @@ export const consumerNews: NewsItem[] = Object.entries(consumerNewsRaw)
     return {
       id: slugFromPath(path),
       title: String(data.title || ''),
-      date: String(data.date || ''),
+      date: normalizeDate(data.date),
       category: String(data.category || ''),
       excerpt: String(data.excerpt || ''),
       image: data.image ? String(data.image) : undefined,

@@ -177,6 +177,31 @@ const searchablePages: SearchItem[] = [
   ...formCatalog,
 ];
 
+/** Ссылка в футере с гарантированным скроллом в начало даже при клике на ту же страницу.
+ *  Обычный <Link> в React Router 6 не вызывает navigation, если URL не изменился,
+ *  поэтому useEffect в Layout не срабатывает. Здесь мы явно прокручиваем наверх. */
+function FooterNavLink({ to, children }: { to: string; children: React.ReactNode }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Сначала всегда наверх (для самого надёжного UX)
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    if (location.pathname === to && !location.hash) {
+      // Уже на этой странице без хеша — скролл уже сделан, navigate не нужен
+      return;
+    }
+    navigate(to);
+  };
+
+  return (
+    <a href={to} onClick={handleClick} className="text-white/50 hover:text-white transition-colors">
+      {children}
+    </a>
+  );
+}
+
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -525,11 +550,11 @@ export default function Layout() {
             <div className="md:col-span-3">
               <h4 className="font-heading text-sm font-semibold mb-5 text-white/90">Разделы</h4>
               <ul className="space-y-2.5 text-sm">
-                <li><Link to="/about" className="text-white/50 hover:text-white transition-colors">О компании</Link></li>
-                <li><Link to="/shareholders" className="text-white/50 hover:text-white transition-colors">Акционерам</Link></li>
-                <li><Link to="/consumers" className="text-white/50 hover:text-white transition-colors">Потребителям</Link></li>
-                <li><Link to="/press" className="text-white/50 hover:text-white transition-colors">Пресс-центр</Link></li>
-                <li><Link to="/procurement" className="text-white/50 hover:text-white transition-colors">Закупки</Link></li>
+                <li><FooterNavLink to="/about">О компании</FooterNavLink></li>
+                <li><FooterNavLink to="/shareholders">Акционерам</FooterNavLink></li>
+                <li><FooterNavLink to="/consumers">Потребителям</FooterNavLink></li>
+                <li><FooterNavLink to="/press">Пресс-центр</FooterNavLink></li>
+                <li><FooterNavLink to="/procurement">Закупки</FooterNavLink></li>
               </ul>
             </div>
 
@@ -537,10 +562,10 @@ export default function Layout() {
             <div className="md:col-span-2">
               <h4 className="font-heading text-sm font-semibold mb-5 text-white/90">Сервисы</h4>
               <ul className="space-y-2.5 text-sm">
-                <li><Link to="/calculator" className="text-white/50 hover:text-white transition-colors">Калькулятор</Link></li>
-                <li><Link to="/status" className="text-white/50 hover:text-white transition-colors">Статус заявки</Link></li>
-                <li><Link to="/vacancies" className="text-white/50 hover:text-white transition-colors">Вакансии</Link></li>
-                <li><Link to="/contacts" className="text-white/50 hover:text-white transition-colors">Контакты</Link></li>
+                <li><FooterNavLink to="/calculator">Калькулятор</FooterNavLink></li>
+                <li><FooterNavLink to="/status">Статус заявки</FooterNavLink></li>
+                <li><FooterNavLink to="/vacancies">Вакансии</FooterNavLink></li>
+                <li><FooterNavLink to="/contacts">Контакты</FooterNavLink></li>
               </ul>
             </div>
 
@@ -548,9 +573,9 @@ export default function Layout() {
             <div className="md:col-span-2">
               <h4 className="font-heading text-sm font-semibold mb-5 text-white/90">Правовая информация</h4>
               <ul className="space-y-2.5 text-sm">
-                <li><Link to="/privacy" className="text-white/50 hover:text-white transition-colors">Политика конфиденциальности</Link></li>
-                <li><Link to="/anticorruption" className="text-white/50 hover:text-white transition-colors">Противодействие коррупции</Link></li>
-                <li><Link to="/info" className="text-white/50 hover:text-white transition-colors">Информация</Link></li>
+                <li><FooterNavLink to="/privacy">Политика конфиденциальности</FooterNavLink></li>
+                <li><FooterNavLink to="/anticorruption">Противодействие коррупции</FooterNavLink></li>
+                <li><FooterNavLink to="/info">Информация</FooterNavLink></li>
               </ul>
             </div>
           </div>
