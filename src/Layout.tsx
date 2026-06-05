@@ -288,30 +288,68 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
-      {/* Top Bar — всегда видимая полоса с переходом на старый сайт и ЛК */}
-      <div className="bg-[#0a1628] border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
-          <div className="flex items-center gap-6 text-[13px] text-white/70">
-            <a href="tel:+74992222201" className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Phone className="w-3.5 h-3.5" />
-              +7 (499) 222-22-01
+      {/* Top Bar — премиальный градиент с лёгким glass-эффектом и тонким нижним свечением */}
+      <div
+        className="relative"
+        style={{
+          background:
+            'linear-gradient(180deg, #060e1a 0%, #0a1628 45%, #0d1f36 100%)',
+          boxShadow:
+            '0 1px 0 rgba(56, 189, 248, 0.08), 0 4px 12px -8px rgba(0, 0, 0, 0.4)',
+        }}
+      >
+        {/* Edge highlight сверху — тонкий тёплый свет */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-px"
+          style={{
+            background:
+              'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%)',
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-11">
+          <div className="flex items-center gap-1 sm:gap-2 text-[12.5px]">
+            <a
+              href="tel:+74992222201"
+              className="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+            >
+              <Phone className="w-3.5 h-3.5 text-sky-400/90 group-hover:text-sky-300 transition-colors" />
+              <span className="tabular-nums tracking-tight">+7 (499) 222-22-01</span>
             </a>
-            <a href="mailto:info@moscollector.ru" className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
-              <Mail className="w-3.5 h-3.5" />
-              info@moscollector.ru
+            <a
+              href="mailto:info@moscollector.ru"
+              className="group hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+            >
+              <Mail className="w-3.5 h-3.5 text-sky-400/90 group-hover:text-sky-300 transition-colors" />
+              <span>info@moscollector.ru</span>
             </a>
           </div>
-          <div className="flex items-center gap-4 text-[13px] text-white/70">
-            <Link to="/" className="hover:text-white transition-colors">Главная</Link>
-            <span className="text-white/20">|</span>
-            <a href="https://dopusk.moscollector.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-white transition-colors">
+          <div className="flex items-center gap-1 text-[12.5px]">
+            <Link
+              to="/"
+              className="inline-flex items-center px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+            >
+              Главная
+            </Link>
+            <span aria-hidden="true" className="w-px h-3.5 bg-white/15 mx-0.5" />
+            <a
+              href="https://dopusk.moscollector.ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+            >
               Личный кабинет
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3 h-3 text-white/40 group-hover:text-sky-300 transition-colors" />
             </a>
-            <span className="text-white/20">|</span>
-            <a href="https://moscollector.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-white transition-colors">
+            <span aria-hidden="true" className="w-px h-3.5 bg-white/15 mx-0.5" />
+            <a
+              href="https://moscollector.ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+            >
               Старый сайт
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3 h-3 text-white/40 group-hover:text-sky-300 transition-colors" />
             </a>
           </div>
         </div>
@@ -322,7 +360,10 @@ export default function Layout() {
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/85 backdrop-blur-xl backdrop-saturate-150 shadow-[0_2px_12px_-2px_rgba(10,22,40,0.08),0_1px_2px_rgba(10,22,40,0.04)] border-b border-gray-100/80'
-            : location.pathname === '/' ? 'bg-transparent' : 'bg-white'
+            : location.pathname === '/'
+              // На главной — мягкий dark-glass overlay чтобы лого и меню читались на видео
+              ? 'bg-gradient-to-b from-[#060e1a]/85 via-[#0a1628]/50 to-transparent backdrop-blur-sm'
+              : 'bg-white'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
