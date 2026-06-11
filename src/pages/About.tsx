@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { TrendingUp, Users, Zap, Droplets, Target, Award, Building2, Calendar, Phone, Mail, MapPin, FileText } from 'lucide-react';
 
 const stats = [
@@ -170,6 +171,35 @@ export default function About() {
                     </div>
                   ))}
                 </div>
+                <p className="mt-6 text-xs text-gray-400 italic">
+                  Историческая справка уточняется.
+                </p>
+              </div>
+            </section>
+
+            {/* п.39 — Учредительные документы и карточка Общества во вкладке «О компании» */}
+            <section>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-2xl bg-sky-50 flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-sky-600" />
+                </div>
+                <h2 className="text-2xl font-bold font-heading text-[#0a1628]">
+                  Учредительные документы
+                </h2>
+              </div>
+              <div className="card-modern rounded-2xl p-7">
+                <p className="text-gray-500 leading-relaxed mb-4">
+                  Полный пакет учредительных документов АО «Москоллектор» (устав, свидетельства,
+                  лицензии, выписка из ЕГРЮЛ), а также актуальная карточка Общества размещены
+                  в разделе «Акционерам».
+                </p>
+                <Link
+                  to="/shareholders#documents"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium rounded-xl transition-colors"
+                >
+                  <FileText className="w-4 h-4" />
+                  Перейти к документам
+                </Link>
               </div>
             </section>
           </div>

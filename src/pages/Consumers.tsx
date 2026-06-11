@@ -770,9 +770,12 @@ export default function Consumers() {
             <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-amber-800">
               <p className="font-semibold mb-1">Важная информация</p>
-              <p>В коммуникационные коллекторы допускаются только граждане РФ. С 25.01.2021 приняты новые наименования коллекторов.</p>
+              <p>В коммуникационные коллекторы допускаются только граждане РФ.
+              Список переименованных коллекторов и комплексов готовится в полном виде —
+              на текущий момент опубликован перечень переименований по Приказу № 9 от 25.01.2021;
+              остальные изменения с 2020 года будут добавлены отдельным блоком.</p>
               <a href={fileUrl(FILE_BASE_URL, 'renamed-collectors.xlsx')} className="inline-flex items-center gap-1 text-[#0ea5e9] hover:underline mt-1">
-                <Download className="w-4 h-4" /> Скачать список переименованных коллекторов
+                <Download className="w-4 h-4" /> Скачать список (Приказ № 9 от 25.01.2021)
               </a>
             </div>
           </div>
