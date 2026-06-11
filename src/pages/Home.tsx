@@ -111,8 +111,9 @@ export default function Home() {
             </motion.h1>
 
             <motion.p variants={fadeIn} className="text-lg text-white/60 mb-10 max-w-xl leading-relaxed">
-              С 1988 года обслуживаем подземную инфраструктуру столицы — силовые кабели,
-              кабели связи, теплосети и водопровод во всех округах города.
+              С 1988 года эксплуатируем коммуникационные коллекторы Москвы —
+              подземные тоннели для совместной прокладки силовых кабелей,
+              кабелей связи, трубопроводов теплосети и водопровода.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-wrap gap-3">

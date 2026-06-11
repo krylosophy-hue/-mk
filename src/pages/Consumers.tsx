@@ -1655,6 +1655,29 @@ export default function Consumers() {
               </div>
               
               <div className="space-y-8">
+                {/* ===== Тарифный калькулятор НАД таблицей (правка п.36) ===== */}
+                <div className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6 md:p-8">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center flex-shrink-0">
+                      <Calculator className="w-7 h-7 text-sky-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-[#0a1628] mb-1">
+                        Рассчитайте стоимость онлайн
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        Введите параметры коммуникаций — получите точную смету по тарифам 2026 года.
+                      </p>
+                    </div>
+                    <Link to="/calculator" className="w-full md:w-auto">
+                      <Button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 whitespace-nowrap">
+                        <Calculator className="w-5 h-5 mr-2" />
+                        Тарифный калькулятор
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+
                 {/* ===== БЛОК 1: Тарифы на услуги ===== */}
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8">
                   <h3 className="text-xl font-bold text-[#0ea5e9] mb-1">
@@ -1796,14 +1819,6 @@ export default function Consumers() {
                     </ul>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Link to="/calculator">
-                      <Button className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3">
-                        <Calculator className="w-5 h-5 mr-2" />
-                        Тарифный калькулятор
-                      </Button>
-                    </Link>
-                  </div>
                 </div>
 
                 {/* ===== БЛОК 2: Цены на дополнительные услуги ===== */}
@@ -1882,15 +1897,6 @@ export default function Consumers() {
                         ))}
                       </tbody>
                     </table>
-                  </div>
-
-                  {/* Бесплатные услуги */}
-                  <div className="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
-                    <p className="text-emerald-900 text-sm font-semibold mb-2">Бесплатные услуги:</p>
-                    <ul className="text-emerald-900 text-sm space-y-1">
-                      <li>• Оформление ордера на работы</li>
-                      <li>• Аннулирование ордера</li>
-                    </ul>
                   </div>
                 </div>
               </div>

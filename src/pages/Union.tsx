@@ -77,7 +77,7 @@ export default function Union() {
                 </p>
                 <p className="text-slate-600 leading-relaxed">
                   Сейчас численность профсоюза достигла более 1000 человек, что составляет более 70% от общего числа
-                  работающих. Члены профсоюза объединены в 12 профгрупп. Первичная профсоюзная организация АО «Москоллектор»
+                  работающих. Члены профсоюза объединены в 13 профгрупп. Первичная профсоюзная организация АО «Москоллектор»
                   входит в состав общественной организации «Профсоюз муниципальных работников Москвы».
                 </p>
                 <p className="text-slate-600 leading-relaxed">
@@ -177,7 +177,7 @@ export default function Union() {
                   <div className="text-white/70">работников предприятия</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold font-heading text-sky-400">12</div>
+                  <div className="text-2xl font-bold font-heading text-sky-400">13</div>
                   <div className="text-white/70">профгрупп</div>
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function Union() {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-slate-400" />
-                  <a href="tel:+74992222201" className="text-sky-600 hover:underline">+7 (499) 222-22-01</a>
+                  <a href="tel:+74992222201,1034" className="text-sky-600 hover:underline">+7 (499) 222-22-01, доб. 1034</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-slate-400" />

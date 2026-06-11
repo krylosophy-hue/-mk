@@ -200,7 +200,7 @@ export default function Social() {
               <h3 className="font-bold font-heading text-lg mb-2">Профком</h3>
               <p className="text-white/80 text-sm mb-4">
                 Первичная профсоюзная организация АО «Москоллектор» — полноправный участник
-                социального партнёрства. Более 1000 членов, 12 профгрупп.
+                социального партнёрства. Более 1000 членов, 13 профгрупп.
               </p>
               <Link to="/union" className="text-sm font-medium text-sky-400 hover:text-white transition-colors">
                 Подробнее о профкоме →
@@ -215,7 +215,7 @@ export default function Social() {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-slate-400" />
-                  <a href="tel:+74992222201" className="text-sky-600 hover:underline">+7 (499) 222-22-01</a>
+                  <a href="tel:+74992222201,1330" className="text-sky-600 hover:underline">+7 (499) 222-22-01, доб. 1330</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-slate-400" />
