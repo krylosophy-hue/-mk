@@ -238,3 +238,24 @@
   .card-modern { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
   .page-header { background: #0a1628 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ============================================================
+   Hero entrance — чистый CSS вместо framer-motion.
+   Контент главного экрана обязан появляться даже если JS-анимации
+   не тикают (слабые устройства, энергосбережение, сбой rAF).
+   ============================================================ */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-rise {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-rise-1 { animation-delay: 0.10s; }
+.hero-rise-2 { animation-delay: 0.22s; }
+.hero-rise-3 { animation-delay: 0.34s; }
+.hero-rise-4 { animation-delay: 0.46s; }
+.hero-rise-5 { animation-delay: 0.58s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}

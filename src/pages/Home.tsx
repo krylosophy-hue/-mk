@@ -96,27 +96,29 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-28 w-full">
-          <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-3xl">
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.07] border border-white/[0.12] text-sky-300 text-[13px] font-medium mb-8 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+          {/* Hero — CSS-анимация вместо framer-motion: контент первого экрана
+              должен показываться даже при незапустившихся JS-анимациях */}
+          <div className="max-w-3xl">
+            <div className="hero-rise hero-rise-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.07] border border-white/[0.12] text-sky-300 text-[13px] font-medium mb-8 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
               <span className="relative flex w-1.5 h-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400" />
               </span>
               Эксплуатация коммуникационных коллекторов Москвы
-            </motion.div>
+            </div>
 
-            <motion.h1 variants={fadeIn} className="font-heading text-5xl md:text-6xl lg:text-[68px] font-bold text-white leading-[1.08] tracking-tight mb-8">
+            <h1 className="hero-rise hero-rise-2 font-heading text-5xl md:text-6xl lg:text-[68px] font-bold text-white leading-[1.08] tracking-tight mb-8">
               825 километров надёжности{' '}
               <span className="text-gradient">под Москвой</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p variants={fadeIn} className="text-lg text-white/60 mb-10 max-w-xl leading-relaxed">
+            <p className="hero-rise hero-rise-3 text-lg text-white/60 mb-10 max-w-xl leading-relaxed">
               С 1988 года эксплуатируем коммуникационные коллекторы Москвы —
               подземные тоннели для совместной прокладки силовых кабелей,
               кабелей связи, трубопроводов теплосети и водопровода.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeIn} className="flex flex-wrap gap-3">
+            <div className="hero-rise hero-rise-4 flex flex-wrap gap-3">
               <Link to="/consumers">
                 <Button size="lg" className="bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-500 hover:to-sky-400 text-white font-semibold px-7 h-12 text-[15px] rounded-xl group cursor-pointer shadow-[0_8px_24px_-6px_rgba(14,165,233,0.5),inset_0_1px_0_rgba(255,255,255,0.18)] hover:shadow-[0_12px_32px_-6px_rgba(14,165,233,0.6),inset_0_1px_0_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300">
                   Наши услуги
@@ -128,10 +130,10 @@ export default function Home() {
                   О компании
                 </Button>
               </Link>
-            </motion.div>
+            </div>
 
             {/* Announcement */}
-            <motion.div variants={fadeIn} className="mt-14 glass-card rounded-2xl p-5 max-w-lg">
+            <div className="hero-rise hero-rise-5 mt-14 glass-card rounded-2xl p-5 max-w-lg">
               <div className="flex items-center gap-2 text-sky-300/80 text-[13px] font-medium mb-2.5">
                 <Newspaper className="w-3.5 h-3.5" />
                 Важные объявления
@@ -152,8 +154,8 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -210,13 +212,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="relative flex items-center justify-center py-8">
-              {/* Outer decorative ring */}
-              <div className="absolute w-[520px] h-[520px] rounded-full border border-gray-200/60" />
-              <div className="absolute w-[470px] h-[470px] rounded-full border border-sky-100/80" />
+              {/* Outer decorative ring — на мобильном уменьшаем, чтобы не вылезали за экран */}
+              <div className="absolute w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] rounded-full border border-gray-200/60" />
+              <div className="absolute w-[290px] h-[290px] sm:w-[470px] sm:h-[470px] rounded-full border border-sky-100/80" />
               {/* Soft glow */}
-              <div className="absolute w-[440px] h-[440px] rounded-full bg-sky-500/[0.05] blur-3xl" />
+              <div className="absolute w-[270px] h-[270px] sm:w-[440px] sm:h-[440px] rounded-full bg-sky-500/[0.05] blur-3xl" />
               {/* Main circular image */}
-              <div className="relative w-[420px] h-[420px] lg:w-[470px] lg:h-[470px] rounded-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(10,22,40,0.25),0_0_0_1px_rgba(14,165,233,0.08)]">
+              <div className="relative w-[260px] h-[260px] sm:w-[420px] sm:h-[420px] lg:w-[470px] lg:h-[470px] rounded-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(10,22,40,0.25),0_0_0_1px_rgba(14,165,233,0.08)]">
                 <img src={asset('images/collector-hero.jpg')} alt="Коллектор" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
               </div>

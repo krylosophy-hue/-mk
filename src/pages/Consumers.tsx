@@ -1478,7 +1478,7 @@ export default function Consumers() {
                       Действуют с 22.01.2026. Утверждены приказом АО «Москоллектор» от 22.01.2026 № 12.
                     </p>
                     <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
+                      <table className="w-full min-w-[620px] text-sm">
                         <thead>
                           <tr className="bg-[#0a1628] text-white">
                             <th className="text-left px-3 py-3 font-semibold rounded-tl-lg">№</th>
@@ -1692,7 +1692,7 @@ export default function Consumers() {
                   </p>
 
                   <div className="overflow-x-auto rounded-lg border border-gray-200">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
                           <th className="px-4 py-3 font-semibold text-center w-16">№ п/п</th>
@@ -1834,7 +1834,7 @@ export default function Consumers() {
                   </p>
 
                   <div className="overflow-x-auto rounded-lg border border-gray-200">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
                           <th rowSpan={2} className="px-4 py-3 font-semibold text-center w-16 align-middle">№ п/п</th>
@@ -1933,7 +1933,7 @@ export default function Consumers() {
 
                 <Accordion title="Прокладка (врезка) инженерных коммуникаций в коллекторах">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
                           <th className="text-left px-4 py-3 font-semibold">Шаг</th>
@@ -1992,7 +1992,7 @@ export default function Consumers() {
 
                 <Accordion title="Прокладка и демонтаж инженерных коммуникаций по государственному заказу">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
                           <th className="text-left px-4 py-3 font-semibold">Шаг</th>
@@ -2051,7 +2051,7 @@ export default function Consumers() {
 
                 <Accordion title="Перекладка инженерных коммуникаций">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
                           <th className="text-left px-4 py-3 font-semibold">Шаг</th>
@@ -2110,7 +2110,7 @@ export default function Consumers() {
 
                 <Accordion title="Демонтаж инженерных коммуникаций">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
                           <th className="text-left px-4 py-3 font-semibold">Шаг</th>
@@ -2169,7 +2169,7 @@ export default function Consumers() {
 
                 <Accordion title="Сроки оформления документации на оптико-волоконный кабель">
                   <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                    <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-gray-100">
                           <th className="text-left px-4 py-3 font-semibold text-[#0a1628]">Этап</th>
