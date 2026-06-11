@@ -97,9 +97,9 @@ export default function Home() {
           }} />
         </div>
 
-        {/* Без max-w-контейнера: hero-контент прижат к левому краю экрана
-            (отступ 24-64px), а не к центрированной колонке 1280/1440px */}
-        <div className="relative z-10 px-6 sm:px-10 lg:px-16 pt-10 md:pt-14 pb-24 w-full">
+        {/* Hero-контент в общем контейнере сайта: левый край текста
+            совпадает с логотипом в шапке (контейнер 1440px на широких) */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-10 md:pt-14 pb-24 w-full">
           {/* Hero — CSS-анимация вместо framer-motion: контент первого экрана
               должен показываться даже при незапустившихся JS-анимациях */}
           <div className="max-w-3xl">
