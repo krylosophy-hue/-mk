@@ -183,7 +183,7 @@ export default function Vacancies() {
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
                     <Phone className="w-4 h-4 text-sky-400" />
                   </div>
-                  <span>(499) 222-22-01, доб. 13-21 или доб. 13-22</span>
+                  <span>+7 (499) 222-22-01, доб. 1321 или доб. 1322</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
@@ -195,7 +195,7 @@ export default function Vacancies() {
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
                     <Calendar className="w-4 h-4 text-sky-400" />
                   </div>
-                  <span>Пн-Пт: 9:00 - 18:00</span>
+                  <span>Пн—Чт: 8:00 — 17:00<br/>Пт: 8:00 — 15:45</span>
                 </div>
               </div>
             </div>
