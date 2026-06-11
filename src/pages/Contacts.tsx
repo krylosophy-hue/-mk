@@ -3,7 +3,6 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   ExternalLink,
   Building2,
   ChevronDown,
@@ -21,16 +20,28 @@ import { contacts } from '@/lib/content';
 /*  Section 1 data — берётся из content/contacts.yml (CMS)             */
 /* ------------------------------------------------------------------ */
 
+const chancellerySubLines = [
+  contacts.chancelleryExt
+    ? `${contacts.mainPhone}, доб. ${contacts.chancelleryExt}`
+    : contacts.mainPhone,
+  contacts.chancelleryEmail,
+  'пн—чт 8:00—17:00, пт 8:00—15:45 (обед 12:00—12:45)',
+];
+
+const tsopLines = [
+  contacts.tsop.address,
+  contacts.tsop.ext
+    ? `${contacts.tsop.phone}, доб. ${contacts.tsop.ext}`
+    : contacts.tsop.phone,
+  contacts.tsop.email,
+  'пн—чт 8:00—17:00, пт 8:00—15:45 (без обеда)',
+];
+
 const mainContacts = [
   {
     icon: MapPin,
     title: 'Юридический адрес / Главный офис',
     content: contacts.mainAddress,
-  },
-  {
-    icon: Clock,
-    title: 'Дни и часы приёма',
-    lines: contacts.receptionHours,
   },
   {
     icon: Phone,
@@ -42,15 +53,14 @@ const mainContacts = [
   {
     icon: Mail,
     title: 'Канцелярия',
-    content: contacts.mainPhone,
-    subContent: contacts.chancelleryEmail,
+    lines: chancellerySubLines,
     link: 'mailto:' + contacts.chancelleryEmail,
     linkText: 'Написать',
   },
   {
     icon: Users,
     title: 'Центр обслуживания потребителей',
-    lines: [contacts.tsop.address, contacts.tsop.phone, contacts.tsop.email],
+    lines: tsopLines,
     link: 'mailto:' + contacts.tsop.email,
     linkText: 'Написать',
   },
@@ -166,7 +176,7 @@ export default function Contacts() {
         {/* ============================================================ */}
         {/*  SECTION 1 — Контакты АО «Москоллектор»                      */}
         {/* ============================================================ */}
-        <Section title='Контакты АО «Москоллектор»' icon={Building2}>
+        <Section title='Контакты АО «Москоллектор»' icon={Building2} defaultOpen={false}>
           {/* Contact cards grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {mainContacts.map((item) => (
@@ -180,13 +190,10 @@ export default function Contacts() {
                 <h3 className="font-heading font-semibold text-[#0a1628] mb-2 text-sm">
                   {item.title}
                 </h3>
-                {item.content && (
+                {'content' in item && item.content && (
                   <p className="text-slate-600 text-sm leading-relaxed">{item.content}</p>
                 )}
-                {item.subContent && (
-                  <p className="text-slate-500 text-sm mt-1">{item.subContent}</p>
-                )}
-                {item.lines &&
+                {'lines' in item && item.lines &&
                   item.lines.map((line) => (
                     <p key={line} className="text-slate-600 text-sm leading-relaxed">
                       {line}
@@ -251,13 +258,22 @@ export default function Contacts() {
               </div>
               <h3 className="font-heading font-semibold text-[#0a1628]">Реквизиты</h3>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
-              {requisites.map((r) => (
-                <div key={r.label} className="flex gap-2 text-sm">
-                  <span className="text-slate-400 font-medium shrink-0">{r.label}:</span>
-                  <span className="text-slate-700 font-semibold">{r.value}</span>
-                </div>
-              ))}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-3">
+              {requisites
+                .filter((r) => r.label !== 'Адрес')
+                .map((r) => (
+                  <div key={r.label} className="flex gap-2 text-sm">
+                    <span className="text-slate-400 font-medium shrink-0">{r.label}:</span>
+                    <span className="text-slate-700 font-semibold">{r.value}</span>
+                  </div>
+                ))}
+            </div>
+            {/* Адрес — в одну строку на всю ширину карточки */}
+            <div className="mt-3 flex gap-2 text-sm border-t border-slate-100 pt-3">
+              <span className="text-slate-400 font-medium shrink-0">Адрес:</span>
+              <span className="text-slate-700 font-semibold">
+                {requisites.find((r) => r.label === 'Адрес')?.value}
+              </span>
             </div>
           </div>
         </Section>
@@ -265,14 +281,17 @@ export default function Contacts() {
         {/* ============================================================ */}
         {/*  SECTION 2 — Производственные подразделения                   */}
         {/* ============================================================ */}
-        <Section title="Производственные подразделения" icon={Wrench} defaultOpen={false}>
+        <Section title="Эксплуатирующие подразделения" icon={Wrench} defaultOpen={false}>
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
             {productionUnits.map((unit) => (
               <div
                 key={unit.name}
                 className="rounded-2xl border border-slate-100 bg-white p-6 hover:shadow-md transition-shadow duration-300"
               >
-                <h4 className="font-heading font-bold text-[#0a1628] mb-3">{unit.name}</h4>
+                <h4 className="font-heading font-bold text-[#0a1628] mb-1">{unit.name}</h4>
+                {unit.fullName && (
+                  <p className="text-xs text-slate-400 mb-3">{unit.fullName}</p>
+                )}
                 <div className="space-y-2 text-sm">
                   <p className="flex items-start gap-2 text-slate-600">
                     <MapPin className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
@@ -357,6 +376,11 @@ export default function Contacts() {
                   <tr key={svc.name} className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3.5 pr-4 font-medium text-[#0a1628] align-top">
                       {svc.name}
+                      {svc.fullName && (
+                        <span className="block text-xs text-slate-400 mt-0.5 font-normal italic">
+                          {svc.fullName}
+                        </span>
+                      )}
                       {svc.phone && (
                         <span className="block text-xs text-slate-400 mt-0.5 font-normal">
                           {svc.phone}
@@ -384,16 +408,7 @@ export default function Contacts() {
                       )}
                     </td>
                     <td className="py-3.5 text-right text-slate-600 tabular-nums align-top whitespace-nowrap">
-                      {svc.headExt ? (
-                        <>
-                          <span className="text-slate-400 text-xs block">{svc.ext}</span>
-                          {svc.headExt}
-                        </>
-                      ) : svc.ext ? (
-                        svc.ext
-                      ) : (
-                        <span className="text-slate-300">&mdash;</span>
-                      )}
+                      {svc.ext ? svc.ext : <span className="text-slate-300">&mdash;</span>}
                     </td>
                   </tr>
                 ))}

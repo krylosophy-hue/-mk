@@ -29,7 +29,6 @@ const navItems = [
       { label: 'Новости для потребителей', href: '/consumer-news' },
       { label: 'Услуги для потребителей', href: '/consumers' },
       { label: 'Типовые формы договоров', href: '/consumers#contracts' },
-      { label: 'Дни и часы приема', href: '/reception-hours' },
     ]
   },
   {
@@ -288,9 +287,10 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
-      {/* Top Bar — премиальный градиент с лёгким glass-эффектом и тонким нижним свечением */}
+      {/* Top Bar — премиальный градиент с лёгким glass-эффектом и тонким нижним свечением
+          sticky, чтобы ЛК и «Старый сайт» оставались видимы при скролле (правка УРсП от 11.06.26) */}
       <div
-        className="relative"
+        className="sticky top-0 z-[60] relative"
         style={{
           background:
             'linear-gradient(180deg, #060e1a 0%, #0a1628 45%, #0d1f36 100%)',
@@ -361,9 +361,9 @@ export default function Layout() {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Header — sticky под top-bar (top-10 = 40px = высота top-bar h-10) */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-10 sm:top-11 z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/85 backdrop-blur-xl backdrop-saturate-150 shadow-[0_2px_12px_-2px_rgba(10,22,40,0.08),0_1px_2px_rgba(10,22,40,0.04)] border-b border-gray-100/80'
             : location.pathname === '/'
@@ -390,7 +390,7 @@ export default function Layout() {
                 item.dropdown ? (
                   <DropdownMenu key={item.label}>
                     <DropdownMenuTrigger asChild>
-                      <button className={`group flex items-center gap-1 px-3 py-2 text-[13.5px] font-medium rounded-lg transition-all whitespace-nowrap ${
+                      <button className={`group flex items-center gap-1 px-3.5 py-2 text-[15px] font-semibold rounded-lg transition-all whitespace-nowrap ${
                         isHomeTransparent
                           ? 'text-white/90 hover:text-white hover:bg-white/10'
                           : isActive(item.href, item.dropdown)
@@ -413,7 +413,7 @@ export default function Layout() {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className={`px-3 py-2 text-[13.5px] font-medium rounded-lg transition-all whitespace-nowrap ${
+                    className={`px-3.5 py-2 text-[15px] font-semibold rounded-lg transition-all whitespace-nowrap ${
                       isHomeTransparent
                         ? 'text-white/90 hover:text-white hover:bg-white/10'
                         : isActive(item.href)

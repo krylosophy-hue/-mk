@@ -185,6 +185,7 @@ export interface ShareholderMeeting {
 // Производственное подразделение (РЭК)
 export interface ProductionUnit {
   name: string
+  fullName?: string
   address: string
   phones?: string[]
   head?: string
@@ -194,6 +195,7 @@ export interface ProductionUnit {
 // Специализированная служба
 export interface SpecializedService {
   name: string
+  fullName?: string
   address: string
   phone?: string
   phones?: string[]
@@ -209,7 +211,8 @@ export interface ContactsData {
   receptionHours: string[]
   mainPhone: string
   chancelleryEmail: string
-  tsop: { address: string; phone: string; email: string }
+  chancelleryExt?: string
+  tsop: { address: string; phone: string; email: string; ext?: string }
   passOffice: { address: string; phone: string }
   socialLinks: { name: string; url: string }[]
   requisites: { inn: string; kpp: string; okpo: string; ogrn: string; legalAddress: string }
