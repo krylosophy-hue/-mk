@@ -381,7 +381,10 @@ export default function Layout() {
           <div className={`flex items-center gap-4 transition-all duration-300 ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
             {/* Logo — single image with conditional source, transparent PNG.
                 На xl (1280—1536) компактнее, чтобы 9 пунктов меню + поиск влезали в строку */}
-            <Link to="/" className="flex-shrink-0 h-12">
+            {/* Белый логотип (logo-footer.png) компактнее по ширине, чем синий:
+                аспект знака 1.49 против 2.10. h-16 для белого ≈ h-12 для синего
+                по визуальной ширине (~95px) — размер не «прыгает» при скролле */}
+            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isHomeTransparent ? 'h-16' : 'h-12'}`}>
               <img
                 src={asset(isHomeTransparent ? 'images/logo-footer.png' : 'images/logo.png')}
                 alt="Москоллектор"
