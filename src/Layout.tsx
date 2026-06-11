@@ -378,10 +378,10 @@ export default function Layout() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex items-center gap-4 2xl:gap-6 transition-all duration-300 ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
+          <div className={`flex items-center gap-4 transition-all duration-300 ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
             {/* Logo — single image with conditional source, transparent PNG.
                 На xl (1280—1536) компактнее, чтобы 9 пунктов меню + поиск влезали в строку */}
-            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isScrolled ? 'h-12 2xl:h-14' : 'h-16 2xl:h-20'}`}>
+            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isScrolled ? 'h-12' : 'h-16'}`}>
               <img
                 src={asset(isHomeTransparent ? 'images/logo-footer.png' : 'images/logo.png')}
                 alt="Москоллектор"
@@ -396,7 +396,7 @@ export default function Layout() {
                 item.dropdown ? (
                   <DropdownMenu key={item.label}>
                     <DropdownMenuTrigger asChild>
-                      <button className={`group flex items-center gap-1 px-2 2xl:px-3.5 py-2 text-[14px] 2xl:text-[15px] font-semibold rounded-lg transition-all whitespace-nowrap ${
+                      <button className={`group flex items-center gap-1 px-2 py-2 text-[14px] font-semibold rounded-lg transition-all whitespace-nowrap ${
                         isHomeTransparent
                           ? 'text-white/90 hover:text-white hover:bg-white/10'
                           : isActive(item.href, item.dropdown)
@@ -419,7 +419,7 @@ export default function Layout() {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className={`px-2 2xl:px-3.5 py-2 text-[14px] 2xl:text-[15px] font-semibold rounded-lg transition-all whitespace-nowrap ${
+                    className={`px-2 py-2 text-[14px] font-semibold rounded-lg transition-all whitespace-nowrap ${
                       isHomeTransparent
                         ? 'text-white/90 hover:text-white hover:bg-white/10'
                         : isActive(item.href)
@@ -442,7 +442,7 @@ export default function Layout() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => searchQuery.trim().length >= 2 && setShowSearch(true)}
-                  className={`w-24 2xl:w-36 pl-3 pr-9 py-2 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all ${
+                  className={`w-24 pl-3 pr-9 py-2 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-all ${
                     isHomeTransparent
                       ? 'border border-white/20 bg-white/10 text-white placeholder-white/50 backdrop-blur-sm'
                       : 'border border-gray-200 bg-white/70 text-gray-700 placeholder-gray-400 hover:border-gray-300 focus:bg-white'
