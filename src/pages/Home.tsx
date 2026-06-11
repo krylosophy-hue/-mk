@@ -74,7 +74,9 @@ export default function Home() {
   return (
     <div>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex items-center overflow-hidden -mt-[112px] pt-[112px]">
+      {/* items-start вместо items-center: контент прижат к шапке,
+          а не отцентрирован по вертикали с провалом сверху */}
+      <section className="relative min-h-screen flex items-start overflow-hidden -mt-[112px] pt-[112px]">
         <div className="absolute inset-0">
           <video
             src={asset('videos/hero.mp4?v=c483d65c')}
@@ -95,7 +97,7 @@ export default function Home() {
           }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-28 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-10 md:pt-14 pb-24 w-full">
           {/* Hero — CSS-анимация вместо framer-motion: контент первого экрана
               должен показываться даже при незапустившихся JS-анимациях */}
           <div className="max-w-3xl">
