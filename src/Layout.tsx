@@ -388,8 +388,8 @@ export default function Layout() {
             {/* Logo — single image with conditional source, transparent PNG.
                 На xl (1280—1536) компактнее, чтобы 9 пунктов меню + поиск влезали в строку */}
             {/* Белый логотип на главной — крупный h-24; синий (скролл и
-                внутренние страницы) — h-14 */}
-            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isHomeTransparent ? 'h-24' : 'h-14'}`}>
+                внутренние страницы) — h-16, чтобы не терялся рядом с белым */}
+            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isHomeTransparent ? 'h-24' : 'h-16'}`}>
               <img
                 src={asset(isHomeTransparent ? 'images/logo-footer.png' : 'images/logo.png')}
                 alt="Москоллектор"
