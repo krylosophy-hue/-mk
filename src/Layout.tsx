@@ -212,10 +212,16 @@ export default function Layout() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Гистерезис: включаем белую шапку на 80px, выключаем на 20px.
+    // Один порог (scrollY > 10) мигал: возле точки переключения дрожание
+    // скролла перещёлкивало состояние туда-сюда несколько раз в секунду.
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled((prev) => {
+        const y = window.scrollY;
+        return prev ? y > 20 : y > 80;
+      });
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -381,9 +387,9 @@ export default function Layout() {
           <div className={`flex items-center gap-3 transition-all duration-300 ${isScrolled ? 'h-[72px]' : 'h-[96px]'}`}>
             {/* Logo — single image with conditional source, transparent PNG.
                 На xl (1280—1536) компактнее, чтобы 9 пунктов меню + поиск влезали в строку */}
-            {/* Белый логотип на главной — крупный h-20; синий (скролл и
+            {/* Белый логотип на главной — крупный h-24; синий (скролл и
                 внутренние страницы) — h-14 */}
-            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isHomeTransparent ? 'h-20' : 'h-14'}`}>
+            <Link to="/" className={`flex-shrink-0 transition-all duration-300 ${isHomeTransparent ? 'h-24' : 'h-14'}`}>
               <img
                 src={asset(isHomeTransparent ? 'images/logo-footer.png' : 'images/logo.png')}
                 alt="Москоллектор"
