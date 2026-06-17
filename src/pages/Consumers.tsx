@@ -372,8 +372,8 @@ function ServiceWizard() {
           ],
           address: 'dopusk.moscollector.ru',
           forms: [
-            { name: 'Форма 37', file: 'ФОРМА-37.doc', label: 'Форма 37' },
-            { name: 'Форма 37.1', file: 'ФОРМА-37.1.doc', label: 'Форма 37.1' },
+            { name: 'Форма 37', file: 'Форма-37.doc', label: 'Форма 37' },
+            { name: 'Форма 37.1', file: 'Форма-37.1.doc', label: 'Форма 37.1' },
           ],
         },
       ];
@@ -437,7 +437,7 @@ function ServiceWizard() {
         forms: [
           { name: 'Форма 25', file: 'ФОРМА-25.doc', label: 'Форма 25' },
           ...(isOptika && (isDemontazh || isPerekladka || isGorzakaz) ? [
-            { name: 'Форма 58', file: 'ФОРМА-58.doc', label: 'Форма 58 — акт' },
+            { name: 'Форма 58', file: 'ФОРМА-58.docx', label: 'Форма 58 — акт' },
           ] : []),
           ...(isDemontazh || isGorzakaz ? [
             { name: 'Форма 41', file: 'ФОРМА-41.doc', label: 'Форма 41' },
@@ -458,7 +458,7 @@ function ServiceWizard() {
         ],
         address: 'ул. Лобачика, д. 4, каб. 303',
         forms: [
-          { name: 'Форма 26', file: 'ФОРМА-26.doc', label: 'Форма 26' },
+          { name: 'Форма 26', file: 'форма-26.doc', label: 'Форма 26' },
         ],
         note: 'Данный шаг обязателен для работ с трубопроводами водопровода вне зависимости от типа работ (прокладка или демонтаж).',
       }] : []),
@@ -498,7 +498,7 @@ function ServiceWizard() {
             forms: [
               { name: 'Форма 1', file: 'ФОРМА-1.doc', label: 'Форма 1' },
               { name: 'Форма 1.1', file: 'ФОРМА-1.1.doc', label: 'Форма 1.1' },
-              { name: 'Форма 2', file: 'ФОРМА-2.doc', label: 'Форма 2 — анкета потребителя' },
+              { name: 'Форма 2', file: 'форма-2.doc', label: 'Форма 2 — анкета потребителя' },
               { name: 'Доверенность', file: 'Доверенность.docx', label: 'Доверенность' },
             ],
             note: 'Ордер выдаётся после подписания договора на услуги по технической эксплуатации коллекторов / дополнительного соглашения к договору на услуги по технической эксплуатации коллекторов.',
@@ -519,7 +519,7 @@ function ServiceWizard() {
             address: 'ул. Лобачика, д. 4, каб. 303',
             receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — по доверенности',
             forms: [
-              { name: 'Форма 5', file: 'ФОРМА-5.doc', label: 'Форма 5' },
+              { name: 'Форма 5', file: 'форма-5.doc', label: 'Форма 5' },
               { name: 'Доверенность', file: 'Доверенность.docx', label: 'Доверенность' },
             ],
           } as Step;
@@ -539,7 +539,7 @@ function ServiceWizard() {
             address: 'ул. Лобачика, д. 4, каб. 303',
             receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — по доверенности',
             forms: [
-              { name: 'Форма 5.3', file: 'ФОРМА-5.3.doc', label: 'Форма 5.3' },
+              { name: 'Форма 5.3', file: 'Форма-5.3.doc', label: 'Форма 5.3' },
               { name: 'Доверенность', file: 'Доверенность.docx', label: 'Доверенность' },
             ],
           } as Step;
@@ -559,7 +559,7 @@ function ServiceWizard() {
           address: 'ул. Лобачика, д. 4, каб. 303',
           receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — по доверенности',
           forms: [
-            { name: 'Форма 5.3', file: 'ФОРМА-5.3.doc', label: 'Форма 5.3' },
+            { name: 'Форма 5.3', file: 'Форма-5.3.doc', label: 'Форма 5.3' },
             { name: 'Доверенность', file: 'Доверенность.docx', label: 'Доверенность' },
           ],
         } as Step;
