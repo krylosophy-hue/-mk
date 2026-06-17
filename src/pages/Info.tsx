@@ -655,14 +655,13 @@ export default function Info() {
                   </div>
                 </Accordion>
 
-                <Accordion title="Перечень коллекторов АО «Москоллектор»">
+                <Accordion title="Перечень переименованных коллекторов АО «Москоллектор»">
                   <p className="text-slate-600 mb-4 leading-relaxed">
-                    С 25.01.2021 приняты новые наименования коллекторов. Полный перечень
-                    обслуживаемых коллекторов с указанием протяженности и расположения.
+                    С 25.01.2021 приняты новые наименования коллекторов.
                   </p>
                   <a href={fileUrl(FILE_BASE_URL, 'tech-info/collectors_new_names.pdf')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors">
                     <Download className="w-4 h-4" />
-                    Скачать перечень коллекторов
+                    Скачать перечень переименованных коллекторов
                   </a>
                 </Accordion>
 
