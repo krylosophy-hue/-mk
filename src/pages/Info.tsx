@@ -619,42 +619,6 @@ export default function Info() {
               </div>
 
               <div className="space-y-4">
-                <Accordion title="Технические условия на подключение к коллекторам">
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Технические условия выдаются на основании заявки владельца коммуникаций
-                    и содержат требования к прокладке, эксплуатации и техническому обслуживанию
-                    инженерных коммуникаций в коллекторах.
-                  </p>
-                  {/* ТУ файлы — недоступны на старом сайте, нужно запросить в ЦОП.
-                       Когда файлы появятся, замените span'ы на <a href={fileUrl(FILE_BASE_URL, 'tech-info/TU_*.pdf')}>. */}
-                  <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl mb-4">
-                    <p className="text-amber-900 text-sm">
-                      <strong>Формы ТУ временно недоступны на сайте.</strong> Для получения
-                      технических условий обратитесь в Центр обслуживания потребителей
-                      по телефону <a href="tel:+74992222201" className="font-semibold underline">+7 (499) 222-22-01</a>
-                      {' '}или e-mail <a href="mailto:tsop@moscollector.ru" className="font-semibold underline">tsop@moscollector.ru</a>.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    {[
-                      'ТУ для оптико-волоконных кабелей (ВОК)',
-                      'ТУ для силовых кабельных линий',
-                      'ТУ для кабелей связи',
-                      'ТУ для трубопроводов',
-                    ].map((label) => (
-                      <span
-                        key={label}
-                        title="Запросите файл в ЦОП по телефону +7 (499) 222-22-01"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-100 text-slate-500 rounded-xl cursor-help text-sm"
-                      >
-                        <Download className="w-4 h-4 opacity-60" />
-                        {label}
-                        <span className="text-xs">(запросить в ЦОП)</span>
-                      </span>
-                    ))}
-                  </div>
-                </Accordion>
-
                 <Accordion title="Перечень переименованных коллекторов АО «Москоллектор»">
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     С 25.01.2021 приняты новые наименования коллекторов.
@@ -667,46 +631,42 @@ export default function Info() {
 
                 <Accordion title="Требования к проектной документации">
                   <div className="space-y-3 text-slate-600">
-                    <p>Проектная документация должна включать:</p>
-                    <ul className="list-disc list-inside space-y-1 ml-4">
-                      <li>Пояснительную записку</li>
-                      <li>Ситуационный план с трассой кабельной линии</li>
-                      <li>Продольный профиль трассы</li>
-                      <li>Схему размещения кабеля в коллекторе</li>
-                      <li>Спецификацию оборудования и материалов</li>
-                    </ul>
+                    <p>
+                      Передаваемая на рассмотрение проектная документация должна отвечать
+                      требованиям АО «Москоллектор»; состав требований зависит от вида
+                      и стадии проектной документации. Порядок согласования закреплён
+                      регламентом ниже.
+                    </p>
+                    <a href={fileUrl(FILE_BASE_URL, 'consumers/Регламент-согласования-ПСД.docx')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors mt-1">
+                      <Download className="w-4 h-4" />
+                      Регламент согласования проектной документации (ПД и РД)
+                    </a>
                   </div>
                 </Accordion>
 
-                <Accordion title="Нормативная документация">
-                  <div className="space-y-3">
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/Part1.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Нормативная документация — Часть 1</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/Part2.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Нормативная документация — Часть 2</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'tech-info/peredacha_kollektorov.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Передача коллекторов</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
+                <Accordion title="Нормативная и регламентирующая документация">
+                  <div className="space-y-2.5">
+                    {[
+                      ['Общие технические требования к проектированию общегородских и внутриквартальных коммуникационных коллекторов и диспетчерских пунктов при их реконструкции, модернизации и капитальном ремонте', 'tech-info/01-obshchie-tekhtrebovaniya.pdf'],
+                      ['Альбом типовых решений для подземных коммуникационных коллекторов', 'tech-info/02-albom-tipovykh-reshenii.pdf'],
+                      ['Методика подбора насосного оборудования в коммуникационных коллекторах', 'tech-info/03-metodika-nasosnogo-oborudovaniya.pdf'],
+                      ['Регламент оформления документации и порядка производства работ по демонтажу КЛС силами потребителей', 'consumers/Регламент-демонтажа-КЛС.pdf'],
+                      ['Электронная версия СП 265.1325800.2016', 'tech-info/05-sp-265.pdf'],
+                      ['Изменение № 1 к СП 265.1325800.2016 «Коллекторы коммуникационные. Правила проектирования и строительства»', 'tech-info/06-izmenenie-1-sp-265.pdf'],
+                      ['Перечень документации, передаваемой в АО «Москоллектор» по законченным строительством объектам коммуникационных коллекторов до получения разрешения на ввод объекта в эксплуатацию', 'tech-info/07-perechen-peredavaemoi-dokumentatsii.pdf'],
+                      ['Стандарт организации. Проектирование системы отопления, вентиляции и кондиционирования в коммуникационных коллекторах', 'tech-info/08-standart-otopleniya-ventilyatsii.pdf'],
+                      ['Справочник материалов и оборудования, рекомендованных к применению', 'tech-info/09-spravochnik-mio.pdf'],
+                      ['Порядок контроля качества выполнения работ по уплотнению и гидроизоляции швов и трещин и уплотнению грунтов за обделкой путём инъектирования железобетонных конструкций коммуникационных коллекторов', 'tech-info/10-poryadok-kontrolya-kachestva.pdf'],
+                      ['Регламент согласования структурными подразделениями АО «Москоллектор» проектной документации на стадии «ПД» и стадии «РД»', 'tech-info/11-reglament-soglasovaniya-psd.pdf'],
+                      ['Основные характеристики АО «Москоллектор» на 31.12.2025', 'tech-info/12-osnovnye-kharakteristiki-2025.pdf'],
+                    ].map(([label, file]) => (
+                      <a key={file} href={fileUrl(FILE_BASE_URL, file)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                        <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
+                          <Download className="w-5 h-5 text-sky-500" />
+                        </div>
+                        <p className="flex-1 font-medium text-[#0a1628] text-sm leading-snug">{label}</p>
+                      </a>
+                    ))}
                   </div>
                 </Accordion>
               </div>

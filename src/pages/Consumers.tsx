@@ -1227,27 +1227,10 @@ export default function Consumers() {
                   </div>
                 </Accordion>
                 
-                <Accordion title="Дубликаты документов">
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-xl mb-4">
-                    <p className="text-red-800 font-semibold flex items-center gap-2">
-                      <AlertTriangle className="w-5 h-5" />
-                      ВНИМАНИЕ! Дубликаты выдаются только после оплаты.
-                    </p>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="p-4 bg-white rounded-xl border border-gray-200">
-                      <p className="font-semibold text-[#0a1628] mb-2">Дубликат ТУ / листа согласования / договора на сохранность</p>
-                      <p className="text-gray-600 text-sm mb-3">Подать нарочно: ул. Лобачика, д. 4, каб. 303</p>
-                      <DownloadButton file="ФОРМА-42.doc" label="Форма 42" />
-                    </div>
-                    <div className="p-4 bg-white rounded-xl border border-gray-200">
-                      <p className="font-semibold text-[#0a1628] mb-2">Дубликат ордера / договора на эксплуатацию / акта / счёта</p>
-                      <p className="text-gray-600 text-sm mb-3">Подать нарочно: ул. Лобачика, д. 4, каб. 303</p>
-                      <DownloadButton file="ФОРМА-43.doc" label="Форма 43" />
-                    </div>
-                  </div>
-                </Accordion>
-                
+                {/* «Дубликаты документов» убраны из «Допуска» (замечание 34 УРсП):
+                    для выдачи дубликатов допуск в коллектор не требуется.
+                    Раздел остаётся в «Коммерческих услугах». */}
+
                 <Accordion title="Инвентаризация коммуникаций">
                   <div className="p-4 bg-white rounded-xl border border-gray-200">
                     <p className="font-semibold text-[#0a1628] mb-2">Заявка на инвентаризацию</p>
