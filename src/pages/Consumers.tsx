@@ -51,7 +51,7 @@ const workTypes: WorkType[] = [
   { id: 'prokladka', label: 'Прокладка / Врезка коммуникаций' },
   { id: 'demontazh', label: 'Демонтаж коммуникаций' },
   { id: 'perekladka', label: 'Перекладка коммуникаций' },
-  { id: 'gorzakaz', label: 'Прокладка / Демонтаж по городскому заказу' },
+  { id: 'gorzakaz', label: 'Перекладка / демонтаж коммуникаций по городскому заказу' },
   { id: 'inventarizaciya', label: 'Инвентаризация' },
 ];
 
@@ -352,28 +352,37 @@ function ServiceWizard() {
   };
   
   const workLabel = workTypes.find(w => w.id === selectedWork)?.label;
-  const commLabel = commTypes.find(c => c.id === selectedComm)?.label;
+  const commLabel = selectedWork === 'inventarizaciya'
+    ? (selectedComm === 'est' ? 'Есть договор' : selectedComm === 'net' ? 'Нет договора' : '')
+    : commTypes.find(c => c.id === selectedComm)?.label;
   
   // Generate steps based on selection
   const getSteps = (): Step[] => {
     if (!selectedWork || !selectedComm) return [];
 
-    // Инвентаризация: simplified flow
+    // Инвентаризация: выбор «Есть договор» / «Нет договора» (замечание 11-12 УРсП).
+    // Есть договор → формы 37 и 45; нет договора → формы 37.1 и 45.
     if (selectedWork === 'inventarizaciya') {
+      const hasDogovor = selectedComm === 'est';
+      const zForm = hasDogovor ? '37' : '37.1';
+      const zFile = hasDogovor ? 'Форма-37.doc' : 'Форма-37.1.doc';
       return [
         {
           number: 1,
-          title: 'Оформление допуска для инвентаризации',
-          description: 'Допуск сотрудников для проведения инвентаризации / обследования коммуникаций',
-          whoSubmits: 'Организация, проводящая инвентаризацию',
+          title: 'Инвентаризация коммуникаций',
+          description: hasDogovor
+            ? 'Инвентаризация при наличии договора на услуги по технической эксплуатации коллекторов'
+            : 'Инвентаризация при отсутствии договора на услуги по технической эксплуатации коллекторов',
+          whoSubmits: 'Владелец коммуникаций / организация, проводящая инвентаризацию',
           procedure: [
-            'Заполнить заявку по Форме 37 (для инвентаризации) или Форме 37.1',
-            'Подать заявку через Личный кабинет на dopusk.moscollector.ru',
+            `Заполнить письмо-заявку по Форме ${zForm}`,
+            'Заполнить заявку на допуск (список работников) по Форме 45',
+            'Документы представить нарочно на бумажном носителе',
           ],
-          address: 'dopusk.moscollector.ru',
+          address: 'ул. Лобачика, д. 4, каб. 303',
           forms: [
-            { name: 'Форма 37', file: 'Форма-37.doc', label: 'Форма 37' },
-            { name: 'Форма 37.1', file: 'Форма-37.1.doc', label: 'Форма 37.1' },
+            { name: `Форма ${zForm}`, file: zFile, label: `Форма ${zForm} — письмо-заявка` },
+            { name: 'Форма 45', file: 'ФОРМА-45.doc', label: 'Форма 45 — допуск' },
           ],
         },
       ];
@@ -390,7 +399,6 @@ function ServiceWizard() {
     const isProkladka = selectedWork === 'prokladka';
     const isVodoprovod = selectedComm === 'vodoprovod';
     const isPipe = selectedComm === 'teploset' || selectedComm === 'vodoprovod';
-    const isOptika = selectedComm === 'optika';
 
     // Step 1 forms — add врезка form for pipes during прокладка/врезка workType
     const step1FormsList = [
@@ -434,15 +442,17 @@ function ServiceWizard() {
           'Заполнить письмо-заявку по Форме 25',
           'Приложить оригинал проекта — 3 экземпляра',
           'Приложить СРО организации',
-          ...(isOptika && (isDemontazh || isPerekladka || isGorzakaz) ? ['Приложить акт по Форме 58'] : []),
+          // Форма 58 — акт предпроектного обследования: для демонтажа, перекладки и
+          // горзаказа вне зависимости от типа коммуникаций (замечание 23-26 УРсП)
+          ...(isDemontazh || isPerekladka || isGorzakaz ? ['Приложить акт предпроектного обследования по Форме 58'] : []),
           'Документы представить нарочно на бумажном носителе',
         ],
         address: 'ул. Лобачика, д. 4, каб. 303',
         receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — при наличии доверенности',
         forms: [
           { name: 'Форма 25', file: 'ФОРМА-25.doc', label: 'Форма 25' },
-          ...(isOptika && (isDemontazh || isPerekladka || isGorzakaz) ? [
-            { name: 'Форма 58', file: 'ФОРМА-58.docx', label: 'Форма 58 — акт' },
+          ...(isDemontazh || isPerekladka || isGorzakaz ? [
+            { name: 'Форма 58', file: 'ФОРМА-58.docx', label: 'Форма 58 — акт предпроектного обследования' },
           ] : []),
           ...(isDemontazh || isGorzakaz ? [
             { name: 'Форма 41', file: 'ФОРМА-41.doc', label: 'Форма 41' },
@@ -474,13 +484,16 @@ function ServiceWizard() {
         note: 'Оформление договора на сохранность требуется только для подрядных организаций.',
         whoSubmits: 'Подрядная организация',
         procedure: [
-          'Оформить договор на сохранность по Форме 15 АО «Москоллектор»',
+          'Заполнить сопроводительное письмо по Форме 14',
+          'Оформить договор на сохранность по Форме 15 / 15.1 АО «Москоллектор»',
           'Документы представить нарочно на бумажном носителе',
         ],
         address: 'ул. Лобачика, д. 4, каб. 303',
         receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — при наличии доверенности',
         forms: [
+          { name: 'Форма 14', file: 'ФОРМА-14.doc', label: 'Форма 14 — сопроводительное письмо' },
           { name: 'Форма 15', file: 'Форма-15.docx', label: 'Форма 15 — договор на сохранность' },
+          { name: 'Форма 15.1', file: 'Форма-15.1.doc', label: 'Форма 15.1 — договор (охранные зоны)' },
         ],
       },
       (() => {
@@ -496,6 +509,7 @@ function ServiceWizard() {
               'Заполнить письмо-заявку (Форма 1 или Форма 1.1)',
               'Приложить выписку из реестра членов СРО организации',
               'Приложить анкету потребителя (Форма 2) — заполняется в случае оформления договора',
+              ...(isPipe ? ['Приложить график производства работ, согласованный с эксплуатирующим подразделением (РЭК) АО «Москоллектор»'] : []),
               'Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей',
             ],
             address: 'ул. Лобачика, д. 4, каб. 303',
@@ -617,6 +631,7 @@ function ServiceWizard() {
             value={selectedWork}
             onChange={(e) => {
               setSelectedWork(e.target.value);
+              setSelectedComm('');
               setShowResult(false);
             }}
             className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-white"
@@ -628,10 +643,12 @@ function ServiceWizard() {
           </select>
         </div>
         
-        {/* Step 2 */}
+        {/* Step 2 — для «Инвентаризации» спрашиваем про договор, иначе про тип коммуникаций */}
         <div>
           <label className="block text-sm font-semibold text-[#0a1628] mb-2">
-            Шаг 2: Какой тип коммуникаций?
+            {selectedWork === 'inventarizaciya'
+              ? 'Шаг 2: Есть ли договор на эксплуатацию?'
+              : 'Шаг 2: Какой тип коммуникаций?'}
           </label>
           <select
             value={selectedComm}
@@ -641,10 +658,20 @@ function ServiceWizard() {
             }}
             className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-white"
           >
-            <option value="">Выберите коммуникации</option>
-            {commTypes.map(comm => (
-              <option key={comm.id} value={comm.id}>{comm.label}</option>
-            ))}
+            {selectedWork === 'inventarizaciya' ? (
+              <>
+                <option value="">Выберите вариант</option>
+                <option value="est">Есть договор</option>
+                <option value="net">Нет договора</option>
+              </>
+            ) : (
+              <>
+                <option value="">Выберите коммуникации</option>
+                {commTypes.map(comm => (
+                  <option key={comm.id} value={comm.id}>{comm.label}</option>
+                ))}
+              </>
+            )}
           </select>
         </div>
       </div>
