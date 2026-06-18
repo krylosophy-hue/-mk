@@ -20,6 +20,7 @@ const formatDate = (iso: string): string => {
 const news = cmsNews.map((n) => ({
   id: n.id,
   date: formatDate(n.date),
+  year: (() => { const d = new Date(n.date); return isNaN(d.getTime()) ? '' : String(d.getFullYear()); })(),
   title: n.title,
   excerpt: n.excerpt,
   category: n.category,
@@ -44,19 +45,21 @@ const newspaperIssues = cmsNewspaper.map((n) => ({
 // «Социальная ответственность» — оставлены содержательные рубрики.
 const categories = ['Все', 'Мероприятия', 'Охрана труда', 'Производство'];
 
-const years = ['2026', '2025', '2024', '2023', '2022', 'Архив'];
+// Годы архива — выводятся из реальных новостей (по убыванию)
+const years = Array.from(new Set(news.map(n => n.year).filter(Boolean))).sort((a, b) => b.localeCompare(a));
 
 export default function Press() {
   const [selectedCategory, setSelectedCategory] = useState('Все');
+  const [selectedYear, setSelectedYear] = useState<string>('');
   const [activeTab, setActiveTab] = useState('Новости');
   const [openNewsId, setOpenNewsId] = useState<string | null>(null);
 
   // Найти открытую новость по id
   const openNews = openNewsId ? news.find((n) => n.id === openNewsId) ?? null : null;
 
-  const filteredNews = selectedCategory === 'Все'
-    ? news
-    : news.filter(item => item.category === selectedCategory);
+  const filteredNews = news
+    .filter(item => selectedCategory === 'Все' || item.category === selectedCategory)
+    .filter(item => !selectedYear || item.year === selectedYear);
 
   return (
     <div className="min-h-screen bg-gray-50/50">
@@ -167,17 +170,31 @@ export default function Press() {
                 Архив публикаций
               </h3>
               <p className="text-gray-500 text-sm mb-5 ml-12">
-                Ознакомьтесь с архивом публикаций за предыдущие годы
+                Выберите год, чтобы отфильтровать публикации
               </p>
               <div className="flex flex-wrap gap-2 ml-12">
+                <button
+                  onClick={() => setSelectedYear('')}
+                  className={`px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-200 ${
+                    selectedYear === ''
+                      ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
+                      : 'bg-gray-100 text-gray-500 hover:text-sky-600 hover:bg-sky-50'
+                  }`}
+                >
+                  Все годы
+                </button>
                 {years.map((year) => (
-                  <a
+                  <button
                     key={year}
-                    href="#"
-                    className="px-4 py-2 bg-gray-100 rounded-2xl text-sm font-medium text-gray-500 hover:text-sky-600 hover:bg-sky-50 transition-all duration-200"
+                    onClick={() => setSelectedYear(year)}
+                    className={`px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-200 ${
+                      selectedYear === year
+                        ? 'bg-sky-600 text-white shadow-md shadow-sky-600/20'
+                        : 'bg-gray-100 text-gray-500 hover:text-sky-600 hover:bg-sky-50'
+                    }`}
                   >
                     {year}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
