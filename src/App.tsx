@@ -20,6 +20,7 @@ const Social = lazy(() => import('./pages/Social'));
 const Union = lazy(() => import('./pages/Union'));
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Status = lazy(() => import('./pages/Status'));
+const Forms = lazy(() => import('./pages/Forms'));
 const ReceptionHours = lazy(() => import('./pages/ReceptionHours'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="union" element={<Union />} />
             <Route path="calculator" element={<Calculator />} />
             <Route path="status" element={<Status />} />
+            <Route path="forms" element={<Forms />} />
             {/* Additional info pages */}
             <Route path="anticorruption" element={<Info />} />
             <Route path="antiterror" element={<Info />} />

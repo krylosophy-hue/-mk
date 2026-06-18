@@ -28,6 +28,7 @@ const navItems = [
     dropdown: [
       { label: 'Новости для потребителей', href: '/consumer-news' },
       { label: 'Услуги для потребителей', href: '/consumers' },
+      { label: 'Формы документов', href: '/forms' },
       { label: 'Типовые формы договоров', href: '/consumers#contracts' },
     ]
   },
@@ -53,7 +54,7 @@ const navItems = [
 // При клике из поиска: открывается прямая загрузка файла в новой вкладке.
 // Если файла нет на диске — браузер покажет 404 (загрузить через CMS).
 // --------------------------------------------------------------------
-type SearchItem = {
+export type SearchItem = {
   title: string;
   path: string;
   keywords: string;
@@ -63,7 +64,7 @@ type SearchItem = {
 
 const FORMS_BASE = '/docs/forms/';
 
-const formCatalog: SearchItem[] = [
+export const formCatalog: SearchItem[] = [
   // ===== Заявки на ордер / техэксплуатацию =====
   { title: 'Форма 1 — заявка на ордер', file: FORMS_BASE + 'ФОРМА-1.doc', path: '/consumers#work', keywords: 'форма 1 заявка ордер техэксплуатация договор', isForm: true },
   { title: 'Форма 1.1 — заявка на техэксплуатацию', file: FORMS_BASE + 'ФОРМА-1.1.doc', path: '/consumers#work', keywords: 'форма 1.1 1 1 заявка техэксплуатация договор', isForm: true },

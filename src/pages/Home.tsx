@@ -21,7 +21,7 @@ const quickAccessLinks = [
   { icon: Calculator, title: 'Тарифный калькулятор', description: 'Расчёт стоимости услуг', href: '/calculator' },
   { icon: RefreshCw, title: 'Статус обращения', description: 'Проверка статуса заявки', href: '/status' },
   { icon: IdCard, title: 'Допуск в коллектор', description: 'Оформление допуска', href: '/consumers#dopusk' },
-  { icon: FileText, title: 'Формы документов', description: 'Типовые формы договоров', href: '/consumers#contracts' },
+  { icon: FileText, title: 'Формы документов', description: 'Все типовые формы и заявки', href: '/forms' },
   { icon: ShoppingCart, title: 'Закупки', description: 'Торги и аукционы', href: '/procurement' },
   { icon: Shield, title: 'Противодействие коррупции', description: 'Антикоррупционная политика', href: '/anticorruption' },
   { icon: Newspaper, title: 'Архив публикаций', description: 'Новости и статьи', href: '/press' },
