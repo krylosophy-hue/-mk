@@ -6,7 +6,7 @@ import {
   Phone, Mail, MapPin, Clock, AlertTriangle,
   CheckCircle2, Circle, Calculator, ExternalLink,
   Menu, X, ArrowRight, Building2, FileSpreadsheet,
-  ClipboardList, BookOpen, Gavel
+  ClipboardList, BookOpen, Gavel, Wrench
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { asset, fileUrl } from '@/lib/utils';
@@ -103,6 +103,7 @@ const FILE_BASE_URL = `${import.meta.env.BASE_URL}docs/forms/`;
 // Sidebar items
 const sidebarItems = [
   { id: 'work', label: 'Работа с коммуникациями', icon: FileText },
+  { id: 'kapremont', label: 'Капитальный ремонт коммуникаций', icon: Wrench },
   { id: 'dopusk', label: 'Допуск в коллектор', icon: CheckCircle2 },
   { id: 'commercial', label: 'Коммерческие услуги', icon: Calculator },
   { id: 'other', label: 'Прочие услуги', icon: Circle },
@@ -1141,9 +1142,100 @@ export default function Consumers() {
                 </Accordion>
               </div>
             </section>
-            
+
+            {/* Section: Капитальный ремонт коммуникаций (замечание 38, 62-90 УРсП) */}
+            <section
+              ref={el => { sectionRefs.current['kapremont'] = el; }}
+              id="kapremont"
+              className="mb-16 scroll-mt-28"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-xl bg-[#0ea5e9]/10 flex items-center justify-center">
+                  <Wrench className="w-6 h-6 text-[#0ea5e9]" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#0a1628]">Капитальный ремонт коммуникаций</h2>
+              </div>
+
+              <p className="text-gray-700 mb-6">
+                Оформление согласования проекта производства работ (ППР) на капитальный ремонт
+                инженерных коммуникаций. Состав документов зависит от того, кто выполняет работы.
+              </p>
+
+              <div className="space-y-4">
+                <Accordion title="1. При выполнении работ силами потребителей услуг" defaultOpen={true}>
+                  <div className="space-y-4">
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-1">Форма 26(КР) — письмо-заявка на выдачу согласования ППР на капитальный ремонт инженерных коммуникаций</p>
+                      <p className="text-gray-600 text-sm mb-2">С приложением:</p>
+                      <ul className="text-gray-600 text-sm space-y-1 list-disc list-inside mb-3">
+                        <li>ППР (3 экз.);</li>
+                        <li>Акт обследования коммуникации с указанием дефектов, подписанный владельцем коммуникации.</li>
+                      </ul>
+                      <DownloadButton file="ФОРМА-26КР.doc" label="Форма 26(КР)" />
+                    </div>
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-2">В случае отсутствия оформленного допуска</p>
+                      <ul className="text-gray-600 text-sm space-y-1 list-disc list-inside mb-3">
+                        <li><strong>Форма 31</strong> — письмо-заявка на оформление допуска (списка) на годовое обслуживание коммуникаций, проложенных в коллекторах (кроме работ по прокладке/врезке/демонтажу).</li>
+                        <li><strong>Форма 38</strong> — список работников.</li>
+                        <li><strong>Форма 40 / 40.1</strong> — заявка в ОДС на допуск работников сторонних организаций на объекты АО «Москоллектор».</li>
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        <DownloadButton file="форма-31.doc" label="Форма 31" />
+                        <DownloadButton file="ФОРМА-38.docx" label="Форма 38" />
+                        <DownloadButton file="Форма-40.xlsx" label="Форма 40" />
+                        <DownloadButton file="Форма-40.1.xlsx" label="Форма 40.1" />
+                      </div>
+                    </div>
+                  </div>
+                </Accordion>
+
+                <Accordion title="2. При выполнении работ силами подрядной организации" defaultOpen={false}>
+                  <div className="space-y-4">
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-1">Форма 26(КР) — письмо-заявка на выдачу согласования ППР на капитальный ремонт инженерных коммуникаций</p>
+                      <p className="text-gray-600 text-sm mb-2">С приложением:</p>
+                      <ul className="text-gray-600 text-sm space-y-1 list-disc list-inside mb-3">
+                        <li>ППР (3 экз.);</li>
+                        <li>Договор подряда с владельцем коммуникации;</li>
+                        <li>Акт обследования коммуникации с указанием дефектов, подписанный владельцем коммуникации.</li>
+                      </ul>
+                      <DownloadButton file="ФОРМА-26КР.doc" label="Форма 26(КР)" />
+                    </div>
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-2">Договор на сохранность</p>
+                      <ul className="text-gray-600 text-sm space-y-1 list-disc list-inside mb-3">
+                        <li><strong>Форма 14</strong> — письмо-заявка на оформление договора на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций.</li>
+                        <li><strong>Форма 15</strong> — договор на сохранность (СМР по прокладке/демонтажу кабельных линий/трубопроводов в коллекторах и охранных зонах).</li>
+                        <li><strong>Форма 15.1</strong> — договор на сохранность (СМР в коллекторах и охранных зонах коллекторов).</li>
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        <DownloadButton file="ФОРМА-14.doc" label="Форма 14" />
+                        <DownloadButton file="Форма-15.docx" label="Форма 15" />
+                        <DownloadButton file="Форма-15.1.doc" label="Форма 15.1" />
+                      </div>
+                    </div>
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-2">В случае отсутствия оформленного допуска</p>
+                      <ul className="text-gray-600 text-sm space-y-1 list-disc list-inside mb-3">
+                        <li><strong>Форма 30</strong> — письмо-заявка на оформление допуска (списка) на годовое обслуживание коммуникаций, проложенных в коллекторах (кроме работ по прокладке/врезке/демонтажу).</li>
+                        <li><strong>Форма 38</strong> — список работников.</li>
+                        <li><strong>Форма 40 / 40.1</strong> — заявка в ОДС на допуск работников сторонних организаций на объекты АО «Москоллектор».</li>
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        <DownloadButton file="форма-30.doc" label="Форма 30" />
+                        <DownloadButton file="ФОРМА-38.docx" label="Форма 38" />
+                        <DownloadButton file="Форма-40.xlsx" label="Форма 40" />
+                        <DownloadButton file="Форма-40.1.xlsx" label="Форма 40.1" />
+                      </div>
+                    </div>
+                  </div>
+                </Accordion>
+              </div>
+            </section>
+
             {/* Section 2: Dopusk */}
-            <section 
+            <section
               ref={el => { sectionRefs.current['dopusk'] = el; }}
               id="dopusk" 
               className="mb-16 scroll-mt-28"
