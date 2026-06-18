@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { TrendingUp, Users, Zap, Droplets, Target, Award, Building2, Calendar, Phone, Mail, MapPin, FileText } from 'lucide-react';
+import { TrendingUp, Users, Zap, Droplets, Target, Award, Building2, Calendar, Phone, Mail, MapPin, FileText, Download } from 'lucide-react';
+import { documentsShareholders } from '@/lib/content';
+import { asset } from '@/lib/utils';
+
+// Учредительные документы — дублируются из раздела «Акционерам» (замечание 91 УРсП).
+// Один источник CMS (content/documents/shareholders) → не расходятся.
+const foundingDocs = documentsShareholders.map((d) => ({
+  title: d.title,
+  file: d.file.startsWith('http') || d.file.startsWith('/-mk') ? d.file : asset(d.file),
+}));
 
 const stats = [
   { icon: Building2, value: 825, suffix: ' км', label: 'Протяженность коллекторов', description: 'Общая длина эксплуатируемых коллекторов' },
@@ -187,19 +195,27 @@ export default function About() {
                   Учредительные документы
                 </h2>
               </div>
-              <div className="card-modern rounded-2xl p-7">
-                <p className="text-gray-500 leading-relaxed mb-4">
-                  Полный пакет учредительных документов АО «Москоллектор» (устав, свидетельства,
-                  лицензии, выписка из ЕГРЮЛ), а также актуальная карточка Общества размещены
-                  в разделе «Акционерам».
-                </p>
-                <Link
-                  to="/shareholders#documents"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium rounded-xl transition-colors"
-                >
-                  <FileText className="w-4 h-4" />
-                  Перейти к документам
-                </Link>
+              <div className="card-modern rounded-2xl overflow-hidden">
+                {foundingDocs.map((doc, i) => (
+                  <a
+                    key={doc.title}
+                    href={doc.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center justify-between gap-4 p-5 ${i !== foundingDocs.length - 1 ? 'border-b border-gray-100' : ''} hover:bg-gray-50/60 transition-colors`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
+                        <FileText className="w-5 h-5 text-sky-400" />
+                      </div>
+                      <span className="font-medium text-[#0a1628]">{doc.title}</span>
+                    </div>
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-sky-600 text-white text-sm font-medium rounded-xl flex-shrink-0">
+                      <Download className="w-4 h-4" />
+                      Скачать
+                    </span>
+                  </a>
+                ))}
               </div>
             </section>
           </div>

@@ -166,8 +166,9 @@ function DownloadButton({ file, label }: { file: string; label: string }) {
   return (
     <a
       href={fileUrl(FILE_BASE_URL, file)}
-      target="_blank"
-      rel="noopener noreferrer"
+      // download без target="_blank" — файл скачивается, новое окно не открывается
+      // (замечание 13 УРсП)
+      download
       className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0a1628] text-white text-sm rounded-lg hover:bg-[#142138] transition-colors"
     >
       <Download className="w-4 h-4" />
