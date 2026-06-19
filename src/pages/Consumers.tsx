@@ -2351,7 +2351,7 @@ export default function Consumers() {
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Ордер на выполнение работ — Форма 1 / 1.1</td>
-                          <td className="px-4 py-3 text-right font-semibold">3 раб. дн.</td>
+                          <td className="px-4 py-3 text-right font-semibold">5 раб. дн.</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Допуск (списки) сотрудников — Форма 32, 33, 38, 39</td>
@@ -2359,7 +2359,7 @@ export default function Consumers() {
                         </tr>
                         <tr className="bg-sky-50">
                           <td className="px-4 py-3 font-bold text-[#0a1628]">ИТОГО</td>
-                          <td className="px-4 py-3 text-right font-bold text-[#0a1628]">20 раб. дн.</td>
+                          <td className="px-4 py-3 text-right font-bold text-[#0a1628]">22 раб. дн.</td>
                         </tr>
                       </tbody>
                     </table>
