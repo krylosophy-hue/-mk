@@ -1,5 +1,5 @@
 import { Fragment, useState, useRef } from 'react';
-import { Calculator as CalculatorIcon, Plus, Trash2, Info, FileText, Download } from 'lucide-react';
+import { Calculator as CalculatorIcon, Plus, Trash2, Info, FileText, FileSpreadsheet, FileDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 /* ================================================================== */
@@ -118,6 +118,16 @@ function calc(r: Row): Computed {
 
   return { ...r, tariff, monthly, annual, collectorShort };
 }
+
+/* Человекочитаемое название коммуникации (для таблицы и экспорта) */
+function commName(r: Computed): string {
+  if (r.vid === 'Кабель связи') return r.subType;
+  if (r.vid === 'Силовой кабель') return r.collector === 'Внутриквартальный' ? 'Силовой кабель' : r.subType;
+  if (r.vid === 'Трубопровод') return `${r.subType}${r.diameter ? ' (' + r.diameter + ')' : ''}`;
+  return 'НРПК (аппаратура)';
+}
+
+const round2 = (n: number) => Math.round(n * 100) / 100;
 
 /* ================================================================== */
 /* Formatting                                                          */
@@ -341,11 +351,6 @@ export default function Calculator() {
     setSelected(null);
   };
 
-  const savePDF = () => {
-    // Use browser's native "Save as PDF" via print dialog
-    window.print();
-  };
-
   const removeSelected = () => {
     if (selected === null) { alert('Вы не выбрали элемент'); return; }
     if (confirm('Вы уверены что хотите удалить элемент?')) {
@@ -370,6 +375,85 @@ export default function Calculator() {
     if (!groups[r.vid]) groups[r.vid] = [];
     groups[r.vid].push(r);
   });
+
+  /* --- Экспорт в Excel (.xlsx) — SheetJS подгружается динамически по клику --- */
+  const exportExcel = async () => {
+    if (!results || results.length === 0) return;
+    const XLSX = await import('xlsx');
+    const dateStr = new Date().toLocaleDateString('ru-RU');
+    const aoa: (string | number)[][] = [];
+    aoa.push(['АО «Москоллектор» — расчёт стоимости услуг по размещению коммуникаций в коллекторах']);
+    aoa.push([`Дата расчёта: ${dateStr}`]);
+    aoa.push([]);
+    aoa.push(['Тип коммуникации', 'Протяж., п.м. / Кол-во', 'Тариф, руб./год', 'Сумма ежемесячная, руб.', 'Сумма ежегодная, руб.']);
+    Object.entries(groups).forEach(([vid, items]) => {
+      aoa.push([vid]);
+      items.forEach((r, i) => {
+        const qty = r.length !== '' && !isNaN(Number(r.length)) ? Number(r.length) : r.length;
+        aoa.push([`${i + 1}. ${r.collectorShort} ${commName(r)}`.trim(), qty, r.tariff, r.monthly, r.annual]);
+      });
+      const gM = round2(items.reduce((s, r) => s + r.monthly, 0));
+      const gA = round2(items.reduce((s, r) => s + r.annual, 0));
+      aoa.push(['Итого по группе', '', '', gM, gA]);
+    });
+    aoa.push(['ИТОГО', '', '', round2(totalM), round2(totalA)]);
+    aoa.push([]);
+    aoa.push(['Сумма указана с учётом НДС 22%']);
+    aoa.push(['Тарифы: приказ АО «Москоллектор» от 17.12.2025 № 612 и приказ от 22.01.2026 № 12']);
+
+    const ws = XLSX.utils.aoa_to_sheet(aoa);
+    ws['!cols'] = [{ wch: 50 }, { wch: 22 }, { wch: 16 }, { wch: 22 }, { wch: 22 }];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Расчёт');
+    XLSX.writeFile(wb, 'Расчет_стоимости_Москоллектор.xlsx');
+  };
+
+  /* --- Экспорт в PDF — чистая печатная форма (без стилей сайта) --- */
+  const exportPDF = () => {
+    if (!results || results.length === 0) return;
+    const esc = (s: string) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const dateStr = new Date().toLocaleDateString('ru-RU');
+    let body = '';
+    Object.entries(groups).forEach(([vid, items]) => {
+      body += `<tr class="grp"><td colspan="5">${esc(vid)}</td></tr>`;
+      items.forEach((r, i) => {
+        body += `<tr><td>${i + 1}. ${esc(r.collectorShort)} ${esc(commName(r))}</td>` +
+          `<td class="c">${esc(r.length)}</td><td class="r">${fmtI(r.tariff)}</td>` +
+          `<td class="r">${fmt2(r.monthly)}</td><td class="r">${fmt2(r.annual)}</td></tr>`;
+      });
+      const gM = items.reduce((s, r) => s + r.monthly, 0);
+      const gA = items.reduce((s, r) => s + r.annual, 0);
+      body += `<tr class="sub"><td colspan="3" class="r">Итого по группе:</td><td class="r">${fmt2(gM)}</td><td class="r">${fmt2(gA)}</td></tr>`;
+    });
+    const html = `<!doctype html><html lang="ru"><head><meta charset="utf-8">` +
+      `<title>Расчёт стоимости услуг — АО «Москоллектор»</title><style>` +
+      `*{font-family:Arial,Helvetica,sans-serif;color:#000;box-sizing:border-box}` +
+      `body{margin:22px}h1{font-size:14px;margin:0 0 3px;line-height:1.3}` +
+      `.d{font-size:11px;color:#444;margin:0 0 16px}` +
+      `table{width:100%;border-collapse:collapse;font-size:11px}` +
+      `th,td{border:1px solid #555;padding:5px 7px;vertical-align:top}` +
+      `th{background:#ececec;font-weight:bold;text-align:center}` +
+      `td.r{text-align:right;white-space:nowrap}td.c{text-align:center}` +
+      `tr.grp td{background:#f4f4f4;font-weight:bold}tr.sub td{font-weight:bold;background:#fafafa}` +
+      `tfoot td{font-weight:bold;background:#e3e3e3}` +
+      `.note{font-size:9.5px;color:#333;margin-top:12px;line-height:1.4}` +
+      `@page{margin:14mm}@media print{body{margin:0}}</style></head><body>` +
+      `<h1>АО «Москоллектор» — расчёт стоимости услуг по размещению коммуникаций в коллекторах</h1>` +
+      `<p class="d">Дата расчёта: ${dateStr}</p>` +
+      `<table><thead><tr><th>Тип коммуникации</th><th>Протяж., п.м. / Кол-во</th><th>Тариф, руб./год</th>` +
+      `<th>Сумма ежемесячная, руб.</th><th>Сумма ежегодная, руб.</th></tr></thead>` +
+      `<tbody>${body}</tbody>` +
+      `<tfoot><tr><td colspan="3" class="r">ИТОГО:</td><td class="r">${fmt2(totalM)}</td><td class="r">${fmt2(totalA)}</td></tr></tfoot></table>` +
+      `<p class="note">Сумма указана с учётом НДС 22%. Тарифы: приказ АО «Москоллектор» от 17.12.2025 № 612 (техническая эксплуатация) и приказ от 22.01.2026 № 12 (дополнительные услуги). Расчёт предварительный; окончательная стоимость определяется при заключении договора.</p>` +
+      `</body></html>`;
+    const w = window.open('', '_blank', 'width=900,height=700');
+    if (!w) { alert('Не удалось открыть окно печати. Разрешите всплывающие окна для сохранения в PDF.'); return; }
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+    // Печать вызываем из родительского окна — не зависит от inline-скриптов/CSP попапа
+    setTimeout(() => { try { w.focus(); w.print(); } catch { /* пользователь может напечатать вручную */ } }, 400);
+  };
 
   return (
     <div className="min-h-screen bg-slate-50/60">
@@ -527,9 +611,13 @@ export default function Calculator() {
                 className="rounded-xl border-slate-200 text-slate-600 hover:bg-slate-50">
                 <Trash2 className="w-4 h-4 mr-2" /> Удалить коммуникацию
               </Button>
-              <Button variant="outline" onClick={savePDF}
+              <Button variant="outline" onClick={exportExcel}
                 className="rounded-xl border-emerald-200 text-emerald-700 hover:bg-emerald-50">
-                <Download className="w-4 h-4 mr-2" /> Сохранить расчёт (PDF)
+                <FileSpreadsheet className="w-4 h-4 mr-2" /> Сохранить в Excel
+              </Button>
+              <Button variant="outline" onClick={exportPDF}
+                className="rounded-xl border-rose-200 text-rose-700 hover:bg-rose-50">
+                <FileDown className="w-4 h-4 mr-2" /> Сохранить в PDF
               </Button>
               <Button variant="outline" onClick={doReset}
                 className="rounded-xl border-slate-200 text-slate-600 hover:bg-slate-50 ml-auto">
