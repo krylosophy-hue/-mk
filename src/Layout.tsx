@@ -356,10 +356,10 @@ export default function Layout() {
             </a>
             <span aria-hidden="true" className="w-px h-3.5 bg-white/15 mx-0.5" />
             <a
-              href="https://moscollector.ru/"
+              href="https://xn--e1ajbcadobeuds.xn--p1ai/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Старый сайт (открывается в новой вкладке)"
+              aria-label="Старый сайт москоллектор.рф (открывается в новой вкладке)"
               className="group inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] active:bg-white/[0.10] transition-all duration-200 whitespace-nowrap"
             >
               <span className="hidden sm:inline">Старый сайт</span>
