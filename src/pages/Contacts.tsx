@@ -417,12 +417,13 @@ export default function Contacts() {
           </div>
         </Section>
 
-        {/* Map */}
+        {/* Map — пин по координатам (16с4). Без mode=search&text: поисковый режим
+            виджета с кириллическим адресом отдаёт ошибку «страница перемещена». */}
         <div className="mt-6">
           <div className="relative h-96 rounded-3xl overflow-hidden bg-slate-100 shadow-lg ring-1 ring-black/5">
             <iframe
               title="Карта: АО «Москоллектор»"
-              src="https://yandex.ru/map-widget/v1/?ll=37.639042%2C55.773981&z=18&mode=search&text=Москва%2C%201-й%20Коптельский%20переулок%2C%2016с4&pt=37.639042%2C55.773981%2Cpm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=37.639042%2C55.773981&z=17&pt=37.639042%2C55.773981%2Cpm2rdm"
               width="100%"
               height="100%"
               frameBorder="0"
@@ -430,6 +431,16 @@ export default function Contacts() {
               className="absolute inset-0"
             />
           </div>
+          {/* Гарантированный путь к карте, если виджет недоступен */}
+          <a
+            href="https://yandex.ru/maps/?pt=37.639042,55.773981&z=17&l=map"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-sky-600 hover:text-sky-700 transition-colors mt-3"
+          >
+            Открыть на Яндекс.Картах
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </div>
