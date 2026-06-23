@@ -297,7 +297,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc]">
       {/* Top Bar — премиальный градиент с лёгким glass-эффектом и тонким нижним свечением
-          sticky, чтобы ЛК и «Старый сайт» оставались видимы при скролле (правка УРсП от 11.06.26) */}
+          sticky, чтобы ссылка «Личный кабинет» оставалась видимой при скролле (правка УРсП от 11.06.26) */}
       <div
         className="sticky top-0 z-[60] relative"
         style={{
@@ -352,18 +352,6 @@ export default function Layout() {
             >
               <span className="hidden sm:inline">Личный кабинет</span>
               <span className="sm:hidden">ЛК</span>
-              <ExternalLink className="w-3 h-3 text-white/40 group-hover:text-sky-300 transition-colors flex-shrink-0" />
-            </a>
-            <span aria-hidden="true" className="w-px h-3.5 bg-white/15 mx-0.5" />
-            <a
-              href="https://xn--e1ajbcadobeuds.xn--p1ai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Старый сайт москоллектор.рф (открывается в новой вкладке)"
-              className="group inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/[0.06] active:bg-white/[0.10] transition-all duration-200 whitespace-nowrap"
-            >
-              <span className="hidden sm:inline">Старый сайт</span>
-              <span className="sm:hidden">Старый</span>
               <ExternalLink className="w-3 h-3 text-white/40 group-hover:text-sky-300 transition-colors flex-shrink-0" />
             </a>
           </div>
