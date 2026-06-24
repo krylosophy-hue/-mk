@@ -517,9 +517,10 @@ export default function Layout() {
             </Button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu — собственный скролл, чтобы длинное меню (9 разделов
+              с подпунктами) не уходило за экран внутри прилипшей шапки */}
           {isMobileMenuOpen && (
-            <div className="xl:hidden pb-6 border-t border-gray-100">
+            <div className="xl:hidden pb-6 border-t border-gray-100 max-h-[calc(100dvh-8.5rem)] overflow-y-auto overscroll-contain">
               <nav className="flex flex-col gap-1 pt-4">
                 {navItems.map((item) => (
                   <div key={item.label}>
