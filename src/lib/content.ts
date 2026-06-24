@@ -108,6 +108,11 @@ const shareholdersMeetingsRaw = import.meta.glob('/content/shareholders-meetings
   eager: true, query: '?raw', import: 'default',
 }) as Record<string, string>
 
+// Фотогалереи (Профком / Социальная политика)
+const galleriesRaw = import.meta.glob('/content/galleries.yml', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
+
 /* ------------------------------------------------------------------ */
 /*  Typed collections                                                  */
 /* ------------------------------------------------------------------ */
@@ -380,6 +385,21 @@ export const contacts: ContactsData = (() => {
   } catch (e) {
     console.error('Contacts YAML parse error:', e)
     throw e
+  }
+})()
+
+// Фотогалереи (Профком / Социальная политика)
+export interface GalleryPhoto { image: string; alt: string }
+export const galleries: { union: GalleryPhoto[]; social: GalleryPhoto[] } = (() => {
+  const entries = Object.values(galleriesRaw)
+  const empty = { union: [], social: [] }
+  if (entries.length === 0) return empty
+  try {
+    const parsed = (yaml.load(entries[0]) as { union?: GalleryPhoto[]; social?: GalleryPhoto[] }) || {}
+    return { union: parsed.union || [], social: parsed.social || [] }
+  } catch (e) {
+    console.error('Galleries YAML parse error:', e)
+    return empty
   }
 })()
 

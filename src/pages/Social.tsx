@@ -1,13 +1,10 @@
 import { Heart, Users, GraduationCap, Gift, Phone, Mail, MapPin, Shield, Briefcase, Coins, Baby, HandCoins, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { asset } from '@/lib/utils';
+import { mediaUrl } from '@/lib/utils';
+import { galleries } from '@/lib/content';
 
-// #2 ОСП — фотографии и стиль со старого сайта
-const socialPhotos = [
-  { src: 'images/union/union-2.jpg', alt: 'Корпоративные мероприятия' },
-  { src: 'images/union/union-4.jpg', alt: 'Спортивные мероприятия' },
-  { src: 'images/union/union-5.jpg', alt: 'Профсоюзная активность' },
-];
+// Галерея «Соц. политика» — управляется через CMS (коллекция «Фотогалереи»)
+const socialPhotos = galleries.social.map((p) => ({ src: mediaUrl(p.image), alt: p.alt }));
 
 const materialHelp = [
   'вступление в первый брак',
@@ -169,7 +166,7 @@ export default function Social() {
               <div className="grid sm:grid-cols-3 gap-4">
                 {socialPhotos.map((p, idx) => (
                   <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] card-modern">
-                    <img src={asset(p.src)} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={p.src} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                 ))}
               </div>

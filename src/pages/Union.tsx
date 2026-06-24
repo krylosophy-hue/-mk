@@ -1,15 +1,9 @@
 import { Users, Shield, Award, Briefcase, Calendar, Phone, Mail, MapPin, Trophy, HeartHandshake } from 'lucide-react';
-import { asset } from '@/lib/utils';
+import { mediaUrl } from '@/lib/utils';
+import { galleries } from '@/lib/content';
 
-// #2 ОСП — фотографии со старого сайта moscollector.ru
-const photos = [
-  { src: 'images/union/union-1.jpg', alt: 'Мероприятие профкома' },
-  { src: 'images/union/union-2.jpg', alt: 'Профсоюзная активность' },
-  { src: 'images/union/union-3.jpg', alt: 'День защиты детей' },
-  { src: 'images/union/union-4.jpg', alt: 'Спортивные мероприятия' },
-  { src: 'images/union/union-5.jpg', alt: 'Корпоративные мероприятия' },
-  { src: 'images/union/union-6.jpg', alt: 'Летние мероприятия' },
-];
+// Галерея профкома — управляется через CMS (коллекция «Фотогалереи»)
+const photos = galleries.union.map((p) => ({ src: mediaUrl(p.image), alt: p.alt }));
 
 const activities = [
   {
@@ -122,7 +116,7 @@ export default function Union() {
                 {photos.map((photo, idx) => (
                   <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] card-modern">
                     <img
-                      src={asset(photo.src)}
+                      src={photo.src}
                       alt={photo.alt}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
