@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Calendar, Newspaper, ChevronRight, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { asset } from '@/lib/utils';
+import { mediaUrl } from '@/lib/utils';
 import { renderMarkdownSafe } from '@/lib/safe-html';
 import { safeEmbedUrl } from '@/lib/safe-embed';
 import { consumerNews as cmsConsumerNews } from '@/lib/content';
@@ -38,13 +38,11 @@ const consumerNews: NewsCard[] = cmsConsumerNews.map((n) => ({
   title: n.title,
   excerpt: n.excerpt,
   category: n.category,
-  image: n.image
-    ? (n.image.startsWith('http') || n.image.startsWith('/-mk') ? n.image : asset(n.image))
-    : '',
+  image: n.image ? mediaUrl(n.image) : '',
   body: n.body || n.excerpt,
-  gallery: (n.gallery || []).map((g) => (g.startsWith('http') || g.startsWith('/-mk') ? g : asset(g))),
+  gallery: (n.gallery || []).map((g) => mediaUrl(g)),
   videoEmbed: n.videoEmbed,
-  video: n.video ? (n.video.startsWith('http') || n.video.startsWith('/-mk') ? n.video : asset(n.video)) : undefined,
+  video: n.video ? mediaUrl(n.video) : undefined,
 }));
 
 const CATEGORIES = ['Все', 'Охрана труда', 'Техническая информация', 'Допуск в коллектор', 'Тарифы и цены', 'Прочее'];

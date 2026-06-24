@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Calendar, Newspaper, Video, BookOpen, Tag, FileText, Download, ExternalLink, X } from 'lucide-react';
-import { asset } from '@/lib/utils';
+import { asset, mediaUrl } from '@/lib/utils';
 import { renderMarkdownSafe } from '@/lib/safe-html';
 import { safeEmbedUrl } from '@/lib/safe-embed';
 import { news as cmsNews, videos as cmsVideos, newspaper as cmsNewspaper } from '@/lib/content';
@@ -25,11 +25,11 @@ const news = cmsNews.map((n) => ({
   excerpt: n.excerpt,
   category: n.category,
   image: n.image
-    ? (n.image.startsWith('http') || n.image.startsWith('/-mk') ? n.image : asset(n.image))
+    ? mediaUrl(n.image)
     : 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
   body: n.body || n.excerpt,
-  gallery: (n.gallery || []).map((g) => (g.startsWith('http') || g.startsWith('/-mk') ? g : asset(g))),
-  video: n.video ? (n.video.startsWith('http') || n.video.startsWith('/-mk') ? n.video : asset(n.video)) : undefined,
+  gallery: (n.gallery || []).map((g) => mediaUrl(g)),
+  video: n.video ? mediaUrl(n.video) : undefined,
   videoEmbed: n.videoEmbed || undefined,
 }));
 

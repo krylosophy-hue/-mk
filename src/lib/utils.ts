@@ -36,3 +36,20 @@ export function fileUrl(base: string, segment: string): string {
   // base уже содержит /-mk/, мы кодируем только сегмент
   return `${base}${encodePath(segment)}`
 }
+
+// Универсальный резолвер медиа из CMS (картинки/видео новостей).
+// Проблема: CMS сохраняла пути с зашитым префиксом «/-mk/uploads/...»,
+// который верен только на GitHub Pages и ломается на корневом домене
+// (moscollector.ru) и в dev. Здесь срезаем любой деплой-префикс и
+// заново применяем актуальный BASE_URL через asset().
+export function mediaUrl(path: string | undefined | null): string {
+  if (!path) return ''
+  // Внешние ссылки и data/blob — отдаём как есть
+  if (/^(https?:)?\/\//.test(path) || path.startsWith('data:') || path.startsWith('blob:')) {
+    return path
+  }
+  let p = path.trim()
+  // Срезаем зашитый базовый префикс «/-mk/» (в любом регистре слэшей) или ведущий «/»
+  p = p.replace(/^\/?-mk\//, '').replace(/^\//, '')
+  return asset(p)
+}
