@@ -12,10 +12,18 @@ logo_url: /-mk/images/logo.png
 media_folder: "public/uploads"
 public_folder: "/-mk/uploads"
 
-# Лимиты на загружаемые файлы:
-# - Один файл — до 80 МБ (лимит GitHub Contents API ≈ 100 МБ; учитываем base64 inflation ~33%)
-# - Изображения рекомендуется сжимать до 5 МБ (squoosh.app)
-# - Видео-файлы: до 80 МБ. Если больше — лить в YouTube/VK/Rutube и вставлять embed URL
+# Лимит на размер загружаемого файла — 80 МБ.
+# (Лимит GitHub Contents API ≈ 100 МБ; с учётом base64 inflation ~33% берём 80 МБ.)
+# Файлы крупнее CMS отклонит с понятной ошибкой. Видео больше 80 МБ —
+# загружать в YouTube/VK/Rutube и вставлять embed-ссылку в поле «Видео — embed URL».
+media_libraries:
+  default:
+    config:
+      max_file_size: 83886080  # 80 МБ в байтах
+
+# Рекомендации редактору:
+# - Изображения сжимать до ~5 МБ (squoosh.app) — иначе сайт грузится медленно
+# - Видео сжимать на handbrake.fr (preset «Web → Fast 720p30»)
 
 # Локализация UI (с осени 2024 Sveltia поддерживает русский интерфейс)
 locale: ru
@@ -150,9 +158,9 @@ collections:
     slug: "{{slug}}"
     summary: "{{title}}"
     fields:
-      - { name: "title", label: "Заголовок", widget: "string", required: true }
-      - { name: "description", label: "Описание", widget: "text", required: true }
-      - { name: "src", label: "Файл видео", widget: "file", required: true, hint: "Загрузите MP4-файл (до 100MB) или укажите путь /videos/имя.mp4" }
+      - { name: "title", label: "Заголовок", widget: "string", required: true, hint: "Название ролика. Если в названии есть «Москоллектор» как имя компании — берите в кавычки «…»." }
+      - { name: "description", label: "Описание", widget: "text", required: true, hint: "1–2 предложения, о чём ролик." }
+      - { name: "src", label: "Файл видео (MP4)", widget: "file", required: true, hint: "⚠️ До 80 МБ. Сожмите на handbrake.fr (preset «Web → Fast 720p30»). Для бóльших роликов — загрузите на YouTube/VK и добавьте новость с embed-ссылкой." }
 
   # ============================================================
   # 6. НОВОСТИ ДЛЯ ПОТРЕБИТЕЛЕЙ
@@ -168,15 +176,16 @@ collections:
     sortable_fields: ['date', 'title']
     fields:
       - { name: "title", label: "Заголовок", widget: "string", required: true }
-      - { name: "date", label: "Дата", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true }
-      - { name: "category", label: "Категория", widget: "select", options: ["Охрана труда", "Техническая информация", "Допуск в коллектор", "Тарифы и цены", "Прочее"], default: "Прочее", required: true }
-      - { name: "excerpt", label: "Краткое описание", widget: "text", required: true }
+      - { name: "date", label: "Дата", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true, hint: "От даты зависит порядок новостей (новые — выше)." }
+      - { name: "category", label: "Категория", widget: "select", options: ["Охрана труда", "Техническая информация", "Допуск в коллектор", "Тарифы и цены", "Прочее"], default: "Прочее", required: true, hint: "Категория для фильтра новостей на странице." }
+      - { name: "excerpt", label: "Краткое описание", widget: "text", required: true, hint: "1–2 предложения — текст карточки в списке новостей." }
       - { name: "body", label: "Полный текст", widget: "markdown", required: false, hint: "Картинки вставляйте через кнопку 🖼 в редакторе. Каждая до 5 МБ." }
       - name: "gallery"
         label: "Галерея (доп. фото)"
         widget: "list"
         required: false
         summary: "Фото"
+        hint: "Несколько фото — появятся сеткой под текстом. Каждое до 5 МБ."
         field: { name: "image", label: "Фото", widget: "image" }
       - { name: "videoEmbed", label: "Видео — embed URL (YouTube/VK/Rutube)", widget: "string", required: false }
       - { name: "video", label: "Или видео-файл MP4 (до 80 МБ)", widget: "file", required: false, hint: "Сжимайте видео на handbrake.fr (preset Web → 720p30). Большие — лить в YouTube/VK." }
@@ -196,7 +205,7 @@ collections:
             label: "Дни и часы приёма"
             widget: "list"
             field: { name: "line", label: "Строка расписания", widget: "string" }
-          - { name: "mainPhone", label: "Единый номер", widget: "string" }
+          - { name: "mainPhone", label: "Единый номер", widget: "string", hint: "Формат: +7 (499) 222-22-01" }
           - { name: "chancelleryEmail", label: "E-mail канцелярии", widget: "string" }
           - name: "tsop"
             label: "Центр обслуживания потребителей (ЦОП)"
@@ -237,7 +246,7 @@ collections:
               - { name: "address", label: "Адрес", widget: "string" }
               - { name: "phones", label: "Телефоны", widget: "list", field: { name: "phone", label: "Телефон", widget: "string" }, required: false }
               - { name: "head", label: "Руководитель", widget: "string", required: false }
-              - { name: "ext", label: "Доб. номер", widget: "string", required: false }
+              - { name: "ext", label: "Доб. номер", widget: "string", required: false, hint: "Только цифры добавочного, без дефисов. Например: 5100" }
           - name: "specializedServices"
             label: "Специализированные службы (ОДС, ЦОП, УЭиТР…)"
             widget: "list"
@@ -349,5 +358,39 @@ collections:
     summary: "{{title}}"
     fields:
       - { name: "title", label: "Название", widget: "string", required: true }
-      - { name: "file", label: "Файл", widget: "file", required: true }
+      - { name: "file", label: "Файл", widget: "file", required: true, hint: "PDF/DOC/XLSX до 80 МБ." }
       - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
+
+  # ============================================================
+  # 14. ФОТОГАЛЕРЕИ (Профком / Социальная политика)
+  # ============================================================
+  - name: "galleries"
+    label: "Фотогалереи"
+    description: "Фото для страниц «Профком» и «Социальная политика». Перетаскивайте ⠿ для порядка, 🗑 — удалить."
+    files:
+      - file: "content/galleries.yml"
+        name: "galleries"
+        label: "Фотогалереи страниц"
+        fields:
+          - name: "union"
+            label: "Галерея «Профком»"
+            label_singular: "Фото"
+            widget: "list"
+            allow_add: true
+            collapsed: false
+            summary: "{{fields.alt}}"
+            hint: "Фотографии в блоке галереи на странице «Профком». Каждое фото — до 5 МБ."
+            fields:
+              - { name: "image", label: "Фото", widget: "image", required: true }
+              - { name: "alt", label: "Подпись (alt)", widget: "string", required: false, hint: "Краткое описание фото — для доступности и SEO. Например: «Спортивные мероприятия»." }
+          - name: "social"
+            label: "Галерея «Социальная политика»"
+            label_singular: "Фото"
+            widget: "list"
+            allow_add: true
+            collapsed: false
+            summary: "{{fields.alt}}"
+            hint: "Фотографии в блоке галереи на странице «Социальная политика». Каждое фото — до 5 МБ."
+            fields:
+              - { name: "image", label: "Фото", widget: "image", required: true }
+              - { name: "alt", label: "Подпись (alt)", widget: "string", required: false }
