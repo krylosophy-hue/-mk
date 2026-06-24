@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Фавикон — эмблема АО «Москоллектор». %BASE_URL% подставляется Vite
+         (/-mk/ на GitHub Pages, / на корневом домене) — пути верны на обоих. -->
+    <link rel="icon" href="%BASE_URL%favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%BASE_URL%favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a1628" />
+
     <!-- ИБ-заголовки безопасности (через meta http-equiv, т.к. GitHub Pages не позволяет настраивать заголовки) -->
     <!-- Content Security Policy — упрощённая, не мешает встроенному PDF-вьюверу браузера -->
     <meta http-equiv="Content-Security-Policy" content="
