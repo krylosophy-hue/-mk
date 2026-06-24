@@ -5,7 +5,7 @@
 // внедрение <script>, javascript: URL и т.п.
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
-import { asset } from './utils';
+import { mediaUrl } from './utils';
 
 marked.setOptions({ gfm: true, breaks: true });
 
@@ -16,13 +16,11 @@ marked.setOptions({ gfm: true, breaks: true });
  */
 export function renderMarkdownSafe(md: string): string {
   if (!md) return '';
-  // 1. Префиксы для путей картинок
+  // 1. Нормализуем пути картинок через mediaUrl: срезает зашитый «/-mk/»
+  //    и заново применяет актуальный BASE_URL. Без этого inline-картинки
+  //    в теле новости (галереи) 404-ят на корневом домене / в dev.
   const fixed = md.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_m, alt, src) => {
-    const finalSrc =
-      src.startsWith('http') || src.startsWith('/-mk') || src.startsWith('data:')
-        ? src
-        : asset(src);
-    return `![${alt}](${finalSrc})`;
+    return `![${alt}](${mediaUrl(src)})`;
   });
 
   // 2. Markdown → HTML
