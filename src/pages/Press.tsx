@@ -24,9 +24,10 @@ const news = cmsNews.map((n) => ({
   title: n.title,
   excerpt: n.excerpt,
   category: n.category,
-  image: n.image
-    ? mediaUrl(n.image)
-    : 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+  // Реальное фото — только локальные загрузки. Внешние Unsplash-заглушки и
+  // пустые поля отбрасываем (на сети заказчика внешний CDN недоступен) —
+  // вместо них карточка покажет брендовую заглушку.
+  image: n.image && !n.image.includes('unsplash') ? mediaUrl(n.image) : '',
   body: n.body || n.excerpt,
   gallery: (n.gallery || []).map((g) => mediaUrl(g)),
   video: n.video ? mediaUrl(n.video) : undefined,
@@ -131,11 +132,17 @@ export default function Press() {
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpenNewsId(item.id); } }}
                 >
                   <div className="relative h-56 overflow-hidden bg-slate-100">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-sky-50">
+                        <img src={asset('images/logo.png')} alt="" aria-hidden="true" className="w-28 opacity-20" />
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-[#0a1628]">
@@ -367,7 +374,13 @@ export default function Press() {
           >
             {/* #6 — В модалке показываем картинку целиком (без обрезки) */}
             <div className="relative h-72 md:h-96 overflow-hidden bg-slate-100">
-              <img src={openNews.image} alt={openNews.title} className="w-full h-full object-contain" />
+              {openNews.image ? (
+                <img src={openNews.image} alt={openNews.title} className="w-full h-full object-contain" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-100 to-sky-50">
+                  <img src={asset('images/logo.png')} alt="" aria-hidden="true" className="w-40 opacity-20" />
+                </div>
+              )}
               <button
                 type="button"
                 onClick={() => setOpenNewsId(null)}

@@ -38,7 +38,7 @@ const consumerNews: NewsCard[] = cmsConsumerNews.map((n) => ({
   title: n.title,
   excerpt: n.excerpt,
   category: n.category,
-  image: n.image ? mediaUrl(n.image) : '',
+  image: n.image && !n.image.includes('unsplash') ? mediaUrl(n.image) : '',
   body: n.body || n.excerpt,
   gallery: (n.gallery || []).map((g) => mediaUrl(g)),
   videoEmbed: n.videoEmbed,
