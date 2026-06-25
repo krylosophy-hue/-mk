@@ -77,13 +77,16 @@ export default function Status() {
       }
 
       const isCompleted = data.Status === 'Исполнено' || data.Status === 'Выполнено';
+      const rawStatus = data.Status || (isCompleted ? 'Выполнено' : 'В работе');
+      // Статус DocSEDO «Подготовлено» показываем потребителю как «В работе»
+      const displayStatus = rawStatus === 'Подготовлено' ? 'В работе' : rawStatus;
       setFound({
         id: trimmed,
         workType: data.WorkType,
         plannedDate: data.PlannedDateOfCompletion ? formatDate(data.PlannedDateOfCompletion) : 'Не указана',
         actualDate: data.ActualDateOfCompletion ? formatDate(data.ActualDateOfCompletion) : '-',
         status: isCompleted ? 'completed' : 'in-progress',
-        statusText: data.Status || (isCompleted ? 'Выполнено' : 'В работе'),
+        statusText: displayStatus,
         comment: data.Comment && data.Comment !== '-' ? data.Comment : undefined,
       });
     } catch (err) {
@@ -273,7 +276,7 @@ export default function Status() {
                 <Clock className="w-4 h-4 text-amber-600" />
               </div>
               <div>
-                <span className="font-medium text-[#0a1628]">В работе</span>
+                <span className="font-medium text-[#0a1628]">Принято</span>
                 <p className="text-xs text-slate-500">Заявка обрабатывается</p>
               </div>
             </div>
