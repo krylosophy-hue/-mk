@@ -223,10 +223,11 @@ export default function Press() {
                   <div className="relative bg-black rounded-t-2xl">
                     <video
                       controls
+                      playsInline
                       className="w-full aspect-video"
                       preload="metadata"
                     >
-                      <source src={asset(video.src)} />
+                      <source src={asset(video.src)} type="video/mp4" />
                       Ваш браузер не поддерживает воспроизведение видео.
                     </video>
                   </div>
@@ -431,6 +432,7 @@ export default function Press() {
                 <video
                   src={openNews.video}
                   controls
+                  playsInline
                   preload="metadata"
                   className="mt-6 w-full rounded-xl bg-black"
                 />

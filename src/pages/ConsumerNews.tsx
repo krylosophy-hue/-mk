@@ -237,7 +237,7 @@ export default function ConsumerNews() {
                 );
               })()}
               {openNews.video && !openNews.videoEmbed && (
-                <video src={openNews.video} controls preload="metadata" className="mt-6 w-full rounded-xl bg-black" />
+                <video src={openNews.video} controls playsInline preload="metadata" className="mt-6 w-full rounded-xl bg-black" />
               )}
 
               {openNews.gallery && openNews.gallery.length > 0 && (
