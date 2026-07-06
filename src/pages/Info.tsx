@@ -3,12 +3,62 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ChevronRight, FileText, AlertTriangle,
-  Scale, Settings, Download, ExternalLink, Menu, X,
-  AlertOctagon, Info as InfoIcon
+  Scale, Settings, Download, Menu, X,
+  AlertOctagon, Info as InfoIcon, Mail
 } from 'lucide-react';
 import { fileUrl } from '@/lib/utils';
 
 const FILE_BASE_URL = `${import.meta.env.BASE_URL}docs/`;
+
+// ─── Раздел «Противодействие коррупции» ────────────────────────────────
+// Структура и перечень документов воспроизведены 1:1 со старого сайта
+// (oldwww.moscollector.ru/противодействие-коррупции/).
+// present:false — оригинальный файл со старого сайта ещё не передан
+// (поддомен oldwww отключён, файлов нет ни на moscollector.ru, ни в архиве).
+// Такие документы показываются как «готовится к публикации»; чтобы
+// опубликовать — положить файл по указанному пути и выставить present:true.
+type AcDoc = { title: string; file: string; ext: string; present: boolean };
+
+const ANTICORRUPTION_GROUPS: { heading: string; docs: AcDoc[] }[] = [
+  {
+    heading: 'Действующие федеральные законы, указы Президента Российской Федерации, постановления Правительства Российской Федерации',
+    docs: [
+      { title: 'Федеральный закон от 25 декабря 2008 г. № 273-ФЗ «О противодействии коррупции»', file: 'anticorruption/fz-273-o-protivodeystvii-korrupcii.docx', ext: 'DOCX', present: true },
+      { title: 'Федеральный закон от 26 декабря 1995 г. № 208-ФЗ «Об акционерных обществах»', file: 'anticorruption/fz-208-ob-akcionernyh-obschestvah.docx', ext: 'DOCX', present: true },
+      { title: 'Федеральный закон от 17 июля 2009 г. № 172-ФЗ «Об антикоррупционной экспертизе нормативных правовых актов и проектов нормативных актов»', file: 'anticorruption/fz-172-antikorr-ekspertiza.pdf', ext: 'PDF', present: true },
+      { title: 'Указ Президента Российской Федерации от 19 мая 2008 г. № 815 «О мерах по противодействию коррупции»', file: 'anticorruption/ukaz-prezidenta-815.docx', ext: 'DOCX', present: true },
+      { title: 'Указ Президента Российской Федерации от 16 августа 2021 г. № 478 «О Национальном плане противодействия коррупции на 2021 — 2024 годы»', file: 'anticorruption/ukaz-prezidenta-478.docx', ext: 'DOCX', present: true },
+      { title: 'Постановление Правительства Российской Федерации от 26 февраля 2010 г. № 96 «Об антикоррупционной экспертизе нормативных правовых актов и проектов нормативных правовых актов»', file: 'anticorruption/pp-rf-96-antikorr-ekspertiza.pdf', ext: 'PDF', present: true },
+      { title: 'Постановление Правительства Российской Федерации от 21 января 2015 г. № 29 «Об утверждении Правил сообщения работодателем о заключении трудового или гражданско-правового договора на выполнение работ (оказание услуг) с гражданином, замещавшим должности государственной или муниципальной службы»', file: 'anticorruption/pp-rf-29-ot-21-01-2015.docx', ext: 'DOCX', present: true },
+    ],
+  },
+  {
+    heading: 'Законы города Москвы, Указы Мэра Москвы',
+    docs: [
+      { title: 'Закон города Москвы от 17 декабря 2014 г. № 64 «О мерах по противодействию коррупции в городе Москве»', file: 'anticorruption/zakon-moskvy-64.docx', ext: 'DOCX', present: false },
+      { title: 'Указ Мэра Москвы от 12 декабря 2008 г. № 101-УМ «О создании Совета при Мэре Москвы по противодействию коррупции» (вместе с «Положением о Совете при Мэре Москвы по противодействию коррупции»)', file: 'anticorruption/ukaz-mera-moskvy-101-um.docx', ext: 'DOCX', present: false },
+    ],
+  },
+  {
+    heading: 'Ведомственные нормативные акты',
+    docs: [
+      { title: 'Приказ АО «Москоллектор» от 15 июля 2022 г. № 249 «Об утверждении антикоррупционной политики Акционерного общества «Москоллектор»', file: 'anticorruption/prikaz-249-antikorr-politika.pdf', ext: 'PDF', present: true },
+      { title: 'Приказ АО «Москоллектор» от 27 июля 2022 г. № 264 «Об утверждении Кодекса корпоративной этики и поведения работников АО «Москоллектор»', file: 'anticorruption/prikaz-264-kodeks-etiki.pdf', ext: 'PDF', present: true },
+      { title: 'План мероприятий по противодействию коррупции в Акционерном обществе «Москоллектор» на 2022—2024 годы, утверждённый 01.12.2021', file: 'anticorruption/plan-pk-ao-2022-2024.pdf', ext: 'PDF', present: true },
+      { title: 'Уведомление о факте обращения в целях склонения работника к совершению коррупционных правонарушений', file: 'anticorruption/uvedomlenie-o-sklonenii.docx', ext: 'DOCX', present: false },
+      { title: 'Уведомление о факте совершения коррупционных правонарушений другими работниками АО «Москоллектор», контрагентами или иными лицами', file: 'anticorruption/uvedomlenie-o-sovershenii.docx', ext: 'DOCX', present: false },
+      { title: 'Уведомление о возникновении (возможности возникновения) личной заинтересованности, которая приводит или может привести к конфликту интересов работника АО «Москоллектор»', file: 'anticorruption/uvedomlenie-o-lichnoy-zainteresovannosti.docx', ext: 'DOCX', present: false },
+    ],
+  },
+];
+
+const ANTICORRUPTION_AUDIT: AcDoc[] = [
+  { title: 'Результаты обязательного аудита за 2020 год', file: 'anticorruption/audit-2020.pdf', ext: 'PDF', present: false },
+  { title: 'Результаты обязательного аудита за 2021 год', file: 'anticorruption/audit-2021.pdf', ext: 'PDF', present: false },
+  { title: 'Результаты обязательного аудита за 2022 год', file: 'anticorruption/audit-2022.docx', ext: 'DOCX', present: false },
+  { title: 'Результаты обязательного аудита за 2023 год', file: 'anticorruption/audit-2023.docx', ext: 'DOCX', present: false },
+  { title: 'Результаты обязательного аудита за 2024 год', file: 'anticorruption/audit-2024.pdf', ext: 'PDF', present: false },
+];
 
 // Map URL paths to section IDs
 const pathToSection: Record<string, string> = {
@@ -22,7 +72,7 @@ const pathToSection: Record<string, string> = {
 const sectionPageMeta: Record<string, { title: string; subtitle: string; breadcrumb: string }> = {
   anticorruption: {
     title: 'Противодействие коррупции',
-    subtitle: 'Антикоррупционная политика, нормативные документы и сведения, размещённые в соответствии с приказом от 7 октября 2013 г. № 530н',
+    subtitle: 'Нормативные правовые акты, ведомственные документы и результаты обязательного аудита АО «Москоллектор»',
     breadcrumb: 'Противодействие коррупции',
   },
   antiterror: {
@@ -86,6 +136,43 @@ function Accordion({ title, children, defaultOpen = false }: { title: string; ch
           {children}
         </div>
       )}
+    </div>
+  );
+}
+
+// Карточка документа раздела «Противодействие коррупции».
+// Есть файл → активная ссылка на скачивание; нет файла → «готовится к публикации».
+function AntiCorruptionDoc({ doc }: { doc: AcDoc }) {
+  if (doc.present) {
+    return (
+      <a
+        href={fileUrl(FILE_BASE_URL, doc.file)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md hover:border-sky-200 transition-all"
+      >
+        <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
+          <Download className="w-5 h-5 text-sky-500" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="font-medium text-[#0a1628] leading-snug">{doc.title}</p>
+          <p className="text-sm text-slate-500 mt-1">{doc.ext}</p>
+        </div>
+      </a>
+    );
+  }
+  return (
+    <div
+      className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300"
+      title="Документ готовится к публикации"
+    >
+      <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
+        <FileText className="w-5 h-5 text-slate-400" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="font-medium text-slate-500 leading-snug">{doc.title}</p>
+        <p className="text-xs text-slate-400 mt-1">{doc.ext} · готовится к публикации</p>
+      </div>
     </div>
   );
 }
@@ -330,94 +417,52 @@ export default function Info() {
                 <h2 className="text-2xl font-heading font-bold text-[#0a1628]">Противодействие коррупции</h2>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-6 mb-6">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-yellow-800 mb-2">Сообщите о коррупции</p>
-                    <p className="text-yellow-700 text-sm mb-3 leading-relaxed">
-                      Если вы стали свидетелем коррупционного правонарушения, сообщите об этом
-                      по телефону горячей линии или через форму обращения.
-                    </p>
-                    <p className="text-yellow-800 font-medium">Телефон: +7 (499) 222-22-01</p>
+              {/* Структура и перечень документов — 1:1 со старого сайта */}
+              <h3 className="text-xl font-heading font-bold text-[#0a1628] mb-6">
+                Нормативные правовые и иные акты в сфере противодействия коррупции
+              </h3>
+
+              <div className="space-y-8">
+                {ANTICORRUPTION_GROUPS.map((group) => (
+                  <div key={group.heading}>
+                    <h4 className="font-semibold text-[#0a1628] mb-3 leading-snug">{group.heading}</h4>
+                    <div className="space-y-3">
+                      {group.docs.map((doc) => (
+                        <AntiCorruptionDoc key={doc.file} doc={doc} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Результаты обязательного аудита */}
+                <div>
+                  <h4 className="font-semibold text-[#0a1628] mb-3 leading-snug">Результаты обязательного аудита</h4>
+                  <div className="space-y-3">
+                    {ANTICORRUPTION_AUDIT.map((doc) => (
+                      <AntiCorruptionDoc key={doc.file} doc={doc} />
+                    ))}
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <Accordion title="Нормативные правовые акты">
+              {/* Обратная связь для сообщений о фактах коррупции */}
+              <div className="mt-10 bg-yellow-50 border border-yellow-200 rounded-2xl p-6">
+                <div className="flex items-start gap-3">
+                  <Mail className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div className="space-y-3">
-                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/fz-172-antikorr-ekspertiza.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Федеральный закон от 17.07.2009 № 172-ФЗ «Об антикоррупционной экспертизе НПА»</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/pp-rf-96-antikorr-ekspertiza.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Постановление Правительства РФ от 26.02.2010 № 96 «Об антикоррупционной экспертизе НПА»</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
+                    <p className="font-semibold text-yellow-900 text-base">Обратная связь для сообщений о фактах коррупции</p>
+                    <p className="text-yellow-800 text-sm leading-relaxed">
+                      Известные Вам факты коррупционных проявлений в Акционерном обществе «Москоллектор»
+                      Вы можете сообщить нам круглосуточно, воспользовавшись электронной почтой:{' '}
+                      <a href="mailto:ako@moscollector.ru" className="font-semibold underline hover:no-underline">ako@moscollector.ru</a>
+                    </p>
+                    <p className="text-yellow-800 text-sm leading-relaxed">Конфиденциальность обращения гарантируется.</p>
+                    <p className="text-yellow-800 text-sm leading-relaxed">
+                      Обращаем внимание на то, что статьёй 306 Уголовного кодекса Российской Федерации
+                      предусмотрена уголовная ответственность за заведомо ложный донос о совершении преступления.
+                    </p>
                   </div>
-                </Accordion>
-
-                <Accordion title="Локальные нормативные акты">
-                  <div className="space-y-3">
-                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/prikaz-249-antikorr-politika.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Приказ № 249 от 15.07.22 — Об утверждении антикоррупционной политики АО «Москоллектор»</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/plan-pk-ao-2022-2024.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">План мероприятий по противодействию коррупции АО на 2022–2024 годы</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
-                    <a href={fileUrl(FILE_BASE_URL, 'anticorruption/prikaz-264-kodeks-etiki.pdf')} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 text-sky-500" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-[#0a1628]">Приказ № 264 от 27.07.22 — Кодекс корпоративной этики и поведения работников АО «Москоллектор»</p>
-                        <p className="text-sm text-slate-500 mt-0.5">PDF</p>
-                      </div>
-                    </a>
-                  </div>
-                </Accordion>
-
-                <Accordion title="Сведения о доходах">
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Сведения о доходах, об имуществе и обязательствах имущественного характера
-                    руководства и членов семей руководства АО «Москоллектор».
-                  </p>
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-400 text-white rounded-xl cursor-default">
-                    <ExternalLink className="w-4 h-4" />
-                    Сведения о доходах (раздел в разработке)
-                  </span>
-                </Accordion>
-
-                <Accordion title="Контакты для сообщений о коррупции">
-                  <div className="space-y-3 text-slate-600">
-                    <p><span className="font-medium text-[#0a1628]">Телефон горячей линии:</span> +7 (499) 222-22-01</p>
-                    <p><span className="font-medium text-[#0a1628]">E-mail:</span> anticorruption@moscollector.ru</p>
-                    <p><span className="font-medium text-[#0a1628]">Адрес для письменных обращений:</span> 129090, г. Москва, 1-й Коптельский пер., д. 16, стр. 4</p>
-                  </div>
-                </Accordion>
+                </div>
               </div>
             </section>}
 
