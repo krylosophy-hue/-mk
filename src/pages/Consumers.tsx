@@ -1856,7 +1856,7 @@ export default function Consumers() {
                     коммуникационных коллекторов на 2026 год
                   </h3>
                   <p className="text-gray-500 text-sm mb-6">
-                    вводятся в действие с 1 января 2026 года
+                    Введены в действие с 1 января 2026 года приказом АО «Москоллектор» от 17.12.2025 № 612.
                   </p>
 
                   <div className="overflow-x-auto rounded-lg border border-gray-200">
