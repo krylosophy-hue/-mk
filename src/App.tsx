@@ -21,6 +21,7 @@ const Union = lazy(() => import('./pages/Union'));
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Status = lazy(() => import('./pages/Status'));
 const Forms = lazy(() => import('./pages/Forms'));
+const DopuskFaq = lazy(() => import('./pages/DopuskFaq'));
 const ReceptionHours = lazy(() => import('./pages/ReceptionHours'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="calculator" element={<Calculator />} />
             <Route path="status" element={<Status />} />
             <Route path="forms" element={<Forms />} />
+            <Route path="dopusk-faq" element={<DopuskFaq />} />
             {/* Additional info pages */}
             <Route path="anticorruption" element={<Info />} />
             <Route path="antiterror" element={<Info />} />

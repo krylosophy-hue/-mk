@@ -155,7 +155,8 @@ function NativeSelect({ value, onChange, options, placeholder }: {
                  appearance-none cursor-pointer"
       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}
     >
-      <option value="">{placeholder}</option>
+      {/* Подсказка видна только в свёрнутом поле; в раскрытом списке — только варианты выбора */}
+      <option value="" disabled hidden>{placeholder}</option>
       {options.map((o) => (
         <option key={o} value={o}>{o}</option>
       ))}
@@ -217,7 +218,7 @@ function LineForm({ row, onChange, onRemove, idx }: {
         {/* Вид коллектора */}
         {showCollector && (
           <div className="space-y-2">
-            <label className="text-sm font-medium text-[#0a1628]">Вид коллектора</label>
+            <label className="text-sm font-medium text-[#0a1628]">Тип коллектора</label>
             <NativeSelect
               value={row.collector}
               placeholder="Выберите коллектор"
@@ -282,7 +283,7 @@ function LineForm({ row, onChange, onRemove, idx }: {
         {/* Протяжённость / Количество */}
         <div className="space-y-2">
           <label className="text-sm font-medium text-[#0a1628]">
-            {isEquip ? 'Количество единиц аппаратуры' : 'Протяженность, п.м.'}
+            {isEquip ? 'Количество единиц аппаратуры' : 'Протяженность, пог. м'}
           </label>
           <input
             type="text"
@@ -376,16 +377,16 @@ export default function Calculator() {
     groups[r.vid].push(r);
   });
 
-  /* --- Экспорт в Excel (.xlsx) — SheetJS подгружается динамически по клику --- */
+  /* --- Экспорт в Excel (.xlsx) — печатная форма по образцу УРсП («Пример 1») --- */
   const exportExcel = async () => {
     if (!results || results.length === 0) return;
     const XLSX = await import('xlsx');
     const dateStr = new Date().toLocaleDateString('ru-RU');
     const aoa: (string | number)[][] = [];
-    aoa.push(['АО «Москоллектор» — расчёт стоимости услуг по размещению коммуникаций в коллекторах']);
+    aoa.push(['Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»']);
     aoa.push([`Дата расчёта: ${dateStr}`]);
     aoa.push([]);
-    aoa.push(['Тип коммуникации', 'Протяж., п.м. / Кол-во', 'Тариф, руб./год', 'Сумма ежемесячная, руб.', 'Сумма ежегодная, руб.']);
+    aoa.push(['Тип коммуникации', 'Протяженность, пог. м/ Количество, шт.', 'Тариф, руб./км в год *', 'Сумма ежемесячная, руб.**', 'Сумма ежегодная, руб.**']);
     Object.entries(groups).forEach(([vid, items]) => {
       aoa.push([vid]);
       items.forEach((r, i) => {
@@ -394,15 +395,24 @@ export default function Calculator() {
       });
       const gM = round2(items.reduce((s, r) => s + r.monthly, 0));
       const gA = round2(items.reduce((s, r) => s + r.annual, 0));
-      aoa.push(['Итого по группе', '', '', gM, gA]);
+      aoa.push(['Итого по коммуникации', '', '', gM, gA]);
     });
     aoa.push(['ИТОГО', '', '', round2(totalM), round2(totalA)]);
     aoa.push([]);
-    aoa.push(['Сумма указана с учётом НДС 22%']);
-    aoa.push(['Тарифы: приказ АО «Москоллектор» от 17.12.2025 № 612 и приказ от 22.01.2026 № 12']);
+    aoa.push(['*Тарифы утверждены приказом АО «Москоллектор» от 17.12.2025 № 612 «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов». Тарифы указаны без учета НДС;']);
+    aoa.push(['** Сумма указана с учётом НДС 22%.']);
 
     const ws = XLSX.utils.aoa_to_sheet(aoa);
-    ws['!cols'] = [{ wch: 50 }, { wch: 22 }, { wch: 16 }, { wch: 22 }, { wch: 22 }];
+    // Оформление под печать А4: ширины столбцов + объединение строк заголовка и сносок
+    ws['!cols'] = [{ wch: 38 }, { wch: 16 }, { wch: 15 }, { wch: 16 }, { wch: 16 }];
+    const lastRow = aoa.length - 1;
+    ws['!merges'] = [
+      { s: { r: 0, c: 0 }, e: { r: 0, c: 4 } },            // заголовок
+      { s: { r: 1, c: 0 }, e: { r: 1, c: 4 } },            // дата
+      { s: { r: lastRow - 1, c: 0 }, e: { r: lastRow - 1, c: 4 } }, // сноска *
+      { s: { r: lastRow, c: 0 }, e: { r: lastRow, c: 4 } },         // сноска **
+    ];
+    ws['!margins'] = { left: 0.4, right: 0.4, top: 0.5, bottom: 0.5, header: 0.2, footer: 0.2 };
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Расчёт');
     XLSX.writeFile(wb, 'Расчет_стоимости_Москоллектор.xlsx');
@@ -423,7 +433,7 @@ export default function Calculator() {
       });
       const gM = items.reduce((s, r) => s + r.monthly, 0);
       const gA = items.reduce((s, r) => s + r.annual, 0);
-      body += `<tr class="sub"><td colspan="3" class="r">Итого по группе:</td><td class="r">${fmt2(gM)}</td><td class="r">${fmt2(gA)}</td></tr>`;
+      body += `<tr class="sub"><td colspan="3" class="r">Итого по коммуникации:</td><td class="r">${fmt2(gM)}</td><td class="r">${fmt2(gA)}</td></tr>`;
     });
     const html = `<!doctype html><html lang="ru"><head><meta charset="utf-8">` +
       `<title>Расчёт стоимости услуг — АО «Москоллектор»</title><style>` +
@@ -437,14 +447,14 @@ export default function Calculator() {
       `tr.grp td{background:#f4f4f4;font-weight:bold}tr.sub td{font-weight:bold;background:#fafafa}` +
       `tfoot td{font-weight:bold;background:#e3e3e3}` +
       `.note{font-size:9.5px;color:#333;margin-top:12px;line-height:1.4}` +
-      `@page{margin:14mm}@media print{body{margin:0}}</style></head><body>` +
-      `<h1>АО «Москоллектор» — расчёт стоимости услуг по размещению коммуникаций в коллекторах</h1>` +
+      `@page{size:A4;margin:14mm}@media print{body{margin:0}}</style></head><body>` +
+      `<h1>Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»</h1>` +
       `<p class="d">Дата расчёта: ${dateStr}</p>` +
-      `<table><thead><tr><th>Тип коммуникации</th><th>Протяж., п.м. / Кол-во</th><th>Тариф, руб./год</th>` +
-      `<th>Сумма ежемесячная, руб.</th><th>Сумма ежегодная, руб.</th></tr></thead>` +
+      `<table><thead><tr><th>Тип коммуникации</th><th>Протяженность, пог. м/ Количество, шт.</th><th>Тариф, руб./км в год *</th>` +
+      `<th>Сумма ежемесячная, руб.**</th><th>Сумма ежегодная, руб.**</th></tr></thead>` +
       `<tbody>${body}</tbody>` +
       `<tfoot><tr><td colspan="3" class="r">ИТОГО:</td><td class="r">${fmt2(totalM)}</td><td class="r">${fmt2(totalA)}</td></tr></tfoot></table>` +
-      `<p class="note">Сумма указана с учётом НДС 22%. Тарифы: приказ АО «Москоллектор» от 17.12.2025 № 612 (техническая эксплуатация) и приказ от 22.01.2026 № 12 (дополнительные услуги). Расчёт предварительный; окончательная стоимость определяется при заключении договора.</p>` +
+      `<p class="note">*Тарифы утверждены приказом АО «Москоллектор» от 17.12.2025 № 612 «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов». Тарифы указаны без учета НДС;<br>** Сумма указана с учётом НДС 22%.</p>` +
       `</body></html>`;
     const w = window.open('', '_blank', 'width=900,height=700');
     if (!w) { alert('Не удалось открыть окно печати. Разрешите всплывающие окна для сохранения в PDF.'); return; }
@@ -462,7 +472,7 @@ export default function Calculator() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="accent-bar mb-6" />
           <h1 className="font-heading">Тарифный калькулятор</h1>
-          <p>Расчёт стоимости услуг по размещению коммуникаций в коллекторах АО «Москоллектор»</p>
+          <p>Расчёт стоимости услуг по технической эксплуатации коммуникационных коллекторов АО «Москоллектор»</p>
         </div>
       </div>
 
@@ -516,7 +526,7 @@ export default function Calculator() {
                 <FileText className="w-6 h-6 text-emerald-600" />
               </div>
               <h2 className="font-heading text-xl font-bold text-[#0a1628]">
-                Таблица расчёта стоимости оплаты услуг
+                Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»
               </h2>
             </div>
 
@@ -532,8 +542,8 @@ export default function Calculator() {
                 <thead>
                   <tr className="bg-[#0a1628] text-white text-xs">
                     <th rowSpan={2} className="px-3 py-3 text-left font-semibold rounded-tl-xl">Тип коммуникации</th>
-                    <th rowSpan={2} className="px-2 py-3 font-semibold text-center">Протяж., п.м. / Кол-во</th>
-                    <th rowSpan={2} className="px-2 py-3 font-semibold text-center">Тариф, руб./год</th>
+                    <th rowSpan={2} className="px-2 py-3 font-semibold text-center">Протяженность, пог. м / Количество, шт.</th>
+                    <th rowSpan={2} className="px-2 py-3 font-semibold text-center">Тариф, руб./км в год</th>
                     <th colSpan={2} className="px-2 py-2 font-semibold rounded-tr-xl text-center">Сумма оплаты, руб.</th>
                   </tr>
                   <tr className="bg-[#0a1628] text-white text-xs">
@@ -581,7 +591,7 @@ export default function Calculator() {
                         ))}
                         {/* Group subtotal */}
                         <tr className="bg-slate-100 border-y border-slate-200">
-                          <td className="px-3 py-2.5 text-right font-semibold text-[#0a1628] text-xs" colSpan={3}>ИТОГО ПО ГРУППЕ:</td>
+                          <td className="px-3 py-2.5 text-right font-semibold text-[#0a1628] text-xs" colSpan={3}>Итого по коммуникации:</td>
                           <td className="px-2 py-2.5 text-right tabular-nums font-semibold text-sm">{fmt2(groupM)}</td>
                           <td className="px-2 py-2.5 text-right tabular-nums font-semibold text-sm">{fmt2(groupA)}</td>
                         </tr>
@@ -599,7 +609,10 @@ export default function Calculator() {
               </table>
             </div>
 
-            <p className="text-sm text-slate-400 mt-4 text-right">Сумма указана с учётом НДС 22%</p>
+            <p className="text-sm text-slate-400 mt-4 text-right">
+              Сумма указана с учётом НДС 22%;<br />
+              Тариф указан без учета НДС.
+            </p>
 
             {/* Action buttons — like moscollector.ru */}
             <div className="flex flex-wrap gap-3 mt-6 print:hidden">
@@ -636,15 +649,13 @@ export default function Calculator() {
             <div>
               <h3 className="font-heading font-semibold text-amber-800 mb-2">Важная информация</h3>
               <p className="text-amber-700 text-sm leading-relaxed mb-3">
-                Расчёт выполняется по тарифам АО «Москоллектор» на 2026 год, утверждённым{' '}
-                <strong>приказом от 17.12.2025 № 612</strong> (техническая эксплуатация коллекторов) и{' '}
-                <strong>приказом от 22.01.2026 № 12</strong> (цены на дополнительные услуги).
+                Расчёт выполняется по тарифам, утверждённым{' '}
+                <strong>приказом АО «Москоллектор» от 17.12.2025 № 612</strong>{' '}
+                «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов».
               </p>
               <p className="text-amber-700 text-sm leading-relaxed">
-                Калькулятор предоставляет предварительную оценку стоимости услуг. Окончательная стоимость
-                определяется при заключении договора. Для получения точного расчёта обратитесь в Центр
-                обслуживания потребителей по телефону{' '}
-                <a href="tel:+74992222201" className="underline font-medium">+7 (499) 222-22-01</a>.
+                Калькулятор позволяет получить предварительную стоимость услуг. Окончательная стоимость услуг
+                рассчитывается при заключении договора на услуги по технической эксплуатации коллекторов.
               </p>
             </div>
           </div>
