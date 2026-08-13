@@ -36,7 +36,7 @@ interface CommType {
 interface Step {
   number: number;
   title: string;
-  description: string;
+  description?: string;
   whoSubmits?: string;
   procedure?: string[];
   address?: string;
@@ -230,7 +230,7 @@ function Stepper({ steps }: { steps: Step[] }) {
             {/* Content */}
             <div className="flex-1 min-w-0">
               <h4 className="font-bold text-[#0a1628] text-xl mb-1">{step.title}</h4>
-              <p className="text-gray-600">{step.description}</p>
+              {step.description && <p className="text-gray-600">{step.description}</p>}
               
               <AnimatePresence>
                 {openStep === step.number && (
@@ -355,7 +355,7 @@ function ServiceWizard() {
   
   const workLabel = workTypes.find(w => w.id === selectedWork)?.label;
   const commLabel = selectedWork === 'inventarizaciya'
-    ? (selectedComm === 'est' ? 'Есть договор' : selectedComm === 'net' ? 'Нет договора' : '')
+    ? (selectedComm === 'est' ? 'Есть договор на услуги по технической эксплуатации коллекторов' : selectedComm === 'net' ? 'Нет договора на услуги по технической эксплуатации коллекторов' : '')
     : commTypes.find(c => c.id === selectedComm)?.label;
   
   // Generate steps based on selection
@@ -372,14 +372,11 @@ function ServiceWizard() {
         {
           number: 1,
           title: 'Инвентаризация коммуникаций',
-          description: hasDogovor
-            ? 'Инвентаризация при наличии договора на услуги по технической эксплуатации коллекторов'
-            : 'Инвентаризация при отсутствии договора на услуги по технической эксплуатации коллекторов',
           whoSubmits: 'Владелец коммуникаций / организация, проводящая инвентаризацию',
           procedure: [
             `Заполнить письмо-заявку по Форме ${zForm}`,
             'Заполнить заявку на допуск (список работников) по Форме 45',
-            'Документы представить нарочно на бумажном носителе',
+            'Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей',
           ],
           address: 'ул. Лобачика, д. 4, каб. 303',
           forms: [
@@ -421,7 +418,7 @@ function ServiceWizard() {
         'Приложить копию государственного контракта',
         'Приложить технические условия владельцев коммуникаций',
       ] : []),
-      'Документы представить нарочно на бумажном носителе',
+      'Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей',
     ];
 
     const steps: Step[] = [
@@ -447,7 +444,7 @@ function ServiceWizard() {
           // Форма 58 — акт предпроектного обследования: для демонтажа, перекладки и
           // горзаказа вне зависимости от типа коммуникаций (замечание 23-26 УРсП)
           ...(isDemontazh || isPerekladka || isGorzakaz ? ['Приложить акт предпроектного обследования по Форме 58'] : []),
-          'Документы представить нарочно на бумажном носителе',
+          'Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей',
         ],
         address: 'ул. Лобачика, д. 4, каб. 303',
         receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — при наличии доверенности',
@@ -471,7 +468,7 @@ function ServiceWizard() {
         procedure: [
           'Заполнить письмо-заявку по Форме 26',
           'Приложить ППР на работы в охранной зоне коллектора',
-          'Документы представить нарочно на бумажном носителе',
+          'Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей',
         ],
         address: 'ул. Лобачика, д. 4, каб. 303',
         forms: [
@@ -488,7 +485,7 @@ function ServiceWizard() {
         procedure: [
           'Заполнить сопроводительное письмо по Форме 14',
           'Оформить договор на сохранность по Форме 15 / 15.1 АО «Москоллектор»',
-          'Документы представить нарочно на бумажном носителе',
+          'Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей',
         ],
         address: 'ул. Лобачика, д. 4, каб. 303',
         receiveAddress: 'ул. Лобачика, д. 4, каб. 303 — при наличии доверенности',
@@ -619,7 +616,7 @@ function ServiceWizard() {
         </div>
         <div>
           <h3 className="text-xl font-bold text-[#0a1628]">Подберите вашу услугу</h3>
-          <p className="text-gray-500 text-sm">Выберите тип работ и коммуникаций, чтобы увидеть порядок оформления</p>
+          <p className="text-gray-500 text-sm">Выберите вид работ и коммуникаций, чтобы увидеть порядок оформления</p>
         </div>
       </div>
       
@@ -638,7 +635,8 @@ function ServiceWizard() {
             }}
             className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-white"
           >
-            <option value="">Выберите тип работ</option>
+            {/* Подсказка видна только в свёрнутом поле; в раскрытом списке — только варианты */}
+            <option value="" disabled hidden>Выберите вид работ</option>
             {workTypes.map(work => (
               <option key={work.id} value={work.id}>{work.label}</option>
             ))}
@@ -650,7 +648,7 @@ function ServiceWizard() {
           <label className="block text-sm font-semibold text-[#0a1628] mb-2">
             {selectedWork === 'inventarizaciya'
               ? 'Шаг 2: Есть ли договор на эксплуатацию?'
-              : 'Шаг 2: Какой тип коммуникаций?'}
+              : 'Шаг 2: Какой вид коммуникаций?'}
           </label>
           <select
             value={selectedComm}
@@ -662,13 +660,13 @@ function ServiceWizard() {
           >
             {selectedWork === 'inventarizaciya' ? (
               <>
-                <option value="">Выберите вариант</option>
-                <option value="est">Есть договор</option>
-                <option value="net">Нет договора</option>
+                <option value="" disabled hidden>Выберите вариант</option>
+                <option value="est">Есть договор на услуги по технической эксплуатации коллекторов</option>
+                <option value="net">Нет договора на услуги по технической эксплуатации коллекторов</option>
               </>
             ) : (
               <>
-                <option value="">Выберите коммуникации</option>
+                <option value="" disabled hidden>Выберите коммуникации</option>
                 {commTypes.map(comm => (
                   <option key={comm.id} value={comm.id}>{comm.label}</option>
                 ))}
@@ -699,9 +697,6 @@ function ServiceWizard() {
           >
             <div className="border-t-2 border-[#0ea5e9] pt-6">
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <div className="px-4 py-2 bg-[#0a1628] text-white rounded-lg text-sm font-bold">
-                  РЕЗУЛЬТАТ
-                </div>
                 <h4 className="text-xl font-bold text-[#0a1628]">
                   {workLabel} — {commLabel}
                 </h4>
@@ -723,19 +718,35 @@ export default function Consumers() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
-  // Scroll to section from URL hash
+  // Scroll to section from URL hash.
+  // Повторный скролл через 600 мс — контент выше секции (аккордеоны, шрифты)
+  // дорисовывается после первого скролла и позиция съезжает (замечание УРсП 11.08:
+  // «Типовые формы договоров» приводила к «Разрешительной документации»).
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
-      setTimeout(() => {
+      const doScroll = (behavior: ScrollBehavior) => {
         const element = sectionRefs.current[id];
-        if (element) {
-          const offset = 100;
-          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
-          setActiveSection(id);
+        if (!element) return;
+        const offset = 100;
+        const top = element.getBoundingClientRect().top + window.scrollY - offset;
+        if (behavior === 'auto') {
+          // мгновенная коррекция: обходим глобальный scroll-behavior: smooth,
+          // иначе анимация перекрывается/замирает и позиция остаётся неверной
+          const html = document.documentElement;
+          const prev = html.style.scrollBehavior;
+          html.style.scrollBehavior = 'auto';
+          window.scrollTo(0, top);
+          html.style.scrollBehavior = prev;
+        } else {
+          window.scrollTo({ top, behavior });
         }
-      }, 100);
+        setActiveSection(id);
+      };
+      const t1 = setTimeout(() => doScroll('smooth'), 100);
+      const t2 = setTimeout(() => doScroll('auto'), 800);
+      const t3 = setTimeout(() => doScroll('auto'), 1600);
+      return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     }
   }, [location.hash]);
 
@@ -900,7 +911,7 @@ export default function Consumers() {
                 <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-3">
                   <AlertTriangle className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-amber-900">
-                    <strong>Внимание!</strong> В коммуникационные коллекторы АО «Москоллектор» допускаются только граждане РФ.
+                    В коммуникационные коллекторы АО «Москоллектор» допускаются только граждане РФ.
                   </div>
                 </div>
                 <div className="p-4 bg-sky-50 border border-sky-200 rounded-xl flex items-start gap-3">
@@ -1087,7 +1098,7 @@ export default function Consumers() {
                         <p className="font-semibold text-[#0a1628] mb-2">Трубопроводы теплосети / водопровода</p>
                         <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3">
                           <p className="text-amber-900 text-sm">
-                            <strong>ВНИМАНИЕ:</strong> для подписания АВР у начальника района необходимо сдать
+                            для подписания АВР у начальника района необходимо сдать
                             исполнительную документацию (ИД) в эксплуатирующее подразделение (ЭП).
                           </p>
                         </div>
@@ -1391,10 +1402,13 @@ export default function Consumers() {
                 <h2 className="text-2xl md:text-3xl font-bold text-[#0a1628]">Коммерческие услуги</h2>
               </div>
 
-              {/* #41 ОРУ — общий порядок получения коммерческих услуг */}
+              {/* Общий порядок — текст по замечаниям УРсП 11.08, со ссылкой на Регламентные документы */}
               <div className="mb-6 bg-white border border-gray-200 rounded-2xl p-5 md:p-6 space-y-3 text-sm">
                 <p className="text-gray-700">
-                  Для оказания услуги необходимо заполнить форму письма-заявки и предоставить нарочно на бумажном носителе в Центр обслуживания потребителей.
+                  Для получения услуги необходимо заполнить соответствующую форму письма-заявки
+                  и предоставить нарочно в Центр обслуживания потребителей. Порядок и сроки оказания услуг —
+                  в разделе <a href="#regulations" className="text-sky-600 hover:underline font-medium">«Регламентные документы»</a> (Регламентная
+                  таблица подготовки и выдачи документов Заявителям).
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="flex items-start gap-2">
@@ -1415,7 +1429,7 @@ export default function Consumers() {
                 <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-xl">
                   <p className="text-red-800 font-semibold flex items-start gap-2">
                     <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                    ВНИМАНИЕ! Услуги оказываются только после оплаты.
+                    Услуги оказываются только после оплаты.
                   </p>
                 </div>
               </div>
@@ -1426,25 +1440,31 @@ export default function Consumers() {
                     <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl mb-4">
                       <p className="text-amber-800 text-sm flex items-start gap-2">
                         <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                        <strong>ВНИМАНИЕ!</strong> Дубликаты запрашиваемых документов выдаются только после оплаты.
+                        Дубликаты запрашиваемых документов выдаются только после оплаты.
                       </p>
                     </div>
 
+                    {/* Перечни — по замечаниям УРсП 11.08 (описания убраны) */}
                     <div className="p-5 bg-white rounded-xl border border-gray-200">
-                      <h4 className="font-bold text-[#0a1628] mb-3">Технические условия; лист согласования проекта; договор на сохранность строительных конструкций коллекторов</h4>
-                      <p className="text-gray-700 text-sm mb-4">
-                        Для получения дубликата технических условий; листа согласования проекта; договора на сохранность строительных конструкций коллекторов необходимо заполнить письмо-заявку по форме 42.
-                        Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, кабинет 303.
-                      </p>
+                      <ul className="text-gray-700 text-sm space-y-2 mb-4 list-disc list-outside pl-5">
+                        <li>Технические условия на прокладку/врезку/демонтаж инженерных коммуникаций в коллекторах; листа согласования проекта на прокладку/врезку/демонтаж инженерных коммуникаций в коллекторах;</li>
+                        <li>Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в коллекторах;</li>
+                        <li>Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в охранной зоне коллекторов.</li>
+                      </ul>
                       <DownloadButton file="ФОРМА-42.doc" label="Форма 42" />
                     </div>
 
                     <div className="p-5 bg-white rounded-xl border border-gray-200">
-                      <h4 className="font-bold text-[#0a1628] mb-3">Ордер, договор на техэксплуатацию, акты, счета</h4>
-                      <p className="text-gray-700 text-sm mb-4">
-                        Для получения дубликата ордера на выполнение работ; акта о выполнении работ по прокладке/врезке/демонтажу коммуникаций; акта приемки-передачи коммуникаций; счета; счета-фактуры; акта об оказании услуг по договору на техническую эксплуатацию коллекторов; акта инвентаризации коммуникаций необходимо заполнить письмо-заявку по форме 43.
-                        Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, кабинет 303.
-                      </p>
+                      <ul className="text-gray-700 text-sm space-y-2 mb-4 list-disc list-outside pl-5">
+                        <li>Ордер на выполнение работ по прокладке (врезке)/демонтажу инженерных коммуникаций в коллекторах;</li>
+                        <li>Договор (дополнительного соглашения к договору) на услуги по технической эксплуатации коллекторов;</li>
+                        <li>Акт о выполнении работ по прокладке/демонтажу инженерных коммуникаций;</li>
+                        <li>Акт приемки-передачи инженерных коммуникаций;</li>
+                        <li>Счет;</li>
+                        <li>Счет-фактура;</li>
+                        <li>Акт об оказании услуг по договору на услуги по технической эксплуатации коллекторов;</li>
+                        <li>Акт инвентаризации коммуникаций.</li>
+                      </ul>
                       <DownloadButton file="ФОРМА-43.doc" label="Форма 43" />
                     </div>
                   </div>
@@ -1455,7 +1475,7 @@ export default function Consumers() {
                     <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
                       <p className="text-amber-800 text-sm flex items-start gap-2">
                         <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                        <strong>ВНИМАНИЕ!</strong> Продление документов осуществляется только после оплаты.
+                        Продление документов осуществляется только после оплаты.
                       </p>
                     </div>
                     <div className="p-5 bg-white rounded-xl border border-gray-200">
@@ -1474,7 +1494,7 @@ export default function Consumers() {
                     <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
                       <p className="text-amber-800 text-sm flex items-start gap-2">
                         <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                        <strong>ВНИМАНИЕ!</strong> Продление документов осуществляется только после оплаты.
+                        Продление документов осуществляется только после оплаты.
                       </p>
                     </div>
                     <div className="p-5 bg-white rounded-xl border border-gray-200">
@@ -1507,12 +1527,11 @@ export default function Consumers() {
                       <p><strong>Срок:</strong> определяется по согласованию сторон, после оплаты счёта.</p>
                       <p><strong>Что получает потребитель:</strong> комплект проектно-сметной документации в соответствии с условиями договора.</p>
                       <p>
-                        Для оказания услуги необходимо заполнить письмо-заявку по Форме 50 (на разработку ПСД) либо Форме 51 (на согласование ПСД) и предоставить нарочно по адресу: ул. Лобачика, д. 4, кабинет 303.
+                        Для оказания услуги необходимо заполнить письмо-заявку по Форме 48 (на заключение договора на подготовку ПСД) и предоставить нарочно по адресу: ул. Лобачика, д. 4, кабинет 303.
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2 pt-1">
-                      <DownloadButton file="ФОРМА-50.doc" label="Форма 50 — разработка ПСД" />
-                      <DownloadButton file="ФОРМА-51.doc" label="Форма 51 — согласование ПСД" />
+                      <DownloadButton file="Форма-48.doc" label="Форма 48" />
                       <DownloadButton file="Регламент-согласования-ПСД.docx" label="Регламент согласования ПСД" />
                     </div>
                   </div>
@@ -1580,12 +1599,8 @@ export default function Consumers() {
                 </Accordion>
 
                 <Accordion title="Отчёт по протяжённости коммуникаций по договору на услуги по технической эксплуатации коллекторов" defaultOpen={false}>
+                  {/* Описание убрано по замечаниям УРсП 11.08 */}
                   <div className="p-5 bg-white rounded-xl border border-gray-200">
-                    <div className="space-y-2 text-gray-700 text-sm mb-4">
-                      <p><strong>Срок:</strong> до 15 рабочих дней с момента оплаты счёта.</p>
-                      <p><strong>Что получает потребитель:</strong> Отчёт по протяжённости коммуникаций по договору на услуги по технической эксплуатации коллекторов.</p>
-                      <p>Для получения услуги необходимо заполнить письмо-заявку по Форме 59. Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, кабинет 303.</p>
-                    </div>
                     <DownloadButton file="Форма-59.doc" label="Форма 59" />
                   </div>
                 </Accordion>
@@ -1593,7 +1608,7 @@ export default function Consumers() {
                 <Accordion title="Стоимость коммерческих услуг" defaultOpen={true}>
                   <div className="p-5 bg-white rounded-xl border border-gray-200">
                     <p className="text-gray-500 text-sm mb-4">
-                      Действуют с 22.01.2026. Утверждены приказом АО «Москоллектор» от 22.01.2026 № 12.
+                      Утверждены приказом АО «Москоллектор» от 25.03.2026 № 108.
                     </p>
                     <div className="overflow-x-auto">
                       <table className="w-full min-w-[620px] text-sm">
@@ -1692,7 +1707,10 @@ export default function Consumers() {
               {/* #41 ОРУ — общий порядок получения прочих услуг */}
               <div className="mb-6 bg-white border border-gray-200 rounded-2xl p-5 md:p-6 space-y-3 text-sm">
                 <p className="text-gray-700">
-                  Для оказания услуги необходимо заполнить форму письма-заявки и предоставить нарочно на бумажном носителе в Центр обслуживания потребителей.
+                  Для получения услуги необходимо заполнить соответствующую форму письма-заявки
+                  и предоставить нарочно в Центр обслуживания потребителей. Порядок и сроки оказания услуг —
+                  в разделе <a href="#regulations" className="text-sky-600 hover:underline font-medium">«Регламентные документы»</a> (Регламентная
+                  таблица подготовки и выдачи документов Заявителям).
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="flex items-start gap-2">
@@ -1749,51 +1767,70 @@ export default function Consumers() {
                 </Accordion>
 
                 <Accordion title="Аннулирование ордера">
-                  <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3 text-sm text-amber-900 space-y-1">
-                    <p><strong>ВНИМАНИЕ!</strong></p>
-                    <p>1. Для аннулирования ордера необходимо поставить на оригинале ордера, принадлежащего подрядчику, отметку в районе эксплуатации коллекторов «Работы по ордеру не проводились».</p>
-                    <p>2. Письмо-заявку на аннулирование ордера подаёт владелец коммуникации.</p>
-                  </div>
                   <p className="text-gray-700 text-sm mb-3">
-                    Для аннулирования ордера необходимо заполнить письмо-заявку по Форме 5.2 с приложением
-                    оригинала ордера с отметкой района эксплуатации коллекторов (контактную информацию по РЭК
-                    можно посмотреть в разделе «Контакты»). Документы представить нарочно на бумажном носителе
-                    по адресу: ул. Лобачика, д. 4, каб. 303.
+                    Для получения услуги необходимо заполнить соответствующую форму письма-заявки
+                    и предоставить нарочно в Центр обслуживания потребителей. Порядок и сроки оказания услуг —
+                    в разделе <a href="#regulations" className="text-sky-600 hover:underline font-medium">«Регламентные документы»</a>.
+                  </p>
+                  <p className="text-gray-700 text-sm mb-2">Письмо-заявка подается с приложением:</p>
+                  <p className="text-gray-700 text-sm mb-3">
+                    Оригинал ордера (экземпляр АО «Москоллектор» и экземпляр потребителя) с отметкой
+                    начальника эксплуатирующего подразделения АО «Москоллектор» о том, что работы
+                    не производились.
                   </p>
                   <DownloadButton file="форма-5.2.doc" label="Форма 5.2" />
                 </Accordion>
 
                 <Accordion title="Приёмка-передача коммуникаций">
-                  <div className="p-4 bg-white rounded-xl border border-gray-200">
-                    <p className="font-semibold text-[#0a1628] mb-2">Оптико-волоконные кабели / кабели связи / силовые кабели</p>
-                    <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3 text-sm text-amber-900">
-                      <p><strong>ВНИМАНИЕ!</strong> Письмо-заявку на оформление актов приёмки-передачи (АПП) подаёт организация, принимающая коммуникации. АПП оформляется в 6 экземплярах, из которых принимающей и передающей сторонам передаются по 1 экземпляру.</p>
+                  <div className="space-y-4">
+                    {/* Кабельные линии — текст по замечаниям УРсП 11.08 */}
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-2">Оптико-волоконные кабели / кабели связи / силовые кабели</p>
+                      <p className="text-gray-700 text-sm mb-2">Письмо-заявка по Форме 6 подается с приложениями:</p>
+                      <ol className="text-gray-700 text-sm space-y-1.5 mb-3 list-decimal list-inside">
+                        <li>Анкета Потребителя по Форме 2 с приложениями, если ранее Заявителем не заключался договор на услуги по технической эксплуатации коллекторов, либо в случае изменения банковских и иных реквизитов Заявителя, у которого имеются договорные отношения с АО «Москоллектор».</li>
+                        <li>Акт (копия акта) о выполнении работ по прокладке/врезке/демонтажу инженерных коммуникаций, подписанный и скреплённый печатями по Форме 3, Форме 4, Форме 13 (в зависимости от вида работ и коммуникаций, с демонтажем полок-консолей) или копия акта инвентаризации (обследования) коммуникаций.</li>
+                        <li>Акт приемки-передачи коммуникаций по Форме 7, Форме 8 (в зависимости от вида инженерных коммуникаций), подписанный передающей и принимающей сторонами, начальником эксплуатирующего подразделения АО «Москоллектор» и скреплённый печатями. Оформляется в 6 (шести) экземплярах, из которых по одному передается принимающей и передающей сторонам.</li>
+                        <li>Документы, подтверждающие передачу коммуникаций новому владельцу (копии договоров купли-продажи, мены, актов о приеме-передаче объектов основных средств или иные юридически значимые документы).</li>
+                      </ol>
+                      <p className="text-gray-500 text-xs mb-3">Документы представить нарочно на бумажном носителе в Центр обслуживания потребителей по адресу: ул. Лобачика, д. 4, каб. 303.</p>
+                      <div className="flex flex-wrap gap-2">
+                        <DownloadButton file="форма-2.doc" label="Форма 2" />
+                        <DownloadButton file="ФОРМА-6.doc" label="Форма 6" />
+                        <DownloadButton file="ФОРМА-7.doc" label="Форма 7" />
+                        <DownloadButton file="ФОРМА-8.doc" label="Форма 8" />
+                      </div>
                     </div>
-                    <p className="text-gray-700 text-sm mb-2">Для передачи коммуникаций необходимо:</p>
-                    <ol className="text-gray-700 text-sm space-y-1 mb-3 list-decimal list-inside">
-                      <li>Заполнить АПП по Форме 7, подписать со стороны принимающей и передающей стороны и начальника района эксплуатации коллекторов.</li>
-                      <li>Заполнить письмо-заявку по Форме 6 с приложением оригиналов АПП, копии документа, подтверждающего факт прокладки (АВР, акт инвентаризации или иной документ), копии документа, подтверждающего передачу кабелей (договор купли-продажи, аренды или иной), и анкету принимающей стороны (в случае заключения нового договора).</li>
-                    </ol>
-                    <p className="text-gray-500 text-xs mb-3">Документы представить нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, каб. 303.</p>
-                    <div className="flex flex-wrap gap-2">
-                      <DownloadButton file="ФОРМА-7.doc" label="Форма 7 — АПП" />
-                      <DownloadButton file="ФОРМА-6.doc" label="Форма 6 — письмо-заявка" />
+
+                    {/* Трубопроводы — раздел добавлен по замечаниям УРсП 11.08 */}
+                    <div className="p-4 bg-white rounded-xl border border-gray-200">
+                      <p className="font-semibold text-[#0a1628] mb-2">Трубопроводы теплосети / водопровода</p>
+                      <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3 text-sm text-amber-900 flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                        <p>Письмо-заявку на оформление актов приемки-передачи (АПП) подает организация, принимающая коммуникации. АПП оформляется в 6 экземплярах, из которых принимающей и передающей сторонам передаются по 1 экземпляру.</p>
+                      </div>
+                      <p className="text-gray-700 text-sm mb-2">Для передачи коммуникаций необходимо:</p>
+                      <ol className="text-gray-700 text-sm space-y-1.5 mb-3 list-decimal list-inside">
+                        <li>Заполнить АПП по Форме 8, подписать АПП со стороны принимающей и передающей стороны и начальника района эксплуатации коллекторов (контактную информацию по районам эксплуатации коллекторов можно посмотреть в разделе <Link to="/contacts" className="text-sky-600 hover:underline">«Контакты»</Link>).</li>
+                        <li>Заполнить письмо-заявку по Форме 6 с приложением оригиналов АПП, копии документа, подтверждающего факт прокладки (АВР, акт инвентаризации или иной документ), копии документа, подтверждающего передачу кабелей (договор купли-продажи, договор аренды или иной документ), и анкету принимающей стороны (в случае заключения нового договора).</li>
+                      </ol>
+                      <p className="text-gray-500 text-xs mb-3">Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, каб. 303.</p>
+                      <div className="flex flex-wrap gap-2">
+                        <DownloadButton file="ФОРМА-8.doc" label="Форма 8" />
+                        <DownloadButton file="ФОРМА-6.doc" label="Форма 6" />
+                      </div>
                     </div>
                   </div>
                 </Accordion>
 
                 <Accordion title="Продление / переоформление ордера">
-                  <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3 text-sm text-amber-900 space-y-1">
-                    <p><strong>ВНИМАНИЕ!</strong></p>
-                    <p>1. Для продления / переоформления ордера необходимо поставить на оригинале ордера, принадлежащего подрядчику, отметку в районе эксплуатации коллекторов «Работы по ордеру выполнены не полностью».</p>
-                    <p>2. Письмо-заявку на продление / переоформление ордера подаёт владелец коммуникации.</p>
-                  </div>
-                  <p className="text-gray-700 text-sm mb-3">
-                    Для продления / переоформления ордера необходимо заполнить письмо-заявку по Форме 5.1
-                    с приложением оригинала ордера с отметкой района эксплуатации коллекторов, согласованного
-                    с районом графика производства работ, выписки из реестра членов СРО организации,
-                    выполняющей работы. Документы представить нарочно: ул. Лобачика, д. 4, каб. 303.
-                  </p>
+                  <p className="text-gray-700 text-sm mb-2">Письмо-заявка подается с приложениями:</p>
+                  <ol className="text-gray-700 text-sm space-y-1.5 mb-3 list-decimal list-inside">
+                    <li>Оригиналы ордера (экземпляр АО «Москоллектор» и экземпляр потребителя) с отметкой начальника эксплуатирующего подразделения АО «Москоллектор» (ЭП) о том, что работы по ордеру не производились или выполнены не в полном объёме.</li>
+                    <li>Проект в 3 (трёх) экземплярах (2 оригинала, 1 копия) (в случае окончания срока действия согласования проекта) с отметкой начальника ЭП о продлении проектов.</li>
+                    <li>График производства работ (для продления ордера на выполнение работ по прокладке/врезке/демонтажу трубопровода), согласованный с ответственным ЭП АО «Москоллектор».</li>
+                    <li>Выписка из реестра членов СРО организации, выполняющей работы по прокладке/врезке/демонтажу коммуникаций.</li>
+                  </ol>
                   <DownloadButton file="форма-5.1.doc" label="Форма 5.1" />
                 </Accordion>
 
@@ -1851,12 +1888,18 @@ export default function Consumers() {
                     <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
-                          <th className="px-4 py-3 font-semibold text-center w-16">№ п/п</th>
+                          <th className="px-4 py-3 font-semibold text-center w-16 whitespace-nowrap">№ п/п</th>
                           <th className="px-4 py-3 font-semibold text-center">Наименование инженерной коммуникации</th>
                           <th className="px-4 py-3 font-semibold text-center whitespace-nowrap">Тариф в руб./км в год (без учета НДС)</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
+                        {/* Общегородские коллекторы (структура 1:1 с приложением к приказу № 612) */}
+                        <tr className="bg-sky-100">
+                          <td colSpan={3} className="px-4 py-3 font-bold text-[#0a1628] text-center">
+                            Общегородские коллекторы
+                          </td>
+                        </tr>
                         {/* Section 1 — Теплосеть */}
                         <tr className="bg-sky-50">
                           <td className="px-4 py-3 text-center font-semibold text-[#0a1628]">1</td>
@@ -1986,14 +2029,14 @@ export default function Consumers() {
                     Цены на дополнительные услуги АО «Москоллектор» с 25 марта 2026 года
                   </h3>
                   <p className="text-gray-500 text-sm mb-6">
-                    Утверждены приказом АО «Москоллектор» от 22.01.2026 № 12
+                    Утверждены приказом АО «Москоллектор» от 25.03.2026 № 108
                   </p>
 
                   <div className="overflow-x-auto rounded-lg border border-gray-200">
                     <table className="w-full min-w-[620px] text-sm">
                       <thead>
                         <tr className="bg-[#0a1628] text-white">
-                          <th rowSpan={2} className="px-4 py-3 font-semibold text-center w-16 align-middle">№ п/п</th>
+                          <th rowSpan={2} className="px-4 py-3 font-semibold text-center w-16 align-middle whitespace-nowrap">№ п/п</th>
                           <th rowSpan={2} className="px-4 py-3 font-semibold text-center align-middle">Вид услуги</th>
                           <th rowSpan={2} className="px-4 py-3 font-semibold text-center w-24 align-middle">Ед. изм.</th>
                           <th colSpan={2} className="px-4 py-2 font-semibold text-center border-b border-white/10">Стоимость, руб.</th>
@@ -2095,13 +2138,13 @@ export default function Consumers() {
                           <td className="px-4 py-3 text-gray-700 align-top">1</td>
                           <td className="px-4 py-3 text-gray-700 align-top">Технические условия на прокладку/врезку инженерных коммуникаций. Форма 10.1 / 11.1 / 11.3 (в зависимости от вида коммуникаций)</td>
                           <td className="px-4 py-3 text-gray-700 align-top">Потребитель услуг, заказчик работ, подрядчик или проектировщик (в интересах потребителя)</td>
-                          <td className="px-4 py-3 text-gray-700 align-top whitespace-nowrap">10 раб. дн.</td>
+                          <td className="px-4 py-3 text-gray-700 align-top">Кабель связи, оптика и СКЛ — 5 раб. дн.<br />Трубопроводы — 10 раб. дн.</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700 align-top">2</td>
                           <td className="px-4 py-3 text-gray-700 align-top">Согласование проекта на прокладку/врезку. Форма 25</td>
                           <td className="px-4 py-3 text-gray-700 align-top">Проектировщик (в интересах потребителя)</td>
-                          <td className="px-4 py-3 text-gray-700 align-top whitespace-nowrap">10 раб. дн.</td>
+                          <td className="px-4 py-3 text-gray-700 align-top">Кабель связи, оптика и СКЛ — 5 раб. дн.<br />Трубопроводы — 10 раб. дн.</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700 align-top">3</td>

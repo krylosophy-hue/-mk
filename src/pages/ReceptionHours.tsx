@@ -55,7 +55,7 @@ export default function ReceptionHours() {
                 <p className="text-gray-600">г. Москва, ул. Лобачика, д. 4</p>
                 <div className="flex items-center gap-2 mt-2">
                   <Phone className="w-4 h-4 text-sky-500" />
-                  <a href="tel:+74992222201" className="text-sky-600 hover:text-sky-500">+7 (499) 222-22-01 (доб. 2403)</a>
+                  <a href="tel:+74992222201" className="text-sky-600 hover:text-sky-500">+7 (499) 222-22-01, доб. 5555</a>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
                   <Mail className="w-4 h-4 text-sky-500" />

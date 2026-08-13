@@ -8,7 +8,7 @@ tsop:
   address: 117140, г. Москва, ул. Лобачика, д. 4
   phone: +7 (499) 222-22-01
   email: tsop@moscollector.ru
-  ext: '2403'
+  ext: '5555'
 passOffice:
   address: г. Москва, Большая Никитская улица, д. 31
   phone: +7 (499) 222-22-01 (доб. 1510)
@@ -133,7 +133,7 @@ specializedServices:
     phone: ''
     head: Пономаренко Виктория Викторовна
     headTitle: Ведущий специалист
-    ext: '2403'
+    ext: '5555'
     headExt: ''
     fullName: Центр обслуживания потребителей
   - name: ОРУ

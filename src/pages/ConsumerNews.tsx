@@ -149,7 +149,7 @@ export default function ConsumerNews() {
                 По всем вопросам обращайтесь в Центр обслуживания потребителей
               </p>
               <a href="tel:+74992222201" className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 transition-colors duration-200 font-medium">
-                +7 (499) 222-22-01
+                +7 (499) 222-22-01, доб. 5555
               </a>
             </div>
 
