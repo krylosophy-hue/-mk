@@ -1118,18 +1118,13 @@ export default function Consumers() {
                   </div>
                 </Accordion>
                 
+                {/* Содержание блока — по замечанию Присэкару от 01.09 */}
                 <Accordion title="Аварийные работы">
-                  <div className="space-y-4">
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
-                      <p className="text-red-800 font-semibold flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5" />
-                        При возникновении аварийной ситуации
-                      </p>
-                    </div>
-                    <p className="text-gray-700">
-                      Необходимо <strong>немедленно</strong> сообщить в Объединённую диспетчерскую службу (ОДС) по телефону{' '}
-                      <a href="tel:+74997956200" className="text-[#0ea5e9] font-semibold">+7 (499) 795-62-00</a> (круглосуточно).
+                  <div className="p-5 bg-white rounded-xl border border-gray-200">
+                    <p className="text-gray-700 text-sm mb-3">
+                      <strong>Форма 26.</strong> Для согласования аварийного ППР.
                     </p>
+                    <DownloadButton file="форма-26.doc" label="Форма 26" />
                   </div>
                 </Accordion>
               </div>
@@ -1481,7 +1476,7 @@ export default function Consumers() {
                     <div className="p-5 bg-white rounded-xl border border-gray-200">
                       <div className="space-y-2 text-gray-700 text-sm mb-4">
                         <p><strong>Сроки оказания услуги:</strong> 3 рабочих дня с момента оплаты счета.</p>
-                        <p><strong>Что получает потребитель:</strong> продление технических условий проектной документации сроком на 1 год.</p>
+                        <p><strong>Что получает потребитель:</strong> продление технических условий сроком на 1 год.</p>
                         <p>Для получения продления технических условий необходимо заполнить письмо-заявку по форме 12. Документы должны быть представлены нарочно на бумажном носителе по адресу: ул. Лобачика, д. 4, кабинет 303.</p>
                       </div>
                       <DownloadButton file="ФОРМА-12.xlsx" label="Форма 12" />
@@ -1516,11 +1511,9 @@ export default function Consumers() {
                     <div>
                       <p className="font-semibold text-[#0a1628] mb-2">Перечень работ:</p>
                       <ul className="space-y-1.5 text-gray-600 text-sm">
-                        <li>• Разработка ПСД на прокладку кабельных линий и трубопроводов в коллекторах</li>
-                        <li>• Разработка ПСД на демонтаж кабельных линий и трубопроводов</li>
+                        <li>• Разработка проектной документации на прокладку/врезку/демонтаж кабельных линий и трубопроводов в коллекторах</li>
                         <li>• Разработка сметной документации в соответствии с действующими расценками</li>
-                        <li>• Согласование ПСД и проектов производства работ (ППР)</li>
-                        <li>• Авторский надзор за реализацией проектных решений</li>
+                        <li>• Согласование ПСД и проектов производства работ (ППР) в АО «Москоллектор»</li>
                       </ul>
                     </div>
                     <div className="space-y-2 text-gray-700 text-sm">
@@ -1532,7 +1525,6 @@ export default function Consumers() {
                     </div>
                     <div className="flex flex-wrap gap-2 pt-1">
                       <DownloadButton file="Форма-48.doc" label="Форма 48" />
-                      <DownloadButton file="Регламент-согласования-ПСД.docx" label="Регламент согласования ПСД" />
                     </div>
                   </div>
                 </Accordion>
@@ -1578,14 +1570,7 @@ export default function Consumers() {
                   </div>
                 </Accordion>
 
-                <Accordion title="Сопровождение демонтажа кабельных линий связи" defaultOpen={false}>
-                  <div className="p-5 bg-white rounded-xl border border-gray-200">
-                    <p className="text-gray-700 text-sm mb-4">
-                      АО «Москоллектор» оказывает комплексную услугу по сопровождению демонтажа кабельных линий связи в коллекторах. Для получения коммерческого предложения на оказание данной услуги заполните письмо-заявку по Форме 53 и подайте нарочно по адресу: ул. Лобачика, д. 4, кабинет 303.
-                    </p>
-                    <DownloadButton file="ФОРМА-53.doc" label="Форма 53" />
-                  </div>
-                </Accordion>
+                {/* Блок «Сопровождение демонтажа кабельных линий связи» убран по замечанию Присэкару от 01.09 */}
 
                 <Accordion title="Консультационные услуги" defaultOpen={false}>
                   <div className="p-5 bg-white rounded-xl border border-gray-200">
@@ -2382,7 +2367,7 @@ export default function Consumers() {
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Ордер на выполнение работ — Форма 1 / 1.1</td>
-                          <td className="px-4 py-3 text-right font-semibold">5 раб. дн.</td>
+                          <td className="px-4 py-3 text-right font-semibold">3 раб. дн.</td>
                         </tr>
                         <tr>
                           <td className="px-4 py-3 text-gray-700">Допуск (списки) сотрудников — Форма 32, 33, 38, 39</td>
@@ -2390,7 +2375,7 @@ export default function Consumers() {
                         </tr>
                         <tr className="bg-sky-50">
                           <td className="px-4 py-3 font-bold text-[#0a1628]">ИТОГО</td>
-                          <td className="px-4 py-3 text-right font-bold text-[#0a1628]">22 раб. дн.</td>
+                          <td className="px-4 py-3 text-right font-bold text-[#0a1628]">20 раб. дн.</td>
                         </tr>
                       </tbody>
                     </table>
@@ -2398,113 +2383,65 @@ export default function Consumers() {
                 </Accordion>
 
                 {/* Вкладка добавлена по правкам УРсП от 30.07 («Правки сайта.docx») */}
-                <Accordion title="Новое строительство / переустройство / охранная зона коллектора">
+                {/* Наполнение — по замечанию Присэкару от 01.09 */}
+                <Accordion title="Сохранность / переустройство / ликвидация / охранная зона коллектора">
                   <div className="space-y-8">
-                    {/* 1. Размещение объектов в охранной зоне */}
+                    {/* 1. Сохранность коллектора */}
                     <div>
-                      <h4 className="font-bold text-[#0a1628] mb-4">
-                        1. Размещение объектов в охранной зоне коллекторов (в том числе проектирование / новое строительство / реконструкция коллекторов)
-                      </h4>
-                      <div className="space-y-4">
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 22.</strong> Письмо-заявка на выдачу технических условий на размещение объектов (постоянно или временно) в охранной зоне коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 24.</strong> Письмо-заявка на выдачу технических условий на проектирование / новое строительство / реконструкцию / ликвидацию коллектора (участка коллектора).</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-22.doc" label="Форма 22" />
-                            <DownloadButton file="ФОРМА-24.doc" label="Форма 24" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 21.</strong> Письмо-заявка на выдачу согласования на размещение объектов (постоянно или временно) в охранной зоне коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 28.</strong> Письмо-заявка на выдачу согласования проекта на новое строительство / реконструкцию / ликвидацию коллектора (участка коллектора).</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="форма-21.doc" label="Форма 21" />
-                            <DownloadButton file="ФОРМА-28.doc" label="Форма 28" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 26.</strong> Письмо-заявка на выдачу согласования проекта производства работ (ППР).</p>
-                          <p className="text-sm text-gray-600 mb-3">Письмо на выполнение мониторинга строительных конструкций коллектора пишется в свободной форме на бланке организации.</p>
+                      <h4 className="font-bold text-[#0a1628] mb-4">1. Сохранность коллектора</h4>
+                      <div className="p-4 bg-white rounded-xl border border-gray-200">
+                        <ul className="text-gray-700 text-sm space-y-1.5 mb-3">
+                          <li><strong>Форма 24.</strong> Выдача ТУ на сохранность коллектора</li>
+                          <li><strong>Форма 28.</strong> Согласование проекта на сохранность коллектора</li>
+                          <li><strong>Форма 26.</strong> Согласование ППР</li>
+                          <li><strong>Форма 14, 15.</strong> Заключение договора на сохранность</li>
+                        </ul>
+                        <div className="flex flex-wrap gap-2">
+                          <DownloadButton file="ФОРМА-24.doc" label="Форма 24" />
+                          <DownloadButton file="ФОРМА-28.doc" label="Форма 28" />
                           <DownloadButton file="форма-26.doc" label="Форма 26" />
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 16.</strong> Письмо-заявка на заключение договора на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в охранной зоне коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 17.</strong> Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в охранной зоне коллекторов.</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="форма-16.doc" label="Форма 16" />
-                            <DownloadButton file="форма-17.doc" label="Форма 17" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 18.</strong> Письмо-заявка на заключение договора на размещение объектов в охранной зоне коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 19.</strong> Договор на размещение объекта в охранной зоне коллектора (с юридическими лицами).</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-18.doc" label="Форма 18" />
-                            <DownloadButton file="Форма-19.doc" label="Форма 19" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 18.1.</strong> Письмо-заявка на заключение договора на размещение объектов в охранной зоне коллекторов (от индивидуального предпринимателя).</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 20.</strong> Договор на размещение объекта в охранной зоне коллектора (с индивидуальными предпринимателями).</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-18.1.doc" label="Форма 18.1" />
-                            <DownloadButton file="Форма-20.doc" label="Форма 20" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 18.2.</strong> Письмо-заявка на заключение договора на размещение объектов в охранной зоне коллекторов (от физического лица).</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 20.1.</strong> Договор на размещение объекта в охранной зоне коллектора (с физическими лицами).</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="форма-18.2.doc" label="Форма 18.2" />
-                            <DownloadButton file="форма-20.1.doc" label="Форма 20.1" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 23.</strong> Письмо-заявка на выдачу разрешения на выполнение строительно-монтажных работ на строительных конструкциях коллекторов.</p>
-                          <DownloadButton file="ФОРМА-23.doc" label="Форма 23" />
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 34.</strong> Письмо-заявка на оформление допуска (списка) работников на работы по гидроизоляции, ремонту, реконструкции коллектора, присоединению строящегося коллектора к существующему, мониторингу строительных конструкций, пусконаладочным работам оборудования и т.д.</p>
-                          <DownloadButton file="форма-34.doc" label="Форма 34" />
+                          <DownloadButton file="ФОРМА-14.doc" label="Форма 14" />
+                          <DownloadButton file="Форма-15.docx" label="Форма 15" />
                         </div>
                       </div>
                     </div>
 
-                    {/* 2. СМР в охранной зоне */}
+                    {/* 2. Переустройство / ликвидация коллектора */}
                     <div>
-                      <h4 className="font-bold text-[#0a1628] mb-4">
-                        2. Выполнение строительно-монтажных работ в охранной зоне коллекторов
-                      </h4>
-                      <div className="space-y-4">
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 27(З).</strong> Письмо-заявка на выдачу согласования на проведение работ в охранной зоне коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 27(П).</strong> Письмо-заявка на выдачу согласования на проведение работ в охранной зоне коллекторов.</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="форма-27З.doc" label="Форма 27(З)" />
-                            <DownloadButton file="форма-27П.doc" label="Форма 27(П)" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 26.</strong> Письмо-заявка на выдачу согласования проекта производства работ (ППР).</p>
+                      <h4 className="font-bold text-[#0a1628] mb-4">2. Переустройство / ликвидация коллектора</h4>
+                      <div className="p-4 bg-white rounded-xl border border-gray-200">
+                        <ul className="text-gray-700 text-sm space-y-1.5 mb-3">
+                          <li><strong>Форма 24.</strong> Выдача ТУ на сохранность коллектора</li>
+                          <li><strong>Форма 28.</strong> Согласование проекта на сохранность коллектора</li>
+                          <li><strong>Форма 26.</strong> Согласование ППР</li>
+                          <li><strong>Форма 14, 15.</strong> Заключение договора на сохранность</li>
+                          <li><strong>Форма 23.</strong> Разрешение на производство работ (СМР)</li>
+                        </ul>
+                        <div className="flex flex-wrap gap-2">
+                          <DownloadButton file="ФОРМА-24.doc" label="Форма 24" />
+                          <DownloadButton file="ФОРМА-28.doc" label="Форма 28" />
                           <DownloadButton file="форма-26.doc" label="Форма 26" />
+                          <DownloadButton file="ФОРМА-14.doc" label="Форма 14" />
+                          <DownloadButton file="Форма-15.docx" label="Форма 15" />
+                          <DownloadButton file="ФОРМА-23.doc" label="Форма 23" />
                         </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 16.</strong> Письмо-заявка на заключение договора на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в охранной зоне коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 17.</strong> Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в охранной зоне коллекторов.</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="форма-16.doc" label="Форма 16" />
-                            <DownloadButton file="форма-17.doc" label="Форма 17" />
-                          </div>
-                        </div>
-                        <div className="p-4 bg-white rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 14.</strong> Письмо-заявка на заключение договора на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в коллекторах.</p>
-                          <p className="text-sm text-gray-700 mb-1"><strong>Форма 15.</strong> Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы по прокладке/демонтажу кабельных линий (трубопроводов) в коллекторах и в охранных зонах коллекторов.</p>
-                          <p className="text-sm text-gray-700 mb-3"><strong>Форма 15.1.</strong> Договор на сохранность строительных конструкций коллекторов и проложенных в них инженерных коммуникаций с организациями, производящими строительно-монтажные работы в коллекторах и в охранных зонах коллекторов.</p>
-                          <div className="flex flex-wrap gap-2">
-                            <DownloadButton file="ФОРМА-14.doc" label="Форма 14" />
-                            <DownloadButton file="Форма-15.docx" label="Форма 15" />
-                            <DownloadButton file="Форма-15.1.doc" label="Форма 15.1" />
-                          </div>
+                      </div>
+                    </div>
+
+                    {/* 3. Охранная зона коллектора */}
+                    <div>
+                      <h4 className="font-bold text-[#0a1628] mb-4">3. Охранная зона коллектора</h4>
+                      <div className="p-4 bg-white rounded-xl border border-gray-200">
+                        <ul className="text-gray-700 text-sm space-y-1.5 mb-3">
+                          <li><strong>Форма 27(П), Форма 27(З).</strong> Согласование проведения работ в охранной зоне</li>
+                          <li><strong>Форма 26.</strong> Согласование ППР (при необходимости)</li>
+                          <li><strong>Форма 16, 17.</strong> Заключение договора на сохранность</li>
+                        </ul>
+                        <div className="flex flex-wrap gap-2">
+                          <DownloadButton file="форма-27П.doc" label="Форма 27(П)" />
+                          <DownloadButton file="форма-26.doc" label="Форма 26" />
+                          <DownloadButton file="форма-16.doc" label="Форма 16" />
+                          <DownloadButton file="форма-17.doc" label="Форма 17" />
                         </div>
                       </div>
                     </div>
@@ -2577,11 +2514,6 @@ export default function Consumers() {
                     name: 'Регламент взаимодействия подразделений АО «Москоллектор», организаций — собственников коммуникаций, проложенных в коллекторах, по осуществлению допуска в коллекторы с использованием АИС «АРМ-Контроль»',
                     file: '/docs/consumers/Регламент-взаимодействия-подразделений-АО-Москоллектор-по-осуществлению-допуска-в-коллекторы-с-использованием-АИС-ARM-Контроль.pdf',
                     ext: 'PDF',
-                  },
-                  {
-                    name: 'Регламент согласования структурными подразделениями АО «Москоллектор» проектной документации',
-                    file: '/docs/consumers/Регламент-согласования-ПСД.docx',
-                    ext: 'DOCX',
                   },
                   {
                     name: 'Регламент оформления документации и порядка производства работ по демонтажу кабельных линий связи силами потребителей услуг АО «Москоллектор»',

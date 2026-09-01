@@ -11,7 +11,7 @@ const foundingDocs = documentsShareholders.map((d) => ({
 }));
 
 const stats = [
-  { icon: Building2, value: 825, suffix: ' км', label: 'Протяженность коллекторов', description: 'Общая длина эксплуатируемых коллекторов' },
+  { icon: Building2, value: 826, suffix: ' км', label: 'Протяженность коллекторов', description: 'Общая длина эксплуатируемых коллекторов' },
   { icon: Zap, value: 19737, suffix: ' км', label: 'Кабели связи', description: 'Протяженность кабельных линий связи' },
   { icon: Droplets, value: 8312, suffix: ' км', label: 'Силовые кабели', description: 'Протяженность силовых кабельных линий' },
   { icon: TrendingUp, value: 1914, suffix: ' км', label: 'Теплосети и ВК', description: 'Протяженность теплосетей и водопроводов' },

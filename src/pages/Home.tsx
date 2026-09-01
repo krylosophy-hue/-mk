@@ -28,7 +28,7 @@ const quickAccessLinks = [
 ];
 
 const stats = [
-  { icon: Building2, value: '825', unit: 'км', label: 'коллекторных тоннелей' },
+  { icon: Building2, value: '826', unit: 'км', label: 'коллекторных тоннелей' },
   { icon: Cable, value: '19 737', unit: 'км', label: 'кабелей связи' },
   { icon: Zap, value: '8 312', unit: 'км', label: 'силовых кабелей' },
   { icon: Droplets, value: '1 914', unit: 'км', label: 'теплосетей и водоснабжения' },
@@ -112,7 +112,7 @@ export default function Home() {
             </div>
 
             <h1 className="hero-rise hero-rise-2 font-heading text-5xl md:text-6xl lg:text-[68px] font-bold text-white leading-[1.08] tracking-tight mb-8">
-              825 километров надёжности{' '}
+              826 километров надёжности{' '}
               <span className="text-gradient">под Москвой</span>
             </h1>
 
@@ -238,7 +238,7 @@ export default function Home() {
               <motion.div variants={fadeIn} className="accent-bar mb-6" />
               <motion.p variants={fadeIn} className="text-gray-500 text-[16px] leading-relaxed mb-5">
                 АО «Москоллектор» занимается эксплуатацией коммуникационных коллекторов
-                столицы, общая протяжённость которых превышает 825 км. Это крупнейшее
+                столицы, общая протяжённость которых составляет 826 км. Это крупнейшее
                 коллекторное хозяйство в мире.
               </motion.p>
               <motion.p variants={fadeIn} className="text-gray-500 text-[16px] leading-relaxed mb-5">
