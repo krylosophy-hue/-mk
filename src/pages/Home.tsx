@@ -238,8 +238,8 @@ export default function Home() {
               <motion.div variants={fadeIn} className="accent-bar mb-6" />
               <motion.p variants={fadeIn} className="text-gray-500 text-[16px] leading-relaxed mb-5">
                 АО «Москоллектор» занимается эксплуатацией коммуникационных коллекторов
-                столицы, общая протяжённость которых превышает 825 км. Это одно из
-                крупнейших коллекторных хозяйств в мире.
+                столицы, общая протяжённость которых превышает 825 км. Это крупнейшее
+                коллекторное хозяйство в мире.
               </motion.p>
               <motion.p variants={fadeIn} className="text-gray-500 text-[16px] leading-relaxed mb-5">
                 Коммуникационный коллектор — это подземное железобетонное сооружение,

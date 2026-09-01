@@ -80,24 +80,8 @@ export default function Shareholders() {
               </div>
             </section>
 
-            {/* #10 — Раздел «Раскрытие информации» с пометкой «в разработке».
-                  Не показываем неработающие кнопки. */}
-            <section>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="accent-bar" />
-                <h2 className="text-2xl font-bold font-heading text-[#0a1628]">Раскрытие информации</h2>
-              </div>
-              <div className="card-modern rounded-2xl p-7">
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Раздел в разработке. Информация о существенных фактах и инсайдерская информация,
-                  подлежащие раскрытию в соответствии с законодательством РФ, будут опубликованы в&nbsp;ближайшее время.
-                </p>
-                <p className="text-sm text-gray-500 mt-3">
-                  По срочным запросам — корпоративная служба:{' '}
-                  <a href="mailto:shareholders@moscollector.ru" className="text-sky-600 hover:underline">shareholders@moscollector.ru</a>
-                </p>
-              </div>
-            </section>
+            {/* Раздел «Раскрытие информации» убран полностью (14.08) —
+                вернуть, когда акционерный блок передаст документы раскрытия. */}
           </div>
 
           {/* Right Column - Meetings & Contacts */}

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ChevronRight, FileText, AlertTriangle,
-  Scale, Settings, Download, ExternalLink, Menu, X,
+  Scale, Settings, Download, Menu, X,
   AlertOctagon, Info as InfoIcon, Mail
 } from 'lucide-react';
 import { fileUrl } from '@/lib/utils';
@@ -394,18 +394,7 @@ export default function Info() {
                 </div>
               </Accordion>
 
-              <Accordion title="Руководство">
-                <div className="p-5 bg-amber-50 border border-amber-200 rounded-xl">
-                  <p className="text-amber-900 text-sm leading-relaxed">
-                    <strong>Сведения о составе руководства уточняются.</strong>{' '}
-                    Перечень должностных лиц и контактные данные будут опубликованы после согласования с пресс-службой АО «Москоллектор».
-                  </p>
-                  <p className="text-xs text-amber-800 mt-3">
-                    По срочным вопросам — Канцелярия:{' '}
-                    <a href="tel:+74992222201" className="underline hover:no-underline">+7 (499) 222-22-01</a>.
-                  </p>
-                </div>
-              </Accordion>
+              {/* Аккордеон «Руководство» убран (14.08) — вернуть после согласования состава с пресс-службой. */}
             </section>}
 
             {/* Section 2: Anti-corruption — only on dedicated /anticorruption page (#1 ОЭБ) */}
@@ -546,16 +535,7 @@ export default function Info() {
 </Accordion>
 
 
-                <Accordion title="Сведения о доходах">
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Сведения о доходах, об имуществе и обязательствах имущественного характера
-                    руководства и членов семей руководства АО «Москоллектор».
-                  </p>
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-400 text-white rounded-xl cursor-default">
-                    <ExternalLink className="w-4 h-4" />
-                    Сведения о доходах (раздел в разработке)
-                  </span>
-                </Accordion>
+                {/* Аккордеон «Сведения о доходах» убран (14.08) — вернуть при получении данных. */}
               </div>
 
 
