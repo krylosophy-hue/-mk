@@ -26,8 +26,17 @@ export function renderMarkdownSafe(md: string): string {
   // 2. Markdown → HTML
   const rawHtml = marked.parse(fixed, { async: false }) as string;
 
+  // 2.5. Типографика (замечание 27.08): короткие предлоги и союзы не должны
+  // оставаться в конце строки — привязываем их к следующему слову неразрывным
+  // пробелом. Работаем только с текстом между тегами (кириллица не встречается
+  // в атрибутах), поэтому регэксп безопасен для разметки.
+  const typografed = rawHtml.replace(
+    /(^|[\s>«("])(в|во|к|ко|с|со|о|об|обо|у|и|а|но|на|по|за|из|изо|от|до|не|ни|для|при|под|надо?|или|же|бы|ли)\s+(?=[«"(]?[а-яёА-ЯЁa-zA-Z0-9])/g,
+    (_m, before, word) => `${before}${word} `
+  );
+
   // 3. Санитизация
-  return DOMPurify.sanitize(rawHtml, {
+  return DOMPurify.sanitize(typografed, {
     ALLOWED_TAGS: [
       'p', 'br', 'hr',
       'strong', 'em', 'b', 'i', 'u', 's', 'mark', 'small', 'sup', 'sub',

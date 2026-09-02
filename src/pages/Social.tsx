@@ -56,7 +56,7 @@ export default function Social() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-bold font-heading mb-4">Социальная политика</h1>
           <p className="text-white/80 text-lg max-w-2xl">
-            Социальный пакет сотрудников АО «Москоллектор»
+            Социальный пакет сотрудников АО «Москоллектор»
           </p>
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function Social() {
               <div className="card-modern p-8">
                 <p className="text-slate-600 leading-relaxed mb-4">
                   Основополагающим документом, формирующим социальную политику Общества и определяющим социальное
-                  партнёрство в формате «Работодатель — Работники», является Коллективный договор АО «Москоллектор».
+                  партнёрство в формате «Работодатель — Работники», является Коллективный договор АО «Москоллектор».
                 </p>
                 <p className="text-slate-600 leading-relaxed">
                   Социальная политика направлена на усиление мотивации персонала на высокоэффективный и добросовестный
@@ -195,7 +195,7 @@ export default function Social() {
               <Users className="w-8 h-8 mb-4 text-sky-400" />
               <h3 className="font-bold font-heading text-lg mb-2">Профком</h3>
               <p className="text-white/80 text-sm mb-4">
-                Первичная профсоюзная организация АО «Москоллектор» — полноправный участник
+                Первичная профсоюзная организация АО «Москоллектор» — полноправный участник
                 социального партнёрства. Более 1000 членов, 13 профгрупп.
               </p>
               <Link to="/union" className="text-sm font-medium text-sky-400 hover:text-white transition-colors">

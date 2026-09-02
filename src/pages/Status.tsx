@@ -291,7 +291,7 @@ export default function Status() {
             </div>
           </div>
           <p className="text-xs text-slate-500 mt-4">
-            Статус обращения синхронизируется с системой DocSEDO АО «Москоллектор».
+            Статус обращения синхронизируется с системой DocSEDO АО «Москоллектор».
           </p>
         </div>
 

@@ -10,8 +10,9 @@ const GROUPS: { id: string; label: string }[] = [
   { id: '#work', label: 'Работа с коммуникациями' },
   { id: '#dopusk', label: 'Допуск в коллектор' },
   { id: '#commercial', label: 'Коммерческие услуги' },
-  { id: '#other', label: 'Прочие услуги' },
-  { id: '#contracts', label: 'Типовые формы договоров и контрактов' },
+  { id: '#other', label: 'Прочие' },
+  // Блок «Типовые формы договоров и контрактов» убран по замечанию 27.08 —
+  // договоры остались в разделе «Типовые формы договоров» на /consumers#contracts.
 ];
 
 function groupOf(path: string): string {
@@ -43,7 +44,7 @@ export default function Forms() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-bold font-heading mb-4">Формы документов</h1>
           <p className="text-white/80 text-lg max-w-2xl">
-            Все типовые формы заявок, актов и договоров АО «Москоллектор» в одном месте
+            Все типовые формы заявок, актов и договоров АО «Москоллектор» в одном месте
           </p>
         </div>
       </div>

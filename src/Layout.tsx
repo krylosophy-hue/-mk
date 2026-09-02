@@ -66,7 +66,7 @@ export type SearchItem = {
 const FORMS_BASE = '/docs/forms/';
 
 export const formCatalog: SearchItem[] = [
-  // Названия форм — по Положению о работе с потребителями услуг АО «Москоллектор»
+  // Названия форм — по Положению о работе с потребителями услуг АО «Москоллектор»
   // (утв. приказом от 13.08.2024 № 418); обновлено по замечаниям УРсП от 11.08.2026.
   // ===== Работа с коммуникациями =====
   { title: 'Форма 1 — заключение договора на услуги по технической эксплуатации коллекторов (доп. соглашения) и выдача ордера на прокладку (врезку)', file: FORMS_BASE + 'ФОРМА-1.doc', path: '/consumers#work', keywords: 'форма 1 заявка ордер техэксплуатация договор прокладка врезка', isForm: true },
@@ -78,10 +78,10 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 5.1 — продление (переоформление) ордера на выполнение работ по прокладке/врезке/демонтажу', file: FORMS_BASE + 'форма-5.1.doc', path: '/consumers#work', keywords: 'форма 5.1 продление переоформление ордер', isForm: true },
   { title: 'Форма 5.2 — аннулирование ордера', file: FORMS_BASE + 'форма-5.2.doc', path: '/consumers#work', keywords: 'форма 5.2 аннулирование ордер', isForm: true },
   { title: 'Форма 5.3 — выдача ордера на выполнение работ по перекладке инженерных коммуникаций', file: FORMS_BASE + 'Форма-5.3.doc', path: '/consumers#work', keywords: 'форма 5.3 5 3 перекладка горзаказ городской заказ ордер', isForm: true },
-  { title: 'Форма 6 — заключение договора на услуги по технической эксплуатации коллекторов (доп. соглашения)', file: FORMS_BASE + 'ФОРМА-6.doc', path: '/consumers#work', keywords: 'форма 6 договор техэксплуатация приемка передача', isForm: true },
-  { title: 'Форма 7 — акт приемки-передачи кабельных линий', file: FORMS_BASE + 'ФОРМА-7.doc', path: '/consumers#work', keywords: 'форма 7 акт приемка передача кабельные линии апп', isForm: true },
-  { title: 'Форма 8 — акт приемки-передачи трубопроводов теплосети, ГВС, ХВС', file: FORMS_BASE + 'ФОРМА-8.doc', path: '/consumers#work', keywords: 'форма 8 акт приемка передача трубопроводы апп', isForm: true },
-  { title: 'Форма 9 — акт приемки-передачи кабельных линий в собственность АО «ОЭК»', file: FORMS_BASE + 'форма-9.doc', path: '/consumers#other', keywords: 'форма 9 акт приемка передача оэк', isForm: true },
+  { title: 'Форма 6 — заключение договора на услуги по технической эксплуатации коллекторов (доп. соглашения)', file: FORMS_BASE + 'ФОРМА-6.doc', path: '/consumers#work', keywords: 'форма 6 договор техэксплуатация приёмка передача', isForm: true },
+  { title: 'Форма 7 — акт приёмки-передачи кабельных линий', file: FORMS_BASE + 'ФОРМА-7.doc', path: '/consumers#work', keywords: 'форма 7 акт приёмка передача кабельные линии апп', isForm: true },
+  { title: 'Форма 8 — акт приёмки-передачи трубопроводов теплосети, ГВС, ХВС', file: FORMS_BASE + 'ФОРМА-8.doc', path: '/consumers#work', keywords: 'форма 8 акт приёмка передача трубопроводы апп', isForm: true },
+  { title: 'Форма 9 — акт приёмки-передачи кабельных линий в собственность АО «ОЭК»', file: FORMS_BASE + 'форма-9.doc', path: '/consumers#other', keywords: 'форма 9 акт приёмка передача оэк', isForm: true },
   { title: 'Форма 10.1 — выдача ТУ на прокладку кабельных линий в коллекторах', file: FORMS_BASE + 'форма-10.1.xlsx', path: '/consumers#work', keywords: 'форма 10.1 10 1 ту прокладка кабель связь силовой оптоволокно заявка', isForm: true },
   { title: 'Форма 10.2 — выдача ТУ на демонтаж кабельных линий в коллекторах', file: FORMS_BASE + 'форма-10.2.xlsx', path: '/consumers#work', keywords: 'форма 10.2 10 2 ту демонтаж кабель', isForm: true },
   { title: 'Форма 10.3 — выдача ТУ на работы по госзаказу по прокладке и демонтажу кабельных линий (заявитель не владелец)', file: FORMS_BASE + 'форма-10.3.xlsx', path: '/consumers#work', keywords: 'форма 10.3 10 3 городской заказ горзаказ кабель ту', isForm: true },
@@ -97,6 +97,7 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 25 — выдача согласования проекта на прокладку/врезку/демонтаж инженерных коммуникаций', file: FORMS_BASE + 'ФОРМА-25.doc', path: '/consumers#work', keywords: 'форма 25 согласование проект', isForm: true },
   { title: 'Форма 41 — акт замены/вывешивания маркировочных бирок на кабельных линиях', file: FORMS_BASE + 'ФОРМА-41.doc', path: '/consumers#work', keywords: 'форма 41 акт бирки маркировка кабельные линии', isForm: true },
   { title: 'Форма 57 — акт о замене участка коммуникации', file: FORMS_BASE + 'Форма-57.xlsx', path: '/consumers#work', keywords: 'форма 57 акт замена участок коммуникация', isForm: true },
+  { title: 'Форма 58 — акт предпроектного обследования коммуникаций', file: FORMS_BASE + 'ФОРМА-58.docx', path: '/consumers#work', keywords: 'форма 58 акт предпроектное обследование', isForm: true },
   // ===== Охранная зона, строительство и сохранность =====
   { title: 'Форма 14 — заключение договора на сохранность (СМР в коллекторах)', file: FORMS_BASE + 'ФОРМА-14.doc', path: '/consumers#work', keywords: 'форма 14 сохранность договор смр сопроводительное письмо', isForm: true },
   { title: 'Форма 16 — заключение договора на сохранность (СМР в охранной зоне коллекторов)', file: FORMS_BASE + 'форма-16.doc', path: '/consumers#work', keywords: 'форма 16 охранная зона сохранность заявка', isForm: true },
@@ -124,12 +125,12 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 33 — оформление допуска (списка) работников при работах на коммуникациях (список)', file: FORMS_BASE + 'ФОРМА-33.doc', path: '/consumers#dopusk', keywords: 'форма 33 допуск работы коммуникации список', isForm: true },
   { title: 'Форма 34 — оформление допуска на работы по гидроизоляции, ремонту, реконструкции, мониторингу и т.д.', file: FORMS_BASE + 'форма-34.doc', path: '/consumers#dopusk', keywords: 'форма 34 допуск гидроизоляция ремонт реконструкция мониторинг', isForm: true },
   { title: 'Форма 35 — оформление допуска на проектные и другие работы, не требующие производства', file: FORMS_BASE + 'форма-35.doc', path: '/consumers#dopusk', keywords: 'форма 35 допуск проектные работы', isForm: true },
-  { title: 'Форма 36 — оформление допуска на работы по договору подряда с АО «Москоллектор»', file: FORMS_BASE + 'ФОРМА-36.doc', path: '/consumers#dopusk', keywords: 'форма 36 допуск подряд', isForm: true },
+  { title: 'Форма 36 — оформление допуска на работы по договору подряда с АО «Москоллектор»', file: FORMS_BASE + 'ФОРМА-36.doc', path: '/consumers#dopusk', keywords: 'форма 36 допуск подряд', isForm: true },
   { title: 'Форма 37 — оформление допуска (списка) на инвентаризацию коммуникаций', file: FORMS_BASE + 'Форма-37.doc', path: '/consumers#dopusk', keywords: 'форма 37 инвентаризация допуск', isForm: true },
   { title: 'Форма 37.1 — оформление допуска на обследование коммуникаций (определение принадлежности)', file: FORMS_BASE + 'Форма-37.1.doc', path: '/consumers#dopusk', keywords: 'форма 37.1 37 1 обследование принадлежность допуск', isForm: true },
   { title: 'Форма 38 — список работников для допуска', file: FORMS_BASE + 'ФОРМА-38.docx', path: '/consumers#dopusk', keywords: 'форма 38 список работников допуск', isForm: true },
   { title: 'Форма 39 — список коллекторов для допуска', file: FORMS_BASE + 'ФОРМА-39.doc', path: '/consumers#dopusk', keywords: 'форма 39 список коллекторов допуск', isForm: true },
-  { title: 'Форма 40 — заявка на допуск работников сторонних организаций на объекты АО «Москоллектор»', file: FORMS_BASE + 'Форма-40.xlsx', path: '/consumers#dopusk', keywords: 'форма 40 заявка допуск сторонние организации', isForm: true },
+  { title: 'Форма 40 — заявка на допуск работников сторонних организаций на объекты АО «Москоллектор»', file: FORMS_BASE + 'Форма-40.xlsx', path: '/consumers#dopusk', keywords: 'форма 40 заявка допуск сторонние организации', isForm: true },
   { title: 'Форма 40.1 — заявка на допуск работников сторонних организаций (расширенная)', file: FORMS_BASE + 'Форма-40.1.xlsx', path: '/consumers#dopusk', keywords: 'форма 40.1 40 1 заявка допуск расширенная', isForm: true },
   { title: 'Форма 44 — предоставление доступа в «Личный кабинет Потребителя»', file: FORMS_BASE + 'форма-44.doc', path: '/consumers#dopusk', keywords: 'форма 44 личный кабинет доступ лк', isForm: true },
   // ===== Коммерческие услуги =====
@@ -141,7 +142,8 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 52 — заключение договора на выполнение СМР по прокладке/демонтажу кабельных линий', file: FORMS_BASE + 'форма-52.doc', path: '/consumers#commercial', keywords: 'форма 52 строительно монтажные работы смр договор', isForm: true },
   { title: 'Форма 52.1 — заключение договора на СМР по прокладке кабельных линий', file: FORMS_BASE + 'форма-52.1.doc', path: '/consumers#commercial', keywords: 'форма 52.1 смр прокладка договор', isForm: true },
   { title: 'Форма 52.2 — заключение договора на СМР по демонтажу/перекладке кабельных линий', file: FORMS_BASE + 'форма-52.2.doc', path: '/consumers#commercial', keywords: 'форма 52.2 смр демонтаж перекладка договор', isForm: true },
-  { title: 'Форма 53 — предоставление коммерческого предложения', file: FORMS_BASE + 'ФОРМА-53.doc', path: '/consumers#commercial', keywords: 'форма 53 сопровождение демонтаж коммерческое предложение', isForm: true },
+  { title: 'Форма 53 — предоставление коммерческого предложения по сопровождению демонтажа', file: FORMS_BASE + 'ФОРМА-53.doc', path: '/consumers#commercial', keywords: 'форма 53 сопровождение демонтаж коммерческое предложение', isForm: true },
+  { title: 'Форма 54 — на предоставление коммерческого предложения по подготовке ПСД', file: FORMS_BASE + 'форма-54.doc', path: '/consumers#commercial', keywords: 'форма 54 коммерческое предложение псд комплекс', isForm: true },
   { title: 'Форма 59 — предоставление отчёта по протяженности коммуникаций по договору (платная услуга)', file: FORMS_BASE + 'Форма-59.doc', path: '/consumers#commercial', keywords: 'форма 59 отчёт протяженность платная услуга', isForm: true },
   // ===== Прочие услуги =====
   { title: 'Форма 45 — проведение совместной инвентаризации коммуникаций', file: FORMS_BASE + 'ФОРМА-45.doc', path: '/consumers#other', keywords: 'форма 45 инвентаризация коммуникации', isForm: true },
@@ -152,7 +154,7 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 60 — аннулирование ТУ на прокладку/врезку/демонтаж коммуникаций', file: FORMS_BASE + 'Форма-60.doc', path: '/consumers#other', keywords: 'форма 60 аннулирование ту', isForm: true },
   { title: 'Форма 61 — аннулирование ТУ и согласования проекта на прокладку/врезку/демонтаж', file: FORMS_BASE + 'Форма-61.doc', path: '/consumers#other', keywords: 'форма 61 аннулирование согласование проект', isForm: true },
   // ===== Доверенности и инструкции =====
-  { title: 'Доверенность — типовая форма', file: FORMS_BASE + 'Доверенность.docx', path: '/consumers#work', keywords: 'доверенность типовая получение оригиналов', isForm: true },
+  { title: 'Доверенность — типовая форма', file: FORMS_BASE + 'Доверенность.docx', path: '/consumers#other', keywords: 'доверенность типовая получение оригиналов', isForm: true },
   { title: 'Регламент согласования ПСД', file: FORMS_BASE + 'Регламент-согласования-ПСД.docx', path: '/consumers#commercial', keywords: 'регламент согласование псд проектно сметная', isForm: true },
   { title: 'Инструкция ЛК — регистрация', file: FORMS_BASE + 'Инструкция_ЛК_регистрация-1.pdf', path: '/consumers#dopusk', keywords: 'инструкция лк личный кабинет регистрация', isForm: true },
   { title: 'Инструкция ЛК — версия 1.1', file: FORMS_BASE + 'Инструкция_ЛК_ver_1.1_21.09.pdf', path: '/consumers#dopusk', keywords: 'инструкция лк личный кабинет руководство', isForm: true },
@@ -162,16 +164,10 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 15 — договор на сохранность (СМР по прокладке/демонтажу в коллекторах и охранных зонах)', file: FORMS_BASE + 'Форма-15.docx', path: '/consumers#work', keywords: 'форма 15 договор сохранность конструкции коллектор', isForm: true },
   { title: 'Форма 15.1 — договор на сохранность (мониторинг)', file: FORMS_BASE + 'Форма-15.1.doc', path: '/consumers#work', keywords: 'форма 15.1 договор сохранность мониторинг', isForm: true },
   { title: 'Приложение к формам 15 и 15.1 — перечень мероприятий для реализации ППР', file: FORMS_BASE + 'Приложение-к-форме-15-и-15.1.doc', path: '/consumers#work', keywords: 'приложение 15 15.1 перечень мероприятий ппр', isForm: true },
-  { title: 'Договор на техэксплуатацию (типовой)', file: '/docs/consumers/1.-Договор-на-услуги-по-технической-эксплуатации-коллекторов.pdf', path: '/consumers#contracts', keywords: 'договор техэксплуатация типовой коллектор услуги', isForm: true },
-  { title: 'Договор на техэксплуатацию с ЭДО', file: '/docs/consumers/2.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-с-ЭДО.pdf', path: '/consumers#contracts', keywords: 'договор техэксплуатация эдо электронный документооборот', isForm: true },
-  { title: 'Государственный контракт по 44-ФЗ', file: '/docs/consumers/3.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ.pdf', path: '/consumers#contracts', keywords: 'государственный контракт 44 фз гос закупка', isForm: true },
-  { title: 'Государственный контракт по 44-ФЗ с ЭДО', file: '/docs/consumers/4.-Государственный-контракт-на-услуги-по-технической-эксплуатации-коллекторов-по-44-ФЗ-с-ЭДО.pdf', path: '/consumers#contracts', keywords: 'государственный контракт 44 фз эдо', isForm: true },
-  { title: 'Договор по 223-ФЗ', file: '/docs/consumers/5.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ.pdf', path: '/consumers#contracts', keywords: 'договор 223 фз закупка', isForm: true },
-  { title: 'Договор по 223-ФЗ с ЭДО', file: '/docs/consumers/6.-Договор-на-услуги-по-технической-эксплуатации-коллекторов-по-223-ФЗ-с-ЭДО.pdf', path: '/consumers#contracts', keywords: 'договор 223 фз эдо', isForm: true },
   // ===== Прочие документы =====
   { title: 'Регламент допуска (АИС ARM Контроль)', file: '/docs/consumers/Регламент-взаимодействия-подразделений-АО-Москоллектор-по-осуществлению-допуска-в-коллекторы-с-использованием-АИС-ARM-Контроль.pdf', path: '/consumers#regulations', keywords: 'регламент допуск аис арм контроль взаимодействие', isForm: true },
   { title: 'Регламентная таблица (Приложение 2)', file: '/docs/consumers/Регламентная-таблица-АО-Москоллектор-Приложение-2-.pdf', path: '/consumers#regulations', keywords: 'регламентная таблица приложение 2', isForm: true },
-  { title: 'Список переименованных коллекторов', file: '/docs/forms/renamed-collectors.xlsx', path: '/consumers#work', keywords: 'переименованные коллекторы список новые наименования', isForm: true },
+  { title: 'Список переименованных коллекторов', file: '/docs/forms/renamed-collectors.xlsx', path: '/consumers#other', keywords: 'переименованные коллекторы список новые наименования', isForm: true },
 ];
 
 const searchablePages: SearchItem[] = [
@@ -603,7 +599,7 @@ export default function Layout() {
                 />
               </Link>
               <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm">
-                АО «Москоллектор» — специализированная организация по эксплуатации
+                АО «Москоллектор» — специализированная организация по эксплуатации
                 коммуникационных коллекторов города Москвы с 1988 года.
               </p>
               <div className="space-y-2.5">
@@ -663,7 +659,7 @@ export default function Layout() {
         <div className="border-t border-white/[0.06]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[13px] text-white/30">
-              <div>&copy; {new Date().getFullYear()} АО «Москоллектор». Все права защищены.</div>
+              <div>&copy; {new Date().getFullYear()} АО «Москоллектор». Все права защищены.</div>
               <div>Департамент ЖКХ города Москвы</div>
             </div>
           </div>

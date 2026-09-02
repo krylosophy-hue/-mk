@@ -13,7 +13,7 @@ import { news as cmsNews, announcements as cmsAnnouncements } from '@/lib/conten
 
 // CMS-managed announcements (content/announcements/*.md)
 const announcements = cmsAnnouncements.length > 0 ? cmsAnnouncements : [
-  { id: 'fallback', title: 'АО «Москоллектор»', content: 'Подземная инфраструктура столицы', link: '/about', order: 0, active: true },
+  { id: 'fallback', title: 'АО «Москоллектор»', content: 'Подземная инфраструктура столицы', link: '/about', order: 0, active: true },
 ];
 
 const quickAccessLinks = [
@@ -237,7 +237,7 @@ export default function Home() {
               </motion.h2>
               <motion.div variants={fadeIn} className="accent-bar mb-6" />
               <motion.p variants={fadeIn} className="text-gray-500 text-[16px] leading-relaxed mb-5">
-                АО «Москоллектор» занимается эксплуатацией коммуникационных коллекторов
+                АО «Москоллектор» занимается эксплуатацией коммуникационных коллекторов
                 столицы, общая протяжённость которых составляет 826 км. Это крупнейшее
                 коллекторное хозяйство в мире.
               </motion.p>

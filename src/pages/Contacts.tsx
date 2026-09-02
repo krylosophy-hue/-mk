@@ -166,7 +166,7 @@ export default function Contacts() {
             Контакты
           </h1>
           <p className="text-white/80 text-lg max-w-2xl leading-relaxed">
-            Контактная информация АО «Москоллектор», эксплуатирующих подразделений и специализированных служб
+            Контактная информация АО «Москоллектор», эксплуатирующих подразделений и специализированных служб
           </p>
         </div>
       </div>
@@ -174,9 +174,9 @@ export default function Contacts() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
         {/* ============================================================ */}
-        {/*  SECTION 1 — Контакты АО «Москоллектор»                      */}
+        {/*  SECTION 1 — Контакты АО «Москоллектор»                      */}
         {/* ============================================================ */}
-        <Section title='Контакты АО «Москоллектор»' icon={Building2} defaultOpen={false}>
+        <Section title='Контакты АО «Москоллектор»' icon={Building2} defaultOpen={false}>
           {/* Contact cards grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {mainContacts.map((item) => (
@@ -243,7 +243,7 @@ export default function Contacts() {
             <div className="flex gap-3">
               <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <p className="text-sm text-amber-900 leading-relaxed">
-                Документация, поступившая в Канцелярию и ЦОП АО «Москоллектор» в понедельник — четверг
+                Документация, поступившая в Канцелярию и ЦОП АО «Москоллектор» в понедельник — четверг
                 после 16:00, в пятницу после 15:00, регистрируется с указанием даты следующего
                 рабочего дня.
               </p>
@@ -422,7 +422,7 @@ export default function Contacts() {
         <div className="mt-6">
           <div className="relative h-96 rounded-3xl overflow-hidden bg-slate-100 shadow-lg ring-1 ring-black/5">
             <iframe
-              title="Карта: АО «Москоллектор»"
+              title="Карта: АО «Москоллектор»"
               src="https://yandex.ru/map-widget/v1/?ll=37.639042%2C55.773981&z=17&pt=37.639042%2C55.773981%2Cpm2rdm"
               width="100%"
               height="100%"

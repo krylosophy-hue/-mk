@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 /* ================================================================== */
 /* Tariff data — per km/year BEFORE VAT                                */
-/* Источник: приказ АО «Москоллектор» от 17.12.2025 № 612 (тарифы на   */
+/* Источник: приказ АО «Москоллектор» от 17.12.2025 № 612 (тарифы на   */
 /* техническую эксплуатацию на 2026 год) и приказ от 22.01.2026 № 12   */
 /* (цены на дополнительные услуги, действуют с 22.01.2026).            */
 /* ================================================================== */
@@ -383,7 +383,7 @@ export default function Calculator() {
     const XLSX = await import('xlsx');
     const dateStr = new Date().toLocaleDateString('ru-RU');
     const aoa: (string | number)[][] = [];
-    aoa.push(['Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»']);
+    aoa.push(['Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»']);
     aoa.push([`Дата расчёта: ${dateStr}`]);
     aoa.push([]);
     aoa.push(['Тип коммуникации', 'Протяженность, пог. м/ Количество, шт.', 'Тариф, руб./км в год *', 'Сумма ежемесячная, руб.**', 'Сумма ежегодная, руб.**']);
@@ -399,7 +399,7 @@ export default function Calculator() {
     });
     aoa.push(['ИТОГО', '', '', round2(totalM), round2(totalA)]);
     aoa.push([]);
-    aoa.push(['*Тарифы утверждены приказом АО «Москоллектор» от 17.12.2025 № 612 «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов». Тарифы указаны без учета НДС;']);
+    aoa.push(['*Тарифы утверждены приказом АО «Москоллектор» от 17.12.2025 № 612 «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов». Тарифы указаны без учёта НДС;']);
     aoa.push(['** Сумма указана с учётом НДС 22%.']);
 
     const ws = XLSX.utils.aoa_to_sheet(aoa);
@@ -415,7 +415,7 @@ export default function Calculator() {
     ws['!margins'] = { left: 0.4, right: 0.4, top: 0.5, bottom: 0.5, header: 0.2, footer: 0.2 };
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Расчёт');
-    XLSX.writeFile(wb, 'Расчет_стоимости_Москоллектор.xlsx');
+    XLSX.writeFile(wb, 'Расчёт_стоимости_Москоллектор.xlsx');
   };
 
   /* --- Экспорт в PDF — чистая печатная форма (без стилей сайта) --- */
@@ -436,7 +436,7 @@ export default function Calculator() {
       body += `<tr class="sub"><td colspan="3" class="r">Итого по коммуникации:</td><td class="r">${fmt2(gM)}</td><td class="r">${fmt2(gA)}</td></tr>`;
     });
     const html = `<!doctype html><html lang="ru"><head><meta charset="utf-8">` +
-      `<title>Расчёт стоимости услуг — АО «Москоллектор»</title><style>` +
+      `<title>Расчёт стоимости услуг — АО «Москоллектор»</title><style>` +
       `*{font-family:Arial,Helvetica,sans-serif;color:#000;box-sizing:border-box}` +
       `body{margin:22px}h1{font-size:14px;margin:0 0 3px;line-height:1.3}` +
       `.d{font-size:11px;color:#444;margin:0 0 16px}` +
@@ -448,13 +448,13 @@ export default function Calculator() {
       `tfoot td{font-weight:bold;background:#e3e3e3}` +
       `.note{font-size:9.5px;color:#333;margin-top:12px;line-height:1.4}` +
       `@page{size:A4;margin:14mm}@media print{body{margin:0}}</style></head><body>` +
-      `<h1>Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»</h1>` +
+      `<h1>Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»</h1>` +
       `<p class="d">Дата расчёта: ${dateStr}</p>` +
       `<table><thead><tr><th>Тип коммуникации</th><th>Протяженность, пог. м/ Количество, шт.</th><th>Тариф, руб./км в год *</th>` +
       `<th>Сумма ежемесячная, руб.**</th><th>Сумма ежегодная, руб.**</th></tr></thead>` +
       `<tbody>${body}</tbody>` +
       `<tfoot><tr><td colspan="3" class="r">ИТОГО:</td><td class="r">${fmt2(totalM)}</td><td class="r">${fmt2(totalA)}</td></tr></tfoot></table>` +
-      `<p class="note">*Тарифы утверждены приказом АО «Москоллектор» от 17.12.2025 № 612 «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов». Тарифы указаны без учета НДС;<br>** Сумма указана с учётом НДС 22%.</p>` +
+      `<p class="note">*Тарифы утверждены приказом АО «Москоллектор» от 17.12.2025 № 612 «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов». Тарифы указаны без учёта НДС;<br>** Сумма указана с учётом НДС 22%.</p>` +
       `</body></html>`;
     const w = window.open('', '_blank', 'width=900,height=700');
     if (!w) { alert('Не удалось открыть окно печати. Разрешите всплывающие окна для сохранения в PDF.'); return; }
@@ -472,7 +472,7 @@ export default function Calculator() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="accent-bar mb-6" />
           <h1 className="font-heading">Тарифный калькулятор</h1>
-          <p>Расчёт стоимости услуг по технической эксплуатации коммуникационных коллекторов АО «Москоллектор»</p>
+          <p>Расчёт стоимости услуг по технической эксплуатации коммуникационных коллекторов АО «Москоллектор»</p>
         </div>
       </div>
 
@@ -526,7 +526,7 @@ export default function Calculator() {
                 <FileText className="w-6 h-6 text-emerald-600" />
               </div>
               <h2 className="font-heading text-xl font-bold text-[#0a1628]">
-                Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»
+                Расчёт стоимости услуг по технической эксплуатации коллекторов АО «Москоллектор»
               </h2>
             </div>
 
@@ -611,7 +611,7 @@ export default function Calculator() {
 
             <p className="text-sm text-slate-400 mt-4 text-right">
               Сумма указана с учётом НДС 22%;<br />
-              Тариф указан без учета НДС.
+              Тариф указан без учёта НДС.
             </p>
 
             {/* Action buttons — like moscollector.ru */}
@@ -650,8 +650,8 @@ export default function Calculator() {
               <h3 className="font-heading font-semibold text-amber-800 mb-2">Важная информация</h3>
               <p className="text-amber-700 text-sm leading-relaxed mb-3">
                 Расчёт выполняется по тарифам, утверждённым{' '}
-                <strong>приказом АО «Москоллектор» от 17.12.2025 № 612</strong>{' '}
-                «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов».
+                <strong>приказом АО «Москоллектор» от 17.12.2025 № 612</strong>{' '}
+                «О тарифах на услуги АО «Москоллектор» по технической эксплуатации коммуникационных коллекторов».
               </p>
               <p className="text-amber-700 text-sm leading-relaxed">
                 Калькулятор позволяет получить предварительную стоимость услуг. Окончательная стоимость услуг

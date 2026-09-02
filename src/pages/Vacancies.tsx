@@ -43,7 +43,7 @@ export default function Vacancies() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Вакансии</h1>
           <p className="text-white/80 text-lg max-w-2xl leading-relaxed">
-            Присоединяйтесь к команде АО «Москоллектор». Мы предлагаем стабильную работу и возможности для профессионального роста.
+            Присоединяйтесь к команде АО «Москоллектор». Мы предлагаем стабильную работу и возможности для профессионального роста.
           </p>
         </div>
       </div>

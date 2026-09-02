@@ -70,7 +70,7 @@ export default function ConsumerNews() {
             Новости для потребителей
           </h1>
           <p className="text-white/70 text-lg max-w-2xl leading-relaxed">
-            Актуальная информация для потребителей услуг АО «Москоллектор»
+            Актуальная информация для потребителей услуг АО «Москоллектор»
           </p>
         </div>
       </div>

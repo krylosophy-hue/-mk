@@ -20,7 +20,7 @@ export default function Shareholders() {
           <div className="accent-bar mb-6" />
           <h1 className="font-heading">Акционерам</h1>
           <p>
-            Информация для акционеров АО «Москоллектор»: отчетность, документы, собрания
+            Информация для акционеров АО «Москоллектор»: отчётность, документы, собрания
           </p>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function Shareholders() {
         {/* Info Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-14">
           {[
-            { icon: FileText, title: 'Отчетность', desc: 'Годовые отчеты и бухгалтерская отчетность' },
+            { icon: FileText, title: 'Отчётность', desc: 'Годовые отчёты и бухгалтерская отчётность' },
             { icon: Users, title: 'Собрания', desc: 'Информация о собраниях акционеров' },
             { icon: TrendingUp, title: 'Дивиденды', desc: 'Информация о выплате дивидендов' },
           ].map((item) => (
@@ -124,7 +124,7 @@ export default function Shareholders() {
             <div className="card-modern rounded-2xl p-7">
               <h3 className="font-bold font-heading text-[#0a1628] mb-2">Дивидендная политика</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                АО «Москоллектор» придерживается прозрачной дивидендной политики,
+                АО «Москоллектор» придерживается прозрачной дивидендной политики,
                 направленной на обеспечение баланса интересов акционеров и развития компании.
               </p>
             </div>

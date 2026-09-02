@@ -7,7 +7,7 @@ export default function ReceptionHours() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="accent-bar mb-6" />
           <h1 className="font-heading">Дни и часы приёма</h1>
-          <p>Информация о графике работы АО «Москоллектор»</p>
+          <p>Информация о графике работы АО «Москоллектор»</p>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export default function ReceptionHours() {
 
           <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
             <p className="text-blue-800 text-sm">
-              <strong>Примечание:</strong> документация, поступившая в Канцелярию и ЦОП АО «Москоллектор» в понедельник — четверг после 16:00, в пятницу после 15:00, регистрируется с указанием даты следующего рабочего дня.
+              <strong>Примечание:</strong> документация, поступившая в Канцелярию и ЦОП АО «Москоллектор» в понедельник — четверг после 16:00, в пятницу после 15:00, регистрируется с указанием даты следующего рабочего дня.
             </p>
           </div>
         </div>

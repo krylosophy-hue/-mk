@@ -78,7 +78,7 @@ export default function About() {
           <div className="accent-bar mb-6" />
           <h1 className="font-heading">О компании</h1>
           <p>
-            АО «Москоллектор» — организация, отвечающая за эксплуатацию коммуникационных коллекторов города Москвы
+            АО «Москоллектор» — организация, отвечающая за эксплуатацию коммуникационных коллекторов города Москвы
           </p>
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function About() {
                   Департамент городского имущества города Москвы.
                 </p>
                 <p className="text-gray-500 leading-relaxed mt-4">
-                  Коммуникационные коллекторы АО «Москоллектор» предназначены для совместной
+                  Коммуникационные коллекторы АО «Москоллектор» предназначены для совместной
                   прокладки инженерных коммуникаций, таких как: силовые кабели, оптоволоконные
                   кабели и кабели связи, трубопроводы теплосети и водопровода.
                 </p>
@@ -167,7 +167,7 @@ export default function About() {
                     { year: '2018', short: '18', text: 'Реконструкция коммуникационного коллектора «Лужники» при подготовке к повышенным нагрузкам во время ЧМ по футболу 2018.' },
                     { year: 'ноябрь 2018', short: '18', text: 'Ввод в эксплуатацию уникального коллектора «Пресня» — часть трассы пролегает на сверхглубине 19 метров под руслом Москвы-реки.' },
                     { year: '2019', short: '19', text: 'Старт программы технического переоснащения слаботочных систем коммуникационных коллекторов.' },
-                    { year: '15 октября 2020', short: '20', text: 'Преобразовано в АО «Москоллектор».' },
+                    { year: '15 октября 2020', short: '20', text: 'Преобразовано в АО «Москоллектор».' },
                     { year: '2021', short: '21', text: 'Введён в эксплуатацию коллектор для АДЦ «Коммунарка» — крупнейшего социально-делового кластера ТиНАО.' },
                     { year: '2013–2023', short: '13', text: 'Обновлено 50% всей сети коммуникационных коллекторов.' },
                     { year: '2023', short: '23', text: 'Внедрена информационная система «АРМ Контроль» для контроля допуска в коллекторы; реализован пилотный проект аэрозольного пожаротушения; старт развития комплекса мониторинга и диспетчеризации (СМВУ 3.0).' },
@@ -259,7 +259,7 @@ export default function About() {
               <h3 className="font-bold font-heading text-lg mb-5">Реквизиты</h3>
               <div className="space-y-3 text-sm">
                 <p><span className="text-white/50 text-xs uppercase tracking-wider">Полное наименование</span><br /><span className="text-white/90">Акционерное общество «Москоллектор»</span></p>
-                <p><span className="text-white/50 text-xs uppercase tracking-wider">Сокращенное</span><br /><span className="text-white/90">АО «Москоллектор»</span></p>
+                <p><span className="text-white/50 text-xs uppercase tracking-wider">Сокращенное</span><br /><span className="text-white/90">АО «Москоллектор»</span></p>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <p><span className="text-white/50 text-xs uppercase tracking-wider">ИНН</span><br /><span className="text-white/90">7708389595</span></p>
                   <p><span className="text-white/50 text-xs uppercase tracking-wider">КПП</span><br /><span className="text-white/90">770801001</span></p>

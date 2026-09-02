@@ -257,10 +257,10 @@ export default function Press() {
               Корпоративная газета «Подземный лабиринт»
             </h2>
             <p className="text-gray-500 mb-8 leading-relaxed max-w-3xl">
-              Корпоративная газета АО «Москоллектор» «Подземный лабиринт» издаётся с 2017 года.
+              Корпоративная газета АО «Москоллектор» «Подземный лабиринт» издаётся с 2017 года.
               В ней публикуются новости компании, репортажи о деятельности подразделений, интервью с сотрудниками и материалы о жизни коллектива.
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div id="gazeta-archive" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 scroll-mt-28">
               {newspaperIssues.map((issue) => (
                 <a
                   key={issue.number}
@@ -297,16 +297,14 @@ export default function Press() {
                 <h3 className="font-heading font-bold text-[#0a1628]">Все выпуски газеты</h3>
               </div>
               <p className="text-gray-500 text-sm mb-4 ml-12 leading-relaxed">
-                Полный архив всех выпусков корпоративной газеты «Подземный лабиринт» доступен на официальном сайте АО «Москоллектор».
+                Полный архив выпусков корпоративной газеты «Подземный лабиринт» доступен в этом разделе.
               </p>
               <div className="ml-12">
                 <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#gazeta-archive"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-2xl text-sm font-medium hover:bg-sky-700 transition-colors duration-200 shadow-md shadow-sky-600/20"
                 >
-                  <ExternalLink className="w-4 h-4" />
+                  <FileText className="w-4 h-4" />
                   Перейти к архиву выпусков
                 </a>
               </div>
@@ -323,17 +321,33 @@ export default function Press() {
               <div className="p-6 md:p-8">
                 <div className="accent-bar mb-4" />
                 <h3 className="font-heading text-xl font-bold text-[#0a1628] mb-3">
-                  АО «Москоллектор» — 25 лет
+                  ГУП «Москоллектор» — 25 лет
                 </h3>
                 <p className="text-gray-500 leading-relaxed mb-6 max-w-3xl">
-                  Юбилейная книга, посвящённая 25-летию АО «Москоллектор», рассказывает об истории создания и развития
+                  Юбилейная книга, посвящённая 25-летию ГУП «Москоллектор», рассказывает об истории создания и развития
                   предприятия, о людях, стоявших у истоков компании, и о современной деятельности
                   по эксплуатации коммуникационных коллекторов города Москвы.
                 </p>
-                <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-400 text-white rounded-2xl text-sm font-medium cursor-default">
-                  <BookOpen className="w-4 h-4" />
-                  Раздел в разработке
-                </span>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={asset('docs/tech-info/Part1.pdf')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-2xl text-sm font-medium hover:bg-sky-700 transition-colors duration-200 shadow-md shadow-sky-600/20"
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    Москоллектору 25 лет — Часть 1 (PDF)
+                  </a>
+                  <a
+                    href={asset('docs/tech-info/Part2.pdf')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 text-white rounded-2xl text-sm font-medium hover:bg-sky-700 transition-colors duration-200 shadow-md shadow-sky-600/20"
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    Москоллектору 25 лет — Часть 2 (PDF)
+                  </a>
+                </div>
               </div>
             </div>
           </>
