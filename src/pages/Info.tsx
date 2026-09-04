@@ -6,7 +6,8 @@ import {
   Scale, Settings, Download, Menu, X,
   AlertOctagon, Info as InfoIcon, Mail
 } from 'lucide-react';
-import { fileUrl } from '@/lib/utils';
+import { fileUrl, mediaUrl } from '@/lib/utils';
+import { documentsRevocation } from '@/lib/content';
 
 const FILE_BASE_URL = `${import.meta.env.BASE_URL}docs/`;
 
@@ -691,32 +692,13 @@ export default function Info() {
                   содержится в&nbsp;соответствующем PDF-документе.
                 </p>
 
-                {/* #4 — Список приказов об отзыве доверенностей (со старого сайта) */}
-                {/* Список 1:1 с moscollector.ru/информация-об-отзыве-доверенностей
-                     Названия без фамилий — фамилии остаются только в имени файла. */}
+                {/* Список — из CMS (коллекция «Отзыв доверенностей», /admin/).
+                    Ранее хардкод содержал баг '${doc.file}' в кавычках — все ссылки 404. */}
                 <div className="space-y-3">
-                  {[
-                    { date: '01.12.2025', label: 'Информация об отзыве доверенности от 01.12.25', file: 'revocation/2025-12-01-krylosov.pdf' },
-                    { date: '13.05.2025', label: 'Информация об отзыве доверенности от 13.05.25', file: 'revocation/2025-05-13-karalskaya.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-shatirishvili.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-tatarinzev.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-taktashov.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-senchurov.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-koshcheev.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-glushchenko.pdf' },
-                    { date: '12.05.2025', label: 'Информация об отзыве доверенности от 12.05.25', file: 'revocation/2025-05-12-bormotov.pdf' },
-                    { date: '07.05.2025', label: 'Информация об отзыве доверенности от 07.05.25', file: 'revocation/2025-05-07-bobylev.pdf' },
-                    { date: '07.05.2025', label: 'Информация об отзыве доверенности от 07.05.25', file: 'revocation/2025-05-07-bobrovskii.pdf' },
-                    { date: '07.05.2025', label: 'Информация об отзыве доверенности от 07.05.25', file: 'revocation/2025-05-07-astashkin.pdf' },
-                    { date: '24.12.2024', label: 'Информация об отзыве доверенности от 24.12.24', file: 'revocation/2024-12-24-obshchii.pdf' },
-                    { date: '25.04.2022', label: 'Информация об отзыве доверенностей от 25.04.22', file: 'revocation/2022-04-25-obshchii.pdf' },
-                    { date: '10.12.2020', label: 'Информация об отзыве доверенностей от 10.12.20', file: 'revocation/2020-12-10-obshchii.pdf' },
-                    { date: '25.11.2020', label: 'Информация об отзыве доверенностей от 25.11.20', file: 'revocation/2020-11-25-obshchii.pdf' },
-                    { date: '18.11.2020', label: 'Информация об отзыве доверенностей от 18.11.20', file: 'revocation/2020-11-18-obshchii.pdf' },
-                  ].map((doc) => (
+                  {documentsRevocation.map((doc) => (
                     <a
-                      key={doc.file}
-                      href={fileUrl(FILE_BASE_URL, '${doc.file}')}
+                      key={doc.id}
+                      href={mediaUrl(doc.file)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 p-4 bg-white rounded-xl border border-slate-200 hover:shadow-md hover:border-sky-300 transition-all group"
@@ -725,7 +707,7 @@ export default function Info() {
                         <Download className="w-5 h-5 text-sky-600" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-[#0a1628] truncate">{doc.label}</p>
+                        <p className="font-medium text-[#0a1628] truncate">{doc.title}</p>
                         <p className="text-sm text-slate-400 mt-0.5">Дата отзыва: {doc.date} · PDF</p>
                       </div>
                     </a>

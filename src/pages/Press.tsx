@@ -227,7 +227,7 @@ export default function Press() {
                       className="w-full aspect-video"
                       preload="metadata"
                     >
-                      <source src={asset(video.src)} type="video/mp4" />
+                      <source src={mediaUrl(video.src)} type="video/mp4" />
                       Ваш браузер не поддерживает воспроизведение видео.
                     </video>
                   </div>
@@ -264,7 +264,7 @@ export default function Press() {
               {newspaperIssues.map((issue) => (
                 <a
                   key={issue.number}
-                  href={asset(issue.file)}
+                  href={mediaUrl(issue.file)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group card-modern rounded-2xl p-6 hover:shadow-lg transition-all duration-200"

@@ -144,7 +144,13 @@ collections:
       - { name: "number", label: "Номер выпуска (например: №04 (65))", widget: "string", required: true }
       - { name: "year", label: "Год", widget: "string", required: true }
       - { name: "label", label: "Подпись (например: 2025 — Выпуск №04 (65))", widget: "string", required: true }
-      - { name: "file", label: "Файл PDF", widget: "file", required: true, hint: "Загрузите PDF-файл выпуска. Будет помещён в /docs/newspaper/." }
+      - name: "file"
+        label: "Файл PDF"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/newspaper"
+        public_folder: "/docs/newspaper"
+        hint: "Загрузите PDF-файл выпуска — он попадёт в /docs/newspaper/ и откроется на сайте."
 
   # ============================================================
   # 5. ВИДЕО
@@ -160,7 +166,13 @@ collections:
     fields:
       - { name: "title", label: "Заголовок", widget: "string", required: true, hint: "Название ролика. Если в названии есть «Москоллектор» как имя компании — берите в кавычки «…»." }
       - { name: "description", label: "Описание", widget: "text", required: true, hint: "1–2 предложения, о чём ролик." }
-      - { name: "src", label: "Файл видео (MP4)", widget: "file", required: true, hint: "⚠️ До 80 МБ. Сожмите на handbrake.fr (preset «Web → Fast 720p30»). Для бóльших роликов — загрузите на YouTube/VK и добавьте новость с embed-ссылкой." }
+      - name: "src"
+        label: "Файл видео (MP4)"
+        widget: "file"
+        required: true
+        media_folder: "/public/videos"
+        public_folder: "/videos"
+        hint: "⚠️ До 80 МБ. Сожмите на handbrake.fr (preset «Web → Fast 720p30»). Для бóльших роликов — загрузите на YouTube/VK и добавьте новость с embed-ссылкой."
 
   # ============================================================
   # 6. НОВОСТИ ДЛЯ ПОТРЕБИТЕЛЕЙ
@@ -273,7 +285,13 @@ collections:
     summary: "{{title}}"
     fields:
       - { name: "title", label: "Название", widget: "string", required: true }
-      - { name: "file", label: "PDF-файл", widget: "file", required: true, hint: "Например: /docs/anticorruption/файл.pdf" }
+      - name: "file"
+        label: "PDF-файл"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/anticorruption"
+        public_folder: "/docs/anticorruption"
+        hint: "Файл попадёт в /docs/anticorruption/."
       - { name: "section", label: "Раздел", widget: "select", options: ["regulatory", "local"], default: "local", hint: "regulatory = нормативные акты, local = локальные акты" }
       - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
 
@@ -289,7 +307,12 @@ collections:
     summary: "{{title}}"
     fields:
       - { name: "title", label: "Название", widget: "string", required: true }
-      - { name: "file", label: "PDF-файл", widget: "file", required: true }
+      - name: "file"
+        label: "PDF-файл"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/antiterror"
+        public_folder: "/docs/antiterror"
       - { name: "section", label: "Раздел", widget: "select", options: ["regulatory", "protection"], default: "regulatory", hint: "regulatory = нормативные документы, protection = антитеррористическая защищенность" }
       - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
 
@@ -305,7 +328,12 @@ collections:
     summary: "{{title}}"
     fields:
       - { name: "title", label: "Название", widget: "string", required: true }
-      - { name: "file", label: "Файл", widget: "file", required: true }
+      - name: "file"
+        label: "Файл"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/tech-info"
+        public_folder: "/docs/tech-info"
       - { name: "section", label: "Раздел", widget: "select", options: ["tu", "collectors", "jubilee", "transfer"], default: "tu", hint: "tu = ТУ, collectors = коллекторы, jubilee = юбилейная книга, transfer = передача" }
       - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
 
@@ -321,7 +349,12 @@ collections:
     summary: "{{title}}"
     fields:
       - { name: "title", label: "Название", widget: "string", required: true }
-      - { name: "file", label: "PDF-файл", widget: "file", required: true }
+      - name: "file"
+        label: "PDF-файл"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/shareholders"
+        public_folder: "/docs/shareholders"
       - { name: "date", label: "Дата (DD.MM.YYYY)", widget: "string", required: false }
       - { name: "size", label: "Размер (например: 2.4 MB)", widget: "string", required: false }
       - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
@@ -358,8 +391,39 @@ collections:
     summary: "{{title}}"
     fields:
       - { name: "title", label: "Название", widget: "string", required: true }
-      - { name: "file", label: "Файл", widget: "file", required: true, hint: "PDF/DOC/XLSX до 80 МБ." }
+      - name: "file"
+        label: "Файл"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/procurement"
+        public_folder: "/docs/procurement"
+        hint: "PDF/DOC/XLSX до 80 МБ — файл попадёт в /docs/procurement/."
       - { name: "order", label: "Порядок", widget: "number", default: 1, value_type: "int", min: 1, max: 99 }
+
+  # ============================================================
+  # 13a. ОТЗЫВ ДОВЕРЕННОСТЕЙ
+  # ============================================================
+  - name: "doc-revocation"
+    label: "Отзыв доверенностей"
+    label_singular: "Отзыв"
+    description: "Раздел «Информация → Отзыв доверенностей». «+ Отзыв» — добавить документ, 🗑 — удалить. Новые отображаются сверху (по дате сортировки)."
+    folder: "content/documents/revocation"
+    create: true
+    delete: true
+    slug: "{{sortDate}}-{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: ['sortDate']
+    fields:
+      - { name: "title", label: "Название", widget: "string", required: true, hint: "Например: Информация об отзыве доверенности от 07.07.26" }
+      - { name: "date", label: "Дата отзыва (DD.MM.YYYY — показывается на сайте)", widget: "string", required: true, hint: "Например: 07.07.2026" }
+      - name: "file"
+        label: "PDF-файл"
+        widget: "file"
+        required: true
+        media_folder: "/public/docs/revocation"
+        public_folder: "/docs/revocation"
+        hint: "PDF с приказом об отзыве — попадёт в /docs/revocation/."
+      - { name: "sortDate", label: "Дата для сортировки (ГГГГ-ММ-ДД)", widget: "string", required: true, hint: "Например: 2026-07-07. Новые даты показываются выше." }
 
   # ============================================================
   # 14. ФОТОГАЛЕРЕИ (Профком / Социальная политика)

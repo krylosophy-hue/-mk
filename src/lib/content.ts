@@ -97,6 +97,9 @@ const docsShareholdersRaw = import.meta.glob('/content/documents/shareholders/*.
 const docsProcurementRaw = import.meta.glob('/content/documents/procurement/*.md', {
   eager: true, query: '?raw', import: 'default',
 }) as Record<string, string>
+const docsRevocationRaw = import.meta.glob('/content/documents/revocation/*.md', {
+  eager: true, query: '?raw', import: 'default',
+}) as Record<string, string>
 
 // Контакты — единый YAML
 const contactsRaw = import.meta.glob('/content/contacts.yml', {
@@ -362,6 +365,20 @@ export const documentsAntiterror = loadDocuments(docsAntiterrorRaw)
 export const documentsTech = loadDocuments(docsTechRaw)
 export const documentsShareholders = loadDocuments(docsShareholdersRaw)
 export const documentsProcurement = loadDocuments(docsProcurementRaw)
+// Отзывы доверенностей: сортировка по дате отзыва (новые сверху), поле sortDate
+export const documentsRevocation: DocumentItem[] = Object.entries(docsRevocationRaw)
+  .map(([path, fileRaw]) => {
+    const { data } = parseFrontmatter(fileRaw)
+    return {
+      id: slugFromPath(path),
+      title: String(data.title || ''),
+      file: String(data.file || ''),
+      date: data.date ? String(data.date) : undefined,
+      section: data.sortDate ? normalizeDate(data.sortDate) : '',
+      order: 1,
+    } as DocumentItem
+  })
+  .sort((a, b) => (b.section || '').localeCompare(a.section || ''))
 
 // Контакты — целиком из YAML
 export const contacts: ContactsData = (() => {

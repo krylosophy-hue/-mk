@@ -5,7 +5,7 @@ import {
   CheckCircle, Phone, User, ShieldCheck
 } from 'lucide-react';
 import { documentsProcurement } from '@/lib/content';
-import { asset } from '@/lib/utils';
+import { mediaUrl } from '@/lib/utils';
 
 // Animation variants
 const fadeInUp = {
@@ -27,10 +27,10 @@ const principles = [
 ];
 
 // CMS-managed: /admin/ → коллекция «Документы по закупкам»
-// #9 — оборачиваем file в asset() чтобы добавился префикс /-mk/ на Pages
+// Пути из CMS (/-mk/uploads/…) и ручные (/docs/…) нормализуются mediaUrl:
 const documents = documentsProcurement.map((d) => ({
   title: d.title,
-  file: d.file.startsWith('http') || d.file.startsWith('/-mk') ? d.file : asset(d.file),
+  file: mediaUrl(d.file),
 }));
 
 export default function Procurement() {
