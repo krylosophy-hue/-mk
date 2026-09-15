@@ -365,27 +365,17 @@ export default function Contacts() {
                 <tr className="border-b border-slate-200 text-left">
                   <th className="py-3 pr-4 font-semibold text-[#0a1628]">Подразделение</th>
                   <th className="py-3 pr-4 font-semibold text-[#0a1628] hidden sm:table-cell">
-                    Адрес
+                    Адрес местонахождения
                   </th>
                   <th className="py-3 pr-4 font-semibold text-[#0a1628]">Руководитель</th>
-                  <th className="py-3 font-semibold text-[#0a1628] text-right">Доб.</th>
+                  <th className="py-3 font-semibold text-[#0a1628] text-right">Номер телефона</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {specializedServices.map((svc) => (
                   <tr key={svc.name} className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3.5 pr-4 font-medium text-[#0a1628] align-top">
-                      {svc.name}
-                      {svc.fullName && (
-                        <span className="block text-xs text-slate-400 mt-0.5 font-normal italic">
-                          {svc.fullName}
-                        </span>
-                      )}
-                      {svc.phone && (
-                        <span className="block text-xs text-slate-400 mt-0.5 font-normal">
-                          {svc.phone}
-                        </span>
-                      )}
+                      {svc.fullName ? `${svc.fullName} (${svc.name})` : svc.name}
                       {/* address on mobile */}
                       <span className="block text-xs text-slate-400 mt-0.5 font-normal sm:hidden">
                         {svc.address}
@@ -408,7 +398,9 @@ export default function Contacts() {
                       )}
                     </td>
                     <td className="py-3.5 text-right text-slate-600 tabular-nums align-top whitespace-nowrap">
-                      {svc.ext ? svc.ext : <span className="text-slate-300">&mdash;</span>}
+                      {svc.ext
+                        ? `+7 (499) 222-22-01, доб. ${svc.ext}`
+                        : svc.phone || <span className="text-slate-300">&mdash;</span>}
                     </td>
                   </tr>
                 ))}

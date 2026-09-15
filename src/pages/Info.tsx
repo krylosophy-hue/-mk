@@ -353,7 +353,7 @@ export default function Info() {
 
               <div className="card-modern rounded-2xl p-7 mb-6">
                 <div className="accent-bar mb-5" />
-                <h3 className="text-lg font-heading font-bold text-[#0a1628] mb-4">О предприятии</h3>
+                <h3 className="text-lg font-heading font-bold text-[#0a1628] mb-4">О компании</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">
                   АО «Москоллектор» — специализированная организация, осуществляющая эксплуатацию
                   коммуникационных коллекторов города Москвы. Предприятие подведомственно Департаменту

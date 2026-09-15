@@ -87,6 +87,7 @@ specializedServices:
     headExt: ''
     fullName: Объединённая диспетчерская служба
   - name: УЭиТР
+    fullName: Управление эксплуатации и технического развития
     address: г. Москва, ул. Лобачика, д. 4
     phone: ''
     head: Гордюшина Татьяна Николаевна
@@ -101,6 +102,7 @@ specializedServices:
     ext: '1703'
     headExt: ''
   - name: ОТРК (группа согласования)
+    fullName: Отдел технического развития коллекторов
     address: г. Москва, ул. Лобачика, д. 4
     phone: ''
     head: Присэкару Светлана Викторовна
@@ -122,6 +124,7 @@ specializedServices:
     ext: '4300'
     headExt: ''
   - name: УРсП
+    fullName: Управление по работе с потребителями
     address: г. Москва, ул. Лобачика, д. 4
     phone: ''
     head: Хватов Кирилл Борисович
@@ -137,6 +140,7 @@ specializedServices:
     headExt: ''
     fullName: Центр обслуживания потребителей
   - name: ОРУ
+    fullName: Отдел реализации услуг
     address: г. Москва, ул. Лобачика, д. 4
     phone: ''
     head: Плотникова Наталия Александровна
@@ -144,6 +148,7 @@ specializedServices:
     ext: '2417'
     headExt: ''
   - name: ОУКиСКПУ
+    fullName: Отдел учёта коммуникаций и системы качества предоставляемых услуг
     address: г. Москва, ул. Лобачика, д. 4
     phone: ''
     head: Рогачёва Юлия Николаевна
@@ -221,4 +226,4 @@ specializedServices:
     headTitle: ''
     ext: '3701'
     headExt: ''
-chancelleryExt: '1505'
+chancelleryExt: ''

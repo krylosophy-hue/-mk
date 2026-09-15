@@ -1425,7 +1425,7 @@ export default function Consumers() {
               </div>
 
               <div className="space-y-4">
-                <Accordion title="Дубликаты документов" defaultOpen={false}>
+                <Accordion title="Выдача дубликатов документов" defaultOpen={false}>
                   <div className="space-y-6">
                     <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl mb-4">
                       <p className="text-amber-800 text-sm flex items-start gap-2">
@@ -1460,7 +1460,7 @@ export default function Consumers() {
                   </div>
                 </Accordion>
 
-                <Accordion title="Продление ТУ" defaultOpen={false}>
+                <Accordion title="Продление технических условий" defaultOpen={false}>
                   <div className="space-y-4">
                     <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
                       <p className="text-amber-800 text-sm flex items-start gap-2">
@@ -1479,7 +1479,7 @@ export default function Consumers() {
                   </div>
                 </Accordion>
 
-                <Accordion title="Продление ТУ и согласований проектов" defaultOpen={false}>
+                <Accordion title="Продление технических условий и согласования проектной документации" defaultOpen={false}>
                   <div className="space-y-4">
                     <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
                       <p className="text-amber-800 text-sm flex items-start gap-2">
@@ -1590,7 +1590,7 @@ export default function Consumers() {
                   </div>
                 </Accordion>
 
-                <Accordion title="Отчёт по протяжённости коммуникаций по договору на услуги по технической эксплуатации коллекторов" defaultOpen={false}>
+                <Accordion title="Предоставление отчётов по протяжённости коммуникаций по договору на услуги по технической эксплуатации коллекторов" defaultOpen={false}>
                   {/* Описание убрано по замечаниям УРсП 11.08 */}
                   <div className="p-5 bg-white rounded-xl border border-gray-200">
                     <DownloadButton file="Форма-59.doc" label="Форма 59" />
@@ -1606,11 +1606,14 @@ export default function Consumers() {
                       <table className="w-full min-w-[620px] text-sm">
                         <thead>
                           <tr className="bg-[#0a1628] text-white">
-                            <th className="text-left px-3 py-3 font-semibold rounded-tl-lg">№</th>
-                            <th className="text-left px-3 py-3 font-semibold">Вид услуги</th>
-                            <th className="text-center px-3 py-3 font-semibold">Ед. изм.</th>
-                            <th className="text-right px-3 py-3 font-semibold">Без НДС, ₽</th>
-                            <th className="text-right px-3 py-3 font-semibold rounded-tr-lg">С НДС, ₽</th>
+                            <th rowSpan={2} className="px-3 py-3 font-semibold text-center w-14 align-middle whitespace-nowrap">№</th>
+                            <th rowSpan={2} className="px-3 py-3 font-semibold text-center align-middle">Вид услуги</th>
+                            <th rowSpan={2} className="px-3 py-3 font-semibold text-center w-20 align-middle">Ед. изм.</th>
+                            <th colSpan={2} className="px-3 py-2 font-semibold text-center border-b border-white/10">Стоимость, руб.</th>
+                          </tr>
+                          <tr className="bg-[#0a1628] text-white">
+                            <th className="px-3 py-2 font-semibold text-center w-28">без НДС</th>
+                            <th className="px-3 py-2 font-semibold text-center w-28">с НДС</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200">
@@ -1763,11 +1766,6 @@ export default function Consumers() {
                 </Accordion>
 
                 <Accordion title="Аннулирование ордера">
-                  <p className="text-gray-700 text-sm mb-3">
-                    Для получения услуги необходимо заполнить соответствующую форму письма-заявки
-                    и предоставить нарочно в Центр обслуживания потребителей. Порядок и сроки оказания услуг —
-                    в разделе <a href="#regulations" className="text-sky-600 hover:underline font-medium">«Регламентные документы»</a>.
-                  </p>
                   <p className="text-gray-700 text-sm mb-2">Письмо-заявка подается с приложением:</p>
                   <p className="text-gray-700 text-sm mb-3">
                     Оригинал ордера (экземпляр АО «Москоллектор» и экземпляр потребителя) с отметкой
@@ -2521,6 +2519,11 @@ export default function Consumers() {
                   Добавлен Регламент по демонтажу КЛС силами потребителей. */}
               <div className="space-y-4">
                 {[
+                  {
+                    name: 'Регламентная таблица подготовки и выдачи документов Заявителям в рамках реализации положения о работе с потребителями услуг АО «Москоллектор»',
+                    file: '/docs/consumers/Регламентная-таблица-АО-Москоллектор-Приложение-2-.pdf',
+                    ext: 'PDF',
+                  },
                   {
                     name: 'Регламент взаимодействия подразделений АО «Москоллектор», организаций — собственников коммуникаций, проложенных в коллекторах, по осуществлению допуска в коллекторы с использованием АИС «АРМ-Контроль»',
                     file: '/docs/consumers/Регламент-взаимодействия-подразделений-АО-Москоллектор-по-осуществлению-допуска-в-коллекторы-с-использованием-АИС-ARM-Контроль.pdf',

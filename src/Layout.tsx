@@ -153,21 +153,13 @@ export const formCatalog: SearchItem[] = [
   { title: 'Форма 51 — аннулирование ТУ на бронирование мест в коллекторах', file: FORMS_BASE + 'ФОРМА-51.doc', path: '/consumers#other', keywords: 'форма 51 аннулирование бронирование ту', isForm: true },
   { title: 'Форма 60 — аннулирование ТУ на прокладку/врезку/демонтаж коммуникаций', file: FORMS_BASE + 'Форма-60.doc', path: '/consumers#other', keywords: 'форма 60 аннулирование ту', isForm: true },
   { title: 'Форма 61 — аннулирование ТУ и согласования проекта на прокладку/врезку/демонтаж', file: FORMS_BASE + 'Форма-61.doc', path: '/consumers#other', keywords: 'форма 61 аннулирование согласование проект', isForm: true },
-  // ===== Доверенности и инструкции =====
+  // ===== Доверенность =====
   { title: 'Доверенность — типовая форма', file: FORMS_BASE + 'Доверенность.docx', path: '/consumers#other', keywords: 'доверенность типовая получение оригиналов', isForm: true },
-  { title: 'Регламент согласования ПСД', file: FORMS_BASE + 'Регламент-согласования-ПСД.docx', path: '/consumers#commercial', keywords: 'регламент согласование псд проектно сметная', isForm: true },
-  { title: 'Инструкция ЛК — регистрация', file: FORMS_BASE + 'Инструкция_ЛК_регистрация-1.pdf', path: '/consumers#dopusk', keywords: 'инструкция лк личный кабинет регистрация', isForm: true },
-  { title: 'Инструкция ЛК — версия 1.1', file: FORMS_BASE + 'Инструкция_ЛК_ver_1.1_21.09.pdf', path: '/consumers#dopusk', keywords: 'инструкция лк личный кабинет руководство', isForm: true },
-  { title: 'Инструкция по установке ЭЦП', file: FORMS_BASE + 'Инструкция-по-установке-ЭЦП.pdf', path: '/consumers#dopusk', keywords: 'инструкция установка эцп электронная цифровая подпись укэп', isForm: true },
-  { title: 'Памятка по оформлению допуска', file: FORMS_BASE + 'Памятка-по-оформлению-допуска-в-коллекторы-1.pdf', path: '/consumers#dopusk', keywords: 'памятка оформление допуск коллектор', isForm: true },
   // ===== Типовые формы договоров =====
   { title: 'Форма 15 — договор на сохранность (СМР по прокладке/демонтажу в коллекторах и охранных зонах)', file: FORMS_BASE + 'Форма-15.docx', path: '/consumers#work', keywords: 'форма 15 договор сохранность конструкции коллектор', isForm: true },
   { title: 'Форма 15.1 — договор на сохранность (мониторинг)', file: FORMS_BASE + 'Форма-15.1.doc', path: '/consumers#work', keywords: 'форма 15.1 договор сохранность мониторинг', isForm: true },
   { title: 'Приложение к формам 15 и 15.1 — перечень мероприятий для реализации ППР', file: FORMS_BASE + 'Приложение-к-форме-15-и-15.1.doc', path: '/consumers#work', keywords: 'приложение 15 15.1 перечень мероприятий ппр', isForm: true },
   // ===== Прочие документы =====
-  { title: 'Регламент допуска (АИС ARM Контроль)', file: '/docs/consumers/Регламент-взаимодействия-подразделений-АО-Москоллектор-по-осуществлению-допуска-в-коллекторы-с-использованием-АИС-ARM-Контроль.pdf', path: '/consumers#regulations', keywords: 'регламент допуск аис арм контроль взаимодействие', isForm: true },
-  { title: 'Регламентная таблица (Приложение 2)', file: '/docs/consumers/Регламентная-таблица-АО-Москоллектор-Приложение-2-.pdf', path: '/consumers#regulations', keywords: 'регламентная таблица приложение 2', isForm: true },
-  { title: 'Список переименованных коллекторов', file: '/docs/forms/renamed-collectors.xlsx', path: '/consumers#other', keywords: 'переименованные коллекторы список новые наименования', isForm: true },
 ];
 
 const searchablePages: SearchItem[] = [
