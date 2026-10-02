@@ -1,0 +1,46 @@
+name: Site health check
+
+# Мониторинг по ИБ-аудиту 02.10.2026: доступность обоих деплоев и срок
+# TLS-сертификата. При провале GitHub сам шлёт владельцу репозитория письмо
+# о падении scheduled-workflow — внешний сервис не нужен.
+on:
+  schedule:
+    - cron: '0 6,18 * * *'   # дважды в день (09:00 и 21:00 МСК)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: moscollector.ru доступен
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://moscollector.ru/)
+          echo "moscollector.ru → HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "::error::moscollector.ru недоступен (HTTP $code) — проверьте сервер (nginx/диск), см. чек-лист ИБ-аудита"
+            exit 1
+          fi
+
+      - name: GitHub Pages доступен
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://krylosophy-hue.github.io/-mk/)
+          echo "GitHub Pages → HTTP $code"
+          if [ "$code" != "200" ]; then
+            echo "::error::GitHub Pages недоступен (HTTP $code)"
+            exit 1
+          fi
+
+      - name: Срок TLS-сертификата moscollector.ru
+        run: |
+          end=$(echo | openssl s_client -connect moscollector.ru:443 -servername moscollector.ru 2>/dev/null \
+                | openssl x509 -noout -enddate | cut -d= -f2)
+          end_ts=$(date -d "$end" +%s)
+          days=$(( (end_ts - $(date +%s)) / 86400 ))
+          echo "Сертификат истекает: $end (через $days дн.)"
+          if [ "$days" -lt 21 ]; then
+            echo "::error::TLS-сертификат moscollector.ru истекает через $days дн. — срочно продлить!"
+            exit 1
+          fi
