@@ -1,0 +1,5 @@
+# Политика сообщений об уязвимостях АО «Москоллектор»
+Contact: mailto:info@moscollector.ru
+Preferred-Languages: ru
+Canonical: https://moscollector.ru/.well-known/security.txt
+Expires: 2027-10-01T00:00:00.000Z
