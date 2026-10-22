@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Calendar, Newspaper, Video, BookOpen, Tag, FileText, Download, ExternalLink, X } from 'lucide-react';
+import CopyLinkButton from '@/components/CopyLinkButton';
 import { asset, mediaUrl } from '@/lib/utils';
 import { renderMarkdownSafe } from '@/lib/safe-html';
 import { safeEmbedUrl } from '@/lib/safe-embed';
@@ -53,7 +55,19 @@ export default function Press() {
   const [selectedCategory, setSelectedCategory] = useState('Все');
   const [selectedYear, setSelectedYear] = useState<string>('');
   const [activeTab, setActiveTab] = useState('Новости');
-  const [openNewsId, setOpenNewsId] = useState<string | null>(null);
+
+  // Открытая новость живёт в URL (?news=<id>) — у каждой публикации
+  // появляется отдельная ссылка, работающая при прямом заходе.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const openNewsId = searchParams.get('news');
+  const setOpenNewsId = (id: string | null) => {
+    setSearchParams((prev) => {
+      const p = new URLSearchParams(prev);
+      if (id) p.set('news', id);
+      else p.delete('news');
+      return p;
+    });
+  };
 
   // Найти открытую новость по id
   const openNews = openNewsId ? news.find((n) => n.id === openNewsId) ?? null : null;
@@ -411,15 +425,18 @@ export default function Press() {
               </div>
             </div>
             <div className="p-6 md:p-8">
-              <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                <Calendar className="w-4 h-4" />
-                {openNews.date}
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <Calendar className="w-4 h-4" />
+                  {openNews.date}
+                </div>
+                <CopyLinkButton />
               </div>
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-[#0a1628] mb-5">{openNews.title}</h2>
 
               {/* Markdown body — рендерит **жирный**, картинки ![](url), списки, ссылки */}
               <div
-                className="prose prose-sm md:prose-base max-w-none text-gray-700 leading-relaxed
+                className="news-body prose prose-sm md:prose-base max-w-none text-gray-700 leading-relaxed
                            prose-img:rounded-xl prose-img:my-4 prose-a:text-sky-600 prose-headings:text-[#0a1628]"
                 dangerouslySetInnerHTML={{ __html: renderMarkdownSafe(openNews.body) }}
               />

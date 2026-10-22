@@ -11,7 +11,7 @@ const foundingDocs = documentsShareholders.map((d) => ({
 }));
 
 const stats = [
-  { icon: Building2, value: 826, suffix: ' км', label: 'Протяженность коллекторов', description: 'Общая длина эксплуатируемых коллекторов' },
+  { icon: Building2, value: 825.5, suffix: ' км', label: 'Протяженность коллекторов', description: 'Общая длина эксплуатируемых коллекторов' },
   { icon: Zap, value: 19737, suffix: ' км', label: 'Кабели связи', description: 'Протяженность кабельных линий связи' },
   { icon: Droplets, value: 8312, suffix: ' км', label: 'Силовые кабели', description: 'Протяженность силовых кабельных линий' },
   { icon: TrendingUp, value: 1914, suffix: ' км', label: 'Теплосети и ВК', description: 'Протяженность теплосетей и водопроводов' },
@@ -63,7 +63,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 
   return (
     <span ref={ref}>
-      {count.toLocaleString()}
+      {count.toLocaleString('ru-RU')}
       {suffix}
     </span>
   );
@@ -171,7 +171,7 @@ export default function About() {
                     { year: '2021', short: '21', text: 'Введён в эксплуатацию коллектор для АДЦ «Коммунарка» — крупнейшего социально-делового кластера ТиНАО.' },
                     { year: '2013–2023', short: '13', text: 'Обновлено 50% всей сети коммуникационных коллекторов.' },
                     { year: '2023', short: '23', text: 'Внедрена информационная система «АРМ Контроль» для контроля допуска в коллекторы; реализован пилотный проект аэрозольного пожаротушения; старт развития комплекса мониторинга и диспетчеризации (СМВУ 3.0).' },
-                    { year: '2024', short: '24', text: 'Создан строительный трест «МосколлекторСтройТрест»; общая протяжённость коллекторов достигла 826 км.' },
+                    { year: '2024', short: '24', text: 'Создан строительный трест «МосколлекторСтройТрест»; общая протяжённость коллекторов достигла 825,5 км.' },
                   ].map((item, index, arr) => (
                     <div key={item.year} className="flex gap-5 relative">
                       <div className="flex flex-col items-center">

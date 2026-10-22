@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Calendar, Newspaper, ChevronRight, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import CopyLinkButton from '@/components/CopyLinkButton';
+import { Link, useSearchParams } from 'react-router-dom';
 import { mediaUrl } from '@/lib/utils';
 import { renderMarkdownSafe } from '@/lib/safe-html';
 import { safeEmbedUrl } from '@/lib/safe-embed';
@@ -49,7 +50,18 @@ const CATEGORIES = ['Все', 'Охрана труда', 'Техническая
 
 export default function ConsumerNews() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Все');
-  const [openNewsId, setOpenNewsId] = useState<string | null>(null);
+
+  // Открытая новость живёт в URL (?news=<id>) — отдельная ссылка на публикацию
+  const [searchParams, setSearchParams] = useSearchParams();
+  const openNewsId = searchParams.get('news');
+  const setOpenNewsId = (id: string | null) => {
+    setSearchParams((prev) => {
+      const p = new URLSearchParams(prev);
+      if (id) p.set('news', id);
+      else p.delete('news');
+      return p;
+    });
+  };
 
   // #7 — фильтрация по выбранной категории
   const filteredNews = useMemo(
@@ -207,14 +219,17 @@ export default function ConsumerNews() {
               </div>
             )}
             <div className="p-6 md:p-8">
-              <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                <Calendar className="w-4 h-4" />
-                {openNews.date}
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <Calendar className="w-4 h-4" />
+                  {openNews.date}
+                </div>
+                <CopyLinkButton />
               </div>
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-[#0a1628] mb-5">{openNews.title}</h2>
 
               <div
-                className="prose prose-sm md:prose-base max-w-none text-gray-700 leading-relaxed
+                className="news-body prose prose-sm md:prose-base max-w-none text-gray-700 leading-relaxed
                            prose-img:rounded-xl prose-img:my-4 prose-a:text-sky-600 prose-headings:text-[#0a1628]"
                 dangerouslySetInnerHTML={{ __html: renderMarkdownSafe(openNews.body) }}
               />
