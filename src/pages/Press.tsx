@@ -380,7 +380,7 @@ export default function Press() {
             <div className="text-sm space-y-2">
               <p>
                 <span className="text-gray-500">Телефон:</span>{' '}
-                <a href="tel:+74992222204" className="text-sky-400 hover:text-white transition-colors duration-200">+7 (499) 222-22-01</a>
+                <a href="tel:+74992222201" className="text-sky-400 hover:text-white transition-colors duration-200">+7 (499) 222-22-01</a>
               </p>
               <p>
                 <span className="text-gray-500">Email:</span>{' '}
