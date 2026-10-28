@@ -2464,6 +2464,7 @@ export default function Consumers() {
                         </ul>
                         <div className="flex flex-wrap gap-2">
                           <DownloadButton file="форма-27П.doc" label="Форма 27(П)" />
+                          <DownloadButton file="форма-27З.doc" label="Форма 27(З)" />
                           <DownloadButton file="форма-26.doc" label="Форма 26" />
                           <DownloadButton file="форма-16.doc" label="Форма 16" />
                           <DownloadButton file="форма-17.doc" label="Форма 17" />
