@@ -111,7 +111,7 @@ export default function Shareholders() {
               <h3 className="font-bold font-heading text-lg mb-5">Контакты для акционеров</h3>
               <div className="space-y-4 text-sm">
                 <p>
-                  <span className="text-white/50 text-xs uppercase tracking-wider">Корпоративный секретарь<br>Лезин Дмитрий Владимирович</span><br />
+                  <span className="text-white/50 text-xs uppercase tracking-wider">Корпоративный секретарь<br />Лезин Дмитрий Владимирович</span><br />
                   <a href="tel:+74992222201" className="text-white/90 hover:text-white transition-colors">+7 (499) 222-22-01 доб. 2701</a>
                 </p>
                 <p>
