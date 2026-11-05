@@ -373,9 +373,14 @@ collections:
             label: "Собрания"
             label_singular: "Собрание"
             widget: "list"
+            add_to_top: true
             summary: "{{fields.date}} — {{fields.type}}"
             fields:
-              - { name: "date", label: "Дата", widget: "string" }
+              - name: "date"
+                label: "Дата"
+                widget: "string"
+                hint: "Например: 30 сентября 2026. На сайте собрания сортируются по этой дате, видны 4 последних."
+                pattern: ['^\d{1,2} (января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря) \d{4}$', "Формат даты: 30 сентября 2026"]
               - { name: "type", label: "Тип собрания", widget: "string" }
               - { name: "status", label: "Статус", widget: "select", options: ["Проведено", "Запланировано", "Отменено"], default: "Проведено" }
 
