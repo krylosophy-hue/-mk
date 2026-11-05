@@ -1,5 +1,7 @@
-import { FileText, TrendingUp, Users, Calendar, Download } from 'lucide-react';
-import { documentsShareholders, shareholderMeetings } from '@/lib/content';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FileText, TrendingUp, Users, Calendar, Download, ChevronDown } from 'lucide-react';
+import { documentsShareholders, shareholderMeetings, type ShareholderMeeting } from '@/lib/content';
 import { asset } from '@/lib/utils';
 
 // CMS-managed: документы — /admin/ коллекция «Документы для акционеров»
@@ -9,9 +11,39 @@ const documents = documentsShareholders.map((d) => ({
   file: d.file.startsWith('http') || d.file.startsWith('/-mk') ? d.file : asset(d.file),
 }));
 
-const meetings = shareholderMeetings;
+// Сколько последних собраний видно до нажатия «Подробнее»
+const VISIBLE_MEETINGS = 4;
+
+// «30 сентября 2026» → время; нераспознанная дата уходит в конец списка.
+// Префикс «мар» должен стоять раньше «ма» (мая/май).
+const MONTH_PREFIXES = ['янв', 'фев', 'мар', 'апр', 'ма', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+function meetingTime(date: string): number {
+  const m = date.trim().toLowerCase().match(/^(\d{1,2})\s+([а-яё]+)\s+(\d{4})/);
+  if (!m) return -Infinity;
+  const month = MONTH_PREFIXES.findIndex((p) => m[2].startsWith(p));
+  return month < 0 ? -Infinity : Date.UTC(Number(m[3]), month, Number(m[1]));
+}
+
+// Новые сверху независимо от того, куда редактор добавил запись в админке
+const meetings = [...shareholderMeetings].sort((a, b) => meetingTime(b.date) - meetingTime(a.date));
+
+function MeetingRow({ meeting, last }: { meeting: ShareholderMeeting; last: boolean }) {
+  return (
+    <div className={last ? '' : 'border-b border-gray-100 pb-4'}>
+      <div className="text-sm font-semibold text-sky-600 mb-1">{meeting.date}</div>
+      <div className="text-sm text-[#0a1628] mb-1">{meeting.type}</div>
+      <span className="inline-flex items-center text-xs font-medium text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full">
+        {meeting.status}
+      </span>
+    </div>
+  );
+}
 
 export default function Shareholders() {
+  const [showAllMeetings, setShowAllMeetings] = useState(false);
+  const firstMeetings = meetings.slice(0, VISIBLE_MEETINGS);
+  const moreMeetings = meetings.slice(VISIBLE_MEETINGS);
+
   return (
     <div className="min-h-screen bg-gray-50/50">
       {/* Page Header */}
@@ -94,16 +126,48 @@ export default function Shareholders() {
                 <h3 className="font-bold font-heading text-[#0a1628]">Собрания акционеров</h3>
               </div>
               <div className="space-y-4">
-                {meetings.map((meeting) => (
-                  <div key={meeting.date} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
-                    <div className="text-sm font-semibold text-sky-600 mb-1">{meeting.date}</div>
-                    <div className="text-sm text-[#0a1628] mb-1">{meeting.type}</div>
-                    <span className="inline-flex items-center text-xs font-medium text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full">
-                      {meeting.status}
-                    </span>
-                  </div>
+                {firstMeetings.map((meeting, i) => (
+                  <MeetingRow
+                    key={`${meeting.date}|${meeting.type}`}
+                    meeting={meeting}
+                    last={i === firstMeetings.length - 1 && (!showAllMeetings || moreMeetings.length === 0)}
+                  />
                 ))}
               </div>
+              <AnimatePresence initial={false}>
+                {showAllMeetings && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-4 pt-4">
+                      {moreMeetings.map((meeting, i) => (
+                        <MeetingRow
+                          key={`${meeting.date}|${meeting.type}`}
+                          meeting={meeting}
+                          last={i === moreMeetings.length - 1}
+                        />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              {moreMeetings.length > 0 && (
+                <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllMeetings((v) => !v)}
+                    aria-expanded={showAllMeetings}
+                    className="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700 transition-colors"
+                  >
+                    {showAllMeetings ? 'Свернуть' : 'Подробнее'}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAllMeetings ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="gradient-dark rounded-2xl p-7 text-white">
