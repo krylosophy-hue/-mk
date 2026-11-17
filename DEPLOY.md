@@ -27,12 +27,12 @@ dist/
 ├── docs/                   ← PDF/DOC/XLSX (~78 МБ)
 ├── images/                 ← логотипы, фото
 ├── videos/                 ← MP4 (~78 МБ)
-├── admin/                  ← CMS — рекомендуется удалить для intranet
+├── admin/                  ← CMS (Sveltia) — см. deploy/GITLAB_MIGRATION.md
 ├── robots.txt
 └── sitemap.xml
 ```
 
-⚠️ **Перед деплоем в intranet:** удалите папку `dist/admin/` — это CMS под GitHub Pages, во внутренней сети она не нужна и не будет работать (использует GitHub OAuth).
+**CMS во внутренней сети:** админка `/admin/` по умолчанию работает с GitHub. Чтобы она работала с внутренним GitLab (вход учёткой GitLab, автовыкладка после публикации), выполните переезд по инструкции [`deploy/GITLAB_MIGRATION.md`](deploy/GITLAB_MIGRATION.md) — скрипт `deploy/migrate-to-gitlab.sh`.
 
 ## Вариант B: Пересборка из исходников
 

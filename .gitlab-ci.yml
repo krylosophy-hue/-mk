@@ -1,0 +1,119 @@
+# =============================================================================
+# CI/CD сайта АО «Москоллектор» во внутреннем GitLab.
+# На GitHub этот файл ни на что не влияет.
+#
+# Каждый коммит в основную ветку (в том числе публикация из CMS):
+#   build  — npm ci + сборка в dist/
+#   deploy — выкладка dist/ на веб-сервер (если задан DEPLOY_PATH)
+# По расписанию (CI/CD → Schedules): monitor — доступность сайта и срок
+# TLS-сертификата. Упавший пайплайн GitLab присылает владельцу расписания.
+#
+# Переменные (Settings → CI/CD → Variables), подробно — deploy/GITLAB_MIGRATION.md:
+#   DEPLOY_PATH      каталог сайта на сервере, например /var/www/moscollector/dist
+#   DEPLOY_HOST      сервер сайта (если раннер на другой машине; иначе не задавать)
+#   DEPLOY_USER      пользователь SSH на сервере сайта
+#   SSH_PRIVATE_KEY  приватный ключ для DEPLOY_USER (тип File, Protected)
+#   SSH_KNOWN_HOSTS  строка(и) known_hosts сервера сайта (ssh-keyscan)
+#   NPM_REGISTRY     внутреннее зеркало npm (Nexus и т. п.), если нет доступа к npmjs
+#   SITE_URL         адрес сайта для мониторинга (по умолчанию https://moscollector.ru)
+#   NODE_IMAGE       образ для docker-раннера (по умолчанию node:20)
+# =============================================================================
+
+stages: [build, deploy, monitor]
+
+variables:
+  NODE_IMAGE: "node:20"
+  SITE_URL: "https://moscollector.ru"
+
+default:
+  image: $NODE_IMAGE
+
+build:
+  stage: build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  cache:
+    key:
+      files: [package-lock.json]
+    paths: [.npm/]
+  script:
+    - node -v
+    - if [ -n "$NPM_REGISTRY" ]; then npm config set registry "$NPM_REGISTRY"; fi
+    - npm ci --cache .npm --prefer-offline --no-audit --no-fund
+    - npm run build
+    - test -f dist/index.html
+  artifacts:
+    paths: [dist/]
+    expire_in: 1 week
+
+deploy:
+  stage: deploy
+  needs: [build]
+  resource_group: production
+  environment:
+    name: production
+    url: $SITE_URL
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $DEPLOY_PATH
+  script:
+    - |
+      set -eu
+      # Защита от опечатки в DEPLOY_PATH: каталог сайта не может быть системным
+      case "$DEPLOY_PATH" in
+        ""|/|/var|/var/www|/srv|/home|/root|/usr|/etc|/opt|/tmp) echo "Недопустимый DEPLOY_PATH: '$DEPLOY_PATH'"; exit 1 ;;
+      esac
+      # Выкладка: распаковка рядом во временный каталог, затем подмена
+      # переименованием (сайт не бывает «наполовину обновлён»). Прошлая версия
+      # остаётся в $DEPLOY_PATH.prev — откат: поменять каталоги местами.
+      SWAP='set -eu
+        D="$1"
+        rm -rf "$D.new"; mkdir -p "$D.new"
+        tar -xzf - -C "$D.new"
+        test -f "$D.new/index.html"
+        rm -rf "$D.prev"
+        if [ -d "$D" ]; then mv "$D" "$D.prev"; fi
+        mv "$D.new" "$D"
+        echo "Выложено в $D"'
+      if [ -n "${DEPLOY_HOST:-}" ]; then
+        : "${DEPLOY_USER:?Задайте DEPLOY_USER}"
+        : "${SSH_PRIVATE_KEY:?Задайте SSH_PRIVATE_KEY (тип File)}"
+        mkdir -p ~/.ssh && chmod 700 ~/.ssh
+        cp "$SSH_PRIVATE_KEY" ~/.ssh/id_deploy && chmod 600 ~/.ssh/id_deploy
+        if [ -n "${SSH_KNOWN_HOSTS:-}" ]; then
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        else
+          echo "SSH_KNOWN_HOSTS не задан — подключение без проверки ключа сервера запрещено"; exit 1
+        fi
+        tar -czf - -C dist . | ssh -i ~/.ssh/id_deploy -o BatchMode=yes "$DEPLOY_USER@$DEPLOY_HOST" "sh -c '$SWAP' sh '$DEPLOY_PATH'"
+      else
+        # Раннер на самом сервере сайта (shell-executor)
+        tar -czf - -C dist . | sh -c "$SWAP" sh "$DEPLOY_PATH"
+      fi
+
+monitor:
+  stage: monitor
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+  script:
+    - |
+      set -eu
+      code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 "$SITE_URL/")
+      echo "$SITE_URL → HTTP $code"
+      [ "$code" = "200" ] || { echo "Сайт недоступен (HTTP $code)"; exit 1; }
+      HOST=$(echo "$SITE_URL" | sed -E 's#^https?://([^/:]+).*#\1#')
+      node -e '
+        const tls = require("tls"), host = process.argv[1];
+        const s = tls.connect(443, host, { servername: host }, () => {
+          const end = new Date(s.getPeerCertificate().valid_to);
+          const days = Math.floor((end - Date.now()) / 86400000);
+          console.log(`Сертификат ${host} истекает: ${end.toISOString().slice(0, 10)} (через ${days} дн.)`);
+          s.end();
+          if (days < 21) { console.error("Срочно продлить сертификат!"); process.exit(1); }
+        });
+        s.on("error", (e) => { console.error("TLS:", e.message); process.exit(1); });
+      ' "$HOST"
